@@ -1,0 +1,9 @@
+#Sun Aug 09 14:33:47 EEST 2009
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/remes/model/remes.genmodel
+gmf_dashboard/domainModel=platform\:/resource/remes/model/remes.ecore
+gmf_dashboard/generationModel=platform\:/resource/remes/model/remes.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/remes/model/remes.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/remes/model/remes.gmfmap
+gmf_dashboard/option_rcp=*
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/remes/model/remes.gmftool

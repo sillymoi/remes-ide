@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore"
+            class="se.mdh.progresside.remes.RemesPackage"
+            genModel="model/remes.genmodel"/>
+   </extension>
+
+
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+         
+      <category
+            name="REMES Model Constraints"
+            id="se.mdh.progresside.remes.validation">
+            REMES model constraints category.
+         <category
+               name="EMF"
+               id="emf">
+               Constraints for the EMF implementation of the REMES metamodel.
+         </category>
+      </category>
+      
+      <constraintProvider>
+         <package namespaceUri="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore" />
+         <constraints categories="se.mdh.progresside.remes.validation/emf">
+            <constraint
+                  statusCode="100"
+                  severity="ERROR"
+                  lang="OCL"
+                  mode="Live"
+                  name="Variables Must be Named"
+                  id="variableName">
+               <description>Variables must have names.</description>
+               <message>Variable has no name.</message>
+               
+               <target class="Variable">
+                  <event name="Set">
+                     <feature name="name" />
+                  </event>
+                  <event name="Unset">
+                     <feature name="name" />
+                  </event>
+               </target>
+                              
+               <!-- The OCL constraint expression. -->
+               <![CDATA[
+               
+               name->notEmpty()
+                   
+               ]]>
+            </constraint>
+            <constraint
+                  statusCode="101"
+                  severity="ERROR"
+                  lang="OCL"
+                  mode="Live"
+                  name="Variables Must be Typed"
+                  id="variableType">
+               <description>Variables must have types.</description>
+               <message>Variable has no type.</message>
+               
+               <target class="Variable">
+                  <event name="Set">
+                     <feature name="type" />
+                  </event>
+                  <event name="Unset">
+                     <feature name="type" />
+                  </event>
+               </target>
+                              
+               <!-- The OCL constraint expression. -->
+               <![CDATA[
+               
+               not type->oclIsUndefined()
+                   
+               ]]>
+            </constraint>
+            <constraint
+                  statusCode="102"
+                  severity="ERROR"
+                  lang="OCL"
+                  mode="Live"
+                  name="Single Composite Entry Edge"
+                  id="singleCompositeEntryEdge">
+               <description>Composite modes should have a single entry edge.</description>
+               <message>Composite mode has multiple entry edges.</message>
+               
+               <target class="CompositeEntryPoint">
+                  <event name="Set">
+                     <feature name="exitEdges" />
+                  </event>
+                  <event name="Unset">
+                     <feature name="exitEdges" />
+                  </event>
+               </target>
+                              
+               <!-- The OCL constraint expression. -->
+               <![CDATA[
+               
+               exitEdges->isEmpty() or exitEdges->size() = 1
+                   
+               ]]>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+</plugin>

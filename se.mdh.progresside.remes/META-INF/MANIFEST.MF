@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: se.mdh.progresside.remes;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: se.mdh.progresside.remes,
+ se.mdh.progresside.remes.impl,
+ se.mdh.progresside.remes.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ se.mdh.progresside.attributes.framework;bundle-version="0.2.0";visibility:=reexport,
+ hr.fer.rasip.remes.grammars.logical.tree;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Import-Package: hr.fer.rasip.remes.grammars.logical.tree

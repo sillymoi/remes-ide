@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="remesPalette">
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Variable"
+        description="Create new Variable"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Resource"
+        description="Create new Resource"/>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Nodes"
+        collapsible="true"
+        active="//@palette/@tools.2">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="SubMode"
+          description="Create new SubMode">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/submode.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ConditionalConnector"
+          description="Create new ConditionalConnector">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/conditionalconnector.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CompositeMode"
+          description="Create new CompositeMode">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/compositemode.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Edges"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:PaletteSeparator"
+          title="Init"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntryInitEdge"
+          description="Create new EntryInitEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/initEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntryConditionalTopInitEdge"
+          description="Create new EntryConditionalTopInitEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/initCondEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"
+          title="Entry"
+          description=""/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntryEdge"
+          description="Create new EntryEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/entryEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntryConditionalTopEdge"
+          description="Create new EntryConditionalTopEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/entryCondEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"
+          title="Internal"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="InternalEdge"
+          description="Create new InternalEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/InternalEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EntryConditionalSubEdge"
+          description="Create new EntryConditionalSubEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/condToSubEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ExitConditionalSubEdge"
+          description="Create new ExitConditionalSubEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/subModeToCondEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:PaletteSeparator"
+          title="Exit"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ExitEdge"
+          description="Create new ExitEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/ExitEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ExitConditionalTopEdge"
+          description="Create new ExitConditionalTopEdge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/condExitTopEdge.gif"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

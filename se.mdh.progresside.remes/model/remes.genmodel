@@ -8,105 +8,105 @@
     editorPluginClass="se.mdh.progresside.remes.presentation.RemesEditorPlugin" testSuiteClass="se.mdh.progresside.remes.tests.RemesAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="se.mdh.progresside.remes.edit" editorPluginID="se.mdh.progresside.remes.editor">
-  <foreignModel>remes-1.1.0.ecore</foreignModel>
+  <foreignModel>remes.ecore</foreignModel>
   <genPackages prefix="Remes" basePackage="se.mdh.progresside" disposableProviderFactory="true"
-      ecorePackage="remes-1.1.0.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="remes-1.1.0.ecore#//PrimitiveTypes">
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//PrimitiveTypes/boolean"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//PrimitiveTypes/integer"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//PrimitiveTypes/natural"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//PrimitiveTypes/clock"/>
+      ecorePackage="remes.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="remes.ecore#//PrimitiveTypes">
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/natural"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/clock"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="remes-1.1.0.ecore#//ResourceTypes">
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//ResourceTypes/cpu"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//ResourceTypes/memory"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//ResourceTypes/bandwidth"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//ResourceTypes/power"/>
-      <genEnumLiterals ecoreEnumLiteral="remes-1.1.0.ecore#//ResourceTypes/port"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="remes.ecore#//ResourceTypes">
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/cpu"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/memory"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/bandwidth"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/power"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/port"/>
     </genEnums>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//CompositeMode">
+    <genClasses ecoreClass="remes.ecore#//CompositeMode">
       <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference remes-1.1.0.ecore#//CompositeMode/exitEdges"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//CompositeMode/initEdge"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//CompositeMode/entryEdge"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//CompositeMode/subModes"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//CompositeMode/conditionalConnectors"/>
+          ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/exitEdges"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/initEdge"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/entryEdge"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/subModes"/>
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/conditionalConnectors"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//ConditionalConnector">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//ConditionalConnector/name"/>
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ConditionalConnector/entryEdges"/>
-      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ConditionalConnector/exitEdges"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ConditionalConnector/parent"/>
+    <genClasses ecoreClass="remes.ecore#//ConditionalConnector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//ConditionalConnector/name"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/entryEdges"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/exitEdges"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/parent"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//Edge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Edge/actionGuard"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Edge/actionBody"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//Edge/parsedActionGuard"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//Edge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Edge/actionGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Edge/actionBody"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//Edge/parsedActionGuard"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//EntryConditionalSubEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//EntryConditionalTopEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//EntryConditionalTopInitEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//EntryEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//EntryInitEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//ExitConditionalSubEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//ExitConditionalTopEdge"/>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//ExitEdge"/>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//FromCompositeModeEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//FromCompositeModeEdge/connectFrom"/>
+    <genClasses ecoreClass="remes.ecore#//EntryConditionalSubEdge"/>
+    <genClasses ecoreClass="remes.ecore#//EntryConditionalTopEdge"/>
+    <genClasses ecoreClass="remes.ecore#//EntryConditionalTopInitEdge"/>
+    <genClasses ecoreClass="remes.ecore#//EntryEdge"/>
+    <genClasses ecoreClass="remes.ecore#//EntryInitEdge"/>
+    <genClasses ecoreClass="remes.ecore#//ExitConditionalSubEdge"/>
+    <genClasses ecoreClass="remes.ecore#//ExitConditionalTopEdge"/>
+    <genClasses ecoreClass="remes.ecore#//ExitEdge"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//FromCompositeModeEdge">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromCompositeModeEdge/connectFrom"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//FromCompositeModeInitEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//FromCompositeModeInitEdge/connectFrom"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//FromCompositeModeInitEdge">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromCompositeModeInitEdge/connectFrom"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//FromConditionalConnectorEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//FromConditionalConnectorEdge/connectFrom"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//FromConditionalConnectorEdge">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromConditionalConnectorEdge/connectFrom"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//FromSubModeEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//FromSubModeEdge/connectFrom"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//FromSubModeEdge">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromSubModeEdge/connectFrom"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//InitEdge">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//InitEdge/initialization"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//InitEdge">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes.ecore#//InitEdge/initialization"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//InternalEdge"/>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//Mode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Mode/name"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Mode/initialization"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//Mode/variables"/>
+    <genClasses ecoreClass="remes.ecore#//InternalEdge"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//Mode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Mode/name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes.ecore#//Mode/initialization"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//Mode/variables"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//RemesDiagram">
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//RemesDiagram/modes"/>
+    <genClasses ecoreClass="remes.ecore#//RemesDiagram">
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//RemesDiagram/modes"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//SubMode">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//SubMode/entryEdges"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//SubMode/exitEdges"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//SubMode/invariant"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//SubMode/isUrgent"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//SubMode/parent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//SubMode/resources"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//SubMode/parsedInvariant"/>
+    <genClasses ecoreClass="remes.ecore#//SubMode">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/entryEdges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/exitEdges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//SubMode/invariant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//SubMode/isUrgent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//SubMode/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/resources"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/parsedInvariant"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//ToCompositeModeEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ToCompositeModeEdge/connectTo"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//ToCompositeModeEdge">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToCompositeModeEdge/connectTo"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//ToConditionalConnectorEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ToConditionalConnectorEdge/connectTo"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//ToConditionalConnectorEdge">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToConditionalConnectorEdge/connectTo"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="remes-1.1.0.ecore#//ToSubModeEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//ToSubModeEdge/connectTo"/>
+    <genClasses image="false" ecoreClass="remes.ecore#//ToSubModeEdge">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToSubModeEdge/connectTo"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//Variable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/vectorSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/global"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//Variable/scope"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/readable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Variable/writable"/>
+    <genClasses ecoreClass="remes.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/vectorSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/global"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//Variable/scope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/readable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/writable"/>
     </genClasses>
-    <genClasses ecoreClass="remes-1.1.0.ecore#//Resource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Resource/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes-1.1.0.ecore#//Resource/type"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes-1.1.0.ecore#//Resource/scope"/>
+    <genClasses ecoreClass="remes.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Resource/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Resource/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//Resource/scope"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Attributes" basePackage="se.mdh.progresside" ecorePackage="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes">

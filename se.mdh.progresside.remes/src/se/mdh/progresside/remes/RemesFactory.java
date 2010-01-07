@@ -44,85 +44,22 @@ public interface RemesFactory extends EFactory {
 	ConditionalConnector createConditionalConnector();
 
 	/**
-	 * Returns a new object of class '<em>Entry Conditional Sub Edge</em>'.
+	 * Returns a new object of class '<em>Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Conditional Sub Edge</em>'.
+	 * @return a new object of class '<em>Edge</em>'.
 	 * @generated
 	 */
-	EntryConditionalSubEdge createEntryConditionalSubEdge();
+	Edge createEdge();
 
 	/**
-	 * Returns a new object of class '<em>Entry Conditional Top Edge</em>'.
+	 * Returns a new object of class '<em>Init Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Conditional Top Edge</em>'.
+	 * @return a new object of class '<em>Init Edge</em>'.
 	 * @generated
 	 */
-	EntryConditionalTopEdge createEntryConditionalTopEdge();
-
-	/**
-	 * Returns a new object of class '<em>Entry Conditional Top Init Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Conditional Top Init Edge</em>'.
-	 * @generated
-	 */
-	EntryConditionalTopInitEdge createEntryConditionalTopInitEdge();
-
-	/**
-	 * Returns a new object of class '<em>Entry Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Edge</em>'.
-	 * @generated
-	 */
-	EntryEdge createEntryEdge();
-
-	/**
-	 * Returns a new object of class '<em>Entry Init Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Init Edge</em>'.
-	 * @generated
-	 */
-	EntryInitEdge createEntryInitEdge();
-
-	/**
-	 * Returns a new object of class '<em>Exit Conditional Sub Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exit Conditional Sub Edge</em>'.
-	 * @generated
-	 */
-	ExitConditionalSubEdge createExitConditionalSubEdge();
-
-	/**
-	 * Returns a new object of class '<em>Exit Conditional Top Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exit Conditional Top Edge</em>'.
-	 * @generated
-	 */
-	ExitConditionalTopEdge createExitConditionalTopEdge();
-
-	/**
-	 * Returns a new object of class '<em>Exit Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exit Edge</em>'.
-	 * @generated
-	 */
-	ExitEdge createExitEdge();
-
-	/**
-	 * Returns a new object of class '<em>Internal Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Internal Edge</em>'.
-	 * @generated
-	 */
-	InternalEdge createInternalEdge();
+	InitEdge createInitEdge();
 
 	/**
 	 * Returns a new object of class '<em>Diagram</em>'.
@@ -159,6 +96,51 @@ public interface RemesFactory extends EFactory {
 	 * @generated
 	 */
 	Resource createResource();
+
+	/**
+	 * Returns a new object of class '<em>Init Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Init Point</em>'.
+	 * @generated
+	 */
+	InitPoint createInitPoint();
+
+	/**
+	 * Returns a new object of class '<em>Entry Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entry Point</em>'.
+	 * @generated
+	 */
+	EntryPoint createEntryPoint();
+
+	/**
+	 * Returns a new object of class '<em>Exit Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exit Point</em>'.
+	 * @generated
+	 */
+	ExitPoint createExitPoint();
+
+	/**
+	 * Returns a new object of class '<em>Composite Entry Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Entry Point</em>'.
+	 * @generated
+	 */
+	CompositeEntryPoint createCompositeEntryPoint();
+
+	/**
+	 * Returns a new object of class '<em>Composite Exit Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Exit Point</em>'.
+	 * @generated
+	 */
+	CompositeExitPoint createCompositeExitPoint();
 
 	/**
 	 * Returns the package supported by this factory.

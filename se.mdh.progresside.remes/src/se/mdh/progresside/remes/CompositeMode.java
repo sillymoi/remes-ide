@@ -16,11 +16,11 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.CompositeMode#getExitEdges <em>Exit Edges</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.CompositeMode#getInitEdge <em>Init Edge</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.CompositeMode#getEntryEdge <em>Entry Edge</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.CompositeMode#getSubModes <em>Sub Modes</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.CompositeMode#getConditionalConnectors <em>Conditional Connectors</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.CompositeMode#getInitPoint <em>Init Point</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.CompositeMode#getCompositeEntryPoint <em>Composite Entry Point</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.CompositeMode#getCompositeExitPoint <em>Composite Exit Point</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,80 +29,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface CompositeMode extends Mode {
-	/**
-	 * Returns the value of the '<em><b>Exit Edges</b></em>' reference list.
-	 * The list contents are of type {@link se.mdh.progresside.remes.ToCompositeModeEdge}.
-	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.ToCompositeModeEdge#getConnectTo <em>Connect To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Exit Edges</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exit Edges</em>' reference list.
-	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_ExitEdges()
-	 * @see se.mdh.progresside.remes.ToCompositeModeEdge#getConnectTo
-	 * @model opposite="connectTo" required="true"
-	 * @generated
-	 */
-	EList<ToCompositeModeEdge> getExitEdges();
-
-	/**
-	 * Returns the value of the '<em><b>Init Edge</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.FromCompositeModeInitEdge#getConnectFrom <em>Connect From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Init Edge</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Init Edge</em>' containment reference.
-	 * @see #setInitEdge(FromCompositeModeInitEdge)
-	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_InitEdge()
-	 * @see se.mdh.progresside.remes.FromCompositeModeInitEdge#getConnectFrom
-	 * @model opposite="connectFrom" containment="true" required="true"
-	 * @generated
-	 */
-	FromCompositeModeInitEdge getInitEdge();
-
-	/**
-	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getInitEdge <em>Init Edge</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Init Edge</em>' containment reference.
-	 * @see #getInitEdge()
-	 * @generated
-	 */
-	void setInitEdge(FromCompositeModeInitEdge value);
-
-	/**
-	 * Returns the value of the '<em><b>Entry Edge</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.FromCompositeModeEdge#getConnectFrom <em>Connect From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Entry Edge</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entry Edge</em>' containment reference.
-	 * @see #setEntryEdge(FromCompositeModeEdge)
-	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_EntryEdge()
-	 * @see se.mdh.progresside.remes.FromCompositeModeEdge#getConnectFrom
-	 * @model opposite="connectFrom" containment="true" required="true"
-	 * @generated
-	 */
-	FromCompositeModeEdge getEntryEdge();
-
-	/**
-	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getEntryEdge <em>Entry Edge</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entry Edge</em>' containment reference.
-	 * @see #getEntryEdge()
-	 * @generated
-	 */
-	void setEntryEdge(FromCompositeModeEdge value);
-
 	/**
 	 * Returns the value of the '<em><b>Sub Modes</b></em>' containment reference list.
 	 * The list contents are of type {@link se.mdh.progresside.remes.SubMode}.
@@ -138,5 +64,83 @@ public interface CompositeMode extends Mode {
 	 * @generated
 	 */
 	EList<ConditionalConnector> getConditionalConnectors();
+
+	/**
+	 * Returns the value of the '<em><b>Init Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Init Point</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Init Point</em>' containment reference.
+	 * @see #setInitPoint(InitPoint)
+	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_InitPoint()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	InitPoint getInitPoint();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getInitPoint <em>Init Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Init Point</em>' containment reference.
+	 * @see #getInitPoint()
+	 * @generated
+	 */
+	void setInitPoint(InitPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Composite Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Composite Entry Point</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Composite Entry Point</em>' containment reference.
+	 * @see #setCompositeEntryPoint(CompositeEntryPoint)
+	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_CompositeEntryPoint()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	CompositeEntryPoint getCompositeEntryPoint();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getCompositeEntryPoint <em>Composite Entry Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Composite Entry Point</em>' containment reference.
+	 * @see #getCompositeEntryPoint()
+	 * @generated
+	 */
+	void setCompositeEntryPoint(CompositeEntryPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Composite Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Composite Exit Point</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Composite Exit Point</em>' containment reference.
+	 * @see #setCompositeExitPoint(CompositeExitPoint)
+	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_CompositeExitPoint()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	CompositeExitPoint getCompositeExitPoint();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getCompositeExitPoint <em>Composite Exit Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Composite Exit Point</em>' containment reference.
+	 * @see #getCompositeExitPoint()
+	 * @generated
+	 */
+	void setCompositeExitPoint(CompositeExitPoint value);
 
 } // CompositeMode

@@ -18,7 +18,6 @@
         eType="#//CompositeExitPoint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalConnector" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//ControlPath">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositeMode"
         eOpposite="#//CompositeMode/conditionalConnectors"/>
   </eClassifiers>
@@ -41,10 +40,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectFrom" lowerBound="1"
         eType="#//InitPoint" eOpposite="#//InitPoint/initEdge"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectTo" lowerBound="1"
-        eType="#//EntryPoint" containment="true"/>
+        eType="#//EntryPoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode" abstract="true" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//ControlPath">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true" eOpposite="#//Variable/scope"/>
@@ -122,6 +120,7 @@
         eType="#//EntryPoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exitPoint" lowerBound="1"
         eType="#//ExitPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeEntryPoint" eSuperTypes="#//ExitPoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeExitPoint" eSuperTypes="#//EntryPoint"/>

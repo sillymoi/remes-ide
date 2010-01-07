@@ -44,7 +44,7 @@ public interface RemesPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.mdh.se/progresside/remes/1.1.0/remes.ecore";
+	String eNS_URI = "http://www.mdh.se/progresside/remes/1.2.0/remes.ecore";
 
 	/**
 	 * The package namespace name.
@@ -70,7 +70,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getMode()
 	 * @generated
 	 */
-	int MODE = 17;
+	int MODE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -82,13 +82,31 @@ public interface RemesPackage extends EPackage {
 	int MODE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
 
 	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__ENTRY_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__EXIT_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int MODE__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
@@ -97,7 +115,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODE__INITIALIZATION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int MODE__INITIALIZATION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -106,7 +124,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODE__VARIABLES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int MODE__VARIABLES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Mode</em>' class.
@@ -115,7 +133,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
+	int MODE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeModeImpl <em>Composite Mode</em>}' class.
@@ -135,6 +153,24 @@ public interface RemesPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_MODE__ATTRIBUTES = MODE__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__ENTRY_POINT = MODE__ENTRY_POINT;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__EXIT_POINT = MODE__EXIT_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -164,40 +200,13 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_MODE__VARIABLES = MODE__VARIABLES;
 
 	/**
-	 * The feature id for the '<em><b>Exit Edges</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_MODE__EXIT_EDGES = MODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Init Edge</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_MODE__INIT_EDGE = MODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Entry Edge</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_MODE__ENTRY_EDGE = MODE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Sub Modes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_MODE__SUB_MODES = MODE_FEATURE_COUNT + 3;
+	int COMPOSITE_MODE__SUB_MODES = MODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Conditional Connectors</b></em>' containment reference list.
@@ -206,7 +215,34 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_MODE__CONDITIONAL_CONNECTORS = MODE_FEATURE_COUNT + 4;
+	int COMPOSITE_MODE__CONDITIONAL_CONNECTORS = MODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Init Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__INIT_POINT = MODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Composite Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__COMPOSITE_ENTRY_POINT = MODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Composite Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__COMPOSITE_EXIT_POINT = MODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Composite Mode</em>' class.
@@ -237,31 +273,31 @@ public interface RemesPackage extends EPackage {
 	int CONDITIONAL_CONNECTOR__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
 
 	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONNECTOR__ENTRY_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_CONNECTOR__EXIT_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Entry Edges</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITIONAL_CONNECTOR__ENTRY_EDGES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Exit Edges</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITIONAL_CONNECTOR__EXIT_EDGES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int CONDITIONAL_CONNECTOR__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -328,655 +364,31 @@ public interface RemesPackage extends EPackage {
 	int EDGE__PARSED_ACTION_GUARD = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__CONNECT_FROM = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Connect To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__CONNECT_TO = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.FromConditionalConnectorEdgeImpl <em>From Conditional Connector Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.FromConditionalConnectorEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromConditionalConnectorEdge()
-	 * @generated
-	 */
-	int FROM_CONDITIONAL_CONNECTOR_EDGE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_CONDITIONAL_CONNECTOR_EDGE__CONNECT_FROM = 0;
-
-	/**
-	 * The number of structural features of the '<em>From Conditional Connector Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryConditionalSubEdgeImpl <em>Entry Conditional Sub Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryConditionalSubEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalSubEdge()
-	 * @generated
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__CONNECT_FROM = FROM_CONDITIONAL_CONNECTOR_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__CONNECT_TO = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__ATTRIBUTES = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__ACTION_GUARD = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__ACTION_BODY = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE__PARSED_ACTION_GUARD = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Entry Conditional Sub Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_SUB_EDGE_FEATURE_COUNT = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.FromCompositeModeEdgeImpl <em>From Composite Mode Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.FromCompositeModeEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromCompositeModeEdge()
-	 * @generated
-	 */
-	int FROM_COMPOSITE_MODE_EDGE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_COMPOSITE_MODE_EDGE__CONNECT_FROM = 0;
-
-	/**
-	 * The number of structural features of the '<em>From Composite Mode Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryConditionalTopEdgeImpl <em>Entry Conditional Top Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryConditionalTopEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalTopEdge()
-	 * @generated
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__CONNECT_FROM = FROM_COMPOSITE_MODE_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__CONNECT_TO = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__ATTRIBUTES = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__ACTION_GUARD = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__ACTION_BODY = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE__PARSED_ACTION_GUARD = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Entry Conditional Top Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_EDGE_FEATURE_COUNT = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.FromCompositeModeInitEdgeImpl <em>From Composite Mode Init Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.FromCompositeModeInitEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromCompositeModeInitEdge()
-	 * @generated
-	 */
-	int FROM_COMPOSITE_MODE_INIT_EDGE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_COMPOSITE_MODE_INIT_EDGE__CONNECT_FROM = 0;
-
-	/**
-	 * The number of structural features of the '<em>From Composite Mode Init Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryConditionalTopInitEdgeImpl <em>Entry Conditional Top Init Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryConditionalTopInitEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalTopInitEdge()
-	 * @generated
-	 */
-	int ENTRY_CONDITIONAL_TOP_INIT_EDGE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_INIT_EDGE__CONNECT_FROM = FROM_COMPOSITE_MODE_INIT_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_INIT_EDGE__CONNECT_TO = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_INIT_EDGE__INITIALIZATION = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Entry Conditional Top Init Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_CONDITIONAL_TOP_INIT_EDGE_FEATURE_COUNT = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryEdgeImpl <em>Entry Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryEdge()
-	 * @generated
-	 */
-	int ENTRY_EDGE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__CONNECT_FROM = FROM_COMPOSITE_MODE_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__CONNECT_TO = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__ATTRIBUTES = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__ACTION_GUARD = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__ACTION_BODY = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE__PARSED_ACTION_GUARD = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Entry Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_EDGE_FEATURE_COUNT = FROM_COMPOSITE_MODE_EDGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryInitEdgeImpl <em>Entry Init Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryInitEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryInitEdge()
-	 * @generated
-	 */
-	int ENTRY_INIT_EDGE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_INIT_EDGE__CONNECT_FROM = FROM_COMPOSITE_MODE_INIT_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_INIT_EDGE__CONNECT_TO = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_INIT_EDGE__INITIALIZATION = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Entry Init Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_INIT_EDGE_FEATURE_COUNT = FROM_COMPOSITE_MODE_INIT_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.FromSubModeEdgeImpl <em>From Sub Mode Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.FromSubModeEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromSubModeEdge()
-	 * @generated
-	 */
-	int FROM_SUB_MODE_EDGE = 14;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_SUB_MODE_EDGE__CONNECT_FROM = 0;
-
-	/**
-	 * The number of structural features of the '<em>From Sub Mode Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FROM_SUB_MODE_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitConditionalSubEdgeImpl <em>Exit Conditional Sub Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ExitConditionalSubEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitConditionalSubEdge()
-	 * @generated
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__CONNECT_FROM = FROM_SUB_MODE_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__CONNECT_TO = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__ATTRIBUTES = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__ACTION_BODY = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE__PARSED_ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Exit Conditional Sub Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_SUB_EDGE_FEATURE_COUNT = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitConditionalTopEdgeImpl <em>Exit Conditional Top Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ExitConditionalTopEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitConditionalTopEdge()
-	 * @generated
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__CONNECT_FROM = FROM_CONDITIONAL_CONNECTOR_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__CONNECT_TO = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__ATTRIBUTES = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__ACTION_GUARD = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__ACTION_BODY = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE__PARSED_ACTION_GUARD = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Exit Conditional Top Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_CONDITIONAL_TOP_EDGE_FEATURE_COUNT = FROM_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitEdgeImpl <em>Exit Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ExitEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitEdge()
-	 * @generated
-	 */
-	int EXIT_EDGE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__CONNECT_FROM = FROM_SUB_MODE_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__CONNECT_TO = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__ATTRIBUTES = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__ACTION_BODY = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE__PARSED_ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Exit Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXIT_EDGE_FEATURE_COUNT = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 5;
+	int EDGE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitEdgeImpl <em>Init Edge</em>}' class.
@@ -986,53 +398,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitEdge()
 	 * @generated
 	 */
-	int INIT_EDGE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT_EDGE__INITIALIZATION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Init Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InternalEdgeImpl <em>Internal Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.InternalEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInternalEdge()
-	 * @generated
-	 */
-	int INTERNAL_EDGE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNAL_EDGE__CONNECT_FROM = FROM_SUB_MODE_EDGE__CONNECT_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNAL_EDGE__CONNECT_TO = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 0;
+	int INIT_EDGE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1041,43 +407,43 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_EDGE__ATTRIBUTES = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 1;
+	int INIT_EDGE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
 
 	/**
-	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
+	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_EDGE__ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 2;
+	int INIT_EDGE__INITIALIZATION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
+	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_EDGE__ACTION_BODY = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 3;
+	int INIT_EDGE__CONNECT_FROM = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
+	 * The feature id for the '<em><b>Connect To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_EDGE__PARSED_ACTION_GUARD = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 4;
+	int INIT_EDGE__CONNECT_TO = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Internal Edge</em>' class.
+	 * The number of structural features of the '<em>Init Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_EDGE_FEATURE_COUNT = FROM_SUB_MODE_EDGE_FEATURE_COUNT + 5;
+	int INIT_EDGE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.RemesDiagramImpl <em>Diagram</em>}' class.
@@ -1087,7 +453,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getRemesDiagram()
 	 * @generated
 	 */
-	int REMES_DIAGRAM = 18;
+	int REMES_DIAGRAM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1124,7 +490,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getSubMode()
 	 * @generated
 	 */
-	int SUB_MODE = 19;
+	int SUB_MODE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1134,6 +500,24 @@ public interface RemesPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUB_MODE__ATTRIBUTES = MODE__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MODE__ENTRY_POINT = MODE__ENTRY_POINT;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MODE__EXIT_POINT = MODE__EXIT_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,31 +547,13 @@ public interface RemesPackage extends EPackage {
 	int SUB_MODE__VARIABLES = MODE__VARIABLES;
 
 	/**
-	 * The feature id for the '<em><b>Entry Edges</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MODE__ENTRY_EDGES = MODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Exit Edges</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MODE__EXIT_EDGES = MODE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Invariant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__INVARIANT = MODE_FEATURE_COUNT + 2;
+	int SUB_MODE__INVARIANT = MODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Urgent</b></em>' attribute.
@@ -1196,7 +562,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__IS_URGENT = MODE_FEATURE_COUNT + 3;
+	int SUB_MODE__IS_URGENT = MODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1205,7 +571,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__PARENT = MODE_FEATURE_COUNT + 4;
+	int SUB_MODE__PARENT = MODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -1214,7 +580,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__RESOURCES = MODE_FEATURE_COUNT + 5;
+	int SUB_MODE__RESOURCES = MODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parsed Invariant</b></em>' containment reference.
@@ -1223,7 +589,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__PARSED_INVARIANT = MODE_FEATURE_COUNT + 6;
+	int SUB_MODE__PARSED_INVARIANT = MODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Sub Mode</em>' class.
@@ -1232,91 +598,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ToCompositeModeEdgeImpl <em>To Composite Mode Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ToCompositeModeEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToCompositeModeEdge()
-	 * @generated
-	 */
-	int TO_COMPOSITE_MODE_EDGE = 20;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_COMPOSITE_MODE_EDGE__CONNECT_TO = 0;
-
-	/**
-	 * The number of structural features of the '<em>To Composite Mode Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_COMPOSITE_MODE_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ToConditionalConnectorEdgeImpl <em>To Conditional Connector Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ToConditionalConnectorEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToConditionalConnectorEdge()
-	 * @generated
-	 */
-	int TO_CONDITIONAL_CONNECTOR_EDGE = 21;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_CONDITIONAL_CONNECTOR_EDGE__CONNECT_TO = 0;
-
-	/**
-	 * The number of structural features of the '<em>To Conditional Connector Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_CONDITIONAL_CONNECTOR_EDGE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ToSubModeEdgeImpl <em>To Sub Mode Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ToSubModeEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToSubModeEdge()
-	 * @generated
-	 */
-	int TO_SUB_MODE_EDGE = 22;
-
-	/**
-	 * The feature id for the '<em><b>Connect To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_SUB_MODE_EDGE__CONNECT_TO = 0;
-
-	/**
-	 * The number of structural features of the '<em>To Sub Mode Edge</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_SUB_MODE_EDGE_FEATURE_COUNT = 1;
+	int SUB_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.VariableImpl <em>Variable</em>}' class.
@@ -1326,7 +608,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 23;
+	int VARIABLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1426,7 +708,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 24;
+	int RESOURCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -1474,6 +756,211 @@ public interface RemesPackage extends EPackage {
 	int RESOURCE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.PointImpl <em>Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.PointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPoint()
+	 * @generated
+	 */
+	int POINT = 9;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitPointImpl <em>Init Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.InitPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitPoint()
+	 * @generated
+	 */
+	int INIT_POINT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Init Edge</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT_POINT__INIT_EDGE = POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Init Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryPointImpl <em>Entry Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.EntryPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryPoint()
+	 * @generated
+	 */
+	int ENTRY_POINT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Entry Edges</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__ENTRY_EDGES = POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Entry Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitPointImpl <em>Exit Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ExitPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitPoint()
+	 * @generated
+	 */
+	int EXIT_POINT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Exit Edges</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXIT_POINT__EXIT_EDGES = POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Exit Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ControlPathImpl <em>Control Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ControlPathImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getControlPath()
+	 * @generated
+	 */
+	int CONTROL_PATH = 13;
+
+	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH__ENTRY_POINT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH__EXIT_POINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Control Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeEntryPointImpl <em>Composite Entry Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.CompositeEntryPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getCompositeEntryPoint()
+	 * @generated
+	 */
+	int COMPOSITE_ENTRY_POINT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Exit Edges</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ENTRY_POINT__EXIT_EDGES = EXIT_POINT__EXIT_EDGES;
+
+	/**
+	 * The number of structural features of the '<em>Composite Entry Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ENTRY_POINT_FEATURE_COUNT = EXIT_POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeExitPointImpl <em>Composite Exit Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.CompositeExitPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getCompositeExitPoint()
+	 * @generated
+	 */
+	int COMPOSITE_EXIT_POINT = 15;
+
+	/**
+	 * The feature id for the '<em><b>Entry Edges</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EXIT_POINT__ENTRY_EDGES = ENTRY_POINT__ENTRY_EDGES;
+
+	/**
+	 * The number of structural features of the '<em>Composite Exit Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EXIT_POINT_FEATURE_COUNT = ENTRY_POINT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1481,7 +968,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPrimitiveTypes()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPES = 25;
+	int PRIMITIVE_TYPES = 16;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.ResourceTypes <em>Resource Types</em>}' enum.
@@ -1491,7 +978,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResourceTypes()
 	 * @generated
 	 */
-	int RESOURCE_TYPES = 26;
+	int RESOURCE_TYPES = 17;
 
 
 	/**
@@ -1503,39 +990,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompositeMode();
-
-	/**
-	 * Returns the meta object for the reference list '{@link se.mdh.progresside.remes.CompositeMode#getExitEdges <em>Exit Edges</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Exit Edges</em>'.
-	 * @see se.mdh.progresside.remes.CompositeMode#getExitEdges()
-	 * @see #getCompositeMode()
-	 * @generated
-	 */
-	EReference getCompositeMode_ExitEdges();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getInitEdge <em>Init Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Init Edge</em>'.
-	 * @see se.mdh.progresside.remes.CompositeMode#getInitEdge()
-	 * @see #getCompositeMode()
-	 * @generated
-	 */
-	EReference getCompositeMode_InitEdge();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getEntryEdge <em>Entry Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Entry Edge</em>'.
-	 * @see se.mdh.progresside.remes.CompositeMode#getEntryEdge()
-	 * @see #getCompositeMode()
-	 * @generated
-	 */
-	EReference getCompositeMode_EntryEdge();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.CompositeMode#getSubModes <em>Sub Modes</em>}'.
@@ -1560,6 +1014,39 @@ public interface RemesPackage extends EPackage {
 	EReference getCompositeMode_ConditionalConnectors();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getInitPoint <em>Init Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Init Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeMode#getInitPoint()
+	 * @see #getCompositeMode()
+	 * @generated
+	 */
+	EReference getCompositeMode_InitPoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getCompositeEntryPoint <em>Composite Entry Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Composite Entry Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeMode#getCompositeEntryPoint()
+	 * @see #getCompositeMode()
+	 * @generated
+	 */
+	EReference getCompositeMode_CompositeEntryPoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getCompositeExitPoint <em>Composite Exit Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Composite Exit Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeMode#getCompositeExitPoint()
+	 * @see #getCompositeMode()
+	 * @generated
+	 */
+	EReference getCompositeMode_CompositeExitPoint();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ConditionalConnector <em>Conditional Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1568,39 +1055,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConditionalConnector();
-
-	/**
-	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.ConditionalConnector#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see se.mdh.progresside.remes.ConditionalConnector#getName()
-	 * @see #getConditionalConnector()
-	 * @generated
-	 */
-	EAttribute getConditionalConnector_Name();
-
-	/**
-	 * Returns the meta object for the reference list '{@link se.mdh.progresside.remes.ConditionalConnector#getEntryEdges <em>Entry Edges</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entry Edges</em>'.
-	 * @see se.mdh.progresside.remes.ConditionalConnector#getEntryEdges()
-	 * @see #getConditionalConnector()
-	 * @generated
-	 */
-	EReference getConditionalConnector_EntryEdges();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.ConditionalConnector#getExitEdges <em>Exit Edges</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exit Edges</em>'.
-	 * @see se.mdh.progresside.remes.ConditionalConnector#getExitEdges()
-	 * @see #getConditionalConnector()
-	 * @generated
-	 */
-	EReference getConditionalConnector_ExitEdges();
 
 	/**
 	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.ConditionalConnector#getParent <em>Parent</em>}'.
@@ -1657,168 +1111,26 @@ public interface RemesPackage extends EPackage {
 	EReference getEdge_ParsedActionGuard();
 
 	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryConditionalSubEdge <em>Entry Conditional Sub Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Conditional Sub Edge</em>'.
-	 * @see se.mdh.progresside.remes.EntryConditionalSubEdge
-	 * @generated
-	 */
-	EClass getEntryConditionalSubEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryConditionalTopEdge <em>Entry Conditional Top Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Conditional Top Edge</em>'.
-	 * @see se.mdh.progresside.remes.EntryConditionalTopEdge
-	 * @generated
-	 */
-	EClass getEntryConditionalTopEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryConditionalTopInitEdge <em>Entry Conditional Top Init Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Conditional Top Init Edge</em>'.
-	 * @see se.mdh.progresside.remes.EntryConditionalTopInitEdge
-	 * @generated
-	 */
-	EClass getEntryConditionalTopInitEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryEdge <em>Entry Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Edge</em>'.
-	 * @see se.mdh.progresside.remes.EntryEdge
-	 * @generated
-	 */
-	EClass getEntryEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryInitEdge <em>Entry Init Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entry Init Edge</em>'.
-	 * @see se.mdh.progresside.remes.EntryInitEdge
-	 * @generated
-	 */
-	EClass getEntryInitEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ExitConditionalSubEdge <em>Exit Conditional Sub Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exit Conditional Sub Edge</em>'.
-	 * @see se.mdh.progresside.remes.ExitConditionalSubEdge
-	 * @generated
-	 */
-	EClass getExitConditionalSubEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ExitConditionalTopEdge <em>Exit Conditional Top Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exit Conditional Top Edge</em>'.
-	 * @see se.mdh.progresside.remes.ExitConditionalTopEdge
-	 * @generated
-	 */
-	EClass getExitConditionalTopEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ExitEdge <em>Exit Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exit Edge</em>'.
-	 * @see se.mdh.progresside.remes.ExitEdge
-	 * @generated
-	 */
-	EClass getExitEdge();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.FromCompositeModeEdge <em>From Composite Mode Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>From Composite Mode Edge</em>'.
-	 * @see se.mdh.progresside.remes.FromCompositeModeEdge
-	 * @generated
-	 */
-	EClass getFromCompositeModeEdge();
-
-	/**
-	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.FromCompositeModeEdge#getConnectFrom <em>Connect From</em>}'.
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.Edge#getConnectFrom <em>Connect From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Connect From</em>'.
-	 * @see se.mdh.progresside.remes.FromCompositeModeEdge#getConnectFrom()
-	 * @see #getFromCompositeModeEdge()
+	 * @see se.mdh.progresside.remes.Edge#getConnectFrom()
+	 * @see #getEdge()
 	 * @generated
 	 */
-	EReference getFromCompositeModeEdge_ConnectFrom();
+	EReference getEdge_ConnectFrom();
 
 	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.FromCompositeModeInitEdge <em>From Composite Mode Init Edge</em>}'.
+	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.Edge#getConnectTo <em>Connect To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>From Composite Mode Init Edge</em>'.
-	 * @see se.mdh.progresside.remes.FromCompositeModeInitEdge
+	 * @return the meta object for the reference '<em>Connect To</em>'.
+	 * @see se.mdh.progresside.remes.Edge#getConnectTo()
+	 * @see #getEdge()
 	 * @generated
 	 */
-	EClass getFromCompositeModeInitEdge();
-
-	/**
-	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.FromCompositeModeInitEdge#getConnectFrom <em>Connect From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Connect From</em>'.
-	 * @see se.mdh.progresside.remes.FromCompositeModeInitEdge#getConnectFrom()
-	 * @see #getFromCompositeModeInitEdge()
-	 * @generated
-	 */
-	EReference getFromCompositeModeInitEdge_ConnectFrom();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.FromConditionalConnectorEdge <em>From Conditional Connector Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>From Conditional Connector Edge</em>'.
-	 * @see se.mdh.progresside.remes.FromConditionalConnectorEdge
-	 * @generated
-	 */
-	EClass getFromConditionalConnectorEdge();
-
-	/**
-	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.FromConditionalConnectorEdge#getConnectFrom <em>Connect From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Connect From</em>'.
-	 * @see se.mdh.progresside.remes.FromConditionalConnectorEdge#getConnectFrom()
-	 * @see #getFromConditionalConnectorEdge()
-	 * @generated
-	 */
-	EReference getFromConditionalConnectorEdge_ConnectFrom();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.FromSubModeEdge <em>From Sub Mode Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>From Sub Mode Edge</em>'.
-	 * @see se.mdh.progresside.remes.FromSubModeEdge
-	 * @generated
-	 */
-	EClass getFromSubModeEdge();
-
-	/**
-	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.FromSubModeEdge#getConnectFrom <em>Connect From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Connect From</em>'.
-	 * @see se.mdh.progresside.remes.FromSubModeEdge#getConnectFrom()
-	 * @see #getFromSubModeEdge()
-	 * @generated
-	 */
-	EReference getFromSubModeEdge_ConnectFrom();
+	EReference getEdge_ConnectTo();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.InitEdge <em>Init Edge</em>}'.
@@ -1842,14 +1154,26 @@ public interface RemesPackage extends EPackage {
 	EAttribute getInitEdge_Initialization();
 
 	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.InternalEdge <em>Internal Edge</em>}'.
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.InitEdge#getConnectFrom <em>Connect From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Internal Edge</em>'.
-	 * @see se.mdh.progresside.remes.InternalEdge
+	 * @return the meta object for the container reference '<em>Connect From</em>'.
+	 * @see se.mdh.progresside.remes.InitEdge#getConnectFrom()
+	 * @see #getInitEdge()
 	 * @generated
 	 */
-	EClass getInternalEdge();
+	EReference getInitEdge_ConnectFrom();
+
+	/**
+	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.InitEdge#getConnectTo <em>Connect To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connect To</em>'.
+	 * @see se.mdh.progresside.remes.InitEdge#getConnectTo()
+	 * @see #getInitEdge()
+	 * @generated
+	 */
+	EReference getInitEdge_ConnectTo();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Mode <em>Mode</em>}'.
@@ -1860,17 +1184,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMode();
-
-	/**
-	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Mode#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see se.mdh.progresside.remes.Mode#getName()
-	 * @see #getMode()
-	 * @generated
-	 */
-	EAttribute getMode_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Mode#getInitialization <em>Initialization</em>}'.
@@ -1926,28 +1239,6 @@ public interface RemesPackage extends EPackage {
 	EClass getSubMode();
 
 	/**
-	 * Returns the meta object for the reference list '{@link se.mdh.progresside.remes.SubMode#getEntryEdges <em>Entry Edges</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entry Edges</em>'.
-	 * @see se.mdh.progresside.remes.SubMode#getEntryEdges()
-	 * @see #getSubMode()
-	 * @generated
-	 */
-	EReference getSubMode_EntryEdges();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.SubMode#getExitEdges <em>Exit Edges</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exit Edges</em>'.
-	 * @see se.mdh.progresside.remes.SubMode#getExitEdges()
-	 * @see #getSubMode()
-	 * @generated
-	 */
-	EReference getSubMode_ExitEdges();
-
-	/**
 	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.SubMode#getInvariant <em>Invariant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2001,69 +1292,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSubMode_ParsedInvariant();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ToCompositeModeEdge <em>To Composite Mode Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>To Composite Mode Edge</em>'.
-	 * @see se.mdh.progresside.remes.ToCompositeModeEdge
-	 * @generated
-	 */
-	EClass getToCompositeModeEdge();
-
-	/**
-	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.ToCompositeModeEdge#getConnectTo <em>Connect To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Connect To</em>'.
-	 * @see se.mdh.progresside.remes.ToCompositeModeEdge#getConnectTo()
-	 * @see #getToCompositeModeEdge()
-	 * @generated
-	 */
-	EReference getToCompositeModeEdge_ConnectTo();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ToConditionalConnectorEdge <em>To Conditional Connector Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>To Conditional Connector Edge</em>'.
-	 * @see se.mdh.progresside.remes.ToConditionalConnectorEdge
-	 * @generated
-	 */
-	EClass getToConditionalConnectorEdge();
-
-	/**
-	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.ToConditionalConnectorEdge#getConnectTo <em>Connect To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Connect To</em>'.
-	 * @see se.mdh.progresside.remes.ToConditionalConnectorEdge#getConnectTo()
-	 * @see #getToConditionalConnectorEdge()
-	 * @generated
-	 */
-	EReference getToConditionalConnectorEdge_ConnectTo();
-
-	/**
-	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ToSubModeEdge <em>To Sub Mode Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>To Sub Mode Edge</em>'.
-	 * @see se.mdh.progresside.remes.ToSubModeEdge
-	 * @generated
-	 */
-	EClass getToSubModeEdge();
-
-	/**
-	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.ToSubModeEdge#getConnectTo <em>Connect To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Connect To</em>'.
-	 * @see se.mdh.progresside.remes.ToSubModeEdge#getConnectTo()
-	 * @see #getToSubModeEdge()
-	 * @generated
-	 */
-	EReference getToSubModeEdge_ConnectTo();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Variable <em>Variable</em>}'.
@@ -2207,6 +1435,142 @@ public interface RemesPackage extends EPackage {
 	EReference getResource_Scope();
 
 	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Point <em>Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point</em>'.
+	 * @see se.mdh.progresside.remes.Point
+	 * @generated
+	 */
+	EClass getPoint();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.InitPoint <em>Init Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Init Point</em>'.
+	 * @see se.mdh.progresside.remes.InitPoint
+	 * @generated
+	 */
+	EClass getInitPoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.InitPoint#getInitEdge <em>Init Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Init Edge</em>'.
+	 * @see se.mdh.progresside.remes.InitPoint#getInitEdge()
+	 * @see #getInitPoint()
+	 * @generated
+	 */
+	EReference getInitPoint_InitEdge();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryPoint <em>Entry Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entry Point</em>'.
+	 * @see se.mdh.progresside.remes.EntryPoint
+	 * @generated
+	 */
+	EClass getEntryPoint();
+
+	/**
+	 * Returns the meta object for the reference list '{@link se.mdh.progresside.remes.EntryPoint#getEntryEdges <em>Entry Edges</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Entry Edges</em>'.
+	 * @see se.mdh.progresside.remes.EntryPoint#getEntryEdges()
+	 * @see #getEntryPoint()
+	 * @generated
+	 */
+	EReference getEntryPoint_EntryEdges();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ExitPoint <em>Exit Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exit Point</em>'.
+	 * @see se.mdh.progresside.remes.ExitPoint
+	 * @generated
+	 */
+	EClass getExitPoint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.ExitPoint#getExitEdges <em>Exit Edges</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Exit Edges</em>'.
+	 * @see se.mdh.progresside.remes.ExitPoint#getExitEdges()
+	 * @see #getExitPoint()
+	 * @generated
+	 */
+	EReference getExitPoint_ExitEdges();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ControlPath <em>Control Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control Path</em>'.
+	 * @see se.mdh.progresside.remes.ControlPath
+	 * @generated
+	 */
+	EClass getControlPath();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.ControlPath#getEntryPoint <em>Entry Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Entry Point</em>'.
+	 * @see se.mdh.progresside.remes.ControlPath#getEntryPoint()
+	 * @see #getControlPath()
+	 * @generated
+	 */
+	EReference getControlPath_EntryPoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.ControlPath#getExitPoint <em>Exit Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Exit Point</em>'.
+	 * @see se.mdh.progresside.remes.ControlPath#getExitPoint()
+	 * @see #getControlPath()
+	 * @generated
+	 */
+	EReference getControlPath_ExitPoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.ControlPath#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see se.mdh.progresside.remes.ControlPath#getName()
+	 * @see #getControlPath()
+	 * @generated
+	 */
+	EAttribute getControlPath_Name();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.CompositeEntryPoint <em>Composite Entry Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Entry Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeEntryPoint
+	 * @generated
+	 */
+	EClass getCompositeEntryPoint();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.CompositeExitPoint <em>Composite Exit Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Exit Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeExitPoint
+	 * @generated
+	 */
+	EClass getCompositeExitPoint();
+
+	/**
 	 * Returns the meta object for enum '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2259,30 +1623,6 @@ public interface RemesPackage extends EPackage {
 		EClass COMPOSITE_MODE = eINSTANCE.getCompositeMode();
 
 		/**
-		 * The meta object literal for the '<em><b>Exit Edges</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_MODE__EXIT_EDGES = eINSTANCE.getCompositeMode_ExitEdges();
-
-		/**
-		 * The meta object literal for the '<em><b>Init Edge</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_MODE__INIT_EDGE = eINSTANCE.getCompositeMode_InitEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Entry Edge</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_MODE__ENTRY_EDGE = eINSTANCE.getCompositeMode_EntryEdge();
-
-		/**
 		 * The meta object literal for the '<em><b>Sub Modes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2299,6 +1639,30 @@ public interface RemesPackage extends EPackage {
 		EReference COMPOSITE_MODE__CONDITIONAL_CONNECTORS = eINSTANCE.getCompositeMode_ConditionalConnectors();
 
 		/**
+		 * The meta object literal for the '<em><b>Init Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_MODE__INIT_POINT = eINSTANCE.getCompositeMode_InitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Composite Entry Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_MODE__COMPOSITE_ENTRY_POINT = eINSTANCE.getCompositeMode_CompositeEntryPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Composite Exit Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_MODE__COMPOSITE_EXIT_POINT = eINSTANCE.getCompositeMode_CompositeExitPoint();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ConditionalConnectorImpl <em>Conditional Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2307,30 +1671,6 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONDITIONAL_CONNECTOR = eINSTANCE.getConditionalConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONDITIONAL_CONNECTOR__NAME = eINSTANCE.getConditionalConnector_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Entry Edges</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITIONAL_CONNECTOR__ENTRY_EDGES = eINSTANCE.getConditionalConnector_EntryEdges();
-
-		/**
-		 * The meta object literal for the '<em><b>Exit Edges</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITIONAL_CONNECTOR__EXIT_EDGES = eINSTANCE.getConditionalConnector_ExitEdges();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
@@ -2375,156 +1715,20 @@ public interface RemesPackage extends EPackage {
 		EReference EDGE__PARSED_ACTION_GUARD = eINSTANCE.getEdge_ParsedActionGuard();
 
 		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryConditionalSubEdgeImpl <em>Entry Conditional Sub Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.EntryConditionalSubEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalSubEdge()
-		 * @generated
-		 */
-		EClass ENTRY_CONDITIONAL_SUB_EDGE = eINSTANCE.getEntryConditionalSubEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryConditionalTopEdgeImpl <em>Entry Conditional Top Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.EntryConditionalTopEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalTopEdge()
-		 * @generated
-		 */
-		EClass ENTRY_CONDITIONAL_TOP_EDGE = eINSTANCE.getEntryConditionalTopEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryConditionalTopInitEdgeImpl <em>Entry Conditional Top Init Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.EntryConditionalTopInitEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryConditionalTopInitEdge()
-		 * @generated
-		 */
-		EClass ENTRY_CONDITIONAL_TOP_INIT_EDGE = eINSTANCE.getEntryConditionalTopInitEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryEdgeImpl <em>Entry Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.EntryEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryEdge()
-		 * @generated
-		 */
-		EClass ENTRY_EDGE = eINSTANCE.getEntryEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryInitEdgeImpl <em>Entry Init Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.EntryInitEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryInitEdge()
-		 * @generated
-		 */
-		EClass ENTRY_INIT_EDGE = eINSTANCE.getEntryInitEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ExitConditionalSubEdgeImpl <em>Exit Conditional Sub Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ExitConditionalSubEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitConditionalSubEdge()
-		 * @generated
-		 */
-		EClass EXIT_CONDITIONAL_SUB_EDGE = eINSTANCE.getExitConditionalSubEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ExitConditionalTopEdgeImpl <em>Exit Conditional Top Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ExitConditionalTopEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitConditionalTopEdge()
-		 * @generated
-		 */
-		EClass EXIT_CONDITIONAL_TOP_EDGE = eINSTANCE.getExitConditionalTopEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ExitEdgeImpl <em>Exit Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ExitEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitEdge()
-		 * @generated
-		 */
-		EClass EXIT_EDGE = eINSTANCE.getExitEdge();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.FromCompositeModeEdgeImpl <em>From Composite Mode Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.FromCompositeModeEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromCompositeModeEdge()
-		 * @generated
-		 */
-		EClass FROM_COMPOSITE_MODE_EDGE = eINSTANCE.getFromCompositeModeEdge();
-
-		/**
 		 * The meta object literal for the '<em><b>Connect From</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FROM_COMPOSITE_MODE_EDGE__CONNECT_FROM = eINSTANCE.getFromCompositeModeEdge_ConnectFrom();
+		EReference EDGE__CONNECT_FROM = eINSTANCE.getEdge_ConnectFrom();
 
 		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.FromCompositeModeInitEdgeImpl <em>From Composite Mode Init Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.FromCompositeModeInitEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromCompositeModeInitEdge()
-		 * @generated
-		 */
-		EClass FROM_COMPOSITE_MODE_INIT_EDGE = eINSTANCE.getFromCompositeModeInitEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect From</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Connect To</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FROM_COMPOSITE_MODE_INIT_EDGE__CONNECT_FROM = eINSTANCE.getFromCompositeModeInitEdge_ConnectFrom();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.FromConditionalConnectorEdgeImpl <em>From Conditional Connector Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.FromConditionalConnectorEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromConditionalConnectorEdge()
-		 * @generated
-		 */
-		EClass FROM_CONDITIONAL_CONNECTOR_EDGE = eINSTANCE.getFromConditionalConnectorEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect From</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FROM_CONDITIONAL_CONNECTOR_EDGE__CONNECT_FROM = eINSTANCE.getFromConditionalConnectorEdge_ConnectFrom();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.FromSubModeEdgeImpl <em>From Sub Mode Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.FromSubModeEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getFromSubModeEdge()
-		 * @generated
-		 */
-		EClass FROM_SUB_MODE_EDGE = eINSTANCE.getFromSubModeEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect From</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FROM_SUB_MODE_EDGE__CONNECT_FROM = eINSTANCE.getFromSubModeEdge_ConnectFrom();
+		EReference EDGE__CONNECT_TO = eINSTANCE.getEdge_ConnectTo();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.InitEdgeImpl <em>Init Edge</em>}' class.
@@ -2545,14 +1749,20 @@ public interface RemesPackage extends EPackage {
 		EAttribute INIT_EDGE__INITIALIZATION = eINSTANCE.getInitEdge_Initialization();
 
 		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.InternalEdgeImpl <em>Internal Edge</em>}' class.
+		 * The meta object literal for the '<em><b>Connect From</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.InternalEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInternalEdge()
 		 * @generated
 		 */
-		EClass INTERNAL_EDGE = eINSTANCE.getInternalEdge();
+		EReference INIT_EDGE__CONNECT_FROM = eINSTANCE.getInitEdge_ConnectFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INIT_EDGE__CONNECT_TO = eINSTANCE.getInitEdge_ConnectTo();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ModeImpl <em>Mode</em>}' class.
@@ -2563,14 +1773,6 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODE = eINSTANCE.getMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODE__NAME = eINSTANCE.getMode_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Initialization</b></em>' attribute feature.
@@ -2617,22 +1819,6 @@ public interface RemesPackage extends EPackage {
 		EClass SUB_MODE = eINSTANCE.getSubMode();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Edges</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SUB_MODE__ENTRY_EDGES = eINSTANCE.getSubMode_EntryEdges();
-
-		/**
-		 * The meta object literal for the '<em><b>Exit Edges</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SUB_MODE__EXIT_EDGES = eINSTANCE.getSubMode_ExitEdges();
-
-		/**
 		 * The meta object literal for the '<em><b>Invariant</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2671,60 +1857,6 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUB_MODE__PARSED_INVARIANT = eINSTANCE.getSubMode_ParsedInvariant();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ToCompositeModeEdgeImpl <em>To Composite Mode Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ToCompositeModeEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToCompositeModeEdge()
-		 * @generated
-		 */
-		EClass TO_COMPOSITE_MODE_EDGE = eINSTANCE.getToCompositeModeEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TO_COMPOSITE_MODE_EDGE__CONNECT_TO = eINSTANCE.getToCompositeModeEdge_ConnectTo();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ToConditionalConnectorEdgeImpl <em>To Conditional Connector Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ToConditionalConnectorEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToConditionalConnectorEdge()
-		 * @generated
-		 */
-		EClass TO_CONDITIONAL_CONNECTOR_EDGE = eINSTANCE.getToConditionalConnectorEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TO_CONDITIONAL_CONNECTOR_EDGE__CONNECT_TO = eINSTANCE.getToConditionalConnectorEdge_ConnectTo();
-
-		/**
-		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ToSubModeEdgeImpl <em>To Sub Mode Edge</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see se.mdh.progresside.remes.impl.ToSubModeEdgeImpl
-		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getToSubModeEdge()
-		 * @generated
-		 */
-		EClass TO_SUB_MODE_EDGE = eINSTANCE.getToSubModeEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Connect To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TO_SUB_MODE_EDGE__CONNECT_TO = eINSTANCE.getToSubModeEdge_ConnectTo();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.VariableImpl <em>Variable</em>}' class.
@@ -2833,6 +1965,124 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE__SCOPE = eINSTANCE.getResource_Scope();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.PointImpl <em>Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.PointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPoint()
+		 * @generated
+		 */
+		EClass POINT = eINSTANCE.getPoint();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.InitPointImpl <em>Init Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.InitPointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitPoint()
+		 * @generated
+		 */
+		EClass INIT_POINT = eINSTANCE.getInitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Edge</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INIT_POINT__INIT_EDGE = eINSTANCE.getInitPoint_InitEdge();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryPointImpl <em>Entry Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.EntryPointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryPoint()
+		 * @generated
+		 */
+		EClass ENTRY_POINT = eINSTANCE.getEntryPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Entry Edges</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY_POINT__ENTRY_EDGES = eINSTANCE.getEntryPoint_EntryEdges();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ExitPointImpl <em>Exit Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.ExitPointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitPoint()
+		 * @generated
+		 */
+		EClass EXIT_POINT = eINSTANCE.getExitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Exit Edges</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXIT_POINT__EXIT_EDGES = eINSTANCE.getExitPoint_ExitEdges();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ControlPathImpl <em>Control Path</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.ControlPathImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getControlPath()
+		 * @generated
+		 */
+		EClass CONTROL_PATH = eINSTANCE.getControlPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Entry Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_PATH__ENTRY_POINT = eINSTANCE.getControlPath_EntryPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Exit Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_PATH__EXIT_POINT = eINSTANCE.getControlPath_ExitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROL_PATH__NAME = eINSTANCE.getControlPath_Name();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.CompositeEntryPointImpl <em>Composite Entry Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.CompositeEntryPointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getCompositeEntryPoint()
+		 * @generated
+		 */
+		EClass COMPOSITE_ENTRY_POINT = eINSTANCE.getCompositeEntryPoint();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.CompositeExitPointImpl <em>Composite Exit Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.CompositeExitPointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getCompositeExitPoint()
+		 * @generated
+		 */
+		EClass COMPOSITE_EXIT_POINT = eINSTANCE.getCompositeExitPoint();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.

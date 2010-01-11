@@ -28,6 +28,7 @@ import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.Variable;
 
 /**
@@ -42,6 +43,7 @@ import se.mdh.progresside.remes.Variable;
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getName <em>Name</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +119,16 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	 * @ordered
 	 */
 	protected EList<Variable> variables;
+
+	/**
+	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Resource> resources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -282,12 +294,26 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Resource> getResources() {
+		if (resources == null) {
+			resources = new EObjectContainmentWithInverseEList<Resource>(Resource.class, this, RemesPackage.MODE__RESOURCES, RemesPackage.RESOURCE__SCOPE);
+		}
+		return resources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RemesPackage.MODE__VARIABLES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariables()).basicAdd(otherEnd, msgs);
+			case RemesPackage.MODE__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -306,6 +332,8 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				return basicSetExitPoint(null, msgs);
 			case RemesPackage.MODE__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case RemesPackage.MODE__RESOURCES:
+				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -328,6 +356,8 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				return getInitialization();
 			case RemesPackage.MODE__VARIABLES:
 				return getVariables();
+			case RemesPackage.MODE__RESOURCES:
+				return getResources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -357,6 +387,10 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				getVariables().clear();
 				getVariables().addAll((Collection<? extends Variable>)newValue);
 				return;
+			case RemesPackage.MODE__RESOURCES:
+				getResources().clear();
+				getResources().addAll((Collection<? extends Resource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -384,6 +418,9 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 			case RemesPackage.MODE__VARIABLES:
 				getVariables().clear();
 				return;
+			case RemesPackage.MODE__RESOURCES:
+				getResources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -406,6 +443,8 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				return INITIALIZATION_EDEFAULT == null ? initialization != null : !INITIALIZATION_EDEFAULT.equals(initialization);
 			case RemesPackage.MODE__VARIABLES:
 				return variables != null && !variables.isEmpty();
+			case RemesPackage.MODE__RESOURCES:
+				return resources != null && !resources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

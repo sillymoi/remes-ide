@@ -20,6 +20,7 @@ import se.mdh.progresside.attributes.Attributable;
  * <ul>
  *   <li>{@link se.mdh.progresside.remes.Mode#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Mode#getVariables <em>Variables</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.Mode#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,5 +72,23 @@ public interface Mode extends Attributable, ControlPath {
 	 * @generated
 	 */
 	EList<Variable> getVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link se.mdh.progresside.remes.Resource}.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.Resource#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resources</em>' containment reference list.
+	 * @see se.mdh.progresside.remes.RemesPackage#getMode_Resources()
+	 * @see se.mdh.progresside.remes.Resource#getScope
+	 * @model opposite="scope" containment="true"
+	 * @generated
+	 */
+	EList<Resource> getResources();
 
 } // Mode

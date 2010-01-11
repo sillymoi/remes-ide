@@ -46,6 +46,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true" eOpposite="#//Variable/scope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true" eOpposite="#//Resource/scope"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RemesDiagram" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
@@ -61,8 +63,6 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositeMode"
         eOpposite="#//CompositeMode/subModes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-        eType="#//Resource" containment="true" eOpposite="#//Resource/scope"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parsedInvariant" eType="ecore:EClass ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot"
         containment="true"/>
   </eClassifiers>
@@ -82,8 +82,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypes">
-    <eLiterals name="boolean" value="1"/>
     <eLiterals name="integer"/>
+    <eLiterals name="boolean" value="1"/>
     <eLiterals name="natural" value="2"/>
     <eLiterals name="clock" value="3"/>
   </eClassifiers>
@@ -98,8 +98,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ResourceTypes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1" eType="#//SubMode"
-        eOpposite="#//SubMode/resources"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scope" lowerBound="1" eType="#//Mode"
+        eOpposite="#//Mode/resources"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="InitPoint" eSuperTypes="#//Point">

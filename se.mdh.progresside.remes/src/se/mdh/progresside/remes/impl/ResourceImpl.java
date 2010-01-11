@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import se.mdh.progresside.attributes.impl.AttributableImpl;
 
+import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.ResourceTypes;
@@ -145,9 +146,9 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubMode getScope() {
+	public Mode getScope() {
 		if (eContainerFeatureID() != RemesPackage.RESOURCE__SCOPE) return null;
-		return (SubMode)eContainer();
+		return (Mode)eContainer();
 	}
 
 	/**
@@ -155,7 +156,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScope(SubMode newScope, NotificationChain msgs) {
+	public NotificationChain basicSetScope(Mode newScope, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newScope, RemesPackage.RESOURCE__SCOPE, msgs);
 		return msgs;
 	}
@@ -165,7 +166,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScope(SubMode newScope) {
+	public void setScope(Mode newScope) {
 		if (newScope != eInternalContainer() || (eContainerFeatureID() != RemesPackage.RESOURCE__SCOPE && newScope != null)) {
 			if (EcoreUtil.isAncestor(this, newScope))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -173,7 +174,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newScope != null)
-				msgs = ((InternalEObject)newScope).eInverseAdd(this, RemesPackage.SUB_MODE__RESOURCES, SubMode.class, msgs);
+				msgs = ((InternalEObject)newScope).eInverseAdd(this, RemesPackage.MODE__RESOURCES, Mode.class, msgs);
 			msgs = basicSetScope(newScope, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -192,7 +193,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 			case RemesPackage.RESOURCE__SCOPE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetScope((SubMode)otherEnd, msgs);
+				return basicSetScope((Mode)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -220,7 +221,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case RemesPackage.RESOURCE__SCOPE:
-				return eInternalContainer().eInverseRemove(this, RemesPackage.SUB_MODE__RESOURCES, SubMode.class, msgs);
+				return eInternalContainer().eInverseRemove(this, RemesPackage.MODE__RESOURCES, Mode.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -258,7 +259,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 				setType((ResourceTypes)newValue);
 				return;
 			case RemesPackage.RESOURCE__SCOPE:
-				setScope((SubMode)newValue);
+				setScope((Mode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,7 +280,7 @@ public class ResourceImpl extends AttributableImpl implements Resource {
 				setType(TYPE_EDEFAULT);
 				return;
 			case RemesPackage.RESOURCE__SCOPE:
-				setScope((SubMode)null);
+				setScope((Mode)null);
 				return;
 		}
 		super.eUnset(featureID);

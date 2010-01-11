@@ -23,6 +23,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PrimitiveTypes implements Enumerator {
 	/**
+	 * The '<em><b>Integer</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INTEGER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INTEGER(0, "integer", "integer"), /**
 	 * The '<em><b>Boolean</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,16 +39,6 @@ public enum PrimitiveTypes implements Enumerator {
 	 * @ordered
 	 */
 	BOOLEAN(1, "boolean", "boolean"),
-
-	/**
-	 * The '<em><b>Integer</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INTEGER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INTEGER(0, "integer", "integer"),
 
 	/**
 	 * The '<em><b>Natural</b></em>' literal object.
@@ -63,21 +61,6 @@ public enum PrimitiveTypes implements Enumerator {
 	CLOCK(3, "clock", "clock");
 
 	/**
-	 * The '<em><b>Boolean</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN
-	 * @model name="boolean"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int BOOLEAN_VALUE = 1;
-
-	/**
 	 * The '<em><b>Integer</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -91,6 +74,21 @@ public enum PrimitiveTypes implements Enumerator {
 	 * @ordered
 	 */
 	public static final int INTEGER_VALUE = 0;
+
+	/**
+	 * The '<em><b>Boolean</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN
+	 * @model name="boolean"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOOLEAN_VALUE = 1;
 
 	/**
 	 * The '<em><b>Natural</b></em>' literal value.
@@ -130,8 +128,8 @@ public enum PrimitiveTypes implements Enumerator {
 	 */
 	private static final PrimitiveTypes[] VALUES_ARRAY =
 		new PrimitiveTypes[] {
-			BOOLEAN,
 			INTEGER,
+			BOOLEAN,
 			NATURAL,
 			CLOCK,
 		};
@@ -184,8 +182,8 @@ public enum PrimitiveTypes implements Enumerator {
 	 */
 	public static PrimitiveTypes get(int value) {
 		switch (value) {
-			case BOOLEAN_VALUE: return BOOLEAN;
 			case INTEGER_VALUE: return INTEGER;
+			case BOOLEAN_VALUE: return BOOLEAN;
 			case NATURAL_VALUE: return NATURAL;
 			case CLOCK_VALUE: return CLOCK;
 		}

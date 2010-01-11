@@ -84,7 +84,7 @@ public interface Resource extends Attributable {
 
 	/**
 	 * Returns the value of the '<em><b>Scope</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.SubMode#getResources <em>Resources</em>}'.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.Mode#getResources <em>Resources</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scope</em>' container reference isn't clear,
@@ -92,13 +92,13 @@ public interface Resource extends Attributable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Scope</em>' container reference.
-	 * @see #setScope(SubMode)
+	 * @see #setScope(Mode)
 	 * @see se.mdh.progresside.remes.RemesPackage#getResource_Scope()
-	 * @see se.mdh.progresside.remes.SubMode#getResources
+	 * @see se.mdh.progresside.remes.Mode#getResources
 	 * @model opposite="resources" required="true" transient="false"
 	 * @generated
 	 */
-	SubMode getScope();
+	Mode getScope();
 
 	/**
 	 * Sets the value of the '{@link se.mdh.progresside.remes.Resource#getScope <em>Scope</em>}' container reference.
@@ -108,6 +108,6 @@ public interface Resource extends Attributable {
 	 * @see #getScope()
 	 * @generated
 	 */
-	void setScope(SubMode value);
+	void setScope(Mode value);
 
 } // Resource

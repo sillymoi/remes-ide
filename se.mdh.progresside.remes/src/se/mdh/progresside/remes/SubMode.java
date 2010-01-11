@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link se.mdh.progresside.remes.SubMode#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.SubMode#isIsUrgent <em>Is Urgent</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.SubMode#getParent <em>Parent</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.SubMode#getResources <em>Resources</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.SubMode#getParsedInvariant <em>Parsed Invariant</em>}</li>
  * </ul>
  * </p>
@@ -111,24 +110,6 @@ public interface SubMode extends Mode {
 	 * @generated
 	 */
 	void setParent(CompositeMode value);
-
-	/**
-	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
-	 * The list contents are of type {@link se.mdh.progresside.remes.Resource}.
-	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.Resource#getScope <em>Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resources</em>' containment reference list.
-	 * @see se.mdh.progresside.remes.RemesPackage#getSubMode_Resources()
-	 * @see se.mdh.progresside.remes.Resource#getScope
-	 * @model opposite="scope" containment="true"
-	 * @generated
-	 */
-	EList<Resource> getResources();
 
 	/**
 	 * Returns the value of the '<em><b>Parsed Invariant</b></em>' containment reference.

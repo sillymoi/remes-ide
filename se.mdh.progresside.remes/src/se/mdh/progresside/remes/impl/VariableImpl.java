@@ -92,7 +92,7 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PrimitiveTypes TYPE_EDEFAULT = PrimitiveTypes.BOOLEAN;
+	protected static final PrimitiveTypes TYPE_EDEFAULT = PrimitiveTypes.INTEGER;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

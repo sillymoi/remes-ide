@@ -39,7 +39,6 @@ import se.mdh.progresside.remes.SubMode;
  *   <li>{@link se.mdh.progresside.remes.impl.SubModeImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.SubModeImpl#isIsUrgent <em>Is Urgent</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.SubModeImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.impl.SubModeImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.SubModeImpl#getParsedInvariant <em>Parsed Invariant</em>}</li>
  * </ul>
  * </p>
@@ -86,16 +85,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 	 * @ordered
 	 */
 	protected boolean isUrgent = IS_URGENT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResources()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Resource> resources;
 
 	/**
 	 * The cached value of the '{@link #getParsedInvariant() <em>Parsed Invariant</em>}' containment reference.
@@ -214,18 +203,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Resource> getResources() {
-		if (resources == null) {
-			resources = new EObjectContainmentWithInverseEList<Resource>(Resource.class, this, RemesPackage.SUB_MODE__RESOURCES, RemesPackage.RESOURCE__SCOPE);
-		}
-		return resources;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public LogicalRoot getParsedInvariant() {
 		return parsedInvariant;
 	}
@@ -277,8 +254,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParent((CompositeMode)otherEnd, msgs);
-			case RemesPackage.SUB_MODE__RESOURCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -293,8 +268,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 		switch (featureID) {
 			case RemesPackage.SUB_MODE__PARENT:
 				return basicSetParent(null, msgs);
-			case RemesPackage.SUB_MODE__RESOURCES:
-				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case RemesPackage.SUB_MODE__PARSED_INVARIANT:
 				return basicSetParsedInvariant(null, msgs);
 		}
@@ -329,8 +302,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 				return isIsUrgent();
 			case RemesPackage.SUB_MODE__PARENT:
 				return getParent();
-			case RemesPackage.SUB_MODE__RESOURCES:
-				return getResources();
 			case RemesPackage.SUB_MODE__PARSED_INVARIANT:
 				return getParsedInvariant();
 		}
@@ -354,10 +325,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 				return;
 			case RemesPackage.SUB_MODE__PARENT:
 				setParent((CompositeMode)newValue);
-				return;
-			case RemesPackage.SUB_MODE__RESOURCES:
-				getResources().clear();
-				getResources().addAll((Collection<? extends Resource>)newValue);
 				return;
 			case RemesPackage.SUB_MODE__PARSED_INVARIANT:
 				setParsedInvariant((LogicalRoot)newValue);
@@ -383,9 +350,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 			case RemesPackage.SUB_MODE__PARENT:
 				setParent((CompositeMode)null);
 				return;
-			case RemesPackage.SUB_MODE__RESOURCES:
-				getResources().clear();
-				return;
 			case RemesPackage.SUB_MODE__PARSED_INVARIANT:
 				setParsedInvariant((LogicalRoot)null);
 				return;
@@ -407,8 +371,6 @@ public class SubModeImpl extends ModeImpl implements SubMode {
 				return isUrgent != IS_URGENT_EDEFAULT;
 			case RemesPackage.SUB_MODE__PARENT:
 				return getParent() != null;
-			case RemesPackage.SUB_MODE__RESOURCES:
-				return resources != null && !resources.isEmpty();
 			case RemesPackage.SUB_MODE__PARSED_INVARIANT:
 				return parsedInvariant != null;
 		}

@@ -439,6 +439,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMode_Resources() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRemesDiagram() {
 		return remesDiagramEClass;
 	}
@@ -493,17 +502,8 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubMode_Resources() {
-		return (EReference)subModeEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getSubMode_ParsedInvariant() {
-		return (EReference)subModeEClass.getEStructuralFeatures().get(4);
+		return (EReference)subModeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -811,6 +811,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		modeEClass = createEClass(MODE);
 		createEAttribute(modeEClass, MODE__INITIALIZATION);
 		createEReference(modeEClass, MODE__VARIABLES);
+		createEReference(modeEClass, MODE__RESOURCES);
 
 		remesDiagramEClass = createEClass(REMES_DIAGRAM);
 		createEReference(remesDiagramEClass, REMES_DIAGRAM__MODES);
@@ -819,7 +820,6 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEAttribute(subModeEClass, SUB_MODE__INVARIANT);
 		createEAttribute(subModeEClass, SUB_MODE__IS_URGENT);
 		createEReference(subModeEClass, SUB_MODE__PARENT);
-		createEReference(subModeEClass, SUB_MODE__RESOURCES);
 		createEReference(subModeEClass, SUB_MODE__PARSED_INVARIANT);
 
 		variableEClass = createEClass(VARIABLE);
@@ -937,6 +937,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEClass(modeEClass, Mode.class, "Mode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Initialization(), ecorePackage.getEString(), "initialization", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMode_Variables(), this.getVariable(), this.getVariable_Scope(), "variables", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Resources(), this.getResource(), this.getResource_Scope(), "resources", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(remesDiagramEClass, RemesDiagram.class, "RemesDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRemesDiagram_Modes(), this.getMode(), null, "modes", null, 0, -1, RemesDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -945,7 +946,6 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEAttribute(getSubMode_Invariant(), ecorePackage.getEString(), "invariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSubMode_IsUrgent(), ecorePackage.getEBoolean(), "isUrgent", "false", 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubMode_Parent(), this.getCompositeMode(), this.getCompositeMode_SubModes(), "parent", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSubMode_Resources(), this.getResource(), this.getResource_Scope(), "resources", null, 0, -1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubMode_ParsedInvariant(), theTreePackage.getLogicalRoot(), null, "parsedInvariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -961,7 +961,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Type(), this.getResourceTypes(), "type", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResource_Scope(), this.getSubMode(), this.getSubMode_Resources(), "scope", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResource_Scope(), this.getMode(), this.getMode_Resources(), "scope", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pointEClass, Point.class, "Point", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -985,8 +985,8 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		// Initialize enums and add enum literals
 		initEEnum(primitiveTypesEEnum, PrimitiveTypes.class, "PrimitiveTypes");
-		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.BOOLEAN);
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.INTEGER);
+		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.BOOLEAN);
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.NATURAL);
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.CLOCK);
 

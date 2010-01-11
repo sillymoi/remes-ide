@@ -127,13 +127,22 @@ public interface RemesPackage extends EPackage {
 	int MODE__VARIABLES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__RESOURCES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Mode</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
+	int MODE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeModeImpl <em>Composite Mode</em>}' class.
@@ -198,6 +207,15 @@ public interface RemesPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_MODE__VARIABLES = MODE__VARIABLES;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__RESOURCES = MODE__RESOURCES;
 
 	/**
 	 * The feature id for the '<em><b>Sub Modes</b></em>' containment reference list.
@@ -547,6 +565,15 @@ public interface RemesPackage extends EPackage {
 	int SUB_MODE__VARIABLES = MODE__VARIABLES;
 
 	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MODE__RESOURCES = MODE__RESOURCES;
+
+	/**
 	 * The feature id for the '<em><b>Invariant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -574,22 +601,13 @@ public interface RemesPackage extends EPackage {
 	int SUB_MODE__PARENT = MODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MODE__RESOURCES = MODE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Parsed Invariant</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE__PARSED_INVARIANT = MODE_FEATURE_COUNT + 4;
+	int SUB_MODE__PARSED_INVARIANT = MODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Sub Mode</em>' class.
@@ -598,7 +616,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 5;
+	int SUB_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.VariableImpl <em>Variable</em>}' class.
@@ -1208,6 +1226,17 @@ public interface RemesPackage extends EPackage {
 	EReference getMode_Variables();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.Mode#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see se.mdh.progresside.remes.Mode#getResources()
+	 * @see #getMode()
+	 * @generated
+	 */
+	EReference getMode_Resources();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.RemesDiagram <em>Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1270,17 +1299,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSubMode_Parent();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.SubMode#getResources <em>Resources</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resources</em>'.
-	 * @see se.mdh.progresside.remes.SubMode#getResources()
-	 * @see #getSubMode()
-	 * @generated
-	 */
-	EReference getSubMode_Resources();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.SubMode#getParsedInvariant <em>Parsed Invariant</em>}'.
@@ -1791,6 +1809,14 @@ public interface RemesPackage extends EPackage {
 		EReference MODE__VARIABLES = eINSTANCE.getMode_Variables();
 
 		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE__RESOURCES = eINSTANCE.getMode_Resources();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.RemesDiagramImpl <em>Diagram</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1841,14 +1867,6 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUB_MODE__PARENT = eINSTANCE.getSubMode_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SUB_MODE__RESOURCES = eINSTANCE.getSubMode_Resources();
 
 		/**
 		 * The meta object literal for the '<em><b>Parsed Invariant</b></em>' containment reference feature.

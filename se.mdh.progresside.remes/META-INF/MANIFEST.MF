@@ -12,6 +12,6 @@ Export-Package: se.mdh.progresside.remes,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  se.mdh.progresside.attributes.framework;bundle-version="0.2.0";visibility:=reexport,
- hr.fer.rasip.remes.grammars.logical.tree;bundle-version="1.0.0"
+ hr.fer.rasip.remes.grammars.logical.tree;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Import-Package: hr.fer.rasip.remes.grammars.logical.tree

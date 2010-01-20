@@ -7,8 +7,7 @@
 package se.mdh.progresside.remes;
 
 import org.eclipse.emf.common.util.EList;
-
-import se.mdh.progresside.attributes.Attributable;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +25,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface RemesDiagram extends Attributable {
+public interface RemesDiagram extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Modes</b></em>' containment reference list.
 	 * The list contents are of type {@link se.mdh.progresside.remes.Mode}.

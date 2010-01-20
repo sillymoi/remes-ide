@@ -6,50 +6,56 @@
  */
 package se.mdh.progresside.remes.impl;
 
-import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
-import se.mdh.progresside.remes.Mode;
-import se.mdh.progresside.remes.RemesDiagram;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import se.mdh.progresside.remes.Referrable;
 import se.mdh.progresside.remes.RemesPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Diagram</b></em>'.
+ * An implementation of the model object '<em><b>Referrable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.impl.RemesDiagramImpl#getModes <em>Modes</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ReferrableImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
+public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	/**
-	 * The cached value of the '{@link #getModes() <em>Modes</em>}' containment reference list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModes()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Mode> modes;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RemesDiagramImpl() {
+	protected ReferrableImpl() {
 		super();
 	}
 
@@ -60,7 +66,7 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RemesPackage.Literals.REMES_DIAGRAM;
+		return RemesPackage.Literals.REFERRABLE;
 	}
 
 	/**
@@ -68,11 +74,8 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Mode> getModes() {
-		if (modes == null) {
-			modes = new EObjectContainmentEList<Mode>(Mode.class, this, RemesPackage.REMES_DIAGRAM__MODES);
-		}
-		return modes;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -80,13 +83,11 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
-				return ((InternalEList<?>)getModes()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.REFERRABLE__NAME, oldName, name));
 	}
 
 	/**
@@ -97,8 +98,8 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
-				return getModes();
+			case RemesPackage.REFERRABLE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,13 +109,11 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
-				getModes().clear();
-				getModes().addAll((Collection<? extends Mode>)newValue);
+			case RemesPackage.REFERRABLE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +127,8 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
-				getModes().clear();
+			case RemesPackage.REFERRABLE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +142,26 @@ public class RemesDiagramImpl extends EObjectImpl implements RemesDiagram {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
-				return modes != null && !modes.isEmpty();
+			case RemesPackage.REFERRABLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //RemesDiagramImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ReferrableImpl

@@ -6,7 +6,7 @@
  */
 package se.mdh.progresside.remes;
 
-import se.mdh.progresside.attributes.Attributable;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +16,6 @@ import se.mdh.progresside.attributes.Attributable;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.Variable#getName <em>Name</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Variable#getValue <em>Value</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Variable#getType <em>Type</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Variable#getVectorSize <em>Vector Size</em>}</li>
@@ -31,33 +30,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface Variable extends Attributable {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see se.mdh.progresside.remes.RemesPackage#getVariable_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link se.mdh.progresside.remes.Variable#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Variable extends Referrable {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -195,6 +168,7 @@ public interface Variable extends Attributable {
 
 	/**
 	 * Returns the value of the '<em><b>Readable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Readable</em>' attribute isn't clear,
@@ -204,7 +178,7 @@ public interface Variable extends Attributable {
 	 * @return the value of the '<em>Readable</em>' attribute.
 	 * @see #setReadable(boolean)
 	 * @see se.mdh.progresside.remes.RemesPackage#getVariable_Readable()
-	 * @model required="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isReadable();
@@ -221,6 +195,7 @@ public interface Variable extends Attributable {
 
 	/**
 	 * Returns the value of the '<em><b>Writable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Writable</em>' attribute isn't clear,
@@ -230,7 +205,7 @@ public interface Variable extends Attributable {
 	 * @return the value of the '<em>Writable</em>' attribute.
 	 * @see #setWritable(boolean)
 	 * @see se.mdh.progresside.remes.RemesPackage#getVariable_Writable()
-	 * @model required="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isWritable();

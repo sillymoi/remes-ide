@@ -8,15 +8,11 @@ package se.mdh.progresside.remes.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import se.mdh.progresside.attributes.impl.AttributableImpl;
 
 import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.PrimitiveTypes;
@@ -30,7 +26,6 @@ import se.mdh.progresside.remes.Variable;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.impl.VariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.VariableImpl#getValue <em>Value</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.VariableImpl#getType <em>Type</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.VariableImpl#getVectorSize <em>Vector Size</em>}</li>
@@ -43,27 +38,7 @@ import se.mdh.progresside.remes.Variable;
  *
  * @generated
  */
-public class VariableImpl extends AttributableImpl implements Variable {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class VariableImpl extends ReferrableImpl implements Variable {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -152,7 +127,7 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean READABLE_EDEFAULT = false;
+	protected static final boolean READABLE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isReadable() <em>Readable</em>}' attribute.
@@ -172,7 +147,7 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean WRITABLE_EDEFAULT = false;
+	protected static final boolean WRITABLE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isWritable() <em>Writable</em>}' attribute.
@@ -201,27 +176,6 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	@Override
 	protected EClass eStaticClass() {
 		return RemesPackage.Literals.VARIABLE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.VARIABLE__NAME, oldName, name));
 	}
 
 	/**
@@ -443,8 +397,6 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RemesPackage.VARIABLE__NAME:
-				return getName();
 			case RemesPackage.VARIABLE__VALUE:
 				return getValue();
 			case RemesPackage.VARIABLE__TYPE:
@@ -471,9 +423,6 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RemesPackage.VARIABLE__NAME:
-				setName((String)newValue);
-				return;
 			case RemesPackage.VARIABLE__VALUE:
 				setValue((String)newValue);
 				return;
@@ -507,9 +456,6 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RemesPackage.VARIABLE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case RemesPackage.VARIABLE__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -543,8 +489,6 @@ public class VariableImpl extends AttributableImpl implements Variable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RemesPackage.VARIABLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RemesPackage.VARIABLE__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case RemesPackage.VARIABLE__TYPE:
@@ -573,9 +517,7 @@ public class VariableImpl extends AttributableImpl implements Variable {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", value: ");
+		result.append(" (value: ");
 		result.append(value);
 		result.append(", type: ");
 		result.append(type);

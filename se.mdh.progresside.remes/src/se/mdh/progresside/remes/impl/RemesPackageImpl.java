@@ -6,26 +6,23 @@
  */
 package se.mdh.progresside.remes.impl;
 
-import hr.fer.rasip.remes.grammars.logical.tree.TreePackage;
-
-import hr.fer.rasip.remes.grammars.logical.tree.impl.TreePackageImpl;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl;
+import static se.mdh.progresside.remes.RemesPackage.RESOURCE;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import se.mdh.progresside.attributes.AttributesPackage;
-
-import se.mdh.progresside.attributes.impl.AttributesPackageImpl;
 
 import se.mdh.progresside.remes.CompositeEntryPoint;
 import se.mdh.progresside.remes.CompositeExitPoint;
 import se.mdh.progresside.remes.CompositeMode;
 import se.mdh.progresside.remes.ConditionalConnector;
+import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.ControlPath;
 import se.mdh.progresside.remes.Edge;
 import se.mdh.progresside.remes.EntryPoint;
@@ -35,6 +32,7 @@ import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.Point;
 import se.mdh.progresside.remes.PrimitiveTypes;
+import se.mdh.progresside.remes.Referrable;
 import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesFactory;
 import se.mdh.progresside.remes.RemesPackage;
@@ -167,6 +165,20 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass referrableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum primitiveTypesEEnum = null;
 
 	/**
@@ -223,18 +235,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		AttributesPackageImpl theAttributesPackage = (AttributesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AttributesPackage.eNS_URI) instanceof AttributesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AttributesPackage.eNS_URI) : AttributesPackage.eINSTANCE);
-		TreePackageImpl theTreePackage = (TreePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TreePackage.eNS_URI) instanceof TreePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TreePackage.eNS_URI) : TreePackage.eINSTANCE);
+		AstPackageImpl theAstPackage = (AstPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) instanceof AstPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) : AstPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theRemesPackage.createPackageContents();
-		theAttributesPackage.createPackageContents();
-		theTreePackage.createPackageContents();
+		theAstPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRemesPackage.initializePackageContents();
-		theAttributesPackage.initializePackageContents();
-		theTreePackage.initializePackageContents();
+		theAstPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRemesPackage.freeze();
@@ -376,6 +385,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEdge_ParsedActionBody() {
+		return (EReference)edgeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInitEdge() {
 		return initEdgeEClass;
 	}
@@ -412,6 +430,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInitEdge_ParsedInitialization() {
+		return (EReference)initEdgeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMode() {
 		return modeEClass;
 	}
@@ -441,6 +468,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 */
 	public EReference getMode_Resources() {
 		return (EReference)modeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMode_Constants() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -520,7 +556,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_Name() {
+	public EAttribute getVariable_Value() {
 		return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -529,7 +565,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_Value() {
+	public EAttribute getVariable_Type() {
 		return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -538,7 +574,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_Type() {
+	public EAttribute getVariable_VectorSize() {
 		return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -547,7 +583,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_VectorSize() {
+	public EAttribute getVariable_Global() {
 		return (EAttribute)variableEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -556,17 +592,8 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_Global() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getVariable_Scope() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(5);
+		return (EReference)variableEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -575,7 +602,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * @generated
 	 */
 	public EAttribute getVariable_Readable() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -584,7 +611,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * @generated
 	 */
 	public EAttribute getVariable_Writable() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -655,6 +682,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInitPoint_Container() {
+		return (EReference)initPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntryPoint() {
 		return entryPointEClass;
 	}
@@ -673,6 +709,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEntryPoint_Container() {
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExitPoint() {
 		return exitPointEClass;
 	}
@@ -684,6 +729,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 */
 	public EReference getExitPoint_ExitEdges() {
 		return (EReference)exitPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExitPoint_Container() {
+		return (EReference)exitPointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -736,8 +790,89 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCompositeEntryPoint_Composite() {
+		return (EReference)compositeEntryPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompositeExitPoint() {
 		return compositeExitPointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompositeExitPoint_Composite() {
+		return (EReference)compositeExitPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReferrable() {
+		return referrableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReferrable_Name() {
+		return (EAttribute)referrableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstant() {
+		return constantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstant_Type() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstant_Value() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstant_Global() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConstant_Scope() {
+		return (EReference)constantEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -802,16 +937,19 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEReference(edgeEClass, EDGE__PARSED_ACTION_GUARD);
 		createEReference(edgeEClass, EDGE__CONNECT_FROM);
 		createEReference(edgeEClass, EDGE__CONNECT_TO);
+		createEReference(edgeEClass, EDGE__PARSED_ACTION_BODY);
 
 		initEdgeEClass = createEClass(INIT_EDGE);
 		createEAttribute(initEdgeEClass, INIT_EDGE__INITIALIZATION);
 		createEReference(initEdgeEClass, INIT_EDGE__CONNECT_FROM);
 		createEReference(initEdgeEClass, INIT_EDGE__CONNECT_TO);
+		createEReference(initEdgeEClass, INIT_EDGE__PARSED_INITIALIZATION);
 
 		modeEClass = createEClass(MODE);
 		createEAttribute(modeEClass, MODE__INITIALIZATION);
 		createEReference(modeEClass, MODE__VARIABLES);
 		createEReference(modeEClass, MODE__RESOURCES);
+		createEReference(modeEClass, MODE__CONSTANTS);
 
 		remesDiagramEClass = createEClass(REMES_DIAGRAM);
 		createEReference(remesDiagramEClass, REMES_DIAGRAM__MODES);
@@ -823,7 +961,6 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEReference(subModeEClass, SUB_MODE__PARSED_INVARIANT);
 
 		variableEClass = createEClass(VARIABLE);
-		createEAttribute(variableEClass, VARIABLE__NAME);
 		createEAttribute(variableEClass, VARIABLE__VALUE);
 		createEAttribute(variableEClass, VARIABLE__TYPE);
 		createEAttribute(variableEClass, VARIABLE__VECTOR_SIZE);
@@ -841,12 +978,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		initPointEClass = createEClass(INIT_POINT);
 		createEReference(initPointEClass, INIT_POINT__INIT_EDGE);
+		createEReference(initPointEClass, INIT_POINT__CONTAINER);
 
 		entryPointEClass = createEClass(ENTRY_POINT);
 		createEReference(entryPointEClass, ENTRY_POINT__ENTRY_EDGES);
+		createEReference(entryPointEClass, ENTRY_POINT__CONTAINER);
 
 		exitPointEClass = createEClass(EXIT_POINT);
 		createEReference(exitPointEClass, EXIT_POINT__EXIT_EDGES);
+		createEReference(exitPointEClass, EXIT_POINT__CONTAINER);
 
 		controlPathEClass = createEClass(CONTROL_PATH);
 		createEReference(controlPathEClass, CONTROL_PATH__ENTRY_POINT);
@@ -854,8 +994,19 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEAttribute(controlPathEClass, CONTROL_PATH__NAME);
 
 		compositeEntryPointEClass = createEClass(COMPOSITE_ENTRY_POINT);
+		createEReference(compositeEntryPointEClass, COMPOSITE_ENTRY_POINT__COMPOSITE);
 
 		compositeExitPointEClass = createEClass(COMPOSITE_EXIT_POINT);
+		createEReference(compositeExitPointEClass, COMPOSITE_EXIT_POINT__COMPOSITE);
+
+		referrableEClass = createEClass(REFERRABLE);
+		createEAttribute(referrableEClass, REFERRABLE__NAME);
+
+		constantEClass = createEClass(CONSTANT);
+		createEAttribute(constantEClass, CONSTANT__TYPE);
+		createEAttribute(constantEClass, CONSTANT__VALUE);
+		createEAttribute(constantEClass, CONSTANT__GLOBAL);
+		createEReference(constantEClass, CONSTANT__SCOPE);
 
 		// Create enums
 		primitiveTypesEEnum = createEEnum(PRIMITIVE_TYPES);
@@ -886,8 +1037,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		AttributesPackage theAttributesPackage = (AttributesPackage)EPackage.Registry.INSTANCE.getEPackage(AttributesPackage.eNS_URI);
-		TreePackage theTreePackage = (TreePackage)EPackage.Registry.INSTANCE.getEPackage(TreePackage.eNS_URI);
+		AstPackage theAstPackage = (AstPackage)EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -895,29 +1045,25 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		// Add supertypes to classes
 		compositeModeEClass.getESuperTypes().add(this.getMode());
-		conditionalConnectorEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
 		conditionalConnectorEClass.getESuperTypes().add(this.getControlPath());
-		edgeEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
-		initEdgeEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
-		modeEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
 		modeEClass.getESuperTypes().add(this.getControlPath());
-		remesDiagramEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
 		subModeEClass.getESuperTypes().add(this.getMode());
-		variableEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
-		resourceEClass.getESuperTypes().add(theAttributesPackage.getAttributable());
+		variableEClass.getESuperTypes().add(this.getReferrable());
+		resourceEClass.getESuperTypes().add(this.getReferrable());
 		initPointEClass.getESuperTypes().add(this.getPoint());
 		entryPointEClass.getESuperTypes().add(this.getPoint());
 		exitPointEClass.getESuperTypes().add(this.getPoint());
 		compositeEntryPointEClass.getESuperTypes().add(this.getExitPoint());
 		compositeExitPointEClass.getESuperTypes().add(this.getEntryPoint());
+		constantEClass.getESuperTypes().add(this.getReferrable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(compositeModeEClass, CompositeMode.class, "CompositeMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeMode_SubModes(), this.getSubMode(), this.getSubMode_Parent(), "subModes", null, 1, -1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompositeMode_ConditionalConnectors(), this.getConditionalConnector(), this.getConditionalConnector_Parent(), "conditionalConnectors", null, 0, -1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompositeMode_InitPoint(), this.getInitPoint(), null, "initPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompositeMode_CompositeEntryPoint(), this.getCompositeEntryPoint(), null, "compositeEntryPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompositeMode_CompositeExitPoint(), this.getCompositeExitPoint(), null, "compositeExitPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeMode_InitPoint(), this.getInitPoint(), this.getInitPoint_Container(), "initPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeMode_CompositeEntryPoint(), this.getCompositeEntryPoint(), this.getCompositeEntryPoint_Composite(), "compositeEntryPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeMode_CompositeExitPoint(), this.getCompositeExitPoint(), this.getCompositeExitPoint_Composite(), "compositeExitPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalConnectorEClass, ConditionalConnector.class, "ConditionalConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConditionalConnector_Parent(), this.getCompositeMode(), this.getCompositeMode_ConditionalConnectors(), "parent", null, 0, 1, ConditionalConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -925,19 +1071,28 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEClass(edgeEClass, Edge.class, "Edge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEdge_ActionGuard(), ecorePackage.getEString(), "actionGuard", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEdge_ActionBody(), ecorePackage.getEString(), "actionBody", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEdge_ParsedActionGuard(), theTreePackage.getLogicalRoot(), null, "parsedActionGuard", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdge_ParsedActionGuard(), theAstPackage.getLogicalRoot(), null, "parsedActionGuard", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_ConnectFrom(), this.getExitPoint(), this.getExitPoint_ExitEdges(), "connectFrom", null, 1, 1, Edge.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEdge_ConnectTo(), this.getEntryPoint(), this.getEntryPoint_EntryEdges(), "connectTo", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEdge_ParsedActionBody(), theAstPackage.getActionRoot(), null, "parsedActionBody", null, 0, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initEdgeEClass, InitEdge.class, "InitEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInitEdge_Initialization(), ecorePackage.getEString(), "initialization", null, 0, 1, InitEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInitEdge_ConnectFrom(), this.getInitPoint(), this.getInitPoint_InitEdge(), "connectFrom", null, 1, 1, InitEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInitEdge_ConnectTo(), this.getEntryPoint(), null, "connectTo", null, 1, 1, InitEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInitEdge_ParsedInitialization(), theAstPackage.getActionRoot(), null, "parsedInitialization", null, 0, 1, InitEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modeEClass, Mode.class, "Mode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Initialization(), ecorePackage.getEString(), "initialization", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMode_Variables(), this.getVariable(), this.getVariable_Scope(), "variables", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMode_Resources(), this.getResource(), this.getResource_Scope(), "resources", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Constants(), this.getConstant(), this.getConstant_Scope(), "constants", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(modeEClass, this.getVariable(), "findVariableByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(modeEClass, this.getResource(), "findResourceByName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(remesDiagramEClass, RemesDiagram.class, "RemesDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRemesDiagram_Modes(), this.getMode(), null, "modes", null, 0, -1, RemesDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -946,17 +1101,16 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEAttribute(getSubMode_Invariant(), ecorePackage.getEString(), "invariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSubMode_IsUrgent(), ecorePackage.getEBoolean(), "isUrgent", "false", 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSubMode_Parent(), this.getCompositeMode(), this.getCompositeMode_SubModes(), "parent", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSubMode_ParsedInvariant(), theTreePackage.getLogicalRoot(), null, "parsedInvariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubMode_ParsedInvariant(), theAstPackage.getLogicalRoot(), null, "parsedInvariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_Value(), ecorePackage.getEString(), "value", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_Type(), this.getPrimitiveTypes(), "type", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_VectorSize(), ecorePackage.getEInt(), "vectorSize", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_Global(), ecorePackage.getEBoolean(), "global", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariable_Scope(), this.getMode(), this.getMode_Variables(), "scope", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariable_Readable(), ecorePackage.getEBoolean(), "readable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVariable_Writable(), ecorePackage.getEBoolean(), "writable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariable_Readable(), ecorePackage.getEBoolean(), "readable", "true", 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariable_Writable(), ecorePackage.getEBoolean(), "writable", "true", 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -967,21 +1121,35 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		initEClass(initPointEClass, InitPoint.class, "InitPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInitPoint_InitEdge(), this.getInitEdge(), this.getInitEdge_ConnectFrom(), "initEdge", null, 1, 1, InitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInitPoint_Container(), this.getCompositeMode(), this.getCompositeMode_InitPoint(), "container", null, 1, 1, InitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPoint_EntryEdges(), this.getEdge(), this.getEdge_ConnectTo(), "entryEdges", null, 1, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Container(), this.getControlPath(), this.getControlPath_EntryPoint(), "container", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exitPointEClass, ExitPoint.class, "ExitPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExitPoint_ExitEdges(), this.getEdge(), this.getEdge_ConnectFrom(), "exitEdges", null, 1, -1, ExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExitPoint_Container(), this.getControlPath(), this.getControlPath_ExitPoint(), "container", null, 1, 1, ExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controlPathEClass, ControlPath.class, "ControlPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getControlPath_EntryPoint(), this.getEntryPoint(), null, "entryPoint", null, 1, 1, ControlPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getControlPath_ExitPoint(), this.getExitPoint(), null, "exitPoint", null, 1, 1, ControlPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlPath_EntryPoint(), this.getEntryPoint(), this.getEntryPoint_Container(), "entryPoint", null, 1, 1, ControlPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlPath_ExitPoint(), this.getExitPoint(), this.getExitPoint_Container(), "exitPoint", null, 1, 1, ControlPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getControlPath_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControlPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compositeEntryPointEClass, CompositeEntryPoint.class, "CompositeEntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeEntryPoint_Composite(), this.getCompositeMode(), this.getCompositeMode_CompositeEntryPoint(), "composite", null, 0, 1, CompositeEntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compositeExitPointEClass, CompositeExitPoint.class, "CompositeExitPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeExitPoint_Composite(), this.getCompositeMode(), this.getCompositeMode_CompositeExitPoint(), "composite", null, 0, 1, CompositeExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(referrableEClass, Referrable.class, "Referrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReferrable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Referrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConstant_Type(), this.getPrimitiveTypes(), "type", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_Global(), ecorePackage.getEBoolean(), "global", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstant_Scope(), this.getMode(), this.getMode_Constants(), "scope", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(primitiveTypesEEnum, PrimitiveTypes.class, "PrimitiveTypes");

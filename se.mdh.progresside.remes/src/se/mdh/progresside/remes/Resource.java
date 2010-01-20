@@ -6,7 +6,7 @@
  */
 package se.mdh.progresside.remes;
 
-import se.mdh.progresside.attributes.Attributable;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +26,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface Resource extends Attributable {
+public interface Resource extends Referrable {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->

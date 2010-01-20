@@ -173,9 +173,9 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 		if (newInitPoint != initPoint) {
 			NotificationChain msgs = null;
 			if (initPoint != null)
-				msgs = ((InternalEObject)initPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__INIT_POINT, null, msgs);
+				msgs = ((InternalEObject)initPoint).eInverseRemove(this, RemesPackage.INIT_POINT__CONTAINER, InitPoint.class, msgs);
 			if (newInitPoint != null)
-				msgs = ((InternalEObject)newInitPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__INIT_POINT, null, msgs);
+				msgs = ((InternalEObject)newInitPoint).eInverseAdd(this, RemesPackage.INIT_POINT__CONTAINER, InitPoint.class, msgs);
 			msgs = basicSetInitPoint(newInitPoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -216,9 +216,9 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 		if (newCompositeEntryPoint != compositeEntryPoint) {
 			NotificationChain msgs = null;
 			if (compositeEntryPoint != null)
-				msgs = ((InternalEObject)compositeEntryPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT, null, msgs);
+				msgs = ((InternalEObject)compositeEntryPoint).eInverseRemove(this, RemesPackage.COMPOSITE_ENTRY_POINT__COMPOSITE, CompositeEntryPoint.class, msgs);
 			if (newCompositeEntryPoint != null)
-				msgs = ((InternalEObject)newCompositeEntryPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT, null, msgs);
+				msgs = ((InternalEObject)newCompositeEntryPoint).eInverseAdd(this, RemesPackage.COMPOSITE_ENTRY_POINT__COMPOSITE, CompositeEntryPoint.class, msgs);
 			msgs = basicSetCompositeEntryPoint(newCompositeEntryPoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -259,9 +259,9 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 		if (newCompositeExitPoint != compositeExitPoint) {
 			NotificationChain msgs = null;
 			if (compositeExitPoint != null)
-				msgs = ((InternalEObject)compositeExitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT, null, msgs);
+				msgs = ((InternalEObject)compositeExitPoint).eInverseRemove(this, RemesPackage.COMPOSITE_EXIT_POINT__COMPOSITE, CompositeExitPoint.class, msgs);
 			if (newCompositeExitPoint != null)
-				msgs = ((InternalEObject)newCompositeExitPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT, null, msgs);
+				msgs = ((InternalEObject)newCompositeExitPoint).eInverseAdd(this, RemesPackage.COMPOSITE_EXIT_POINT__COMPOSITE, CompositeExitPoint.class, msgs);
 			msgs = basicSetCompositeExitPoint(newCompositeExitPoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -282,6 +282,18 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubModes()).basicAdd(otherEnd, msgs);
 			case RemesPackage.COMPOSITE_MODE__CONDITIONAL_CONNECTORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConditionalConnectors()).basicAdd(otherEnd, msgs);
+			case RemesPackage.COMPOSITE_MODE__INIT_POINT:
+				if (initPoint != null)
+					msgs = ((InternalEObject)initPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__INIT_POINT, null, msgs);
+				return basicSetInitPoint((InitPoint)otherEnd, msgs);
+			case RemesPackage.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT:
+				if (compositeEntryPoint != null)
+					msgs = ((InternalEObject)compositeEntryPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT, null, msgs);
+				return basicSetCompositeEntryPoint((CompositeEntryPoint)otherEnd, msgs);
+			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
+				if (compositeExitPoint != null)
+					msgs = ((InternalEObject)compositeExitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT, null, msgs);
+				return basicSetCompositeExitPoint((CompositeExitPoint)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

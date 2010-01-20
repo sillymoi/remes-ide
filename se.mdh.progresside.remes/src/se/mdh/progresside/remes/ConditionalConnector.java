@@ -6,7 +6,6 @@
  */
 package se.mdh.progresside.remes;
 
-import se.mdh.progresside.attributes.Attributable;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface ConditionalConnector extends Attributable, ControlPath {
+public interface ConditionalConnector extends ControlPath {
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.CompositeMode#getConditionalConnectors <em>Conditional Connectors</em>}'.

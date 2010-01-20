@@ -6,9 +6,7 @@
  */
 package se.mdh.progresside.remes;
 
-import hr.fer.rasip.remes.grammars.logical.tree.LogicalRoot;
-
-import org.eclipse.emf.common.util.EList;
+import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
 
 /**
  * <!-- begin-user-doc -->

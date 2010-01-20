@@ -128,9 +128,9 @@ public abstract class ControlPathImpl extends EObjectImpl implements ControlPath
 		if (newEntryPoint != entryPoint) {
 			NotificationChain msgs = null;
 			if (entryPoint != null)
-				msgs = ((InternalEObject)entryPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__ENTRY_POINT, null, msgs);
+				msgs = ((InternalEObject)entryPoint).eInverseRemove(this, RemesPackage.ENTRY_POINT__CONTAINER, EntryPoint.class, msgs);
 			if (newEntryPoint != null)
-				msgs = ((InternalEObject)newEntryPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__ENTRY_POINT, null, msgs);
+				msgs = ((InternalEObject)newEntryPoint).eInverseAdd(this, RemesPackage.ENTRY_POINT__CONTAINER, EntryPoint.class, msgs);
 			msgs = basicSetEntryPoint(newEntryPoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -171,9 +171,9 @@ public abstract class ControlPathImpl extends EObjectImpl implements ControlPath
 		if (newExitPoint != exitPoint) {
 			NotificationChain msgs = null;
 			if (exitPoint != null)
-				msgs = ((InternalEObject)exitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__EXIT_POINT, null, msgs);
+				msgs = ((InternalEObject)exitPoint).eInverseRemove(this, RemesPackage.EXIT_POINT__CONTAINER, ExitPoint.class, msgs);
 			if (newExitPoint != null)
-				msgs = ((InternalEObject)newExitPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__EXIT_POINT, null, msgs);
+				msgs = ((InternalEObject)newExitPoint).eInverseAdd(this, RemesPackage.EXIT_POINT__CONTAINER, ExitPoint.class, msgs);
 			msgs = basicSetExitPoint(newExitPoint, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -200,6 +200,26 @@ public abstract class ControlPathImpl extends EObjectImpl implements ControlPath
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.CONTROL_PATH__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RemesPackage.CONTROL_PATH__ENTRY_POINT:
+				if (entryPoint != null)
+					msgs = ((InternalEObject)entryPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__ENTRY_POINT, null, msgs);
+				return basicSetEntryPoint((EntryPoint)otherEnd, msgs);
+			case RemesPackage.CONTROL_PATH__EXIT_POINT:
+				if (exitPoint != null)
+					msgs = ((InternalEObject)exitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.CONTROL_PATH__EXIT_POINT, null, msgs);
+				return basicSetExitPoint((ExitPoint)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

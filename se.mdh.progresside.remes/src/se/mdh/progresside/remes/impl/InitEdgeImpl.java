@@ -6,17 +6,15 @@
  */
 package se.mdh.progresside.remes.impl;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import se.mdh.progresside.attributes.impl.AttributableImpl;
 
 import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.InitEdge;
@@ -33,12 +31,13 @@ import se.mdh.progresside.remes.RemesPackage;
  *   <li>{@link se.mdh.progresside.remes.impl.InitEdgeImpl#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.InitEdgeImpl#getConnectFrom <em>Connect From</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.InitEdgeImpl#getConnectTo <em>Connect To</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.InitEdgeImpl#getParsedInitialization <em>Parsed Initialization</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InitEdgeImpl extends AttributableImpl implements InitEdge {
+public class InitEdgeImpl extends EObjectImpl implements InitEdge {
 	/**
 	 * The default value of the '{@link #getInitialization() <em>Initialization</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,6 +67,16 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 	 * @ordered
 	 */
 	protected EntryPoint connectTo;
+
+	/**
+	 * The cached value of the '{@link #getParsedInitialization() <em>Parsed Initialization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParsedInitialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected ActionRoot parsedInitialization;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +202,49 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ActionRoot getParsedInitialization() {
+		return parsedInitialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParsedInitialization(ActionRoot newParsedInitialization, NotificationChain msgs) {
+		ActionRoot oldParsedInitialization = parsedInitialization;
+		parsedInitialization = newParsedInitialization;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.INIT_EDGE__PARSED_INITIALIZATION, oldParsedInitialization, newParsedInitialization);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParsedInitialization(ActionRoot newParsedInitialization) {
+		if (newParsedInitialization != parsedInitialization) {
+			NotificationChain msgs = null;
+			if (parsedInitialization != null)
+				msgs = ((InternalEObject)parsedInitialization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.INIT_EDGE__PARSED_INITIALIZATION, null, msgs);
+			if (newParsedInitialization != null)
+				msgs = ((InternalEObject)newParsedInitialization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.INIT_EDGE__PARSED_INITIALIZATION, null, msgs);
+			msgs = basicSetParsedInitialization(newParsedInitialization, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.INIT_EDGE__PARSED_INITIALIZATION, newParsedInitialization, newParsedInitialization));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -214,6 +266,8 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 		switch (featureID) {
 			case RemesPackage.INIT_EDGE__CONNECT_FROM:
 				return basicSetConnectFrom(null, msgs);
+			case RemesPackage.INIT_EDGE__PARSED_INITIALIZATION:
+				return basicSetParsedInitialization(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,6 +301,8 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 			case RemesPackage.INIT_EDGE__CONNECT_TO:
 				if (resolve) return getConnectTo();
 				return basicGetConnectTo();
+			case RemesPackage.INIT_EDGE__PARSED_INITIALIZATION:
+				return getParsedInitialization();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,6 +323,9 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 				return;
 			case RemesPackage.INIT_EDGE__CONNECT_TO:
 				setConnectTo((EntryPoint)newValue);
+				return;
+			case RemesPackage.INIT_EDGE__PARSED_INITIALIZATION:
+				setParsedInitialization((ActionRoot)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,6 +348,9 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 			case RemesPackage.INIT_EDGE__CONNECT_TO:
 				setConnectTo((EntryPoint)null);
 				return;
+			case RemesPackage.INIT_EDGE__PARSED_INITIALIZATION:
+				setParsedInitialization((ActionRoot)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -307,6 +369,8 @@ public class InitEdgeImpl extends AttributableImpl implements InitEdge {
 				return getConnectFrom() != null;
 			case RemesPackage.INIT_EDGE__CONNECT_TO:
 				return connectTo != null;
+			case RemesPackage.INIT_EDGE__PARSED_INITIALIZATION:
+				return parsedInitialization != null;
 		}
 		return super.eIsSet(featureID);
 	}

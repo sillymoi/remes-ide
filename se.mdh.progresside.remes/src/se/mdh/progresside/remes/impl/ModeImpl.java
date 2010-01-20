@@ -10,22 +10,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import se.mdh.progresside.attributes.impl.AttributableImpl;
-
-import se.mdh.progresside.remes.ControlPath;
-import se.mdh.progresside.remes.EntryPoint;
-import se.mdh.progresside.remes.ExitPoint;
+import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.Resource;
@@ -38,58 +30,16 @@ import se.mdh.progresside.remes.Variable;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getEntryPoint <em>Entry Point</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getExitPoint <em>Exit Point</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getName <em>Name</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getResources <em>Resources</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ModeImpl#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ModeImpl extends AttributableImpl implements Mode {
-	/**
-	 * The cached value of the '{@link #getEntryPoint() <em>Entry Point</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntryPoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected EntryPoint entryPoint;
-
-	/**
-	 * The cached value of the '{@link #getExitPoint() <em>Exit Point</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExitPoint()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExitPoint exitPoint;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public abstract class ModeImpl extends ControlPathImpl implements Mode {
 	/**
 	 * The default value of the '{@link #getInitialization() <em>Initialization</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -131,6 +81,16 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	protected EList<Resource> resources;
 
 	/**
+	 * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constant> constants;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -147,113 +107,6 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	protected EClass eStaticClass() {
 		return RemesPackage.Literals.MODE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntryPoint getEntryPoint() {
-		return entryPoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEntryPoint(EntryPoint newEntryPoint, NotificationChain msgs) {
-		EntryPoint oldEntryPoint = entryPoint;
-		entryPoint = newEntryPoint;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.MODE__ENTRY_POINT, oldEntryPoint, newEntryPoint);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntryPoint(EntryPoint newEntryPoint) {
-		if (newEntryPoint != entryPoint) {
-			NotificationChain msgs = null;
-			if (entryPoint != null)
-				msgs = ((InternalEObject)entryPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.MODE__ENTRY_POINT, null, msgs);
-			if (newEntryPoint != null)
-				msgs = ((InternalEObject)newEntryPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.MODE__ENTRY_POINT, null, msgs);
-			msgs = basicSetEntryPoint(newEntryPoint, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.MODE__ENTRY_POINT, newEntryPoint, newEntryPoint));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExitPoint getExitPoint() {
-		return exitPoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetExitPoint(ExitPoint newExitPoint, NotificationChain msgs) {
-		ExitPoint oldExitPoint = exitPoint;
-		exitPoint = newExitPoint;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.MODE__EXIT_POINT, oldExitPoint, newExitPoint);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExitPoint(ExitPoint newExitPoint) {
-		if (newExitPoint != exitPoint) {
-			NotificationChain msgs = null;
-			if (exitPoint != null)
-				msgs = ((InternalEObject)exitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.MODE__EXIT_POINT, null, msgs);
-			if (newExitPoint != null)
-				msgs = ((InternalEObject)newExitPoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.MODE__EXIT_POINT, null, msgs);
-			msgs = basicSetExitPoint(newExitPoint, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.MODE__EXIT_POINT, newExitPoint, newExitPoint));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.MODE__NAME, oldName, name));
 	}
 
 	/**
@@ -306,6 +159,47 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Constant> getConstants() {
+		if (constants == null) {
+			constants = new EObjectContainmentWithInverseEList<Constant>(Constant.class, this, RemesPackage.MODE__CONSTANTS, RemesPackage.CONSTANT__SCOPE);
+		}
+		return constants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Variable findVariableByName(String name) {
+		if(name == null) return null;
+		for(Variable var : this.getVariables()) {
+			if(var.getName().equals(name))
+				return var;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Resource findResourceByName(String name) {
+		// TODO Check if the usage of Expression is valid
+		if(name == null) return null;
+		for(Resource res : this.getResources()) {
+			if(res.getExpression().equals(name))
+				return res;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -314,6 +208,8 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariables()).basicAdd(otherEnd, msgs);
 			case RemesPackage.MODE__RESOURCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
+			case RemesPackage.MODE__CONSTANTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstants()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -326,14 +222,12 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RemesPackage.MODE__ENTRY_POINT:
-				return basicSetEntryPoint(null, msgs);
-			case RemesPackage.MODE__EXIT_POINT:
-				return basicSetExitPoint(null, msgs);
 			case RemesPackage.MODE__VARIABLES:
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 			case RemesPackage.MODE__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+			case RemesPackage.MODE__CONSTANTS:
+				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -346,18 +240,14 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RemesPackage.MODE__ENTRY_POINT:
-				return getEntryPoint();
-			case RemesPackage.MODE__EXIT_POINT:
-				return getExitPoint();
-			case RemesPackage.MODE__NAME:
-				return getName();
 			case RemesPackage.MODE__INITIALIZATION:
 				return getInitialization();
 			case RemesPackage.MODE__VARIABLES:
 				return getVariables();
 			case RemesPackage.MODE__RESOURCES:
 				return getResources();
+			case RemesPackage.MODE__CONSTANTS:
+				return getConstants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -371,15 +261,6 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RemesPackage.MODE__ENTRY_POINT:
-				setEntryPoint((EntryPoint)newValue);
-				return;
-			case RemesPackage.MODE__EXIT_POINT:
-				setExitPoint((ExitPoint)newValue);
-				return;
-			case RemesPackage.MODE__NAME:
-				setName((String)newValue);
-				return;
 			case RemesPackage.MODE__INITIALIZATION:
 				setInitialization((String)newValue);
 				return;
@@ -390,6 +271,10 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 			case RemesPackage.MODE__RESOURCES:
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
+				return;
+			case RemesPackage.MODE__CONSTANTS:
+				getConstants().clear();
+				getConstants().addAll((Collection<? extends Constant>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -403,15 +288,6 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RemesPackage.MODE__ENTRY_POINT:
-				setEntryPoint((EntryPoint)null);
-				return;
-			case RemesPackage.MODE__EXIT_POINT:
-				setExitPoint((ExitPoint)null);
-				return;
-			case RemesPackage.MODE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case RemesPackage.MODE__INITIALIZATION:
 				setInitialization(INITIALIZATION_EDEFAULT);
 				return;
@@ -420,6 +296,9 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 				return;
 			case RemesPackage.MODE__RESOURCES:
 				getResources().clear();
+				return;
+			case RemesPackage.MODE__CONSTANTS:
+				getConstants().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -433,56 +312,16 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RemesPackage.MODE__ENTRY_POINT:
-				return entryPoint != null;
-			case RemesPackage.MODE__EXIT_POINT:
-				return exitPoint != null;
-			case RemesPackage.MODE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RemesPackage.MODE__INITIALIZATION:
 				return INITIALIZATION_EDEFAULT == null ? initialization != null : !INITIALIZATION_EDEFAULT.equals(initialization);
 			case RemesPackage.MODE__VARIABLES:
 				return variables != null && !variables.isEmpty();
 			case RemesPackage.MODE__RESOURCES:
 				return resources != null && !resources.isEmpty();
+			case RemesPackage.MODE__CONSTANTS:
+				return constants != null && !constants.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ControlPath.class) {
-			switch (derivedFeatureID) {
-				case RemesPackage.MODE__ENTRY_POINT: return RemesPackage.CONTROL_PATH__ENTRY_POINT;
-				case RemesPackage.MODE__EXIT_POINT: return RemesPackage.CONTROL_PATH__EXIT_POINT;
-				case RemesPackage.MODE__NAME: return RemesPackage.CONTROL_PATH__NAME;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ControlPath.class) {
-			switch (baseFeatureID) {
-				case RemesPackage.CONTROL_PATH__ENTRY_POINT: return RemesPackage.MODE__ENTRY_POINT;
-				case RemesPackage.CONTROL_PATH__EXIT_POINT: return RemesPackage.MODE__EXIT_POINT;
-				case RemesPackage.CONTROL_PATH__NAME: return RemesPackage.MODE__NAME;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -495,9 +334,7 @@ public abstract class ModeImpl extends AttributableImpl implements Mode {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", initialization: ");
+		result.append(" (initialization: ");
 		result.append(initialization);
 		result.append(')');
 		return result.toString();

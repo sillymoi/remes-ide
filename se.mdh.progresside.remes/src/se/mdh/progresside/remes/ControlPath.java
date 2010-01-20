@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface ControlPath extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Entry Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.EntryPoint#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entry Point</em>' containment reference isn't clear,
@@ -38,7 +39,8 @@ public interface ControlPath extends EObject {
 	 * @return the value of the '<em>Entry Point</em>' containment reference.
 	 * @see #setEntryPoint(EntryPoint)
 	 * @see se.mdh.progresside.remes.RemesPackage#getControlPath_EntryPoint()
-	 * @model containment="true" required="true"
+	 * @see se.mdh.progresside.remes.EntryPoint#getContainer
+	 * @model opposite="container" containment="true" required="true"
 	 * @generated
 	 */
 	EntryPoint getEntryPoint();
@@ -55,6 +57,7 @@ public interface ControlPath extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Exit Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.ExitPoint#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Exit Point</em>' containment reference isn't clear,
@@ -64,7 +67,8 @@ public interface ControlPath extends EObject {
 	 * @return the value of the '<em>Exit Point</em>' containment reference.
 	 * @see #setExitPoint(ExitPoint)
 	 * @see se.mdh.progresside.remes.RemesPackage#getControlPath_ExitPoint()
-	 * @model containment="true" required="true"
+	 * @see se.mdh.progresside.remes.ExitPoint#getContainer
+	 * @model opposite="container" containment="true" required="true"
 	 * @generated
 	 */
 	ExitPoint getExitPoint();

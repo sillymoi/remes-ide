@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import se.mdh.progresside.attributes.AttributesPackage;
-
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -73,78 +71,6 @@ public interface RemesPackage extends EPackage {
 	int MODE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__ENTRY_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__EXIT_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__INITIALIZATION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__VARIABLES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__RESOURCES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Mode</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 6;
-
-	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeModeImpl <em>Composite Mode</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,13 +81,232 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_MODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ConditionalConnectorImpl <em>Conditional Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ConditionalConnectorImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getConditionalConnector()
+	 * @generated
+	 */
+	int CONDITIONAL_CONNECTOR = 1;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EdgeImpl <em>Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.EdgeImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEdge()
+	 * @generated
+	 */
+	int EDGE = 2;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitEdgeImpl <em>Init Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.InitEdgeImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitEdge()
+	 * @generated
+	 */
+	int INIT_EDGE = 3;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.RemesDiagramImpl <em>Diagram</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.RemesDiagramImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getRemesDiagram()
+	 * @generated
+	 */
+	int REMES_DIAGRAM = 5;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.SubModeImpl <em>Sub Mode</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.SubModeImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getSubMode()
+	 * @generated
+	 */
+	int SUB_MODE = 6;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.VariableImpl <em>Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.VariableImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getVariable()
+	 * @generated
+	 */
+	int VARIABLE = 7;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ResourceImpl <em>Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ResourceImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResource()
+	 * @generated
+	 */
+	int RESOURCE = 8;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.PointImpl <em>Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.PointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPoint()
+	 * @generated
+	 */
+	int POINT = 9;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitPointImpl <em>Init Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.InitPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitPoint()
+	 * @generated
+	 */
+	int INIT_POINT = 10;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryPointImpl <em>Entry Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.EntryPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryPoint()
+	 * @generated
+	 */
+	int ENTRY_POINT = 11;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitPointImpl <em>Exit Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ExitPointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitPoint()
+	 * @generated
+	 */
+	int EXIT_POINT = 12;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ControlPathImpl <em>Control Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ControlPathImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getControlPath()
+	 * @generated
+	 */
+	int CONTROL_PATH = 13;
+
+	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_MODE__ATTRIBUTES = MODE__ATTRIBUTES;
+	int CONTROL_PATH__ENTRY_POINT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH__EXIT_POINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Control Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_PATH_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__ENTRY_POINT = CONTROL_PATH__ENTRY_POINT;
+
+	/**
+	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__EXIT_POINT = CONTROL_PATH__EXIT_POINT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__NAME = CONTROL_PATH__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__INITIALIZATION = CONTROL_PATH_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__VARIABLES = CONTROL_PATH_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__RESOURCES = CONTROL_PATH_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE__CONSTANTS = CONTROL_PATH_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Mode</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_FEATURE_COUNT = CONTROL_PATH_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
@@ -218,6 +363,15 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_MODE__RESOURCES = MODE__RESOURCES;
 
 	/**
+	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__CONSTANTS = MODE__CONSTANTS;
+
+	/**
 	 * The feature id for the '<em><b>Sub Modes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,32 +426,13 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ConditionalConnectorImpl <em>Conditional Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ConditionalConnectorImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getConditionalConnector()
-	 * @generated
-	 */
-	int CONDITIONAL_CONNECTOR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITIONAL_CONNECTOR__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
-
-	/**
 	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR__ENTRY_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int CONDITIONAL_CONNECTOR__ENTRY_POINT = CONTROL_PATH__ENTRY_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
@@ -306,7 +441,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR__EXIT_POINT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int CONDITIONAL_CONNECTOR__EXIT_POINT = CONTROL_PATH__EXIT_POINT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -315,7 +450,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int CONDITIONAL_CONNECTOR__NAME = CONTROL_PATH__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -324,7 +459,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR__PARENT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
+	int CONDITIONAL_CONNECTOR__PARENT = CONTROL_PATH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Conditional Connector</em>' class.
@@ -333,26 +468,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_CONNECTOR_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EdgeImpl <em>Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEdge()
-	 * @generated
-	 */
-	int EDGE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDGE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
+	int CONDITIONAL_CONNECTOR_FEATURE_COUNT = CONTROL_PATH_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Action Guard</b></em>' attribute.
@@ -361,7 +477,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__ACTION_GUARD = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int EDGE__ACTION_GUARD = 0;
 
 	/**
 	 * The feature id for the '<em><b>Action Body</b></em>' attribute.
@@ -370,7 +486,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__ACTION_BODY = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int EDGE__ACTION_BODY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parsed Action Guard</b></em>' containment reference.
@@ -379,7 +495,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__PARSED_ACTION_GUARD = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int EDGE__PARSED_ACTION_GUARD = 2;
 
 	/**
 	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
@@ -388,7 +504,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__CONNECT_FROM = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
+	int EDGE__CONNECT_FROM = 3;
 
 	/**
 	 * The feature id for the '<em><b>Connect To</b></em>' reference.
@@ -397,7 +513,16 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE__CONNECT_TO = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
+	int EDGE__CONNECT_TO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Parsed Action Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDGE__PARSED_ACTION_BODY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Edge</em>' class.
@@ -406,26 +531,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDGE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitEdgeImpl <em>Init Edge</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.InitEdgeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitEdge()
-	 * @generated
-	 */
-	int INIT_EDGE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INIT_EDGE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
+	int EDGE_FEATURE_COUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Initialization</b></em>' attribute.
@@ -434,7 +540,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INIT_EDGE__INITIALIZATION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int INIT_EDGE__INITIALIZATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Connect From</b></em>' container reference.
@@ -443,7 +549,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INIT_EDGE__CONNECT_FROM = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int INIT_EDGE__CONNECT_FROM = 1;
 
 	/**
 	 * The feature id for the '<em><b>Connect To</b></em>' reference.
@@ -452,7 +558,16 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INIT_EDGE__CONNECT_TO = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int INIT_EDGE__CONNECT_TO = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parsed Initialization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT_EDGE__PARSED_INITIALIZATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Init Edge</em>' class.
@@ -461,26 +576,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INIT_EDGE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.RemesDiagramImpl <em>Diagram</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.RemesDiagramImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getRemesDiagram()
-	 * @generated
-	 */
-	int REMES_DIAGRAM = 5;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REMES_DIAGRAM__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
+	int INIT_EDGE_FEATURE_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Modes</b></em>' containment reference list.
@@ -489,7 +585,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REMES_DIAGRAM__MODES = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int REMES_DIAGRAM__MODES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Diagram</em>' class.
@@ -498,26 +594,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REMES_DIAGRAM_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.SubModeImpl <em>Sub Mode</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.SubModeImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getSubMode()
-	 * @generated
-	 */
-	int SUB_MODE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUB_MODE__ATTRIBUTES = MODE__ATTRIBUTES;
+	int REMES_DIAGRAM_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
@@ -574,6 +651,15 @@ public interface RemesPackage extends EPackage {
 	int SUB_MODE__RESOURCES = MODE__RESOURCES;
 
 	/**
+	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_MODE__CONSTANTS = MODE__CONSTANTS;
+
+	/**
 	 * The feature id for the '<em><b>Invariant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -619,23 +705,14 @@ public interface RemesPackage extends EPackage {
 	int SUB_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.VariableImpl <em>Variable</em>}' class.
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ReferrableImpl <em>Referrable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.VariableImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getVariable()
+	 * @see se.mdh.progresside.remes.impl.ReferrableImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getReferrable()
 	 * @generated
 	 */
-	int VARIABLE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
+	int REFERRABLE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -644,7 +721,25 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__NAME = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int REFERRABLE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Referrable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERRABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = REFERRABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -653,7 +748,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__VALUE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int VARIABLE__VALUE = REFERRABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -662,7 +757,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__TYPE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int VARIABLE__TYPE = REFERRABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Vector Size</b></em>' attribute.
@@ -671,7 +766,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__VECTOR_SIZE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
+	int VARIABLE__VECTOR_SIZE = REFERRABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Global</b></em>' attribute.
@@ -680,7 +775,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__GLOBAL = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 4;
+	int VARIABLE__GLOBAL = REFERRABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Scope</b></em>' container reference.
@@ -689,7 +784,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__SCOPE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 5;
+	int VARIABLE__SCOPE = REFERRABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Readable</b></em>' attribute.
@@ -698,7 +793,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__READABLE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 6;
+	int VARIABLE__READABLE = REFERRABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Writable</b></em>' attribute.
@@ -707,7 +802,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__WRITABLE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 7;
+	int VARIABLE__WRITABLE = REFERRABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -716,26 +811,16 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 8;
+	int VARIABLE_FEATURE_COUNT = REFERRABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ResourceImpl <em>Resource</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ResourceImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResource()
-	 * @generated
-	 */
-	int RESOURCE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__ATTRIBUTES = AttributesPackage.ATTRIBUTABLE__ATTRIBUTES;
+	int RESOURCE__NAME = REFERRABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -744,7 +829,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__EXPRESSION = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 0;
+	int RESOURCE__EXPRESSION = REFERRABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -753,7 +838,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__TYPE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 1;
+	int RESOURCE__TYPE = REFERRABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Scope</b></em>' container reference.
@@ -762,7 +847,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__SCOPE = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 2;
+	int RESOURCE__SCOPE = REFERRABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
@@ -771,17 +856,7 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = AttributesPackage.ATTRIBUTABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.PointImpl <em>Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.PointImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPoint()
-	 * @generated
-	 */
-	int POINT = 9;
+	int RESOURCE_FEATURE_COUNT = REFERRABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Point</em>' class.
@@ -793,16 +868,6 @@ public interface RemesPackage extends EPackage {
 	int POINT_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.InitPointImpl <em>Init Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.InitPointImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getInitPoint()
-	 * @generated
-	 */
-	int INIT_POINT = 10;
-
-	/**
 	 * The feature id for the '<em><b>Init Edge</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -812,23 +877,22 @@ public interface RemesPackage extends EPackage {
 	int INIT_POINT__INIT_EDGE = POINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INIT_POINT__CONTAINER = POINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Init Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.EntryPointImpl <em>Entry Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.EntryPointImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getEntryPoint()
-	 * @generated
-	 */
-	int ENTRY_POINT = 11;
+	int INIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Entry Edges</b></em>' reference list.
@@ -840,23 +904,22 @@ public interface RemesPackage extends EPackage {
 	int ENTRY_POINT__ENTRY_EDGES = POINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__CONTAINER = POINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Entry Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ExitPointImpl <em>Exit Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ExitPointImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getExitPoint()
-	 * @generated
-	 */
-	int EXIT_POINT = 12;
+	int ENTRY_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Exit Edges</b></em>' containment reference list.
@@ -868,59 +931,22 @@ public interface RemesPackage extends EPackage {
 	int EXIT_POINT__EXIT_EDGES = POINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXIT_POINT__CONTAINER = POINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Exit Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ControlPathImpl <em>Control Path</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see se.mdh.progresside.remes.impl.ControlPathImpl
-	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getControlPath()
-	 * @generated
-	 */
-	int CONTROL_PATH = 13;
-
-	/**
-	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_PATH__ENTRY_POINT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Exit Point</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_PATH__EXIT_POINT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_PATH__NAME = 2;
-
-	/**
-	 * The number of structural features of the '<em>Control Path</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROL_PATH_FEATURE_COUNT = 3;
+	int EXIT_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeEntryPointImpl <em>Composite Entry Point</em>}' class.
@@ -942,13 +968,31 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_ENTRY_POINT__EXIT_EDGES = EXIT_POINT__EXIT_EDGES;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ENTRY_POINT__CONTAINER = EXIT_POINT__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Composite</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ENTRY_POINT__COMPOSITE = EXIT_POINT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Composite Entry Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_ENTRY_POINT_FEATURE_COUNT = EXIT_POINT_FEATURE_COUNT + 0;
+	int COMPOSITE_ENTRY_POINT_FEATURE_COUNT = EXIT_POINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.CompositeExitPointImpl <em>Composite Exit Point</em>}' class.
@@ -970,13 +1014,95 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_EXIT_POINT__ENTRY_EDGES = ENTRY_POINT__ENTRY_EDGES;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EXIT_POINT__CONTAINER = ENTRY_POINT__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Composite</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EXIT_POINT__COMPOSITE = ENTRY_POINT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Composite Exit Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EXIT_POINT_FEATURE_COUNT = ENTRY_POINT_FEATURE_COUNT + 0;
+	int COMPOSITE_EXIT_POINT_FEATURE_COUNT = ENTRY_POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.ConstantImpl <em>Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.ConstantImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getConstant()
+	 * @generated
+	 */
+	int CONSTANT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__NAME = REFERRABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__TYPE = REFERRABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__VALUE = REFERRABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Global</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__GLOBAL = REFERRABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Scope</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__SCOPE = REFERRABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT_FEATURE_COUNT = REFERRABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.
@@ -986,7 +1112,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPrimitiveTypes()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPES = 16;
+	int PRIMITIVE_TYPES = 18;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.ResourceTypes <em>Resource Types</em>}' enum.
@@ -996,7 +1122,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResourceTypes()
 	 * @generated
 	 */
-	int RESOURCE_TYPES = 17;
+	int RESOURCE_TYPES = 19;
 
 
 	/**
@@ -1151,6 +1277,17 @@ public interface RemesPackage extends EPackage {
 	EReference getEdge_ConnectTo();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.Edge#getParsedActionBody <em>Parsed Action Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Parsed Action Body</em>'.
+	 * @see se.mdh.progresside.remes.Edge#getParsedActionBody()
+	 * @see #getEdge()
+	 * @generated
+	 */
+	EReference getEdge_ParsedActionBody();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.InitEdge <em>Init Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1194,6 +1331,17 @@ public interface RemesPackage extends EPackage {
 	EReference getInitEdge_ConnectTo();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.InitEdge#getParsedInitialization <em>Parsed Initialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Parsed Initialization</em>'.
+	 * @see se.mdh.progresside.remes.InitEdge#getParsedInitialization()
+	 * @see #getInitEdge()
+	 * @generated
+	 */
+	EReference getInitEdge_ParsedInitialization();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Mode <em>Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1235,6 +1383,17 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMode_Resources();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.Mode#getConstants <em>Constants</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constants</em>'.
+	 * @see se.mdh.progresside.remes.Mode#getConstants()
+	 * @see #getMode()
+	 * @generated
+	 */
+	EReference getMode_Constants();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.RemesDiagram <em>Diagram</em>}'.
@@ -1320,17 +1479,6 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Variable#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see se.mdh.progresside.remes.Variable#getName()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EAttribute getVariable_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Variable#getValue <em>Value</em>}'.
@@ -1484,6 +1632,17 @@ public interface RemesPackage extends EPackage {
 	EReference getInitPoint_InitEdge();
 
 	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.InitPoint#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see se.mdh.progresside.remes.InitPoint#getContainer()
+	 * @see #getInitPoint()
+	 * @generated
+	 */
+	EReference getInitPoint_Container();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.EntryPoint <em>Entry Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1505,6 +1664,17 @@ public interface RemesPackage extends EPackage {
 	EReference getEntryPoint_EntryEdges();
 
 	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.EntryPoint#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see se.mdh.progresside.remes.EntryPoint#getContainer()
+	 * @see #getEntryPoint()
+	 * @generated
+	 */
+	EReference getEntryPoint_Container();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ExitPoint <em>Exit Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1524,6 +1694,17 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExitPoint_ExitEdges();
+
+	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.ExitPoint#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see se.mdh.progresside.remes.ExitPoint#getContainer()
+	 * @see #getExitPoint()
+	 * @generated
+	 */
+	EReference getExitPoint_Container();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ControlPath <em>Control Path</em>}'.
@@ -1579,6 +1760,17 @@ public interface RemesPackage extends EPackage {
 	EClass getCompositeEntryPoint();
 
 	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.CompositeEntryPoint#getComposite <em>Composite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Composite</em>'.
+	 * @see se.mdh.progresside.remes.CompositeEntryPoint#getComposite()
+	 * @see #getCompositeEntryPoint()
+	 * @generated
+	 */
+	EReference getCompositeEntryPoint_Composite();
+
+	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.CompositeExitPoint <em>Composite Exit Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1587,6 +1779,92 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompositeExitPoint();
+
+	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.CompositeExitPoint#getComposite <em>Composite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Composite</em>'.
+	 * @see se.mdh.progresside.remes.CompositeExitPoint#getComposite()
+	 * @see #getCompositeExitPoint()
+	 * @generated
+	 */
+	EReference getCompositeExitPoint_Composite();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Referrable <em>Referrable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Referrable</em>'.
+	 * @see se.mdh.progresside.remes.Referrable
+	 * @generated
+	 */
+	EClass getReferrable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Referrable#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see se.mdh.progresside.remes.Referrable#getName()
+	 * @see #getReferrable()
+	 * @generated
+	 */
+	EAttribute getReferrable_Name();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant</em>'.
+	 * @see se.mdh.progresside.remes.Constant
+	 * @generated
+	 */
+	EClass getConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Constant#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see se.mdh.progresside.remes.Constant#getType()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Constant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see se.mdh.progresside.remes.Constant#getValue()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link se.mdh.progresside.remes.Constant#isGlobal <em>Global</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Global</em>'.
+	 * @see se.mdh.progresside.remes.Constant#isGlobal()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_Global();
+
+	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.Constant#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Scope</em>'.
+	 * @see se.mdh.progresside.remes.Constant#getScope()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EReference getConstant_Scope();
 
 	/**
 	 * Returns the meta object for enum '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}'.
@@ -1749,6 +2027,14 @@ public interface RemesPackage extends EPackage {
 		EReference EDGE__CONNECT_TO = eINSTANCE.getEdge_ConnectTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Parsed Action Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EDGE__PARSED_ACTION_BODY = eINSTANCE.getEdge_ParsedActionBody();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.InitEdgeImpl <em>Init Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1783,6 +2069,14 @@ public interface RemesPackage extends EPackage {
 		EReference INIT_EDGE__CONNECT_TO = eINSTANCE.getInitEdge_ConnectTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Parsed Initialization</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INIT_EDGE__PARSED_INITIALIZATION = eINSTANCE.getInitEdge_ParsedInitialization();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ModeImpl <em>Mode</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1815,6 +2109,14 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODE__RESOURCES = eINSTANCE.getMode_Resources();
+
+		/**
+		 * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE__CONSTANTS = eINSTANCE.getMode_Constants();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.RemesDiagramImpl <em>Diagram</em>}' class.
@@ -1885,14 +2187,6 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VARIABLE = eINSTANCE.getVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2013,6 +2307,14 @@ public interface RemesPackage extends EPackage {
 		EReference INIT_POINT__INIT_EDGE = eINSTANCE.getInitPoint_InitEdge();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INIT_POINT__CONTAINER = eINSTANCE.getInitPoint_Container();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.EntryPointImpl <em>Entry Point</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2031,6 +2333,14 @@ public interface RemesPackage extends EPackage {
 		EReference ENTRY_POINT__ENTRY_EDGES = eINSTANCE.getEntryPoint_EntryEdges();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY_POINT__CONTAINER = eINSTANCE.getEntryPoint_Container();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ExitPointImpl <em>Exit Point</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2047,6 +2357,14 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EXIT_POINT__EXIT_EDGES = eINSTANCE.getExitPoint_ExitEdges();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXIT_POINT__CONTAINER = eINSTANCE.getExitPoint_Container();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ControlPathImpl <em>Control Path</em>}' class.
@@ -2093,6 +2411,14 @@ public interface RemesPackage extends EPackage {
 		EClass COMPOSITE_ENTRY_POINT = eINSTANCE.getCompositeEntryPoint();
 
 		/**
+		 * The meta object literal for the '<em><b>Composite</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_ENTRY_POINT__COMPOSITE = eINSTANCE.getCompositeEntryPoint_Composite();
+
+		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.CompositeExitPointImpl <em>Composite Exit Point</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2101,6 +2427,74 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPOSITE_EXIT_POINT = eINSTANCE.getCompositeExitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Composite</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_EXIT_POINT__COMPOSITE = eINSTANCE.getCompositeExitPoint_Composite();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ReferrableImpl <em>Referrable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.ReferrableImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getReferrable()
+		 * @generated
+		 */
+		EClass REFERRABLE = eINSTANCE.getReferrable();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERRABLE__NAME = eINSTANCE.getReferrable_Name();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ConstantImpl <em>Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.ConstantImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getConstant()
+		 * @generated
+		 */
+		EClass CONSTANT = eINSTANCE.getConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__TYPE = eINSTANCE.getConstant_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__VALUE = eINSTANCE.getConstant_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Global</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__GLOBAL = eINSTANCE.getConstant_Global();
+
+		/**
+		 * The meta object literal for the '<em><b>Scope</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSTANT__SCOPE = eINSTANCE.getConstant_Scope();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.

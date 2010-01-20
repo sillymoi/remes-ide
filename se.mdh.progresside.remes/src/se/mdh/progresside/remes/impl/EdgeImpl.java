@@ -6,19 +6,16 @@
  */
 package se.mdh.progresside.remes.impl;
 
-import hr.fer.rasip.remes.grammars.logical.tree.LogicalRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import se.mdh.progresside.attributes.impl.AttributableImpl;
 
 import se.mdh.progresside.remes.Edge;
 import se.mdh.progresside.remes.EntryPoint;
@@ -37,12 +34,13 @@ import se.mdh.progresside.remes.RemesPackage;
  *   <li>{@link se.mdh.progresside.remes.impl.EdgeImpl#getParsedActionGuard <em>Parsed Action Guard</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.EdgeImpl#getConnectFrom <em>Connect From</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.EdgeImpl#getConnectTo <em>Connect To</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.EdgeImpl#getParsedActionBody <em>Parsed Action Body</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class EdgeImpl extends AttributableImpl implements Edge {
+public class EdgeImpl extends EObjectImpl implements Edge {
 	/**
 	 * The default value of the '{@link #getActionGuard() <em>Action Guard</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,6 +100,16 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 	 * @ordered
 	 */
 	protected EntryPoint connectTo;
+
+	/**
+	 * The cached value of the '{@link #getParsedActionBody() <em>Parsed Action Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParsedActionBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected ActionRoot parsedActionBody;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -313,6 +321,49 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ActionRoot getParsedActionBody() {
+		return parsedActionBody;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParsedActionBody(ActionRoot newParsedActionBody, NotificationChain msgs) {
+		ActionRoot oldParsedActionBody = parsedActionBody;
+		parsedActionBody = newParsedActionBody;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.EDGE__PARSED_ACTION_BODY, oldParsedActionBody, newParsedActionBody);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParsedActionBody(ActionRoot newParsedActionBody) {
+		if (newParsedActionBody != parsedActionBody) {
+			NotificationChain msgs = null;
+			if (parsedActionBody != null)
+				msgs = ((InternalEObject)parsedActionBody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.EDGE__PARSED_ACTION_BODY, null, msgs);
+			if (newParsedActionBody != null)
+				msgs = ((InternalEObject)newParsedActionBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.EDGE__PARSED_ACTION_BODY, null, msgs);
+			msgs = basicSetParsedActionBody(newParsedActionBody, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.EDGE__PARSED_ACTION_BODY, newParsedActionBody, newParsedActionBody));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -342,6 +393,8 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 				return basicSetConnectFrom(null, msgs);
 			case RemesPackage.EDGE__CONNECT_TO:
 				return basicSetConnectTo(null, msgs);
+			case RemesPackage.EDGE__PARSED_ACTION_BODY:
+				return basicSetParsedActionBody(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -379,6 +432,8 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 			case RemesPackage.EDGE__CONNECT_TO:
 				if (resolve) return getConnectTo();
 				return basicGetConnectTo();
+			case RemesPackage.EDGE__PARSED_ACTION_BODY:
+				return getParsedActionBody();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -405,6 +460,9 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 				return;
 			case RemesPackage.EDGE__CONNECT_TO:
 				setConnectTo((EntryPoint)newValue);
+				return;
+			case RemesPackage.EDGE__PARSED_ACTION_BODY:
+				setParsedActionBody((ActionRoot)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -433,6 +491,9 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 			case RemesPackage.EDGE__CONNECT_TO:
 				setConnectTo((EntryPoint)null);
 				return;
+			case RemesPackage.EDGE__PARSED_ACTION_BODY:
+				setParsedActionBody((ActionRoot)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -455,6 +516,8 @@ public class EdgeImpl extends AttributableImpl implements Edge {
 				return getConnectFrom() != null;
 			case RemesPackage.EDGE__CONNECT_TO:
 				return connectTo != null;
+			case RemesPackage.EDGE__PARSED_ACTION_BODY:
+				return parsedActionBody != null;
 		}
 		return super.eIsSet(featureID);
 	}

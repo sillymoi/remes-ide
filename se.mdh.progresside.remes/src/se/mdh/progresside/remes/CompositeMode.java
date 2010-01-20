@@ -67,6 +67,7 @@ public interface CompositeMode extends Mode {
 
 	/**
 	 * Returns the value of the '<em><b>Init Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.InitPoint#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Init Point</em>' containment reference isn't clear,
@@ -76,7 +77,8 @@ public interface CompositeMode extends Mode {
 	 * @return the value of the '<em>Init Point</em>' containment reference.
 	 * @see #setInitPoint(InitPoint)
 	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_InitPoint()
-	 * @model containment="true" required="true"
+	 * @see se.mdh.progresside.remes.InitPoint#getContainer
+	 * @model opposite="container" containment="true" required="true"
 	 * @generated
 	 */
 	InitPoint getInitPoint();
@@ -93,6 +95,7 @@ public interface CompositeMode extends Mode {
 
 	/**
 	 * Returns the value of the '<em><b>Composite Entry Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.CompositeEntryPoint#getComposite <em>Composite</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Composite Entry Point</em>' containment reference isn't clear,
@@ -102,7 +105,8 @@ public interface CompositeMode extends Mode {
 	 * @return the value of the '<em>Composite Entry Point</em>' containment reference.
 	 * @see #setCompositeEntryPoint(CompositeEntryPoint)
 	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_CompositeEntryPoint()
-	 * @model containment="true" required="true"
+	 * @see se.mdh.progresside.remes.CompositeEntryPoint#getComposite
+	 * @model opposite="composite" containment="true" required="true"
 	 * @generated
 	 */
 	CompositeEntryPoint getCompositeEntryPoint();
@@ -119,6 +123,7 @@ public interface CompositeMode extends Mode {
 
 	/**
 	 * Returns the value of the '<em><b>Composite Exit Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.CompositeExitPoint#getComposite <em>Composite</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Composite Exit Point</em>' containment reference isn't clear,
@@ -128,7 +133,8 @@ public interface CompositeMode extends Mode {
 	 * @return the value of the '<em>Composite Exit Point</em>' containment reference.
 	 * @see #setCompositeExitPoint(CompositeExitPoint)
 	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_CompositeExitPoint()
-	 * @model containment="true" required="true"
+	 * @see se.mdh.progresside.remes.CompositeExitPoint#getComposite
+	 * @model opposite="composite" containment="true" required="true"
 	 * @generated
 	 */
 	CompositeExitPoint getCompositeExitPoint();

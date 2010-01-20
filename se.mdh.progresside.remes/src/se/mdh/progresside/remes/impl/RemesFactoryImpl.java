@@ -74,6 +74,7 @@ public class RemesFactoryImpl extends EFactoryImpl implements RemesFactory {
 			case RemesPackage.EXIT_POINT: return createExitPoint();
 			case RemesPackage.COMPOSITE_ENTRY_POINT: return createCompositeEntryPoint();
 			case RemesPackage.COMPOSITE_EXIT_POINT: return createCompositeExitPoint();
+			case RemesPackage.CONSTANT: return createConstant();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -241,6 +242,16 @@ public class RemesFactoryImpl extends EFactoryImpl implements RemesFactory {
 	public CompositeExitPoint createCompositeExitPoint() {
 		CompositeExitPointImpl compositeExitPoint = new CompositeExitPointImpl();
 		return compositeExitPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constant createConstant() {
+		ConstantImpl constant = new ConstantImpl();
+		return constant;
 	}
 
 	/**

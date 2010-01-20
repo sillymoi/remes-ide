@@ -7,54 +7,36 @@
 package se.mdh.progresside.remes.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.Mode;
+import se.mdh.progresside.remes.PrimitiveTypes;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.Resource;
-import se.mdh.progresside.remes.ResourceTypes;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Resource</b></em>'.
+ * An implementation of the model object '<em><b>Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getType <em>Type</em>}</li>
- *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ConstantImpl#getType <em>Type</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ConstantImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ConstantImpl#isGlobal <em>Global</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ConstantImpl#getScope <em>Scope</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceImpl extends ReferrableImpl implements Resource {
-	/**
-	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String EXPRESSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected String expression = EXPRESSION_EDEFAULT;
-
+public class ConstantImpl extends ReferrableImpl implements Constant {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,7 +45,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ResourceTypes TYPE_EDEFAULT = ResourceTypes.CPU;
+	protected static final PrimitiveTypes TYPE_EDEFAULT = PrimitiveTypes.INTEGER;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -73,14 +55,54 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceTypes type = TYPE_EDEFAULT;
+	protected PrimitiveTypes type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isGlobal() <em>Global</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGlobal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean GLOBAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isGlobal() <em>Global</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isGlobal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean global = GLOBAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceImpl() {
+	protected ConstantImpl() {
 		super();
 	}
 
@@ -91,7 +113,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RemesPackage.Literals.RESOURCE;
+		return RemesPackage.Literals.CONSTANT;
 	}
 
 	/**
@@ -99,28 +121,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getExpression() {
-		return expression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExpression(String newExpression) {
-		String oldExpression = expression;
-		expression = newExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.RESOURCE__EXPRESSION, oldExpression, expression));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceTypes getType() {
+	public PrimitiveTypes getType() {
 		return type;
 	}
 
@@ -129,11 +130,53 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ResourceTypes newType) {
-		ResourceTypes oldType = type;
+	public void setType(PrimitiveTypes newType) {
+		PrimitiveTypes oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.RESOURCE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.CONSTANT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.CONSTANT__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isGlobal() {
+		return global;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGlobal(boolean newGlobal) {
+		boolean oldGlobal = global;
+		global = newGlobal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.CONSTANT__GLOBAL, oldGlobal, global));
 	}
 
 	/**
@@ -142,7 +185,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @generated
 	 */
 	public Mode getScope() {
-		if (eContainerFeatureID() != RemesPackage.RESOURCE__SCOPE) return null;
+		if (eContainerFeatureID() != RemesPackage.CONSTANT__SCOPE) return null;
 		return (Mode)eContainer();
 	}
 
@@ -152,7 +195,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @generated
 	 */
 	public NotificationChain basicSetScope(Mode newScope, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newScope, RemesPackage.RESOURCE__SCOPE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newScope, RemesPackage.CONSTANT__SCOPE, msgs);
 		return msgs;
 	}
 
@@ -162,19 +205,19 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @generated
 	 */
 	public void setScope(Mode newScope) {
-		if (newScope != eInternalContainer() || (eContainerFeatureID() != RemesPackage.RESOURCE__SCOPE && newScope != null)) {
+		if (newScope != eInternalContainer() || (eContainerFeatureID() != RemesPackage.CONSTANT__SCOPE && newScope != null)) {
 			if (EcoreUtil.isAncestor(this, newScope))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newScope != null)
-				msgs = ((InternalEObject)newScope).eInverseAdd(this, RemesPackage.MODE__RESOURCES, Mode.class, msgs);
+				msgs = ((InternalEObject)newScope).eInverseAdd(this, RemesPackage.MODE__CONSTANTS, Mode.class, msgs);
 			msgs = basicSetScope(newScope, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.RESOURCE__SCOPE, newScope, newScope));
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.CONSTANT__SCOPE, newScope, newScope));
 	}
 
 	/**
@@ -185,7 +228,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__SCOPE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetScope((Mode)otherEnd, msgs);
@@ -201,7 +244,7 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__SCOPE:
 				return basicSetScope(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -215,8 +258,8 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case RemesPackage.RESOURCE__SCOPE:
-				return eInternalContainer().eInverseRemove(this, RemesPackage.MODE__RESOURCES, Mode.class, msgs);
+			case RemesPackage.CONSTANT__SCOPE:
+				return eInternalContainer().eInverseRemove(this, RemesPackage.MODE__CONSTANTS, Mode.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -229,11 +272,13 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__EXPRESSION:
-				return getExpression();
-			case RemesPackage.RESOURCE__TYPE:
+			case RemesPackage.CONSTANT__TYPE:
 				return getType();
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__VALUE:
+				return getValue();
+			case RemesPackage.CONSTANT__GLOBAL:
+				return isGlobal();
+			case RemesPackage.CONSTANT__SCOPE:
 				return getScope();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -247,13 +292,16 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__EXPRESSION:
-				setExpression((String)newValue);
+			case RemesPackage.CONSTANT__TYPE:
+				setType((PrimitiveTypes)newValue);
 				return;
-			case RemesPackage.RESOURCE__TYPE:
-				setType((ResourceTypes)newValue);
+			case RemesPackage.CONSTANT__VALUE:
+				setValue((String)newValue);
 				return;
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__GLOBAL:
+				setGlobal((Boolean)newValue);
+				return;
+			case RemesPackage.CONSTANT__SCOPE:
 				setScope((Mode)newValue);
 				return;
 		}
@@ -268,13 +316,16 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__EXPRESSION:
-				setExpression(EXPRESSION_EDEFAULT);
-				return;
-			case RemesPackage.RESOURCE__TYPE:
+			case RemesPackage.CONSTANT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case RemesPackage.CONSTANT__GLOBAL:
+				setGlobal(GLOBAL_EDEFAULT);
+				return;
+			case RemesPackage.CONSTANT__SCOPE:
 				setScope((Mode)null);
 				return;
 		}
@@ -289,11 +340,13 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RemesPackage.RESOURCE__EXPRESSION:
-				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
-			case RemesPackage.RESOURCE__TYPE:
+			case RemesPackage.CONSTANT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case RemesPackage.RESOURCE__SCOPE:
+			case RemesPackage.CONSTANT__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case RemesPackage.CONSTANT__GLOBAL:
+				return global != GLOBAL_EDEFAULT;
+			case RemesPackage.CONSTANT__SCOPE:
 				return getScope() != null;
 		}
 		return super.eIsSet(featureID);
@@ -309,12 +362,14 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (expression: ");
-		result.append(expression);
-		result.append(", type: ");
+		result.append(" (type: ");
 		result.append(type);
+		result.append(", value: ");
+		result.append(value);
+		result.append(", global: ");
+		result.append(global);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ResourceImpl
+} //ConstantImpl

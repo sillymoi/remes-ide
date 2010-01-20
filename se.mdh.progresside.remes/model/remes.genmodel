@@ -12,8 +12,8 @@
   <genPackages prefix="Remes" basePackage="se.mdh.progresside" disposableProviderFactory="true"
       ecorePackage="remes.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="remes.ecore#//PrimitiveTypes">
-      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/boolean"/>
       <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/boolean"/>
       <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/natural"/>
       <genEnumLiterals ecoreEnumLiteral="remes.ecore#//PrimitiveTypes/clock"/>
     </genEnums>
@@ -25,76 +25,51 @@
       <genEnumLiterals ecoreEnumLiteral="remes.ecore#//ResourceTypes/port"/>
     </genEnums>
     <genClasses ecoreClass="remes.ecore#//CompositeMode">
-      <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/exitEdges"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/initEdge"/>
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/entryEdge"/>
       <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/subModes"/>
       <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/conditionalConnectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/initPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/compositeEntryPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//CompositeMode/compositeExitPoint"/>
     </genClasses>
     <genClasses ecoreClass="remes.ecore#//ConditionalConnector">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//ConditionalConnector/name"/>
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/entryEdges"/>
-      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/exitEdges"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//ConditionalConnector/parent"/>
     </genClasses>
     <genClasses image="false" ecoreClass="remes.ecore#//Edge">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Edge/actionGuard"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Edge/actionBody"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//Edge/parsedActionGuard"/>
-    </genClasses>
-    <genClasses ecoreClass="remes.ecore#//EntryConditionalSubEdge"/>
-    <genClasses ecoreClass="remes.ecore#//EntryConditionalTopEdge"/>
-    <genClasses ecoreClass="remes.ecore#//EntryConditionalTopInitEdge"/>
-    <genClasses ecoreClass="remes.ecore#//EntryEdge"/>
-    <genClasses ecoreClass="remes.ecore#//EntryInitEdge"/>
-    <genClasses ecoreClass="remes.ecore#//ExitConditionalSubEdge"/>
-    <genClasses ecoreClass="remes.ecore#//ExitConditionalTopEdge"/>
-    <genClasses ecoreClass="remes.ecore#//ExitEdge"/>
-    <genClasses image="false" ecoreClass="remes.ecore#//FromCompositeModeEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromCompositeModeEdge/connectFrom"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//FromCompositeModeInitEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromCompositeModeInitEdge/connectFrom"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//FromConditionalConnectorEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromConditionalConnectorEdge/connectFrom"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//FromSubModeEdge">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//FromSubModeEdge/connectFrom"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//Edge/connectFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//Edge/connectTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//Edge/parsedActionBody"/>
     </genClasses>
     <genClasses image="false" ecoreClass="remes.ecore#//InitEdge">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes.ecore#//InitEdge/initialization"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//InitEdge/connectFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//InitEdge/connectTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//InitEdge/parsedInitialization"/>
     </genClasses>
-    <genClasses ecoreClass="remes.ecore#//InternalEdge"/>
     <genClasses image="false" ecoreClass="remes.ecore#//Mode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Mode/name"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute remes.ecore#//Mode/initialization"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//Mode/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//Mode/resources"/>
+      <genOperations ecoreOperation="remes.ecore#//Mode/findVariableByName">
+        <genParameters ecoreParameter="remes.ecore#//Mode/findVariableByName/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="remes.ecore#//Mode/findResourceByName">
+        <genParameters ecoreParameter="remes.ecore#//Mode/findResourceByName/name"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="remes.ecore#//RemesDiagram">
       <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//RemesDiagram/modes"/>
     </genClasses>
     <genClasses ecoreClass="remes.ecore#//SubMode">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/entryEdges"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/exitEdges"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//SubMode/invariant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//SubMode/isUrgent"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//SubMode/parent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/resources"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/parsedInvariant"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//ToCompositeModeEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToCompositeModeEdge/connectTo"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//ToConditionalConnectorEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToConditionalConnectorEdge/connectTo"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="remes.ecore#//ToSubModeEdge">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//ToSubModeEdge/connectTo"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="parsedInvariant"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//SubMode/parsedInvariant"/>
     </genClasses>
     <genClasses ecoreClass="remes.ecore#//Variable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Variable/vectorSize"/>
@@ -108,95 +83,105 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Resource/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//Resource/scope"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="remes.ecore#//Point"/>
+    <genClasses ecoreClass="remes.ecore#//InitPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//InitPoint/initEdge"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//InitPoint/container"/>
+    </genClasses>
+    <genClasses ecoreClass="remes.ecore#//EntryPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference remes.ecore#//EntryPoint/entryEdges"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//EntryPoint/container"/>
+    </genClasses>
+    <genClasses ecoreClass="remes.ecore#//ExitPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//ExitPoint/exitEdges"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//ExitPoint/container"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="remes.ecore#//ControlPath">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//ControlPath/entryPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference remes.ecore#//ControlPath/exitPoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//ControlPath/name"/>
+    </genClasses>
+    <genClasses ecoreClass="remes.ecore#//CompositeEntryPoint">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//CompositeEntryPoint/composite"/>
+    </genClasses>
+    <genClasses ecoreClass="remes.ecore#//CompositeExitPoint">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference remes.ecore#//CompositeExitPoint/composite"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="remes.ecore#//Referrable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Referrable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="remes.ecore#//Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Constant/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Constant/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute remes.ecore#//Constant/global"/>
+    </genClasses>
   </genPackages>
-  <genPackages prefix="Attributes" basePackage="se.mdh.progresside" ecorePackage="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes">
-    <genDataTypes ecoreDataType="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeId"/>
-    <genClasses image="false" ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/attributes"/>
-      <genOperations ecoreOperation="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/getAttributeValues">
-        <genParameters ecoreParameter="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/getAttributeValues/id"/>
-      </genOperations>
-      <genOperations ecoreOperation="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/createAttributeValue">
-        <genParameters ecoreParameter="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/createAttributeValue/id"/>
-      </genOperations>
-      <genOperations ecoreOperation="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/removeAttributeValue">
-        <genParameters ecoreParameter="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/removeAttributeValue/id"/>
-        <genParameters ecoreParameter="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable/removeAttributeValue/value"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attribute/attributeDescriptionId"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attribute/values"/>
-    </genClasses>
-    <genClasses ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeValue/data"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeValue/comment"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeValue/reference"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/AttributeValue/discriminator"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Data"/>
-    <genClasses ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Ref">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Ref/value"/>
-    </genClasses>
-    <genClasses ecoreClass="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/ExternallySerializedData">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/ExternallySerializedData/value"/>
-    </genClasses>
-  </genPackages>
-  <genPackages prefix="Tree" basePackage="hr.fer.rasip.remes.grammars.logical" ecorePackage="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation">
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/ADD"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/SUB"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/MUL"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/DIV"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/MOD"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/LT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/LE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/EQ"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/GE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/GT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/NE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/AND"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryOperation/OR"/>
+  <genPackages prefix="Ast" basePackage="hr.fer.rasip.remes.grammars.expressions"
+      ecorePackage="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation">
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/SUB"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/MUL"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/DIV"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/MOD"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/LT"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/LE"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/EQ"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/GE"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/GT"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/NE"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN_ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN_SUB"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN_MUL"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN_DIV"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryOperation/ASSIGN_MOD"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryOperation">
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryOperation/NOT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryOperation/PLUS"/>
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryOperation/MINUS"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryOperation">
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryOperation/NOT"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryOperation/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryOperation/MINUS"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryOperation">
-      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryOperation/QUESTION"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryOperation">
+      <genEnumLiterals ecoreEnumLiteral="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryOperation/QUESTION"/>
     </genEnums>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/VariableReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/VariableReference/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/VariableReference/arrayIndex"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/VariableReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/VariableReference/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/VariableReference/arrayIndex"/>
     </genClasses>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryExpression/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/UnaryExpression/param1"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/UnaryExpression/param1"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Expression"/>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryExpression/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryExpression/param1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/BinaryExpression/param2"/>
+    <genClasses image="false" ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Expression"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryExpression/param1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/BinaryExpression/param2"/>
     </genClasses>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryExpression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryExpression/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryExpression/param1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryExpression/param2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/TernaryExpression/param3"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryExpression/param1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryExpression/param2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/TernaryExpression/param3"/>
     </genClasses>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Constant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Constant/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Constant/value"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Constant/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Constant/value"/>
     </genClasses>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Literal/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/Literal/value"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Literal/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/Literal/value"/>
     </genClasses>
-    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot/expression"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot/referencedVariables"/>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/ActionRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/ActionRoot/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/ActionRoot/referencedVariables"/>
+    </genClasses>
+    <genClasses ecoreClass="../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/LogicalRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/LogicalRoot/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../hr.fer.rasip.remes.grammars.expressions.ast/model/expressions.ecore#//ast/LogicalRoot/referencedVariables"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

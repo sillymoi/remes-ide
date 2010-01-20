@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import se.mdh.progresside.remes.CompositeMode;
 import se.mdh.progresside.remes.InitEdge;
 import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.RemesPackage;
@@ -26,6 +28,7 @@ import se.mdh.progresside.remes.RemesPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link se.mdh.progresside.remes.impl.InitPointImpl#getInitEdge <em>Init Edge</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.InitPointImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +112,47 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CompositeMode getContainer() {
+		if (eContainerFeatureID() != RemesPackage.INIT_POINT__CONTAINER) return null;
+		return (CompositeMode)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(CompositeMode newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, RemesPackage.INIT_POINT__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(CompositeMode newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != RemesPackage.INIT_POINT__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, RemesPackage.COMPOSITE_MODE__INIT_POINT, CompositeMode.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.INIT_POINT__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -116,6 +160,10 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 				if (initEdge != null)
 					msgs = ((InternalEObject)initEdge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.INIT_POINT__INIT_EDGE, null, msgs);
 				return basicSetInitEdge((InitEdge)otherEnd, msgs);
+			case RemesPackage.INIT_POINT__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((CompositeMode)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -130,8 +178,24 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 		switch (featureID) {
 			case RemesPackage.INIT_POINT__INIT_EDGE:
 				return basicSetInitEdge(null, msgs);
+			case RemesPackage.INIT_POINT__CONTAINER:
+				return basicSetContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case RemesPackage.INIT_POINT__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, RemesPackage.COMPOSITE_MODE__INIT_POINT, CompositeMode.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -144,6 +208,8 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 		switch (featureID) {
 			case RemesPackage.INIT_POINT__INIT_EDGE:
 				return getInitEdge();
+			case RemesPackage.INIT_POINT__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +224,9 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 		switch (featureID) {
 			case RemesPackage.INIT_POINT__INIT_EDGE:
 				setInitEdge((InitEdge)newValue);
+				return;
+			case RemesPackage.INIT_POINT__CONTAINER:
+				setContainer((CompositeMode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,6 +243,9 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 			case RemesPackage.INIT_POINT__INIT_EDGE:
 				setInitEdge((InitEdge)null);
 				return;
+			case RemesPackage.INIT_POINT__CONTAINER:
+				setContainer((CompositeMode)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -188,6 +260,8 @@ public class InitPointImpl extends PointImpl implements InitPoint {
 		switch (featureID) {
 			case RemesPackage.INIT_POINT__INIT_EDGE:
 				return initEdge != null;
+			case RemesPackage.INIT_POINT__CONTAINER:
+				return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

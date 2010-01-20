@@ -11,9 +11,24 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import se.mdh.progresside.attributes.Attributable;
-
 import se.mdh.progresside.remes.*;
+import se.mdh.progresside.remes.CompositeEntryPoint;
+import se.mdh.progresside.remes.CompositeExitPoint;
+import se.mdh.progresside.remes.CompositeMode;
+import se.mdh.progresside.remes.ConditionalConnector;
+import se.mdh.progresside.remes.ControlPath;
+import se.mdh.progresside.remes.Edge;
+import se.mdh.progresside.remes.EntryPoint;
+import se.mdh.progresside.remes.ExitPoint;
+import se.mdh.progresside.remes.InitEdge;
+import se.mdh.progresside.remes.InitPoint;
+import se.mdh.progresside.remes.Mode;
+import se.mdh.progresside.remes.Point;
+import se.mdh.progresside.remes.RemesDiagram;
+import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.Resource;
+import se.mdh.progresside.remes.SubMode;
+import se.mdh.progresside.remes.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,7 +108,6 @@ public class RemesSwitch<T> {
 				CompositeMode compositeMode = (CompositeMode)theEObject;
 				T result = caseCompositeMode(compositeMode);
 				if (result == null) result = caseMode(compositeMode);
-				if (result == null) result = caseAttributable(compositeMode);
 				if (result == null) result = caseControlPath(compositeMode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -101,7 +115,6 @@ public class RemesSwitch<T> {
 			case RemesPackage.CONDITIONAL_CONNECTOR: {
 				ConditionalConnector conditionalConnector = (ConditionalConnector)theEObject;
 				T result = caseConditionalConnector(conditionalConnector);
-				if (result == null) result = caseAttributable(conditionalConnector);
 				if (result == null) result = caseControlPath(conditionalConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -109,21 +122,18 @@ public class RemesSwitch<T> {
 			case RemesPackage.EDGE: {
 				Edge edge = (Edge)theEObject;
 				T result = caseEdge(edge);
-				if (result == null) result = caseAttributable(edge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RemesPackage.INIT_EDGE: {
 				InitEdge initEdge = (InitEdge)theEObject;
 				T result = caseInitEdge(initEdge);
-				if (result == null) result = caseAttributable(initEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RemesPackage.MODE: {
 				Mode mode = (Mode)theEObject;
 				T result = caseMode(mode);
-				if (result == null) result = caseAttributable(mode);
 				if (result == null) result = caseControlPath(mode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -131,7 +141,6 @@ public class RemesSwitch<T> {
 			case RemesPackage.REMES_DIAGRAM: {
 				RemesDiagram remesDiagram = (RemesDiagram)theEObject;
 				T result = caseRemesDiagram(remesDiagram);
-				if (result == null) result = caseAttributable(remesDiagram);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,7 +148,6 @@ public class RemesSwitch<T> {
 				SubMode subMode = (SubMode)theEObject;
 				T result = caseSubMode(subMode);
 				if (result == null) result = caseMode(subMode);
-				if (result == null) result = caseAttributable(subMode);
 				if (result == null) result = caseControlPath(subMode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -147,14 +155,14 @@ public class RemesSwitch<T> {
 			case RemesPackage.VARIABLE: {
 				Variable variable = (Variable)theEObject;
 				T result = caseVariable(variable);
-				if (result == null) result = caseAttributable(variable);
+				if (result == null) result = caseReferrable(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RemesPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
-				if (result == null) result = caseAttributable(resource);
+				if (result == null) result = caseReferrable(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,6 +212,19 @@ public class RemesSwitch<T> {
 				T result = caseCompositeExitPoint(compositeExitPoint);
 				if (result == null) result = caseEntryPoint(compositeExitPoint);
 				if (result == null) result = casePoint(compositeExitPoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.REFERRABLE: {
+				Referrable referrable = (Referrable)theEObject;
+				T result = caseReferrable(referrable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.CONSTANT: {
+				Constant constant = (Constant)theEObject;
+				T result = caseConstant(constant);
+				if (result == null) result = caseReferrable(constant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -452,17 +473,32 @@ public class RemesSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attributable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Referrable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attributable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Referrable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAttributable(Attributable object) {
+	public T caseReferrable(Referrable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstant(Constant object) {
 		return null;
 	}
 

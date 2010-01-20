@@ -8,6 +8,7 @@ package se.mdh.progresside.remes.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,9 +16,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import se.mdh.progresside.remes.ControlPath;
 import se.mdh.progresside.remes.Edge;
 import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.RemesPackage;
@@ -30,6 +34,7 @@ import se.mdh.progresside.remes.RemesPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link se.mdh.progresside.remes.impl.ExitPointImpl#getExitEdges <em>Exit Edges</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ExitPointImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,12 +87,57 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ControlPath getContainer() {
+		if (eContainerFeatureID() != RemesPackage.EXIT_POINT__CONTAINER) return null;
+		return (ControlPath)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(ControlPath newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, RemesPackage.EXIT_POINT__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(ControlPath newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != RemesPackage.EXIT_POINT__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, RemesPackage.CONTROL_PATH__EXIT_POINT, ControlPath.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.EXIT_POINT__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RemesPackage.EXIT_POINT__EXIT_EDGES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExitEdges()).basicAdd(otherEnd, msgs);
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((ControlPath)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -102,8 +152,24 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 		switch (featureID) {
 			case RemesPackage.EXIT_POINT__EXIT_EDGES:
 				return ((InternalEList<?>)getExitEdges()).basicRemove(otherEnd, msgs);
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				return basicSetContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, RemesPackage.CONTROL_PATH__EXIT_POINT, ControlPath.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -116,6 +182,8 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 		switch (featureID) {
 			case RemesPackage.EXIT_POINT__EXIT_EDGES:
 				return getExitEdges();
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -133,6 +201,9 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 				getExitEdges().clear();
 				getExitEdges().addAll((Collection<? extends Edge>)newValue);
 				return;
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				setContainer((ControlPath)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -148,6 +219,9 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 			case RemesPackage.EXIT_POINT__EXIT_EDGES:
 				getExitEdges().clear();
 				return;
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				setContainer((ControlPath)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -162,6 +236,8 @@ public class ExitPointImpl extends PointImpl implements ExitPoint {
 		switch (featureID) {
 			case RemesPackage.EXIT_POINT__EXIT_EDGES:
 				return exitEdges != null && !exitEdges.isEmpty();
+			case RemesPackage.EXIT_POINT__CONTAINER:
+				return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

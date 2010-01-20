@@ -8,14 +8,27 @@ package se.mdh.progresside.remes.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
-import se.mdh.progresside.attributes.Attributable;
-
 import se.mdh.progresside.remes.*;
+import se.mdh.progresside.remes.CompositeEntryPoint;
+import se.mdh.progresside.remes.CompositeExitPoint;
+import se.mdh.progresside.remes.CompositeMode;
+import se.mdh.progresside.remes.ConditionalConnector;
+import se.mdh.progresside.remes.ControlPath;
+import se.mdh.progresside.remes.Edge;
+import se.mdh.progresside.remes.EntryPoint;
+import se.mdh.progresside.remes.ExitPoint;
+import se.mdh.progresside.remes.InitEdge;
+import se.mdh.progresside.remes.InitPoint;
+import se.mdh.progresside.remes.Mode;
+import se.mdh.progresside.remes.Point;
+import se.mdh.progresside.remes.RemesDiagram;
+import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.Resource;
+import se.mdh.progresside.remes.SubMode;
+import se.mdh.progresside.remes.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,8 +151,12 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 				return createCompositeExitPointAdapter();
 			}
 			@Override
-			public Adapter caseAttributable(Attributable object) {
-				return createAttributableAdapter();
+			public Adapter caseReferrable(Referrable object) {
+				return createReferrableAdapter();
+			}
+			@Override
+			public Adapter caseConstant(Constant object) {
+				return createConstantAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -386,16 +403,30 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.attributes.Attributable <em>Attributable</em>}'.
+	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.Referrable <em>Referrable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see se.mdh.progresside.attributes.Attributable
+	 * @see se.mdh.progresside.remes.Referrable
 	 * @generated
 	 */
-	public Adapter createAttributableAdapter() {
+	public Adapter createReferrableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see se.mdh.progresside.remes.Constant
+	 * @generated
+	 */
+	public Adapter createConstantAdapter() {
 		return null;
 	}
 

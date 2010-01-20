@@ -6,27 +6,17 @@
  */
 package se.mdh.progresside.remes.impl;
 
-import hr.fer.rasip.remes.grammars.logical.tree.LogicalRoot;
-
-import java.util.Collection;
+import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import se.mdh.progresside.remes.CompositeMode;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.SubMode;
 
 /**

@@ -6,7 +6,9 @@
  */
 package se.mdh.progresside.remes;
 
-import se.mdh.progresside.attributes.Attributable;
+import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,7 @@ import se.mdh.progresside.attributes.Attributable;
  *   <li>{@link se.mdh.progresside.remes.InitEdge#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.InitEdge#getConnectFrom <em>Connect From</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.InitEdge#getConnectTo <em>Connect To</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.InitEdge#getParsedInitialization <em>Parsed Initialization</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +29,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface InitEdge extends Attributable {
+public interface InitEdge extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Initialization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -106,5 +109,31 @@ public interface InitEdge extends Attributable {
 	 * @generated
 	 */
 	void setConnectTo(EntryPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Parsed Initialization</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parsed Initialization</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parsed Initialization</em>' containment reference.
+	 * @see #setParsedInitialization(ActionRoot)
+	 * @see se.mdh.progresside.remes.RemesPackage#getInitEdge_ParsedInitialization()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ActionRoot getParsedInitialization();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.InitEdge#getParsedInitialization <em>Parsed Initialization</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parsed Initialization</em>' containment reference.
+	 * @see #getParsedInitialization()
+	 * @generated
+	 */
+	void setParsedInitialization(ActionRoot value);
 
 } // InitEdge

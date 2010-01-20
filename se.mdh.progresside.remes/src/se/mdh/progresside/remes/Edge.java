@@ -6,9 +6,10 @@
  */
 package se.mdh.progresside.remes;
 
-import hr.fer.rasip.remes.grammars.logical.tree.LogicalRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
 
-import se.mdh.progresside.attributes.Attributable;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +24,7 @@ import se.mdh.progresside.attributes.Attributable;
  *   <li>{@link se.mdh.progresside.remes.Edge#getParsedActionGuard <em>Parsed Action Guard</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Edge#getConnectFrom <em>Connect From</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Edge#getConnectTo <em>Connect To</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.Edge#getParsedActionBody <em>Parsed Action Body</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,7 +32,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model
  * @generated
  */
-public interface Edge extends Attributable {
+public interface Edge extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Action Guard</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -164,5 +166,31 @@ public interface Edge extends Attributable {
 	 * @generated
 	 */
 	void setConnectTo(EntryPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Parsed Action Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parsed Action Body</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parsed Action Body</em>' containment reference.
+	 * @see #setParsedActionBody(ActionRoot)
+	 * @see se.mdh.progresside.remes.RemesPackage#getEdge_ParsedActionBody()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ActionRoot getParsedActionBody();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.Edge#getParsedActionBody <em>Parsed Action Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parsed Action Body</em>' containment reference.
+	 * @see #getParsedActionBody()
+	 * @generated
+	 */
+	void setParsedActionBody(ActionRoot value);
 
 } // Edge

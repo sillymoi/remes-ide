@@ -8,8 +8,6 @@ package se.mdh.progresside.remes;
 
 import org.eclipse.emf.common.util.EList;
 
-import se.mdh.progresside.attributes.Attributable;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Mode</b></em>'.
@@ -21,6 +19,7 @@ import se.mdh.progresside.attributes.Attributable;
  *   <li>{@link se.mdh.progresside.remes.Mode#getInitialization <em>Initialization</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Mode#getVariables <em>Variables</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Mode#getResources <em>Resources</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.Mode#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,7 +27,7 @@ import se.mdh.progresside.attributes.Attributable;
  * @model abstract="true"
  * @generated
  */
-public interface Mode extends Attributable, ControlPath {
+public interface Mode extends ControlPath {
 	/**
 	 * Returns the value of the '<em><b>Initialization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,5 +89,39 @@ public interface Mode extends Attributable, ControlPath {
 	 * @generated
 	 */
 	EList<Resource> getResources();
+
+	/**
+	 * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+	 * The list contents are of type {@link se.mdh.progresside.remes.Constant}.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.Constant#getScope <em>Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constants</em>' containment reference list.
+	 * @see se.mdh.progresside.remes.RemesPackage#getMode_Constants()
+	 * @see se.mdh.progresside.remes.Constant#getScope
+	 * @model opposite="scope" containment="true"
+	 * @generated
+	 */
+	EList<Constant> getConstants();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Variable findVariableByName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Resource findResourceByName(String name);
 
 } // Mode

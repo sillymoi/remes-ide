@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: REMES Expressions Parsers
+Bundle-SymbolicName: hr.fer.rasip.remes.grammars.expressions.parser
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: hr.fer.rasip.remes.grammars.expressions.parser.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ hr.fer.rasip.remes.grammars.expressions.ast;bundle-version="1.0.0";visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: hr.fer.rasip.remes.grammars.expressions.parser
+Import-Package: junit.framework,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
+ org.eclipse.emf.ecore.xmi.impl
+Bundle-ClassPath: lib-ext/antlr-runtime-3.2.jar,
+ .

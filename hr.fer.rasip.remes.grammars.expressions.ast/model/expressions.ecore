@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="expressions"
+    nsURI="http://www.rasip.fer.hr/remes/1.1.0/expressions.ecore" nsPrefix="expressions">
+  <eSubpackages name="ast" nsURI="http://www.rasip.fer.hr/remes/1.1.0/expressions/ast.ecore"
+      nsPrefix="expressions.ast">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractRoot" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedVariables"
+          upperBound="-1" eType="#//ast/VariableReference"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActionRoot" eSuperTypes="#//ast/AbstractRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" lowerBound="1"
+          upperBound="-1" eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LogicalRoot" eSuperTypes="#//ast/AbstractRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRoot" eSuperTypes="#//ast/AbstractRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TernaryExpression" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//ast/TernaryOperation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param2" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param3" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//ast/BinaryOperation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param2" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//ast/UnaryOperation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
+          eType="#//ast/Expression" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableReference" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arrayIndex" eType="#//ast/Expression"
+          containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resolved" lowerBound="1"
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//ast/Expression">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TernaryOperation">
+      <eLiterals name="QUESTION"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="BinaryOperation">
+      <eLiterals name="ADD"/>
+      <eLiterals name="SUB" value="1"/>
+      <eLiterals name="MUL" value="2"/>
+      <eLiterals name="DIV" value="3"/>
+      <eLiterals name="MOD" value="4" literal="MOD"/>
+      <eLiterals name="LT" value="5"/>
+      <eLiterals name="LE" value="6"/>
+      <eLiterals name="EQ" value="7"/>
+      <eLiterals name="GE" value="8"/>
+      <eLiterals name="GT" value="9"/>
+      <eLiterals name="NE" value="10"/>
+      <eLiterals name="AND" value="11"/>
+      <eLiterals name="OR" value="12" literal="OR"/>
+      <eLiterals name="ASSIGN" value="13"/>
+      <eLiterals name="ASSIGN_ADD" value="14"/>
+      <eLiterals name="ASSIGN_SUB" value="15"/>
+      <eLiterals name="ASSIGN_MUL" value="16"/>
+      <eLiterals name="ASSIGN_DIV" value="17"/>
+      <eLiterals name="ASSIGN_MOD" value="18"/>
+      <eLiterals name="DIFF" value="19"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UnaryOperation">
+      <eLiterals name="NOT"/>
+      <eLiterals name="PLUS" value="1"/>
+      <eLiterals name="MINUS" value="2"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

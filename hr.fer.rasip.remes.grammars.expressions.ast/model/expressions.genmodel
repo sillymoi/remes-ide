@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hr.fer.rasip.remes.grammars.expressions.ast/src"
+    editDirectory="/hr.fer.rasip.remes.grammars.expressions.ast.edit/src" editorDirectory="/hr.fer.rasip.remes.grammars.expressions.ast.editor/src"
+    modelPluginID="hr.fer.rasip.remes.grammars.expressions.ast" modelName="Expressions"
+    editPluginClass="hr.fer.rasip.remes.grammars.expressions.ast.provider.ExpressionsEditPlugin"
+    editorPluginClass="hr.fer.rasip.remes.grammars.expressions.ast.presentation.ExpressionsEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="hr.fer.rasip.remes.grammars.expressions.ast.tests.ExpressionsAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="hr.fer.rasip.remes.grammars.expressions.ast.edit" editorPluginID="hr.fer.rasip.remes.grammars.expressions.ast.editor">
+  <foreignModel>expressions.ecore</foreignModel>
+  <genPackages prefix="Expressions" basePackage="hr.fer.rasip.remes.grammars" disposableProviderFactory="true"
+      ecorePackage="expressions.ecore#/">
+    <nestedGenPackages prefix="Ast" disposableProviderFactory="true" ecorePackage="expressions.ecore#//ast">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="expressions.ecore#//ast/TernaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/TernaryOperation/QUESTION"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="expressions.ecore#//ast/BinaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ADD"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/SUB"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/MUL"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/DIV"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/MOD"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/LT"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/LE"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/EQ"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/GE"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/GT"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/NE"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/AND"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/OR"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN_ADD"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN_SUB"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN_MUL"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN_DIV"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/ASSIGN_MOD"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/BinaryOperation/DIFF"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="expressions.ecore#//ast/UnaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/UnaryOperation/NOT"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/UnaryOperation/PLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/UnaryOperation/MINUS"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="expressions.ecore#//ast/AbstractRoot">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference expressions.ecore#//ast/AbstractRoot/referencedVariables"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/ActionRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/ActionRoot/expressions"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/LogicalRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/LogicalRoot/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/ResourceRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/ResourceRoot/expression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="expressions.ecore#//ast/Expression"/>
+      <genClasses ecoreClass="expressions.ecore#//ast/TernaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/TernaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param2"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param3"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/BinaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/BinaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/BinaryExpression/param1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/BinaryExpression/param2"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/UnaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/UnaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/UnaryExpression/param1"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/VariableReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/VariableReference/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/VariableReference/arrayIndex"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference expressions.ecore#//ast/VariableReference/resolved"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/Constant">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Constant/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Constant/value"/>
+      </genClasses>
+      <genClasses ecoreClass="expressions.ecore#//ast/Literal">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Literal/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Literal/value"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hr.fer.rasip.remes.grammars.expressions.ast.presentation.AstModelWizardID"
+            name="%_UI_AstModelWizard_label"
+            class="hr.fer.rasip.remes.grammars.expressions.ast.presentation.AstModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AstModelFile.gif">
+         <description>%_UI_AstModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="hr.fer.rasip.remes.grammars.expressions.ast.presentation.AstEditorID"
+            name="%_UI_AstEditor_label"
+            icon="icons/full/obj16/AstModelFile.gif"
+            extensions="ast"
+            class="hr.fer.rasip.remes.grammars.expressions.ast.presentation.AstEditor"
+            contributorClass="hr.fer.rasip.remes.grammars.expressions.ast.presentation.AstActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

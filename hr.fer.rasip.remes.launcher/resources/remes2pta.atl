@@ -1,0 +1,736 @@
+module remes2pta;
+create OUT : UPPAAL from IN : REMES;
+-------------------
+------HELPERS-------
+-------------------
+
+----------------------
+------INIT EDGE -------
+----------------------
+
+helper context REMES!SubMode def: isUrgent() : Boolean = self.isUrgent;
+
+helper context REMES!InitEdge def: compMode() : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.initPoint.initEdge=self)
+	->first();
+
+helper context REMES!InitEdge def: connectsToSubMode() : Boolean = 
+	self.compMode().subModes->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!InitEdge def: connectsToConditional() : Boolean = 
+	self.compMode().conditionalConnectors->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!Edge def: destination() : String = self.connectTo.__xmiID__;
+
+helper context REMES!InitEdge def: destCondConn() : REMES!ConditionalConnector =
+	self.compMode().subModes->iterate(e; res : REMES!ConditionalConnector = '' |
+			if e.entryPoint = self.connectTo
+			then e
+			else res
+			endif);
+	
+	
+------------------------------------------
+-----CONDITIONAL CONNECTOR TO EDGES---------
+-------------------------------------------
+helper context REMES!ConditionalConnector def: toEdges() : Sequence(Sequence(REMES!Edge)) = 
+	self.entryPoint.entryEdges->iterate(e; res : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+		res.union(
+			self.exitPoint.exitEdges->iterate(ex; resx : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+				resx.append(Sequence{e, ex})
+			)
+		)	
+	);
+
+helper def: mergeActionGuard(e1 : REMES!Edge, e2:REMES!Edge) : String = 
+	if e1.actionGuard.oclIsUndefined()
+	then 
+		if e2.actionGuard.oclIsUndefined()
+		then ''
+		else e2.actionGuard.trim()
+		endif
+	else 
+		if e2.actionGuard.oclIsUndefined()
+		then e1.actionGuard.trim()
+		else 
+			if e1.actionGuard.trim() = '' or e2.actionGuard.trim() = ''
+			then e1.actionGuard.concat(e2.actionGuard)
+			else e1.actionGuard.concat(' and ').concat(e2.actionGuard)
+			endif
+		endif
+	endif;
+
+helper def: mergeActionBody(e1:REMES!Edge, e2:REMES!Edge) : String=
+	if e1.actionBody.oclIsUndefined()
+	then 
+		if e2.actionBody.oclIsUndefined()
+		then ''
+		else e2.actionBodyToAssigment()
+		endif
+	else 
+		if e2.actionBody.oclIsUndefined()
+		then e1.actionBodyToAssigment()
+		else 
+			if e1.actionBody.trim() = '' or e2.actionBody.trim() = ''
+			then e1.actionBodyToAssigment().concat(e2.actionBodyToAssigment())
+			else e1.actionBodyToAssigment().concat(', ').concat(e2.actionBodyToAssigment())
+			endif
+		endif
+	endif;
+
+helper context REMES!Edge def: connectsToConditional(): Boolean = 
+	REMES!ConditionalConnector.allInstances()->select(i | i.entryPoint = self.connectTo)->notEmpty();
+
+helper context REMES!CompositeMode def: allInternalEdges() : Sequence(REMES!Edge) = 
+	self.subModes->collect(e | e.exitPoint.exitEdges->select(i | not i.connectsToConditional()));
+
+helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
+	self.compositeEntryPoint.exitEdges->select(e | not e.connectsToConditional());
+
+--helper context REMES!Edge def: compositeMode() : REMES!CompositeMode =
+--	REMES!CompositeMode.allInstances()->select(i | i.allInternalEdges()->includes(self))->first();
+
+---------------------------
+--SUB MODE LOCATION TYPE---
+----------------------------
+
+--CONDITIONAL
+
+helper context REMES!SubMode def: connectedToConditional() : Boolean = 
+	self.exitPoint.exitEdges->iterate(e; res : Boolean = false|
+	if REMES!ConditionalConnector.allInstances()->collect(i | i.entryPoint)->includes(e.connectTo)	
+	then true
+	else res
+	endif);
+
+---CLOCKS
+
+helper context REMES!SubMode def: noClocksOnTransitions() : Boolean = 
+	self.noClocksOnEntry() and self.noClocksOnExit();
+
+
+helper context REMES!SubMode def: noClocksOnEntry() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+
+helper context REMES!SubMode def: noClocksOnExit() : Boolean = 
+	self.exitPoint.exitEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+	
+helper context REMES!Edge def: hasClocks() : Boolean = 
+	if self.parsedActionGuard.oclIsUndefined()
+	then false
+	else self.parsedActionGuard.expression.containsClock()
+	endif;
+	
+helper context REMES!Expression def: containsClock() : Boolean = 
+	if self.oclIsTypeOf(REMES!BinaryExpression) 
+	then self.param1.containsClock() or self.param2.containsClock()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.param1.containsClock()
+		else
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.param1.containsClock() or self.param2.containsClock() or self.param3.containsClock()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then 
+					if self.resolved.type.toString() = 'clock'
+					then true
+					else false
+					endif
+				else false
+				endif
+			endif
+		endif
+	endif;
+
+
+--(NON) URGENT
+
+helper context REMES!SubMode def : connectedWithNonUrgentMode() : Boolean = 
+	if self.connectedToNonUrgentMode() or self.connectedFromNonUrgentMode()
+	then true
+	else false
+	endif;
+
+helper context REMES!SubMode def : connectedToNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false|
+	if self.exitPoint.exitEdges->select(j | j.connectedTo(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+helper context REMES!SubMode def : connectedFromNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false| 
+	if self.entryPoint.entryEdges->select(j | j.connectedFrom(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+--------------------------------------
+--- EDGE SOURCE ADN DESTINATION-------
+---------------------------------------
+
+
+helper context REMES!Edge def: connectedFrom(sm : REMES!SubMode) : Boolean =
+	if self.connectFrom = sm.exitPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectedTo(sm : REMES!SubMode) : Boolean =
+	if self.connectTo = sm.entryPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectsTo() : String = 
+	if REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->notEmpty()
+	then REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->first().__xmiID__
+	else self.connectTo.__xmiID__
+	endif;
+
+helper context REMES!InitEdge def: connectsTo() : String = 
+	if REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->notEmpty()
+	then REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->first().__xmiID__
+	else self.connectTo.__xmiID__
+	endif;
+
+--helper context REMES!Edge def: connectsFrom() : String = 
+--	if REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->notEmpty()
+--	then REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->first().__xmiID__
+--	else self.connectFrom.__xmiID__
+--	endif;
+
+helper context REMES!Edge def: connectsFrom() : String = 
+	if self.connectFrom.container.oclIsUndefined()
+	then self.connectFrom.__xmiID__
+	else self.connectFrom.container.__xmiID__
+	endif;
+
+----------------------------------------------
+--- EDGEs - PARSE ACTION BODY AND GUARD--------
+-------------------------------------------
+
+helper context REMES!Edge def: actionBodyToAssigment() : String = 
+	if self.parsedActionBody.oclIsUndefined()
+--	then self.parsedActionBody
+	then ''
+	else self.parsedActionBody.toAssigment()
+	endif;
+	
+helper context REMES!InitEdge def: initializationToAssigment() : String = 
+	if self.parsedInitialization.oclIsUndefined()
+	then self.parsedInitialization
+	else self.parsedInitialization.toAssigment()
+	endif;	
+	
+	
+helper context REMES!ActionRoot def: toAssigment() : String =	
+	if self.toCost().trim() = ''
+	then self.assigmentWithoutCost()
+	else 
+		if self.assigmentWithoutCost().trim() = ''
+		then self.toCost() 
+		else self.toCost() + ', ' + self.assigmentWithoutCost()
+		endif
+	endif;
+
+helper context REMES!ActionRoot def: assigmentWithoutCost() : String =
+	self.expressions->iterate(e; res : String ='' |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then res
+		else
+			if res = ''
+			then e.expressionToString()
+			else res+', '+e.expressionToString()
+			endif
+		endif);
+	
+	
+
+helper context REMES!Expression def: expressionToString() : String =
+	if self.oclIsTypeOf(REMES!BinaryExpression)
+	then self.binaryExpToString()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.unaryExpToString()
+		else 
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.ternaryExpToString()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then self.name
+				else 
+					if self.oclIsTypeOf(REMES!Constant)
+					then self.value
+					else ''
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+helper context REMES!Expression def: ternaryExpToString() : String =
+	'(' + self.param1.expressionToString() + '?' + self.param2.expressionToString() + ':' + self.param3.expressionToString()+')';
+
+helper context REMES!Expression def: binaryExpToString() : String = 
+	if self.type.toString() = 'ADD'
+	then self.param1.expressionToString() + ' + ' + self.param2.expressionToString()
+	else 
+		if self.type.toString() = 'SUB'
+		then self.param1.expressionToString() + ' - ' + self.param2.expressionToString()
+		else
+			if self.type.toString() = 'MUL'
+			then self.param1.expressionToString() + ' * ' + self.param2.expressionToString()
+			else 
+				if self.type.toString() = 'DIV'
+				then self.param1.expressionToString() + ' / ' + self.param2.expressionToString()
+				else 
+					if self.type.toString() = 'MOD'
+					then self.param1.expressionToString() + ' % ' + self.param2.expressionToString()
+					else
+						if self.type.toString() = 'LT'
+						then self.param1.expressionToString() + ' < ' + self.param2.expressionToString()
+						else
+							if self.type.toString() = 'LE'
+							then self.param1.expressionToString() + ' <= ' + self.param2.expressionToString()
+							else
+								if self.type.toString() = 'EQ'
+								then self.param1.expressionToString() + ' == ' + self.param2.expressionToString()
+								else
+									if self.type.toString() = 'GE'
+									then self.param1.expressionToString() + ' >= ' + self.param2.expressionToString()
+									else
+										if self.type.toString() = 'GT'
+										then self.param1.expressionToString() + ' > ' + self.param2.expressionToString()
+										else
+											if self.type.toString() = 'NE'
+											then self.param1.expressionToString() + ' != ' + self.param2.expressionToString()
+											else
+												if self.type.toString() = 'AND'
+												then self.param1.expressionToString() + ' and ' + self.param2.expressionToString()
+												else
+													if self.type.toString() = 'OR'
+													then self.param1.expressionToString() + ' or ' + self.param2.expressionToString()
+													else
+														if self.type.toString() = 'ASSIGN'
+														then self.param1.expressionToString() + ' := ' + self.param2.expressionToString()
+														else
+															if self.type.toString() = 'ASSIGN_ADD'
+															then self.param1.expressionToString() + ' += ' + self.param2.expressionToString()
+															else 
+																if self.type.toString() = 'ASSIGN_SUB'
+																then self.param1.expressionToString() + ' -= ' + self.param2.expressionToString()
+																else 
+																	if self.type.toString() = 'ASSIGN_MUL'
+																	then self.param1.expressionToString() + ' *= ' + self.param2.expressionToString()
+																	else
+																		if self.type.toString() = 'ASSIGN_DIV'
+																		then self.param1.expressionToString() + ' /= ' + self.param2.expressionToString()
+																		else 
+																			if self.type.toString() = 'ASSIGN_MOD'
+																			then self.param1.expressionToString() + ' %= ' + self.param2.expressionToString()
+																			else 
+																				if self.type.toString() = 'DIFF'
+																				then self.param1.expressionToString() + ' \'= ' + self.param2.expressionToString()
+																				else ''
+																				endif
+																			endif
+																		endif
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif;
+			
+
+helper context REMES!Expression def: unaryExpToString() : String = 
+	if self.type.toString() = 'PLUS'
+	then self.param1.name + '++ '
+	else 
+		if self.type.toString() = 'MINUS'
+		then self.param1.name + '--'
+		else 
+			if self.type.toString() = 'NOT'
+			then 'not ' + self.param1.name
+			else ''
+			endif
+		endif
+	endif;
+	
+helper context REMES!ActionRoot def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then ''
+	else self.cost()->iterate(e; res: String = 'cost += ' | res + e)
+	endif;
+
+helper context	REMES!ActionRoot def: cost() : Sequence(String) =
+	self.expressions->iterate(e; res : Sequence(String) =Sequence{} |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then
+			if e.type.toString() = 'ASSIGN_ADD'
+			then 
+				if res->isEmpty()
+				then res.append('w_'+ e.param1.resolved.name+'*'+e.param2.value)
+				else res.append('+w_'+ e.param1.resolved.name+'*'+e.param2.value)
+				endif
+			else res.append('-w_'+ e.param1.resolved.name+'*'+e.param2.value)
+			endif
+		else res
+		endif);
+--------------------------------------
+--- COMPOSITE MODE DECLARATION--------
+---------------------------------------
+
+helper context REMES!CompositeMode def : toDeclaration() : String = 
+	self.variablesToDeclaration()+self.constantsToDeclaration();
+
+
+helper context REMES!CompositeMode def : variablesToDeclaration() : String = 
+	self.variables->iterate(e; res : String = ''| 
+		if e.value.oclIsUndefined()
+		then res + e.uppaalType() + ' ' + e.name + '; '
+		else 
+			if e.value.trim() =''
+			then res + e.uppaalType() + ' ' + e.name + '; '
+			else res + e.uppaalType() + ' ' + e.name + ' = ' + e.value + '; '
+			endif
+		endif
+	);
+
+helper context REMES!CompositeMode def : constantsToDeclaration() : String = 
+	self.constants->iterate(e; res : String = ''| 
+		 res + 'const '+ e.uppaalType() + ' ' + e.name + ' = ' + e.value + '; '
+	);
+
+helper context REMES!Referable def: uppaalType() : String = 
+	if self.type.oclIsUndefined()
+	then ''
+	else 
+		if self.type.toString() = 'integer'
+		then 'int'
+		else 
+			if self.type.toString() = 'boolean'
+			then 'bool'
+			else self.type.toString()
+			endif
+		endif
+	endif;
+
+-------------------
+------RULES-------
+-------------------
+
+
+rule Diagram2Root {
+from
+    cm : REMES!RemesDiagram
+to
+    doc: UPPAAL!DocumentRoot ( 
+    	nta <- nta_type
+	),
+	nta_type: UPPAAL!NtaType(
+		template <- Sequence{cm.modes}
+	)
+}
+
+rule Template_type{
+	from
+		cMode : REMES!CompositeMode		
+	to
+		tp: UPPAAL!TemplateType (
+			declaration <- cMode.toDeclaration(),
+			name <- thisModule.Name_type('5','5', cMode.name.regexReplaceAll(' ', '_')),
+			location <-Sequence{thisModule.startLocation(), cMode.compositeEntryPoint, cMode.compositeExitPoint, cMode.subModes},
+			init <- thisModule.Init_type(cMode.initPoint. __xmiID__),
+			transition <- Sequence{thisModule.initTransition(cMode), thisModule.exitToEntryTransition(cMode), cMode.entryEdges(), cMode.allInternalEdges(), cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))}
+		)	
+}
+
+
+----------------
+---LOCATIONS----
+----------------
+rule startLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idStart',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Start'),
+			committed <-thisModule.Committed_type()
+		)
+		do{
+			loc;
+		}
+}
+
+rule entryPoint2Location{
+	from
+		point : REMES!CompositeEntryPoint
+	to 
+		loc: UPPAAL!LocationType(
+			id <- point.__xmiID__,
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Entry')
+		)
+}
+
+rule exitPoint2Location{
+	from
+		point:REMES!CompositeExitPoint
+	to
+		loc: UPPAAL!LocationType(
+			id <- point.__xmiID__,
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Exit')
+		)
+}
+
+abstract rule SubMode2Location{
+	from sm: REMES!SubMode
+	to tpl:UPPAAL!LocationType
+	
+}
+rule NonUrgentSubMode2Location extends SubMode2Location{
+	from
+		sm : REMES!SubMode (not (sm.isUrgent()))
+	to 
+		tpl: UPPAAL!LocationType(
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.invariant),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+}
+
+rule UrgentSubMode2UrgentLocation extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent )
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.invariant),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			committed <- thisModule.Committed_type()
+		)
+	do{
+			if(sm.connectedToNonUrgentMode() or sm.noClocksOnTransitions()) {
+					thisModule.urgent <-thisModule.Urgent_type();
+			}
+			else {}
+			if(sm.connectedToConditional() or not sm.noClocksOnTransitions()){
+					thisModule.commited <-thisModule.Committed_type();
+			}
+			else {}
+	}
+}
+-------------------------
+------TRANSITIONS----
+-------------------------
+
+rule initTransition(cMode: REMES!CompositeMode){		
+	to 
+		tt1:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(cMode.compositeEntryPoint.__xmiID__),
+			label <- Sequence{ thisModule.Label_type('3', '5', 'synchronisation', 't?') }
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(cMode.compositeEntryPoint.__xmiID__),
+				label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
+					thisModule.Label_type('3', '5', 'assignment', cMode.initPoint.initEdge.initializationToAssigment())}
+		),
+		tt3:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(cMode.initPoint.initEdge.connectsTo()),
+			label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
+					thisModule.Label_type('3', '5', 'assignment', cMode.initPoint.initEdge.initializationToAssigment())}
+		)
+	do{
+		if(cMode.initPoint.initEdge.oclIsUndefined()){
+			tt1;
+		}
+		else{
+			if(cMode.initPoint.initEdge.connectTo = cMode.compositeEntryPoint.exitEdges->first().connectTo){
+				tt2;
+			}
+			else{
+				tt3;
+			}
+		}
+	}
+}
+
+rule exitToEntryTransition(cMode: REMES!CompositeMode){		
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idExit'),
+			target <- thisModule.Target_type('idEntry')
+	)
+	do{
+		tt;
+	}
+}
+
+rule internalEdge2Transition{
+	from
+		e:REMES!Edge
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(e.connectsFrom()),
+			target <- thisModule.Target_type(e.connectsTo()),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', e.actionBodyToAssigment()),
+							thisModule.Label_type('3', '4', 'guard', e.actionGuard)}
+	)
+}
+
+rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
+	to tt:UPPAAL!TransitionType(
+		source <- thisModule.Source_type(edge1.connectsFrom()),
+		target <- thisModule.Target_type(edge2.connectsTo()),
+		label <- Sequence{thisModule.Label_type('3', '5', 'guard', thisModule.mergeActionGuard(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'assignment', thisModule.mergeActionBody(edge1, edge2))
+			}
+		)
+	do{
+		tt;
+	}
+	
+}
+
+rule transition(source : String, destination : String,  guard : String, action : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', action)}
+	)
+}
+
+-- committed type
+rule Committed_type(){
+	to
+		com: UPPAAL!CommittedType()
+		do{
+			com;
+		}
+}
+
+-- urgent type
+rule Urgent_type(){
+	to
+		u: UPPAAL!UrgentType()
+		do{
+			u;
+		}
+}
+
+-- init location
+
+rule Init_type(locId : String){
+	to  ip: UPPAAL!InitType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+-------------------------------------
+-- transitions target and source ---
+-------------------------------------
+
+
+rule Source_type(locId : String){
+	to  ip: UPPAAL!SourceType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+rule Target_type(locId : String){
+	to  ip: UPPAAL!TargetType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+--------------------
+---Name and Label--
+---------------------
+
+rule Name_type(x : String, y : String, value : String){
+	to name_type:UPPAAL!NameType(	
+		mixed <- thisModule.Xml_mixed(value).mixed,	
+		x <- x,
+		y <- y
+	)
+	do{
+		name_type;
+	}
+}
+
+rule Label_type(x: String, y: String, kind: String, value: String){
+	to label_type: UPPAAL!LabelType(
+		mixed <- thisModule.Xml_mixed(value).mixed,
+		kind <- kind,
+		x <- x,
+		y <- y
+	)
+	do{
+		label_type;
+	}
+}
+
+rule Xml_mixed(value : String){
+	to xml_mixed:UPPAAL!XMLTypeDocumentRoot(
+	text <- Sequence{value}
+	)
+	do {
+		xml_mixed;
+	}
+}

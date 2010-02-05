@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+	   <objectContribution
+	            objectClass="org.eclipse.core.resources.IFile"
+	            nameFilter="*.remes"
+	            id="hr.fer.rasip.remes.launcher.remes2uppaal">
+	            <action
+	               class="hr.fer.rasip.remes.launcher.Remes2PtaAction"
+	               enablesFor="*"
+	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction"
+	               label="Transform to PTA">
+	         </action>
+	      </objectContribution>  
+   </extension>
+
+</plugin>

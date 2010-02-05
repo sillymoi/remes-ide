@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Remes Builders
+Bundle-SymbolicName: hr.fer.rasip.remes.builders;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-Activator: hr.fer.rasip.remes.builder.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ se.mdh.progresside.remes;bundle-version="1.2.0",
+ se.mdh.progresside.remes.edit;bundle-version="1.2.0";visibility:=reexport,
+ hr.fer.rasip.remes.grammars.expressions.parser;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

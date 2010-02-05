@@ -13,7 +13,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -23,20 +23,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import se.mdh.progresside.remes.RemesFactory;
+import se.mdh.progresside.remes.Referable;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.SubMode;
 
 /**
- * This is the item provider adapter for a {@link se.mdh.progresside.remes.SubMode} object.
+ * This is the item provider adapter for a {@link se.mdh.progresside.remes.Referable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubModeItemProvider
-	extends ModeItemProvider
+public class ReferableItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +49,7 @@ public class SubModeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubModeItemProvider(AdapterFactory adapterFactory) {
+	public ReferableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,88 +64,31 @@ public class SubModeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInvariantPropertyDescriptor(object);
-			addIsUrgentPropertyDescriptor(object);
-			addParsedInvariantPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Invariant feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInvariantPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SubMode_invariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_invariant_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__INVARIANT,
+				 getString("_UI_Referable_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Referable_name_feature", "_UI_Referable_type"),
+				 RemesPackage.Literals.REFERABLE__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Urgent feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsUrgentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SubMode_isUrgent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_isUrgent_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__IS_URGENT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Parsed Invariant feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParsedInvariantPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SubMode_parsedInvariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_parsedInvariant_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__PARSED_INVARIANT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_parsedInvariantPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This returns SubMode.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubMode"));
 	}
 
 	/**
@@ -156,10 +99,10 @@ public class SubModeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SubMode)object).getName();
+		String label = ((Referable)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SubMode_type") :
-			getString("_UI_SubMode_type") + " " + label;
+			getString("_UI_Referable_type") :
+			getString("_UI_Referable_type") + " " + label;
 	}
 
 	/**
@@ -173,9 +116,8 @@ public class SubModeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SubMode.class)) {
-			case RemesPackage.SUB_MODE__INVARIANT:
-			case RemesPackage.SUB_MODE__IS_URGENT:
+		switch (notification.getFeatureID(Referable.class)) {
+			case RemesPackage.REFERABLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -192,6 +134,17 @@ public class SubModeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return RemesEditPlugin.INSTANCE;
 	}
 
 }

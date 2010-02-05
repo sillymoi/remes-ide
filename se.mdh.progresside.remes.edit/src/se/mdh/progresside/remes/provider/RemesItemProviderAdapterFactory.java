@@ -375,6 +375,29 @@ public class RemesItemProviderAdapterFactory extends RemesAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link se.mdh.progresside.remes.Constant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstantItemProvider constantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link se.mdh.progresside.remes.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstantAdapter() {
+		if (constantItemProvider == null) {
+			constantItemProvider = new ConstantItemProvider(this);
+		}
+
+		return constantItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,19 +496,20 @@ public class RemesItemProviderAdapterFactory extends RemesAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (compositeModeItemProvider != null) compositeModeItemProvider.dispose();
-		if (conditionalConnectorItemProvider != null) conditionalConnectorItemProvider.dispose();
-		if (edgeItemProvider != null) edgeItemProvider.dispose();
-		if (initEdgeItemProvider != null) initEdgeItemProvider.dispose();
 		if (remesDiagramItemProvider != null) remesDiagramItemProvider.dispose();
+		if (compositeModeItemProvider != null) compositeModeItemProvider.dispose();
 		if (subModeItemProvider != null) subModeItemProvider.dispose();
-		if (variableItemProvider != null) variableItemProvider.dispose();
-		if (resourceItemProvider != null) resourceItemProvider.dispose();
+		if (conditionalConnectorItemProvider != null) conditionalConnectorItemProvider.dispose();
 		if (initPointItemProvider != null) initPointItemProvider.dispose();
 		if (entryPointItemProvider != null) entryPointItemProvider.dispose();
 		if (exitPointItemProvider != null) exitPointItemProvider.dispose();
 		if (compositeEntryPointItemProvider != null) compositeEntryPointItemProvider.dispose();
 		if (compositeExitPointItemProvider != null) compositeExitPointItemProvider.dispose();
+		if (edgeItemProvider != null) edgeItemProvider.dispose();
+		if (initEdgeItemProvider != null) initEdgeItemProvider.dispose();
+		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (resourceItemProvider != null) resourceItemProvider.dispose();
+		if (constantItemProvider != null) constantItemProvider.dispose();
 	}
 
 }

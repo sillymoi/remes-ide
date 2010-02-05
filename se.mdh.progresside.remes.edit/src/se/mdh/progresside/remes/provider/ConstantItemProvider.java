@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,18 +23,18 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import se.mdh.progresside.remes.RemesFactory;
+import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.SubMode;
+import se.mdh.progresside.remes.Variable;
 
 /**
- * This is the item provider adapter for a {@link se.mdh.progresside.remes.SubMode} object.
+ * This is the item provider adapter for a {@link se.mdh.progresside.remes.Constant} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubModeItemProvider
-	extends ModeItemProvider
+public class ConstantItemProvider
+	extends ReferableItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +47,7 @@ public class SubModeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SubModeItemProvider(AdapterFactory adapterFactory) {
+	public ConstantItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,27 +62,27 @@ public class SubModeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInvariantPropertyDescriptor(object);
-			addIsUrgentPropertyDescriptor(object);
-			addParsedInvariantPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addGlobalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Invariant feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInvariantPropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SubMode_invariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_invariant_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__INVARIANT,
+				 getString("_UI_Constant_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_type_feature", "_UI_Constant_type"),
+				 RemesPackage.Literals.CONSTANT__TYPE,
 				 true,
 				 false,
 				 false,
@@ -94,19 +92,41 @@ public class SubModeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Urgent feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsUrgentPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SubMode_isUrgent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_isUrgent_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__IS_URGENT,
+				 getString("_UI_Constant_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_value_feature", "_UI_Constant_type"),
+				 RemesPackage.Literals.CONSTANT__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Global feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGlobalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Constant_global_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_global_feature", "_UI_Constant_type"),
+				 RemesPackage.Literals.CONSTANT__GLOBAL,
 				 true,
 				 false,
 				 false,
@@ -116,52 +136,38 @@ public class SubModeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Parsed Invariant feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParsedInvariantPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SubMode_parsedInvariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SubMode_parsedInvariant_feature", "_UI_SubMode_type"),
-				 RemesPackage.Literals.SUB_MODE__PARSED_INVARIANT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI_parsedInvariantPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This returns SubMode.gif.
+	 * This returns Constant.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SubMode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constant"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SubMode)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SubMode_type") :
-			getString("_UI_SubMode_type") + " " + label;
+		Constant c = (Constant) object;
+		String label = c.getName();
+		StringBuffer buf = new StringBuffer();
+		
+		buf.append(getString("_UI_Constant_type")).append(" ");
+		buf.append(c.getType().toString()).append(" ");
+		if(label != null && label.length() != 0)
+			buf.append(label);
+		if(c.getValue() != null && c.getValue().length() != 0)
+			buf.append("=").append(c.getValue());
+		
+		return buf.toString();
 	}
-
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
@@ -173,9 +179,10 @@ public class SubModeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SubMode.class)) {
-			case RemesPackage.SUB_MODE__INVARIANT:
-			case RemesPackage.SUB_MODE__IS_URGENT:
+		switch (notification.getFeatureID(Constant.class)) {
+			case RemesPackage.CONSTANT__TYPE:
+			case RemesPackage.CONSTANT__VALUE:
+			case RemesPackage.CONSTANT__GLOBAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

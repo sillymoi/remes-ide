@@ -21,10 +21,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import se.mdh.progresside.attributes.provider.AttributableItemProvider;
 import se.mdh.progresside.remes.RemesDiagram;
+import se.mdh.progresside.remes.RemesFactory;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.util.RemesDefaultElementFactory;
 
@@ -35,7 +36,7 @@ import se.mdh.progresside.remes.util.RemesDefaultElementFactory;
  * @generated
  */
 public class RemesDiagramItemProvider
-	extends AttributableItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

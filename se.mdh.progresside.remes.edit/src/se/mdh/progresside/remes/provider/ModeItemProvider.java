@@ -12,11 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,8 +22,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import se.mdh.progresside.attributes.provider.AttributableItemProvider;
 
 import se.mdh.progresside.remes.Mode;
 import se.mdh.progresside.remes.RemesFactory;
@@ -40,7 +34,7 @@ import se.mdh.progresside.remes.RemesPackage;
  * @generated
  */
 public class ModeItemProvider
-	extends AttributableItemProvider
+	extends ControlPathItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -68,32 +62,9 @@ public class ModeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addInitializationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ControlPath_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ControlPath_name_feature", "_UI_ControlPath_type"),
-				 RemesPackage.Literals.CONTROL_PATH__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -130,10 +101,9 @@ public class ModeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RemesPackage.Literals.CONTROL_PATH__ENTRY_POINT);
-			childrenFeatures.add(RemesPackage.Literals.CONTROL_PATH__EXIT_POINT);
 			childrenFeatures.add(RemesPackage.Literals.MODE__VARIABLES);
 			childrenFeatures.add(RemesPackage.Literals.MODE__RESOURCES);
+			childrenFeatures.add(RemesPackage.Literals.MODE__CONSTANTS);
 		}
 		return childrenFeatures;
 	}
@@ -177,14 +147,12 @@ public class ModeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Mode.class)) {
-			case RemesPackage.MODE__NAME:
 			case RemesPackage.MODE__INITIALIZATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case RemesPackage.MODE__ENTRY_POINT:
-			case RemesPackage.MODE__EXIT_POINT:
 			case RemesPackage.MODE__VARIABLES:
 			case RemesPackage.MODE__RESOURCES:
+			case RemesPackage.MODE__CONSTANTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -204,26 +172,6 @@ public class ModeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RemesPackage.Literals.CONTROL_PATH__ENTRY_POINT,
-				 RemesFactory.eINSTANCE.createEntryPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RemesPackage.Literals.CONTROL_PATH__ENTRY_POINT,
-				 RemesFactory.eINSTANCE.createCompositeExitPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RemesPackage.Literals.CONTROL_PATH__EXIT_POINT,
-				 RemesFactory.eINSTANCE.createExitPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RemesPackage.Literals.CONTROL_PATH__EXIT_POINT,
-				 RemesFactory.eINSTANCE.createCompositeEntryPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(RemesPackage.Literals.MODE__VARIABLES,
 				 RemesFactory.eINSTANCE.createVariable()));
 
@@ -231,17 +179,11 @@ public class ModeItemProvider
 			(createChildParameter
 				(RemesPackage.Literals.MODE__RESOURCES,
 				 RemesFactory.eINSTANCE.createResource()));
-	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return RemesEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(RemesPackage.Literals.MODE__CONSTANTS,
+				 RemesFactory.eINSTANCE.createConstant()));
 	}
 
 }

@@ -82,16 +82,14 @@ public class CompositeEntryPointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		if(object instanceof CompositeEntryPoint) {
-			CompositeEntryPoint pt = (CompositeEntryPoint) object;
+		CompositeEntryPoint pt = (CompositeEntryPoint) object;
 			
-			if(pt.eContainer() instanceof ControlPath) {
-				ControlPath parent = (ControlPath) pt.eContainer();
-				
-				String label = parent.getName();
-				if (label != null)
-					return label + " " + getString("_UI_CompositeEntryPoint_type");
-			}
+		if(pt.eContainer() instanceof ControlPath) {
+			ControlPath parent = (ControlPath) pt.eContainer();
+			
+			String label = parent.getName();
+			if (label != null)
+				return label + " " + getString("_UI_CompositeEntryPoint_type");
 		}
 		return getString("_UI_CompositeEntryPoint_type");
 	}

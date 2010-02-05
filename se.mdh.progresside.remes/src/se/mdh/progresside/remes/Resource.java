@@ -6,6 +6,7 @@
  */
 package se.mdh.progresside.remes;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link se.mdh.progresside.remes.Resource#getExpression <em>Expression</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Resource#getType <em>Type</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.Resource#getScope <em>Scope</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.Resource#getParsedExpression <em>Parsed Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Resource extends Referrable {
+public interface Resource extends Referable {
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,5 +111,31 @@ public interface Resource extends Referrable {
 	 * @generated
 	 */
 	void setScope(Mode value);
+
+	/**
+	 * Returns the value of the '<em><b>Parsed Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parsed Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parsed Expression</em>' containment reference.
+	 * @see #setParsedExpression(ResourceRoot)
+	 * @see se.mdh.progresside.remes.RemesPackage#getResource_ParsedExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ResourceRoot getParsedExpression();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.Resource#getParsedExpression <em>Parsed Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parsed Expression</em>' containment reference.
+	 * @see #getParsedExpression()
+	 * @generated
+	 */
+	void setParsedExpression(ResourceRoot value);
 
 } // Resource

@@ -124,4 +124,12 @@ public interface Mode extends ControlPath {
 	 */
 	Resource findResourceByName(String name);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Constant findConstantByName(String name);
+
 } // Mode

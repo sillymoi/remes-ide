@@ -168,6 +168,7 @@ public abstract class ModeImpl extends ControlPathImpl implements Mode {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks the variables belonging to this Mode and returns the first one with the requested name.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -182,15 +183,30 @@ public abstract class ModeImpl extends ControlPathImpl implements Mode {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks the resources belonging to this Mode and returns the first one with the requested name.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Resource findResourceByName(String name) {
-		// TODO Check if the usage of Expression is valid
 		if(name == null) return null;
 		for(Resource res : this.getResources()) {
-			if(res.getExpression().equals(name))
+			if(res.getName().equals(name))
 				return res;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Checks the constants belonging to this Mode and returns the first one with the requested name.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Constant findConstantByName(String name) {
+		if(name == null) return null;
+		for(Constant cst : this.getConstants()) {
+			if(cst.getName().equals(name))
+				return cst;
 		}
 		return null;
 	}

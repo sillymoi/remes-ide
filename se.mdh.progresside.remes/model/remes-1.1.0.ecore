@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="remes"
-    nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore" nsPrefix="remes">
+    nsURI="http://www.mdh.se/progresside/remes/1.1.0/remes.ecore" nsPrefix="remes">
   <eClassifiers xsi:type="ecore:EClass" name="CompositeMode" eSuperTypes="#//Mode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exitEdges" lowerBound="1"
         upperBound="-1" eType="#//ToCompositeModeEdge" eOpposite="#//ToCompositeModeEdge/connectTo"/>
@@ -19,7 +19,7 @@
         upperBound="-1" eType="#//ConditionalConnector" containment="true" resolveProxies="false"
         eOpposite="#//ConditionalConnector/parent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConditionalConnector" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalConnector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryEdges" lowerBound="1"
         upperBound="-1" eType="#//ToConditionalConnectorEdge" eOpposite="#//ToConditionalConnectorEdge/connectTo"/>
@@ -29,15 +29,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositeMode"
         eOpposite="#//CompositeMode/conditionalConnectors"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Edge" abstract="true" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="Edge" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionGuard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="InvariantsSyntaxCorrect"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionBody" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parsedActionGuard" eType="ecore:EClass ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntryConditionalSubEdge" eSuperTypes="#//FromConditionalConnectorEdge #//ToSubModeEdge #//Edge"/>
   <eClassifiers xsi:type="ecore:EClass" name="EntryConditionalTopEdge" eSuperTypes="#//FromCompositeModeEdge #//ToConditionalConnectorEdge #//Edge"/>
@@ -67,13 +65,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InternalEdge" eSuperTypes="#//FromSubModeEdge #//ToSubModeEdge #//Edge"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Mode" abstract="true" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="Mode" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true" eOpposite="#//Variable/scope"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RemesDiagram" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="RemesDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
         eType="#//Mode" containment="true" resolveProxies="false"/>
   </eClassifiers>
@@ -94,8 +92,6 @@
         eOpposite="#//CompositeMode/subModes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//Resource" containment="true" eOpposite="#//Resource/scope"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parsedInvariant" eType="ecore:EClass ../../hr.fer.rasip.remes.grammars.logical.tree/model/logical.ecore#//tree/LogicalRoot"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToCompositeModeEdge" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectTo" lowerBound="1"
@@ -109,7 +105,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectTo" lowerBound="1"
         eType="#//SubMode" eOpposite="#//SubMode/entryEdges"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PrimitiveTypes"/>
@@ -137,7 +133,7 @@
     <eLiterals name="power" value="3"/>
     <eLiterals name="port" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable">
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ResourceTypes"/>

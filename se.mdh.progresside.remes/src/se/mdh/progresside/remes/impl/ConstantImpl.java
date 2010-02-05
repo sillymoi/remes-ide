@@ -36,7 +36,7 @@ import se.mdh.progresside.remes.RemesPackage;
  *
  * @generated
  */
-public class ConstantImpl extends ReferrableImpl implements Constant {
+public class ConstantImpl extends ReferableImpl implements Constant {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->

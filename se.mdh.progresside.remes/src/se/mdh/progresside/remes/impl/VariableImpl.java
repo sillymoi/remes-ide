@@ -38,7 +38,7 @@ import se.mdh.progresside.remes.Variable;
  *
  * @generated
  */
-public class VariableImpl extends ReferrableImpl implements Variable {
+public class VariableImpl extends ReferableImpl implements Variable {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

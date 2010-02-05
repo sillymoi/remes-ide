@@ -61,19 +61,19 @@ public class RemesFactoryImpl extends EFactoryImpl implements RemesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case RemesPackage.COMPOSITE_MODE: return createCompositeMode();
-			case RemesPackage.CONDITIONAL_CONNECTOR: return createConditionalConnector();
-			case RemesPackage.EDGE: return createEdge();
-			case RemesPackage.INIT_EDGE: return createInitEdge();
 			case RemesPackage.REMES_DIAGRAM: return createRemesDiagram();
+			case RemesPackage.COMPOSITE_MODE: return createCompositeMode();
 			case RemesPackage.SUB_MODE: return createSubMode();
-			case RemesPackage.VARIABLE: return createVariable();
-			case RemesPackage.RESOURCE: return createResource();
+			case RemesPackage.CONDITIONAL_CONNECTOR: return createConditionalConnector();
 			case RemesPackage.INIT_POINT: return createInitPoint();
 			case RemesPackage.ENTRY_POINT: return createEntryPoint();
 			case RemesPackage.EXIT_POINT: return createExitPoint();
 			case RemesPackage.COMPOSITE_ENTRY_POINT: return createCompositeEntryPoint();
 			case RemesPackage.COMPOSITE_EXIT_POINT: return createCompositeExitPoint();
+			case RemesPackage.EDGE: return createEdge();
+			case RemesPackage.INIT_EDGE: return createInitEdge();
+			case RemesPackage.VARIABLE: return createVariable();
+			case RemesPackage.RESOURCE: return createResource();
 			case RemesPackage.CONSTANT: return createConstant();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

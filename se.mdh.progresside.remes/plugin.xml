@@ -40,12 +40,12 @@
                   severity="ERROR"
                   lang="OCL"
                   mode="Live"
-                  name="Variables Must be Named"
-                  id="variableName">
-               <description>Variables must have names.</description>
-               <message>Variable has no name.</message>
+                  name="Referrables Must be Named"
+                  id="referrableName">
+               <description>Variables, resources and constants must have names.</description>
+               <message>Variable, resource or constant has no name.</message>
                
-               <target class="Variable">
+               <target class="Referrable">
                   <event name="Set">
                      <feature name="name" />
                   </event>
@@ -115,5 +115,12 @@
             </constraint>
          </constraints>
       </constraintProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="se.mdh.progresside.remes.util.RemesResourceFactoryImpl"
+            type="remes">
+      </parser>
    </extension>
 </plugin>

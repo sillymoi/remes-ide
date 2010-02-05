@@ -87,40 +87,28 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 	protected RemesSwitch<Adapter> modelSwitch =
 		new RemesSwitch<Adapter>() {
 			@Override
-			public Adapter caseCompositeMode(CompositeMode object) {
-				return createCompositeModeAdapter();
+			public Adapter caseRemesDiagram(RemesDiagram object) {
+				return createRemesDiagramAdapter();
 			}
 			@Override
-			public Adapter caseConditionalConnector(ConditionalConnector object) {
-				return createConditionalConnectorAdapter();
-			}
-			@Override
-			public Adapter caseEdge(Edge object) {
-				return createEdgeAdapter();
-			}
-			@Override
-			public Adapter caseInitEdge(InitEdge object) {
-				return createInitEdgeAdapter();
+			public Adapter caseControlPath(ControlPath object) {
+				return createControlPathAdapter();
 			}
 			@Override
 			public Adapter caseMode(Mode object) {
 				return createModeAdapter();
 			}
 			@Override
-			public Adapter caseRemesDiagram(RemesDiagram object) {
-				return createRemesDiagramAdapter();
+			public Adapter caseCompositeMode(CompositeMode object) {
+				return createCompositeModeAdapter();
 			}
 			@Override
 			public Adapter caseSubMode(SubMode object) {
 				return createSubModeAdapter();
 			}
 			@Override
-			public Adapter caseVariable(Variable object) {
-				return createVariableAdapter();
-			}
-			@Override
-			public Adapter caseResource(Resource object) {
-				return createResourceAdapter();
+			public Adapter caseConditionalConnector(ConditionalConnector object) {
+				return createConditionalConnectorAdapter();
 			}
 			@Override
 			public Adapter casePoint(Point object) {
@@ -139,10 +127,6 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 				return createExitPointAdapter();
 			}
 			@Override
-			public Adapter caseControlPath(ControlPath object) {
-				return createControlPathAdapter();
-			}
-			@Override
 			public Adapter caseCompositeEntryPoint(CompositeEntryPoint object) {
 				return createCompositeEntryPointAdapter();
 			}
@@ -151,8 +135,24 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 				return createCompositeExitPointAdapter();
 			}
 			@Override
-			public Adapter caseReferrable(Referrable object) {
-				return createReferrableAdapter();
+			public Adapter caseEdge(Edge object) {
+				return createEdgeAdapter();
+			}
+			@Override
+			public Adapter caseInitEdge(InitEdge object) {
+				return createInitEdgeAdapter();
+			}
+			@Override
+			public Adapter caseReferable(Referable object) {
+				return createReferableAdapter();
+			}
+			@Override
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
+			}
+			@Override
+			public Adapter caseResource(Resource object) {
+				return createResourceAdapter();
 			}
 			@Override
 			public Adapter caseConstant(Constant object) {
@@ -231,6 +231,20 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInitEdgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.Referable <em>Referable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see se.mdh.progresside.remes.Referable
+	 * @generated
+	 */
+	public Adapter createReferableAdapter() {
 		return null;
 	}
 
@@ -399,20 +413,6 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompositeExitPointAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.Referrable <em>Referrable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see se.mdh.progresside.remes.Referrable
-	 * @generated
-	 */
-	public Adapter createReferrableAdapter() {
 		return null;
 	}
 

@@ -26,7 +26,7 @@ package se.mdh.progresside.remes;
  * @model
  * @generated
  */
-public interface Constant extends Referrable {
+public interface Constant extends Referable {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link se.mdh.progresside.remes.PrimitiveTypes}.

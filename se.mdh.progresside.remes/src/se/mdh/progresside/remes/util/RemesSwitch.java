@@ -104,30 +104,15 @@ public class RemesSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case RemesPackage.COMPOSITE_MODE: {
-				CompositeMode compositeMode = (CompositeMode)theEObject;
-				T result = caseCompositeMode(compositeMode);
-				if (result == null) result = caseMode(compositeMode);
-				if (result == null) result = caseControlPath(compositeMode);
+			case RemesPackage.REMES_DIAGRAM: {
+				RemesDiagram remesDiagram = (RemesDiagram)theEObject;
+				T result = caseRemesDiagram(remesDiagram);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RemesPackage.CONDITIONAL_CONNECTOR: {
-				ConditionalConnector conditionalConnector = (ConditionalConnector)theEObject;
-				T result = caseConditionalConnector(conditionalConnector);
-				if (result == null) result = caseControlPath(conditionalConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RemesPackage.EDGE: {
-				Edge edge = (Edge)theEObject;
-				T result = caseEdge(edge);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RemesPackage.INIT_EDGE: {
-				InitEdge initEdge = (InitEdge)theEObject;
-				T result = caseInitEdge(initEdge);
+			case RemesPackage.CONTROL_PATH: {
+				ControlPath controlPath = (ControlPath)theEObject;
+				T result = caseControlPath(controlPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,9 +123,11 @@ public class RemesSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RemesPackage.REMES_DIAGRAM: {
-				RemesDiagram remesDiagram = (RemesDiagram)theEObject;
-				T result = caseRemesDiagram(remesDiagram);
+			case RemesPackage.COMPOSITE_MODE: {
+				CompositeMode compositeMode = (CompositeMode)theEObject;
+				T result = caseCompositeMode(compositeMode);
+				if (result == null) result = caseMode(compositeMode);
+				if (result == null) result = caseControlPath(compositeMode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -152,17 +139,10 @@ public class RemesSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RemesPackage.VARIABLE: {
-				Variable variable = (Variable)theEObject;
-				T result = caseVariable(variable);
-				if (result == null) result = caseReferrable(variable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RemesPackage.RESOURCE: {
-				Resource resource = (Resource)theEObject;
-				T result = caseResource(resource);
-				if (result == null) result = caseReferrable(resource);
+			case RemesPackage.CONDITIONAL_CONNECTOR: {
+				ConditionalConnector conditionalConnector = (ConditionalConnector)theEObject;
+				T result = caseConditionalConnector(conditionalConnector);
+				if (result == null) result = caseControlPath(conditionalConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,12 +173,6 @@ public class RemesSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RemesPackage.CONTROL_PATH: {
-				ControlPath controlPath = (ControlPath)theEObject;
-				T result = caseControlPath(controlPath);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RemesPackage.COMPOSITE_ENTRY_POINT: {
 				CompositeEntryPoint compositeEntryPoint = (CompositeEntryPoint)theEObject;
 				T result = caseCompositeEntryPoint(compositeEntryPoint);
@@ -215,16 +189,42 @@ public class RemesSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RemesPackage.REFERRABLE: {
-				Referrable referrable = (Referrable)theEObject;
-				T result = caseReferrable(referrable);
+			case RemesPackage.EDGE: {
+				Edge edge = (Edge)theEObject;
+				T result = caseEdge(edge);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.INIT_EDGE: {
+				InitEdge initEdge = (InitEdge)theEObject;
+				T result = caseInitEdge(initEdge);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.REFERABLE: {
+				Referable referable = (Referable)theEObject;
+				T result = caseReferable(referable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.VARIABLE: {
+				Variable variable = (Variable)theEObject;
+				T result = caseVariable(variable);
+				if (result == null) result = caseReferable(variable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.RESOURCE: {
+				Resource resource = (Resource)theEObject;
+				T result = caseResource(resource);
+				if (result == null) result = caseReferable(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RemesPackage.CONSTANT: {
 				Constant constant = (Constant)theEObject;
 				T result = caseConstant(constant);
-				if (result == null) result = caseReferrable(constant);
+				if (result == null) result = caseReferable(constant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -289,6 +289,21 @@ public class RemesSwitch<T> {
 	 * @generated
 	 */
 	public T caseInitEdge(InitEdge object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Referable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Referable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReferable(Referable object) {
 		return null;
 	}
 
@@ -469,21 +484,6 @@ public class RemesSwitch<T> {
 	 * @generated
 	 */
 	public T caseCompositeExitPoint(CompositeExitPoint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Referrable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Referrable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferrable(Referrable object) {
 		return null;
 	}
 

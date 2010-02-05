@@ -6,6 +6,7 @@
  */
 package se.mdh.progresside.remes.impl;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -29,12 +30,13 @@ import se.mdh.progresside.remes.ResourceTypes;
  *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getType <em>Type</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ResourceImpl#getParsedExpression <em>Parsed Expression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceImpl extends ReferrableImpl implements Resource {
+public class ResourceImpl extends ReferableImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +76,16 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * @ordered
 	 */
 	protected ResourceTypes type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParsedExpression() <em>Parsed Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParsedExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceRoot parsedExpression;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +194,49 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ResourceRoot getParsedExpression() {
+		return parsedExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParsedExpression(ResourceRoot newParsedExpression, NotificationChain msgs) {
+		ResourceRoot oldParsedExpression = parsedExpression;
+		parsedExpression = newParsedExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.RESOURCE__PARSED_EXPRESSION, oldParsedExpression, newParsedExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParsedExpression(ResourceRoot newParsedExpression) {
+		if (newParsedExpression != parsedExpression) {
+			NotificationChain msgs = null;
+			if (parsedExpression != null)
+				msgs = ((InternalEObject)parsedExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.RESOURCE__PARSED_EXPRESSION, null, msgs);
+			if (newParsedExpression != null)
+				msgs = ((InternalEObject)newParsedExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RemesPackage.RESOURCE__PARSED_EXPRESSION, null, msgs);
+			msgs = basicSetParsedExpression(newParsedExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.RESOURCE__PARSED_EXPRESSION, newParsedExpression, newParsedExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -203,6 +258,8 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 		switch (featureID) {
 			case RemesPackage.RESOURCE__SCOPE:
 				return basicSetScope(null, msgs);
+			case RemesPackage.RESOURCE__PARSED_EXPRESSION:
+				return basicSetParsedExpression(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -235,6 +292,8 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 				return getType();
 			case RemesPackage.RESOURCE__SCOPE:
 				return getScope();
+			case RemesPackage.RESOURCE__PARSED_EXPRESSION:
+				return getParsedExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +314,9 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 				return;
 			case RemesPackage.RESOURCE__SCOPE:
 				setScope((Mode)newValue);
+				return;
+			case RemesPackage.RESOURCE__PARSED_EXPRESSION:
+				setParsedExpression((ResourceRoot)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -277,6 +339,9 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 			case RemesPackage.RESOURCE__SCOPE:
 				setScope((Mode)null);
 				return;
+			case RemesPackage.RESOURCE__PARSED_EXPRESSION:
+				setParsedExpression((ResourceRoot)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,6 +360,8 @@ public class ResourceImpl extends ReferrableImpl implements Resource {
 				return type != TYPE_EDEFAULT;
 			case RemesPackage.RESOURCE__SCOPE:
 				return getScope() != null;
+			case RemesPackage.RESOURCE__PARSED_EXPRESSION:
+				return parsedExpression != null;
 		}
 		return super.eIsSet(featureID);
 	}

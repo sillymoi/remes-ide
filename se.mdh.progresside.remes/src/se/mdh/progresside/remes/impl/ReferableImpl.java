@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import se.mdh.progresside.remes.Referrable;
+import se.mdh.progresside.remes.Referable;
 import se.mdh.progresside.remes.RemesPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Referrable</b></em>'.
+ * An implementation of the model object '<em><b>Referable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link se.mdh.progresside.remes.impl.ReferrableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.ReferableImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
+public abstract class ReferableImpl extends EObjectImpl implements Referable {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReferrableImpl() {
+	protected ReferableImpl() {
 		super();
 	}
 
@@ -66,7 +66,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RemesPackage.Literals.REFERRABLE;
+		return RemesPackage.Literals.REFERABLE;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.REFERRABLE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.REFERABLE__NAME, oldName, name));
 	}
 
 	/**
@@ -98,7 +98,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RemesPackage.REFERRABLE__NAME:
+			case RemesPackage.REFERABLE__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -112,7 +112,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RemesPackage.REFERRABLE__NAME:
+			case RemesPackage.REFERABLE__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -127,7 +127,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RemesPackage.REFERRABLE__NAME:
+			case RemesPackage.REFERABLE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -142,7 +142,7 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RemesPackage.REFERRABLE__NAME:
+			case RemesPackage.REFERABLE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
@@ -164,4 +164,4 @@ public abstract class ReferrableImpl extends EObjectImpl implements Referrable {
 		return result.toString();
 	}
 
-} //ReferrableImpl
+} //ReferableImpl

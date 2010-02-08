@@ -39,7 +39,7 @@ public interface Resource extends Referable {
 	 * @return the value of the '<em>Expression</em>' attribute.
 	 * @see #setExpression(String)
 	 * @see se.mdh.progresside.remes.RemesPackage#getResource_Expression()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getExpression();

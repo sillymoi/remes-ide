@@ -6,7 +6,7 @@
  */
 package se.mdh.progresside.remes.impl;
 
-import static se.mdh.progresside.remes.RemesPackage.RESOURCE;
+//import static se.mdh.progresside.remes.RemesPackage.RESOURCE;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl;
 
@@ -1115,11 +1115,11 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPoint_EntryEdges(), this.getEdge(), this.getEdge_ConnectTo(), "entryEdges", null, 1, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_Container(), this.getControlPath(), this.getControlPath_EntryPoint(), "container", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Container(), this.getControlPath(), this.getControlPath_EntryPoint(), "container", null, 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exitPointEClass, ExitPoint.class, "ExitPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExitPoint_ExitEdges(), this.getEdge(), this.getEdge_ConnectFrom(), "exitEdges", null, 1, -1, ExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExitPoint_Container(), this.getControlPath(), this.getControlPath_ExitPoint(), "container", null, 1, 1, ExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExitPoint_Container(), this.getControlPath(), this.getControlPath_ExitPoint(), "container", null, 0, 1, ExitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compositeEntryPointEClass, CompositeEntryPoint.class, "CompositeEntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeEntryPoint_Composite(), this.getCompositeMode(), this.getCompositeMode_CompositeEntryPoint(), "composite", null, 0, 1, CompositeEntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

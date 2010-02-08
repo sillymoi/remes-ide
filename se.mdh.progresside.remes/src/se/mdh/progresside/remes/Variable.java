@@ -6,7 +6,6 @@
  */
 package se.mdh.progresside.remes;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

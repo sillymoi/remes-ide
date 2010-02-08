@@ -57,7 +57,7 @@ public interface EntryPoint extends Point {
 	 * @see #setContainer(ControlPath)
 	 * @see se.mdh.progresside.remes.RemesPackage#getEntryPoint_Container()
 	 * @see se.mdh.progresside.remes.ControlPath#getEntryPoint
-	 * @model opposite="entryPoint" required="true" transient="false"
+	 * @model opposite="entryPoint" transient="false"
 	 * @generated
 	 */
 	ControlPath getContainer();

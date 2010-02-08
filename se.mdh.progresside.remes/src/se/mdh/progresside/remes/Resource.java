@@ -7,7 +7,6 @@
 package se.mdh.progresside.remes;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

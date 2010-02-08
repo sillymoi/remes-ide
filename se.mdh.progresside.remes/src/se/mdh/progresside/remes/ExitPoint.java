@@ -57,7 +57,7 @@ public interface ExitPoint extends Point {
 	 * @see #setContainer(ControlPath)
 	 * @see se.mdh.progresside.remes.RemesPackage#getExitPoint_Container()
 	 * @see se.mdh.progresside.remes.ControlPath#getExitPoint
-	 * @model opposite="exitPoint" required="true" transient="false"
+	 * @model opposite="exitPoint" transient="false"
 	 * @generated
 	 */
 	ControlPath getContainer();

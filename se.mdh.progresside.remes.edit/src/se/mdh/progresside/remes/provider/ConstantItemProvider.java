@@ -12,7 +12,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,7 +24,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.Variable;
 
 /**
  * This is the item provider adapter for a {@link se.mdh.progresside.remes.Constant} object.

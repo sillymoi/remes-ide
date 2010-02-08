@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import se.mdh.progresside.remes.RemesDiagram;
-import se.mdh.progresside.remes.RemesFactory;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.util.RemesDefaultElementFactory;
 

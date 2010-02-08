@@ -4,39 +4,37 @@
  *
  * $Id$
  */
-package se.mdh.progresside.remes.provider;
+package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 
+
+import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import se.mdh.progresside.remes.RemesDiagram;
-import se.mdh.progresside.remes.RemesFactory;
-import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.util.RemesDefaultElementFactory;
-
 /**
- * This is the item provider adapter for a {@link se.mdh.progresside.remes.RemesDiagram} object.
+ * This is the item provider adapter for a {@link hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RemesDiagramItemProvider
-	extends ItemProviderAdapter
+public class ResourceRootItemProvider
+	extends AbstractRootItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +47,7 @@ public class RemesDiagramItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RemesDiagramItemProvider(AdapterFactory adapterFactory) {
+	public ResourceRootItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,31 +62,8 @@ public class RemesDiagramItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addModesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Modes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RemesDiagram_modes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RemesDiagram_modes_feature", "_UI_RemesDiagram_type"),
-				 RemesPackage.Literals.REMES_DIAGRAM__MODES,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -103,7 +78,7 @@ public class RemesDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RemesPackage.Literals.REMES_DIAGRAM__MODES);
+			childrenFeatures.add(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -122,14 +97,14 @@ public class RemesDiagramItemProvider
 	}
 
 	/**
-	 * This returns RemesDiagram.gif.
+	 * This returns ResourceRoot.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RemesDiagram"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRoot"));
 	}
 
 	/**
@@ -140,7 +115,7 @@ public class RemesDiagramItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RemesDiagram_type");
+		return getString("_UI_ResourceRoot_type");
 	}
 
 	/**
@@ -154,8 +129,8 @@ public class RemesDiagramItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RemesDiagram.class)) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
+		switch (notification.getFeatureID(ResourceRoot.class)) {
+			case AstPackage.RESOURCE_ROOT__EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,35 +142,41 @@ public class RemesDiagramItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		// Create children with default values and initialization of sub-elements
-		RemesDefaultElementFactory defaultFactory = new RemesDefaultElementFactory();
-		
 		newChildDescriptors.add
 			(createChildParameter
-				(RemesPackage.Literals.REMES_DIAGRAM__MODES,
-				 defaultFactory.createDefaultCompositeMode()));
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createTernaryExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RemesPackage.Literals.REMES_DIAGRAM__MODES,
-				 defaultFactory.createDefaultSubMode()));
-	}
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createBinaryExpression()));
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return RemesEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createUnaryExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createVariableReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.RESOURCE_ROOT__EXPRESSION,
+				 AstFactory.eINSTANCE.createLiteral()));
 	}
 
 }

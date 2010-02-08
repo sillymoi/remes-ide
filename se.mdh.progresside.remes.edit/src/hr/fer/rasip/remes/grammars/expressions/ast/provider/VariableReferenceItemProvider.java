@@ -4,16 +4,21 @@
  *
  * $Id$
  */
-package se.mdh.progresside.remes.provider;
+package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 
+
+import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,22 +26,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import se.mdh.progresside.remes.RemesDiagram;
-import se.mdh.progresside.remes.RemesFactory;
-import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.util.RemesDefaultElementFactory;
-
 /**
- * This is the item provider adapter for a {@link se.mdh.progresside.remes.RemesDiagram} object.
+ * This is the item provider adapter for a {@link hr.fer.rasip.remes.grammars.expressions.ast.VariableReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RemesDiagramItemProvider
-	extends ItemProviderAdapter
+public class VariableReferenceItemProvider
+	extends ExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +49,7 @@ public class RemesDiagramItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RemesDiagramItemProvider(AdapterFactory adapterFactory) {
+	public VariableReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,28 +64,51 @@ public class RemesDiagramItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addModesPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addResolvedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Modes feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addModesPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RemesDiagram_modes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RemesDiagram_modes_feature", "_UI_RemesDiagram_type"),
-				 RemesPackage.Literals.REMES_DIAGRAM__MODES,
+				 getString("_UI_VariableReference_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableReference_name_feature", "_UI_VariableReference_type"),
+				 AstPackage.Literals.VARIABLE_REFERENCE__NAME,
+				 true,
 				 false,
 				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resolved feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResolvedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VariableReference_resolved_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableReference_resolved_feature", "_UI_VariableReference_type"),
+				 AstPackage.Literals.VARIABLE_REFERENCE__RESOLVED,
+				 true,
 				 false,
+				 true,
 				 null,
 				 null,
 				 null));
@@ -103,7 +126,7 @@ public class RemesDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RemesPackage.Literals.REMES_DIAGRAM__MODES);
+			childrenFeatures.add(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX);
 		}
 		return childrenFeatures;
 	}
@@ -122,14 +145,14 @@ public class RemesDiagramItemProvider
 	}
 
 	/**
-	 * This returns RemesDiagram.gif.
+	 * This returns VariableReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RemesDiagram"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableReference"));
 	}
 
 	/**
@@ -140,7 +163,10 @@ public class RemesDiagramItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RemesDiagram_type");
+		String label = ((VariableReference)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_VariableReference_type") :
+			getString("_UI_VariableReference_type") + " " + label;
 	}
 
 	/**
@@ -154,8 +180,11 @@ public class RemesDiagramItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RemesDiagram.class)) {
-			case RemesPackage.REMES_DIAGRAM__MODES:
+		switch (notification.getFeatureID(VariableReference.class)) {
+			case AstPackage.VARIABLE_REFERENCE__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AstPackage.VARIABLE_REFERENCE__ARRAY_INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,35 +196,41 @@ public class RemesDiagramItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		// Create children with default values and initialization of sub-elements
-		RemesDefaultElementFactory defaultFactory = new RemesDefaultElementFactory();
-		
 		newChildDescriptors.add
 			(createChildParameter
-				(RemesPackage.Literals.REMES_DIAGRAM__MODES,
-				 defaultFactory.createDefaultCompositeMode()));
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createTernaryExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RemesPackage.Literals.REMES_DIAGRAM__MODES,
-				 defaultFactory.createDefaultSubMode()));
-	}
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createBinaryExpression()));
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return RemesEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createUnaryExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createVariableReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AstPackage.Literals.VARIABLE_REFERENCE__ARRAY_INDEX,
+				 AstFactory.eINSTANCE.createLiteral()));
 	}
 
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax">
+		<metaInformationProvider class="hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcMetaInformation" id="hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="remessrc" icon="icons/editor_icon.gif" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcEditor" name="EMFText remessrc Editor">
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Remessrc Text Editor" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferencePage" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcSyntaxColoringPreferencePage" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcSyntaxColoringPreferencePage" category="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferencePage">
+		</page>
+		<page name="Brackets" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcBracketPreferencePage" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcBracketPreferencePage" category="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferencePage">
+		</page>
+		<page name="Occurrence" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcOccurrencePreferencePage" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcOccurrencePreferencePage" category="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
+		</wizard>
+	</extension>
+	
+	<extension id="hr.fer.rasip.remes.resource.remessrc.problem" name="EMFText Problem" point="org.eclipse.core.resources.markers">
+		<persistent value="true">
+		</persistent>
+		<super type="org.eclipse.core.resources.problemmarker">
+		</super>
+		<super type="org.eclipse.core.resources.textmarker">
+		</super>
+	</extension>
+	
+	<extension-point id="hr.fer.rasip.remes.resource.remessrc.default_load_options" name="Default Load Options" schema="schema/default_load_options.exsd"/>
+	
+	<extension point="org.eclipse.emf.ecore.extension_parser">
+		<parser class="hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcResourceFactoryDelegator" type="remessrc">
+		</parser>
+	</extension>
+	
+	<extension-point id="hr.fer.rasip.remes.resource.remessrc.additional_extension_parser" name="Additional Extension Parser" schema="schema/additional_extension_parser.exsd"/>
+	
+</plugin>

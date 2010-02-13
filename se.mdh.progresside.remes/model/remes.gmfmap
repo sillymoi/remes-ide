@@ -17,9 +17,9 @@
         <diagramLabel
             href="remes.gmfgraph#SubModeName"/>
         <features
-            href="remes.ecore#//Mode/name"/>
+            href="remes.ecore#//ControlPath/name"/>
         <editableFeatures
-            href="remes.ecore#//Mode/name"/>
+            href="remes.ecore#//ControlPath/name"/>
       </labelMappings>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
@@ -70,7 +70,7 @@
             <diagramLabel
                 href="remes.gmfgraph#VariableLabel"/>
             <features
-                href="remes.ecore#//Variable/name"/>
+                href="remes.ecore#//Referable/name"/>
             <features
                 href="remes.ecore#//Variable/vectorSize"/>
             <features
@@ -78,7 +78,7 @@
             <features
                 href="remes.ecore#//Variable/global"/>
             <editableFeatures
-                href="remes.ecore#//Variable/name"/>
+                href="remes.ecore#//Referable/name"/>
             <editableFeatures
                 href="remes.ecore#//Variable/type"/>
           </labelMappings>
@@ -92,9 +92,9 @@
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
-            href="remes.ecore#//SubMode/resources"/>
+            href="remes.ecore#//Mode/resources"/>
         <childrenFeature
-            href="remes.ecore#//SubMode/resources"/>
+            href="remes.ecore#//Mode/resources"/>
         <ownedChild>
           <domainMetaElement
               href="remes.ecore#//Resource"/>
@@ -121,6 +121,26 @@
               href="remes.gmfgraph#ResourceLabel"/>
         </ownedChild>
       </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//ControlPath/entryPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//EntryPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#EntryPoint"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//ControlPath/exitPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//ExitPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#ExitPoint"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
@@ -145,7 +165,7 @@
         <diagramLabel
             href="remes.gmfgraph#CompositeModeName"/>
         <features
-            href="remes.ecore#//Mode/name"/>
+            href="remes.ecore#//ControlPath/name"/>
       </labelMappings>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
@@ -174,9 +194,9 @@
             <diagramLabel
                 href="remes.gmfgraph#SubModeName"/>
             <features
-                href="remes.ecore#//Mode/name"/>
+                href="remes.ecore#//ControlPath/name"/>
             <editableFeatures
-                href="remes.ecore#//Mode/name"/>
+                href="remes.ecore#//ControlPath/name"/>
           </labelMappings>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
@@ -227,7 +247,7 @@
                 <diagramLabel
                     href="remes.gmfgraph#VariableLabel"/>
                 <features
-                    href="remes.ecore#//Variable/name"/>
+                    href="remes.ecore#//Referable/name"/>
                 <features
                     href="remes.ecore#//Variable/vectorSize"/>
                 <features
@@ -235,7 +255,7 @@
                 <features
                     href="remes.ecore#//Variable/global"/>
                 <editableFeatures
-                    href="remes.ecore#//Variable/name"/>
+                    href="remes.ecore#//Referable/name"/>
                 <editableFeatures
                     href="remes.ecore#//Variable/type"/>
                 <editableFeatures
@@ -251,9 +271,9 @@
           <children
               compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
             <containmentFeature
-                href="remes.ecore#//SubMode/resources"/>
+                href="remes.ecore#//Mode/resources"/>
             <childrenFeature
-                href="remes.ecore#//SubMode/resources"/>
+                href="remes.ecore#//Mode/resources"/>
             <ownedChild>
               <domainMetaElement
                   href="remes.ecore#//Resource"/>
@@ -278,6 +298,26 @@
                   href="remes.gmftool#//@palette/@tools.1"/>
               <diagramNode
                   href="remes.gmfgraph#ResourceLabel"/>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="remes.ecore#//ControlPath/entryPoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="remes.ecore#//EntryPoint"/>
+              <diagramNode
+                  href="remes.gmfgraph#EntryPoint"/>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="remes.ecore#//ControlPath/exitPoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="remes.ecore#//ExitPoint"/>
+              <diagramNode
+                  href="remes.gmfgraph#ExitPoint"/>
             </ownedChild>
           </children>
           <compartments
@@ -306,13 +346,33 @@
             <diagramLabel
                 href="remes.gmfgraph#ConditionalConnectorName"/>
             <features
-                href="remes.ecore#//ConditionalConnector/name"/>
+                href="remes.ecore#//ControlPath/name"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="remes.gmftool#//@palette/@tools.2/@tools.1"/>
           <diagramNode
               href="remes.gmfgraph#ConditionalConnector"/>
+          <children>
+            <containmentFeature
+                href="remes.ecore#//ControlPath/entryPoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="remes.ecore#//EntryPoint"/>
+              <diagramNode
+                  href="remes.gmfgraph#EntryPoint"/>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="remes.ecore#//ControlPath/exitPoint"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="remes.ecore#//ExitPoint"/>
+              <diagramNode
+                  href="remes.gmfgraph#ExitPoint"/>
+            </ownedChild>
+          </children>
         </ownedChild>
       </children>
       <children
@@ -332,7 +392,7 @@
             <diagramLabel
                 href="remes.gmfgraph#VariableLabel"/>
             <features
-                href="remes.ecore#//Variable/name"/>
+                href="remes.ecore#//Referable/name"/>
             <features
                 href="remes.ecore#//Variable/vectorSize"/>
             <features
@@ -340,7 +400,7 @@
             <features
                 href="remes.ecore#//Variable/global"/>
             <editableFeatures
-                href="remes.ecore#//Variable/name"/>
+                href="remes.ecore#//Referable/name"/>
             <editableFeatures
                 href="remes.ecore#//Variable/type"/>
           </labelMappings>
@@ -351,13 +411,65 @@
               href="remes.gmfgraph#VariableLabel"/>
         </ownedChild>
       </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//ControlPath/entryPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//EntryPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#EntryPoint"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//ControlPath/exitPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//ExitPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#ExitPoint"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="remes.ecore#//CompositeMode/compositeEntryPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//CompositeEntryPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#CompositeEntryPoint"/>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="remes.ecore#//CompositeMode/compositeExitPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//CompositeExitPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#CompositeExitPoint"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//CompositeMode/initPoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//InitPoint"/>
+          <diagramNode
+              href="remes.gmfgraph#InitPoint"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.1/@ownedChild/@children.2">
         <compartment
             href="remes.gmfgraph#CompositeModeVariablesCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
+          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.5 //@nodes.1/@ownedChild/@children.6">
         <compartment
             href="remes.gmfgraph#CompositeModeCompartment"/>
       </compartments>
@@ -365,262 +477,51 @@
   </nodes>
   <links>
     <domainMetaElement
-        href="remes.ecore#//EntryConditionalTopInitEdge"/>
+        href="remes.ecore#//Edge"/>
     <labelMappings
         xsi:type="gmfmap:FeatureLabelMapping">
       <diagramLabel
-          href="remes.gmfgraph#EntryConditionalTopInitEdgeInitialization"/>
+          href="remes.gmfgraph#EdgeActionGuard"/>
+      <features
+          href="remes.ecore#//Edge/actionGuard"/>
+    </labelMappings>
+    <containmentFeature
+        href="remes.ecore#//ExitPoint/exitEdges"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="remes.gmftool#//@palette/@tools.3/@tools.0"/>
+    <diagramLink
+        href="remes.gmfgraph#Edge"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="remes.ecore#//Edge/connectFrom"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="remes.ecore#//Edge/connectTo"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="remes.ecore#//InitEdge"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping">
+      <diagramLabel
+          href="remes.gmfgraph#InitEdgeInitialization"/>
       <features
           href="remes.ecore#//InitEdge/initialization"/>
     </labelMappings>
     <containmentFeature
-        href="remes.ecore#//CompositeMode/initEdge"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.2"/>
-    <diagramLink
-        href="remes.gmfgraph#EntryConditionalTopInitEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromCompositeModeInitEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToConditionalConnectorEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="oppositeEnd.conditionalConnectors->exists(c | c = self)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//EntryEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
-        editorPattern="">
-      <diagramLabel
-          href="remes.gmfgraph#EntryEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//CompositeMode/entryEdge"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.4"/>
-    <diagramLink
-        href="remes.gmfgraph#EntryEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromCompositeModeEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToSubModeEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="oppositeEnd.subModes->exists(s | s = self)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//InternalEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#InternalEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//SubMode/exitEdges"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.7"/>
-    <diagramLink
-        href="remes.gmfgraph#InternalEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromSubModeEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToSubModeEdge/connectTo"/>
-    <creationConstraints>
-      <sourceEnd
-          body="self &lt;> oppositeEnd and self.parent.oclIsTypeOf(CompositeMode)"/>
-      <targetEnd
-          body="self.parent.subModes->exists(sm | sm = oppositeEnd)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//ExitConditionalSubEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#ExitConditionalSubEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//SubMode/exitEdges"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.9"/>
-    <diagramLink
-        href="remes.gmfgraph#ExitConditionalSubEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromSubModeEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToConditionalConnectorEdge/connectTo"/>
-    <creationConstraints>
-      <sourceEnd
-          body="self.parent.oclIsTypeOf(CompositeMode)"/>
-      <targetEnd
-          body="self.parent.subModes->exists(sm| sm = oppositeEnd)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//EntryConditionalTopEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#EntryConditionalTopEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//CompositeMode/entryEdge"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.5"/>
-    <diagramLink
-        href="remes.gmfgraph#EntryConditionalTopEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromCompositeModeEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToConditionalConnectorEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="oppositeEnd.conditionalConnectors->exists(c | c = self)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//ExitEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#ExitEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//SubMode/exitEdges"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.11"/>
-    <diagramLink
-        href="remes.gmfgraph#ExitEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromSubModeEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToCompositeModeEdge/connectTo"/>
-    <creationConstraints>
-      <sourceEnd
-          body="self.parent.oclIsTypeOf(CompositeMode)"/>
-      <targetEnd
-          body="self.subModes->exists(s|s = oppositeEnd)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//EntryInitEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#EntryInitEdgeInitialization"/>
-      <features
-          href="remes.ecore#//InitEdge/initialization"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//CompositeMode/initEdge"/>
+        href="remes.ecore#//InitPoint/initEdge"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="remes.gmftool#//@palette/@tools.3/@tools.1"/>
     <diagramLink
-        href="remes.gmfgraph#EntryInitEdge"/>
+        href="remes.gmfgraph#InitEdge"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
-        href="remes.ecore#//FromCompositeModeInitEdge/connectFrom"/>
+        href="remes.ecore#//InitEdge/connectFrom"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="remes.ecore#//ToSubModeEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="oppositeEnd.subModes->exists(s | s = self)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//ExitConditionalTopEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#ExitConditionalTopEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//ConditionalConnector/exitEdges"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.12"/>
-    <diagramLink
-        href="remes.gmfgraph#ExitConditionalTopEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromConditionalConnectorEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToCompositeModeEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="self.conditionalConnectors->exists(c| c = oppositeEnd)"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
-        href="remes.ecore#//EntryConditionalSubEdge"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="remes.gmfgraph#EntryConditionalSubEdgeActionGuard"/>
-      <features
-          href="remes.ecore#//Edge/actionGuard"/>
-    </labelMappings>
-    <containmentFeature
-        href="remes.ecore#//ConditionalConnector/exitEdges"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.8"/>
-    <diagramLink
-        href="remes.gmfgraph#EntryConditionalSubEdge"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//FromConditionalConnectorEdge/connectFrom"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="remes.ecore#//ToSubModeEdge/connectTo"/>
-    <creationConstraints>
-      <targetEnd
-          body="self.parent.conditionalConnectors->exists(cc| cc = oppositeEnd)"/>
-    </creationConstraints>
+        href="remes.ecore#//InitEdge/connectTo"/>
   </links>
   <diagram>
     <diagramCanvas

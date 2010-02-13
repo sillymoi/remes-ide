@@ -202,17 +202,11 @@
             xsi:type="gmfgraph:Label"
             name="CompositeModeInitializationFigure"
             text=""/>
-        <children
-            xsi:type="gmfgraph:FigureRef"
-            figure="//@figures.0/@figures.4"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
-      <accessors
-          accessor="getFigureVariables"
-          figure="//@figures.0/@figures.4"/>
     </descriptors>
     <descriptors
         name="ConditionalConnectorFigure">
@@ -235,10 +229,66 @@
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="VariableFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="VariableFigure"
+          text="Variables"/>
+    </descriptors>
+    <descriptors
+        name="ResourceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ResourceFigure"
+          text="Resources"/>
+    </descriptors>
+    <descriptors
+        name="EntryPointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="EntryPointFigure">
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="green"/>
+        <preferredSize
+            dx="15"
+            dy="15"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ExitPointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ExitPointFigure">
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="red"/>
+        <preferredSize
+            dx="15"
+            dy="15"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EdgeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="EdgeFigure"
+          targetDecoration="//@figures.0/@figures.0">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EdgeActionGuardFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="SubModeFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="SubModeFigure">
+        <layoutData
+            xsi:type="gmfgraph:BorderLayoutData"/>
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeNameFigure"
@@ -255,199 +305,111 @@
             xsi:type="gmfgraph:Label"
             name="SubModeIsUrgentFigure"
             text="false"/>
-        <children
-            xsi:type="gmfgraph:FigureRef"
-            figure="//@figures.0/@figures.4"/>
-        <children
-            xsi:type="gmfgraph:FigureRef"
-            figure="//@figures.0/@figures.5"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
-      <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.3"/>
-      <accessors
-          figure="//@figures.0/@figures.4"/>
-      <accessors
-          figure="//@figures.0/@figures.5"/>
-    </descriptors>
-    <descriptors
-        name="EntryConditionalSubEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="EntryConditionalSubEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntryConditionalSubEdgeActionGuardFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="EntryConditionalTopEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="EntryConditionalTopEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntryConditionalTopEdgeActionGuardFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="EntryConditionalTopInitEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="EntryConditionalTopInitEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.2">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntryConditionalTopInitEdgeInitializationFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="EntryEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="EntryEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntryEdgeActionGuardFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="EntryInitEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="EntryInitEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.2">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntryInitEdgeInitializationFigure"
-            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="ExitConditionalSubEdgeFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="ExitConditionalSubEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ExitConditionalSubEdgeActionGuardFigure"
-            text="&lt;...>"/>
-      </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.2"/>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.3"/>
     </descriptors>
     <descriptors
-        name="ExitConditionalTopEdgeFigure">
+        name="InitPointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="InitPointFigure">
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="yellow"/>
+        <preferredSize
+            dx="15"
+            dy="15"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="InitEdgeFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="ExitConditionalTopEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.1">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
+          name="InitEdgeFigure"
+          targetDecoration="//@figures.0/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
-            name="ExitConditionalTopEdgeActionGuardFigure"
+            name="InitEdgeInitializationFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="ExitEdgeFigure">
+        name="CompositeEntryPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="ExitEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.1">
-        <foregroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
+          xsi:type="gmfgraph:Rectangle"
+          name="CompositeEntryPointFigure"
+          outline="false">
+        <preferredSize
+            dx="15"
+            dy="15"/>
         <children
-            xsi:type="gmfgraph:Label"
-            name="ExitEdgeActionGuardFigure"
-            text="&lt;...>"/>
+            xsi:type="gmfgraph:Polygon">
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="green"/>
+          <template/>
+          <template
+              x="7"/>
+          <template
+              x="15"
+              y="7"/>
+          <template
+              x="7"
+              y="15"/>
+          <template
+              y="15"/>
+        </children>
       </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="InternalEdgeFigure">
+        name="ExitPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="InternalEdgeFigure"
-          sourceDecoration="//@figures.0/@figures.3"
-          targetDecoration="//@figures.0/@figures.0">
-        <foregroundColor
+          xsi:type="gmfgraph:Rectangle"
+          name="ExitPointFigure">
+        <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
-            value="black"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="InternalEdgeActionGuardFigure"
-            text="&lt;...>"/>
+            value="red"/>
+        <preferredSize
+            dx="15"
+            dy="15"/>
       </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="VariableFigure">
+        name="CompositeExitPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:Label"
-          name="VariableFigure"/>
-    </descriptors>
-    <descriptors
-        name="ResourceFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Label"
-          name="ResourceFigure"/>
+          xsi:type="gmfgraph:Rectangle"
+          name="CompositeExitPointFigure"
+          outline="false">
+        <preferredSize
+            dx="15"
+            dy="15"/>
+        <children
+            xsi:type="gmfgraph:Polygon">
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="red"/>
+          <template/>
+          <template
+              x="15"/>
+          <template
+              x="15"
+              y="15"/>
+          <template
+              y="15"/>
+          <template
+              x="7"
+              y="7"/>
+        </children>
+      </actualFigure>
     </descriptors>
   </figures>
   <nodes
@@ -459,33 +421,30 @@
   <nodes
       name="SubMode"
       figure="SubModeFigure"/>
+  <nodes
+      name="EntryPoint"
+      figure="EntryPointFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="ExitPoint"
+      figure="ExitPointFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="CompositeEntryPoint"
+      figure="CompositeEntryPointFigure"/>
+  <nodes
+      name="CompositeExitPoint"
+      figure="CompositeExitPointFigure"/>
+  <nodes
+      name="InitPoint"
+      figure="InitPointFigure"
+      affixedParentSide="WEST"/>
   <connections
-      name="EntryConditionalSubEdge"
-      figure="EntryConditionalSubEdgeFigure"/>
+      name="Edge"
+      figure="EdgeFigure"/>
   <connections
-      name="EntryConditionalTopEdge"
-      figure="EntryConditionalTopEdgeFigure"/>
-  <connections
-      name="EntryConditionalTopInitEdge"
-      figure="EntryConditionalTopInitEdgeFigure"/>
-  <connections
-      name="EntryEdge"
-      figure="EntryEdgeFigure"/>
-  <connections
-      name="EntryInitEdge"
-      figure="EntryInitEdgeFigure"/>
-  <connections
-      name="ExitConditionalSubEdge"
-      figure="ExitConditionalSubEdgeFigure"/>
-  <connections
-      name="ExitConditionalTopEdge"
-      figure="ExitConditionalTopEdgeFigure"/>
-  <connections
-      name="ExitEdge"
-      figure="ExitEdgeFigure"/>
-  <connections
-      name="InternalEdge"
-      figure="InternalEdgeFigure"/>
+      name="InitEdge"
+      figure="InitEdgeFigure"/>
   <compartments
       name="CompositeModeCompartment"
       figure="CompositeModeFigure"
@@ -531,70 +490,35 @@
       figure="ConditionalConnectorFigure"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
-      name="EntryConditionalSubEdgeActionGuard"
-      figure="EntryConditionalSubEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
-  <labels
-      name="EntryConditionalTopEdgeActionGuard"
-      figure="EntryConditionalTopEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels
-      name="EntryConditionalTopInitEdgeInitialization"
-      figure="EntryConditionalTopInitEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
-  <labels
-      name="EntryEdgeActionGuard"
-      figure="EntryEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
-  <labels
-      name="EntryInitEdgeInitialization"
-      figure="EntryInitEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
-  <labels
-      name="ExitConditionalSubEdgeActionGuard"
-      figure="ExitConditionalSubEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
-  <labels
-      name="ExitConditionalTopEdgeActionGuard"
-      figure="ExitConditionalTopEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
-  <labels
-      name="ExitEdgeActionGuard"
-      figure="ExitEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
-  <labels
-      name="InternalEdgeActionGuard"
-      figure="InternalEdgeFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
-  <labels
       name="SubModeName"
       figure="SubModeFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="SubModeInitialization"
       figure="SubModeFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.1"/>
   <labels
       name="SubModeInvariant"
       figure="SubModeFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.2"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.2"/>
   <labels
       name="SubModeIsUrgent"
       figure="SubModeFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.3"/>
+      accessor="//@figures.0/@descriptors.7/@accessors.3"/>
   <labels
       name="VariableLabel"
       figure="VariableFigure"/>
   <labels
       name="ResourceLabel"
       figure="ResourceFigure"/>
+  <labels
+      name="EdgeActionGuard"
+      figure="EdgeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels
+      name="InitEdgeInitialization"
+      figure="InitEdgeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
 </gmfgraph:Canvas>

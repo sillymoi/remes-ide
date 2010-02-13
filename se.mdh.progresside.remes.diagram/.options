@@ -1,0 +1,7 @@
+# Tracing options for the se.mdh.progresside.remes.diagram plug-in
+
+# Common issues
+se.mdh.progresside.remes.diagram/debug=false
+
+# Visual IDs
+se.mdh.progresside.remes.diagram/debug/visualID=false

@@ -1,0 +1,172 @@
+package se.mdh.progresside.remes.diagram.part;
+
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+/**
+ * @generated
+ */
+public class RemesCreationWizard extends Wizard implements INewWizard {
+
+	/**
+	 * @generated
+	 */
+	private IWorkbench workbench;
+
+	/**
+	 * @generated
+	 */
+	protected IStructuredSelection selection;
+
+	/**
+	 * @generated
+	 */
+	protected RemesCreationWizardPage diagramModelFilePage;
+
+	/**
+	 * @generated
+	 */
+	protected RemesCreationWizardPage domainModelFilePage;
+
+	/**
+	 * @generated
+	 */
+	protected Resource diagram;
+
+	/**
+	 * @generated
+	 */
+	private boolean openNewlyCreatedDiagramEditor = true;
+
+	/**
+	 * @generated
+	 */
+	public IWorkbench getWorkbench() {
+		return workbench;
+	}
+
+	/**
+	 * @generated
+	 */
+	public IStructuredSelection getSelection() {
+		return selection;
+	}
+
+	/**
+	 * @generated
+	 */
+	public final Resource getDiagram() {
+		return diagram;
+	}
+
+	/**
+	 * @generated
+	 */
+	public final boolean isOpenNewlyCreatedDiagramEditor() {
+		return openNewlyCreatedDiagramEditor;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setOpenNewlyCreatedDiagramEditor(
+			boolean openNewlyCreatedDiagramEditor) {
+		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+		this.selection = selection;
+		setWindowTitle(Messages.RemesCreationWizardTitle);
+		setDefaultPageImageDescriptor(RemesDiagramEditorPlugin
+				.getBundledImageDescriptor("icons/wizban/NewRemesWizard.gif")); //$NON-NLS-1$
+		setNeedsProgressMonitor(true);
+	}
+
+	/**
+	 * @generated
+	 */
+	public void addPages() {
+		diagramModelFilePage = new RemesCreationWizardPage(
+				"DiagramModelFile", getSelection(), "remes_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage
+				.setTitle(Messages.RemesCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage
+				.setDescription(Messages.RemesCreationWizard_DiagramModelFilePageDescription);
+		addPage(diagramModelFilePage);
+
+		domainModelFilePage = new RemesCreationWizardPage(
+				"DomainModelFile", getSelection(), "remes") { //$NON-NLS-1$ //$NON-NLS-2$
+
+			public void setVisible(boolean visible) {
+				if (visible) {
+					String fileName = diagramModelFilePage.getFileName();
+					fileName = fileName.substring(0, fileName.length()
+							- ".remes_diagram".length()); //$NON-NLS-1$
+					setFileName(RemesDiagramEditorUtil.getUniqueFileName(
+							getContainerFullPath(), fileName, "remes")); //$NON-NLS-1$
+				}
+				super.setVisible(visible);
+			}
+		};
+		domainModelFilePage
+				.setTitle(Messages.RemesCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage
+				.setDescription(Messages.RemesCreationWizard_DomainModelFilePageDescription);
+		addPage(domainModelFilePage);
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean performFinish() {
+		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
+
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
+				diagram = RemesDiagramEditorUtil.createDiagram(
+						diagramModelFilePage.getURI(), domainModelFilePage
+								.getURI(), monitor);
+				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
+					try {
+						RemesDiagramEditorUtil.openDiagram(diagram);
+					} catch (PartInitException e) {
+						ErrorDialog.openError(getContainer().getShell(),
+								Messages.RemesCreationWizardOpenEditorError,
+								null, e.getStatus());
+					}
+				}
+			}
+		};
+		try {
+			getContainer().run(false, true, op);
+		} catch (InterruptedException e) {
+			return false;
+		} catch (InvocationTargetException e) {
+			if (e.getTargetException() instanceof CoreException) {
+				ErrorDialog.openError(getContainer().getShell(),
+						Messages.RemesCreationWizardCreationError, null,
+						((CoreException) e.getTargetException()).getStatus());
+			} else {
+				RemesDiagramEditorPlugin.getInstance().logError(
+						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+			}
+			return false;
+		}
+		return diagram != null;
+	}
+}

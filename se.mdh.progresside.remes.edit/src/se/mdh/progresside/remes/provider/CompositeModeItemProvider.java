@@ -218,7 +218,7 @@ public class CompositeModeItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RemesPackage.Literals.COMPOSITE_MODE__CONDITIONAL_CONNECTORS,
-				 RemesFactory.eINSTANCE.createConditionalConnector()));
+				 defaultFactory.createDefaultConditionalConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter

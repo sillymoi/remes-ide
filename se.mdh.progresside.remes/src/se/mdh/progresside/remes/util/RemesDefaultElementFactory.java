@@ -3,6 +3,7 @@ package se.mdh.progresside.remes.util;
 import se.mdh.progresside.remes.CompositeEntryPoint;
 import se.mdh.progresside.remes.CompositeExitPoint;
 import se.mdh.progresside.remes.CompositeMode;
+import se.mdh.progresside.remes.ConditionalConnector;
 import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitPoint;
@@ -92,6 +93,30 @@ public class RemesDefaultElementFactory {
 			ExitPoint exit = RemesFactory.eINSTANCE.createExitPoint();
 			mode.setExitPoint(exit);		
 		}
+	}
+	
+	/**
+	 * Creates a conditional connector with entry, exit points.
+	 * @return initialized SubMode
+	 */
+	public ConditionalConnector createDefaultConditionalConnector() {
+		ConditionalConnector connector = RemesFactory.eINSTANCE.createConditionalConnector();
+				
+		initDefaultConditionalConnector(connector);
+		
+		return connector;
+	}
+
+	/**
+	 * Initializes default conditional connector
+	 * @param connector
+	 */
+	public void initDefaultConditionalConnector(ConditionalConnector connector) {
+		EntryPoint entry = RemesFactory.eINSTANCE.createEntryPoint();
+		connector.setEntryPoint(entry);
+		
+		ExitPoint exit = RemesFactory.eINSTANCE.createExitPoint();
+		connector.setExitPoint(exit);
 	}
 
 }

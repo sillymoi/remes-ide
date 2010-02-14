@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.mdh.se/progresside/remes/1.1.0/remes.ecore"
+            uri="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore"
             class="se.mdh.progresside.remes.provider.RemesItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

@@ -67,7 +67,6 @@ public class EdgeItemProvider
 
 			addActionGuardPropertyDescriptor(object);
 			addActionBodyPropertyDescriptor(object);
-			addParsedActionGuardPropertyDescriptor(object);
 			addConnectToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -118,28 +117,6 @@ public class EdgeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Parsed Action Guard feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParsedActionGuardPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Edge_parsedActionGuard_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Edge_parsedActionGuard_feature", "_UI_Edge_type"),
-				 RemesPackage.Literals.EDGE__PARSED_ACTION_GUARD,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Connect To feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,6 +150,7 @@ public class EdgeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(RemesPackage.Literals.EDGE__PARSED_ACTION_GUARD);
 			childrenFeatures.add(RemesPackage.Literals.EDGE__PARSED_ACTION_BODY);
 		}
 		return childrenFeatures;
@@ -221,6 +199,7 @@ public class EdgeItemProvider
 			case RemesPackage.EDGE__ACTION_BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case RemesPackage.EDGE__PARSED_ACTION_GUARD:
 			case RemesPackage.EDGE__PARSED_ACTION_BODY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -238,6 +217,11 @@ public class EdgeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RemesPackage.Literals.EDGE__PARSED_ACTION_GUARD,
+				 AstFactory.eINSTANCE.createLogicalRoot()));
 
 		newChildDescriptors.add
 			(createChildParameter

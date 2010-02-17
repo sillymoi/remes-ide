@@ -222,6 +222,10 @@ public class TreeWalker {
 				break;
 		}
 
+		// Remember original text
+		if(expr != null)
+			expr.setText(tree.getText());
+		
 		return expr;
 	}
 
@@ -261,12 +265,24 @@ public class TreeWalker {
 		Constant expr = factory.createConstant();
 		expr.setText(tree.getText());
 		
-		try {
-			int value = Integer.parseInt(tree.getText());
-			expr.setValue(new Integer(value));
-		} catch(NumberFormatException nfe) {
+		switch(tree.getType()) {
+		case RemesLexer.NAT:
+		//case RemesLexer.INT:
+			try {
+				Integer value = Integer.valueOf(tree.getText());
+				expr.setValue(value);
+			} catch(NumberFormatException nfe) {
+			}
+			break;
+		case RemesLexer.FLOAT:
+			try {
+				Float value = Float.valueOf(tree.getText());
+				expr.setValue(value);
+			} catch(NumberFormatException nfe) {
+			}
+			break;
 		}
-
+	
 		return expr;
 	}
 
@@ -301,7 +317,7 @@ public class TreeWalker {
 	 */
 	private UnaryExpression handleUnaryExpression(Tree tree, UnaryOperation unOp) {
 		UnaryExpression expr = factory.createUnaryExpression();
-		expr.setType(unOp);
+		expr.setOperation(unOp);
 		expr.setParam1(walker(tree.getChild(0)));
 		return expr;
 	}
@@ -329,7 +345,7 @@ public class TreeWalker {
 	 */
 	private BinaryExpression handleBinaryExpression(Tree tree, BinaryOperation binOp) {
 		BinaryExpression expr = factory.createBinaryExpression();
-		expr.setType(binOp);
+		expr.setOperation(binOp);
 		expr.setParam1(walker(tree.getChild(0)));
 		expr.setParam2(walker(tree.getChild(1)));
 		return expr;

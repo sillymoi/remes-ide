@@ -78,6 +78,7 @@ literal
 
 constant
   : NAT
+  | FLOAT
   ;
 
 par_expression

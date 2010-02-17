@@ -38,4 +38,5 @@ sign_expression
   
 constant
   : NAT
+  | FLOAT
   ;

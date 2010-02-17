@@ -89,6 +89,8 @@ public class AstFactoryImpl extends EFactoryImpl implements AstFactory {
 				return createBinaryOperationFromString(eDataType, initialValue);
 			case AstPackage.UNARY_OPERATION:
 				return createUnaryOperationFromString(eDataType, initialValue);
+			case AstPackage.RESOLVED_TYPE:
+				return createResolvedTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +110,8 @@ public class AstFactoryImpl extends EFactoryImpl implements AstFactory {
 				return convertBinaryOperationToString(eDataType, instanceValue);
 			case AstPackage.UNARY_OPERATION:
 				return convertUnaryOperationToString(eDataType, instanceValue);
+			case AstPackage.RESOLVED_TYPE:
+				return convertResolvedTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -240,6 +244,26 @@ public class AstFactoryImpl extends EFactoryImpl implements AstFactory {
 	 * @generated
 	 */
 	public String convertUnaryOperationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResolvedType createResolvedTypeFromString(EDataType eDataType, String initialValue) {
+		ResolvedType result = ResolvedType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertResolvedTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

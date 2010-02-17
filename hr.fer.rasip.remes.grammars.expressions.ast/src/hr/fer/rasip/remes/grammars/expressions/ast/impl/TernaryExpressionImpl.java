@@ -7,6 +7,7 @@
 package hr.fer.rasip.remes.grammars.expressions.ast.impl;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.TernaryExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.TernaryExpressionImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.TernaryExpressionImpl#getParam1 <em>Param1</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.TernaryExpressionImpl#getParam2 <em>Param2</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.TernaryExpressionImpl#getParam3 <em>Param3</em>}</li>
@@ -37,24 +38,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpression {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TernaryOperation TYPE_EDEFAULT = TernaryOperation.QUESTION;
+	protected static final TernaryOperation OPERATION_EDEFAULT = TernaryOperation.QUESTION;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected TernaryOperation type = TYPE_EDEFAULT;
+	protected TernaryOperation operation = OPERATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParam1() <em>Param1</em>}' containment reference.
@@ -110,8 +111,8 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TernaryOperation getType() {
-		return type;
+	public TernaryOperation getOperation() {
+		return operation;
 	}
 
 	/**
@@ -119,11 +120,11 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(TernaryOperation newType) {
-		TernaryOperation oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setOperation(TernaryOperation newOperation) {
+		TernaryOperation oldOperation = operation;
+		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.TERNARY_EXPRESSION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.TERNARY_EXPRESSION__OPERATION, oldOperation, operation));
 	}
 
 	/**
@@ -281,8 +282,8 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AstPackage.TERNARY_EXPRESSION__TYPE:
-				return getType();
+			case AstPackage.TERNARY_EXPRESSION__OPERATION:
+				return getOperation();
 			case AstPackage.TERNARY_EXPRESSION__PARAM1:
 				return getParam1();
 			case AstPackage.TERNARY_EXPRESSION__PARAM2:
@@ -301,8 +302,8 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AstPackage.TERNARY_EXPRESSION__TYPE:
-				setType((TernaryOperation)newValue);
+			case AstPackage.TERNARY_EXPRESSION__OPERATION:
+				setOperation((TernaryOperation)newValue);
 				return;
 			case AstPackage.TERNARY_EXPRESSION__PARAM1:
 				setParam1((Expression)newValue);
@@ -325,8 +326,8 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AstPackage.TERNARY_EXPRESSION__TYPE:
-				setType(TYPE_EDEFAULT);
+			case AstPackage.TERNARY_EXPRESSION__OPERATION:
+				setOperation(OPERATION_EDEFAULT);
 				return;
 			case AstPackage.TERNARY_EXPRESSION__PARAM1:
 				setParam1((Expression)null);
@@ -349,8 +350,8 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AstPackage.TERNARY_EXPRESSION__TYPE:
-				return type != TYPE_EDEFAULT;
+			case AstPackage.TERNARY_EXPRESSION__OPERATION:
+				return operation != OPERATION_EDEFAULT;
 			case AstPackage.TERNARY_EXPRESSION__PARAM1:
 				return param1 != null;
 			case AstPackage.TERNARY_EXPRESSION__PARAM2:
@@ -371,10 +372,19 @@ public class TernaryExpressionImpl extends ExpressionImpl implements TernaryExpr
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (operation: ");
+		result.append(operation);
 		result.append(')');
 		return result.toString();
 	}
 
+	/**
+	 * Implements visitor pattern
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.ExpressionImpl#visit(hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor)
+	 */
+	@Override
+	public void visit(AstVisitor visitor) {
+		visitor.visitTernaryExpression(this);
+	}
+	
 } //TernaryExpressionImpl

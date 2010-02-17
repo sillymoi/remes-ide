@@ -7,6 +7,7 @@
 package hr.fer.rasip.remes.grammars.expressions.ast.impl;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryOperation;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.UnaryExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.UnaryExpressionImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.UnaryExpressionImpl#getParam1 <em>Param1</em>}</li>
  * </ul>
  * </p>
@@ -35,24 +36,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpression {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final UnaryOperation TYPE_EDEFAULT = UnaryOperation.NOT;
+	protected static final UnaryOperation OPERATION_EDEFAULT = UnaryOperation.NOT;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected UnaryOperation type = TYPE_EDEFAULT;
+	protected UnaryOperation operation = OPERATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParam1() <em>Param1</em>}' containment reference.
@@ -88,8 +89,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnaryOperation getType() {
-		return type;
+	public UnaryOperation getOperation() {
+		return operation;
 	}
 
 	/**
@@ -97,11 +98,11 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(UnaryOperation newType) {
-		UnaryOperation oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setOperation(UnaryOperation newOperation) {
+		UnaryOperation oldOperation = operation;
+		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.UNARY_EXPRESSION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.UNARY_EXPRESSION__OPERATION, oldOperation, operation));
 	}
 
 	/**
@@ -169,8 +170,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AstPackage.UNARY_EXPRESSION__TYPE:
-				return getType();
+			case AstPackage.UNARY_EXPRESSION__OPERATION:
+				return getOperation();
 			case AstPackage.UNARY_EXPRESSION__PARAM1:
 				return getParam1();
 		}
@@ -185,8 +186,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AstPackage.UNARY_EXPRESSION__TYPE:
-				setType((UnaryOperation)newValue);
+			case AstPackage.UNARY_EXPRESSION__OPERATION:
+				setOperation((UnaryOperation)newValue);
 				return;
 			case AstPackage.UNARY_EXPRESSION__PARAM1:
 				setParam1((Expression)newValue);
@@ -203,8 +204,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AstPackage.UNARY_EXPRESSION__TYPE:
-				setType(TYPE_EDEFAULT);
+			case AstPackage.UNARY_EXPRESSION__OPERATION:
+				setOperation(OPERATION_EDEFAULT);
 				return;
 			case AstPackage.UNARY_EXPRESSION__PARAM1:
 				setParam1((Expression)null);
@@ -221,8 +222,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AstPackage.UNARY_EXPRESSION__TYPE:
-				return type != TYPE_EDEFAULT;
+			case AstPackage.UNARY_EXPRESSION__OPERATION:
+				return operation != OPERATION_EDEFAULT;
 			case AstPackage.UNARY_EXPRESSION__PARAM1:
 				return param1 != null;
 		}
@@ -239,10 +240,19 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (operation: ");
+		result.append(operation);
 		result.append(')');
 		return result.toString();
 	}
 
+	/**
+	 * Implements visitor pattern
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.ExpressionImpl#visit(hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor)
+	 */
+	@Override
+	public void visit(AstVisitor visitor) {
+		visitor.visitUnaryExpression(this);
+	}
+	
 } //UnaryExpressionImpl

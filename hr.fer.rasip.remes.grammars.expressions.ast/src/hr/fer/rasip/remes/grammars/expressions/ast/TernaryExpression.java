@@ -15,7 +15,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getType <em>Type</em>}</li>
+ *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getOperation <em>Operation</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getParam1 <em>Param1</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getParam2 <em>Param2</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getParam3 <em>Param3</em>}</li>
@@ -28,33 +28,33 @@ package hr.fer.rasip.remes.grammars.expressions.ast;
  */
 public interface TernaryExpression extends Expression {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Operation</b></em>' attribute.
 	 * The literals are from the enumeration {@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Operation</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
+	 * @return the value of the '<em>Operation</em>' attribute.
 	 * @see hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation
-	 * @see #setType(TernaryOperation)
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstPackage#getTernaryExpression_Type()
+	 * @see #setOperation(TernaryOperation)
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstPackage#getTernaryExpression_Operation()
 	 * @model required="true"
 	 * @generated
 	 */
-	TernaryOperation getType();
+	TernaryOperation getOperation();
 
 	/**
-	 * Sets the value of the '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getOperation <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @param value the new value of the '<em>Operation</em>' attribute.
 	 * @see hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 */
-	void setType(TernaryOperation value);
+	void setOperation(TernaryOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Param1</b></em>' containment reference.

@@ -9,7 +9,10 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: hr.fer.rasip.remes.grammars.expressions.ast,
  hr.fer.rasip.remes.grammars.expressions.ast.impl,
- hr.fer.rasip.remes.grammars.expressions.ast.util
+ hr.fer.rasip.remes.grammars.expressions.ast.util,
+ hr.fer.rasip.remes.grammars.expressions.type,
+ hr.fer.rasip.remes.grammars.expressions.type.impl,
+ hr.fer.rasip.remes.grammars.expressions.type.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

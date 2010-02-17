@@ -8,6 +8,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="AbstractRoot" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="referencedVariables"
           upperBound="-1" eType="#//ast/VariableReference"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ast/ResolvedType"
+          defaultValueLiteral="unknown" unsettable="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActionRoot" eSuperTypes="#//ast/AbstractRoot">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" lowerBound="1"
@@ -21,9 +23,18 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true">
+      <eOperations name="visit">
+        <eParameters name="visitor" eType="#//ast/AstVisitor"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ast/ResolvedType"
+          defaultValueLiteral="unknown" unsettable="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          derived="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TernaryExpression" eSuperTypes="#//ast/Expression">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
           eType="#//ast/TernaryOperation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
@@ -33,7 +44,7 @@
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BinaryExpression" eSuperTypes="#//ast/Expression">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
           eType="#//ast/BinaryOperation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
@@ -41,7 +52,7 @@
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression" eSuperTypes="#//ast/Expression">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" lowerBound="1"
           eType="#//ast/UnaryOperation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="param1" lowerBound="1"
           eType="#//ast/Expression" containment="true" resolveProxies="false"/>
@@ -55,14 +66,10 @@
           eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//ast/Expression">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//ast/Expression">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="TernaryOperation">
@@ -95,5 +102,51 @@
       <eLiterals name="PLUS" value="1"/>
       <eLiterals name="MINUS" value="2"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ResolvedType">
+      <eLiterals name="integer"/>
+      <eLiterals name="boolean" value="1"/>
+      <eLiterals name="natural" value="2"/>
+      <eLiterals name="clock" value="3"/>
+      <eLiterals name="float" value="4"/>
+      <eLiterals name="resource" value="5"/>
+      <eLiterals name="unknown" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AstVisitor" abstract="true" interface="true">
+      <eOperations name="visitTernaryExpression">
+        <eParameters name="node" eType="#//ast/TernaryExpression"/>
+      </eOperations>
+      <eOperations name="visitBinaryExpression">
+        <eParameters name="node" eType="#//ast/BinaryExpression"/>
+      </eOperations>
+      <eOperations name="visitUnaryExpression">
+        <eParameters name="node" eType="#//ast/UnaryExpression"/>
+      </eOperations>
+      <eOperations name="visitVariableReference">
+        <eParameters name="node" eType="#//ast/VariableReference"/>
+      </eOperations>
+      <eOperations name="visitConstant">
+        <eParameters name="node" eType="#//ast/Constant"/>
+      </eOperations>
+      <eOperations name="visitLiteral">
+        <eParameters name="node" eType="#//ast/Literal"/>
+      </eOperations>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="type" nsURI="http://www.rasip.fer.hr/remes/1.1.0/expressions/type.ecore"
+      nsPrefix="expression.type">
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" interface="true">
+      <eOperations name="add" eType="#//type/Type">
+        <eParameters name="rightArgument" eType="#//type/Type"/>
+      </eOperations>
+      <eOperations name="getPrimitiveTypeIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BaseType" abstract="true" eSuperTypes="#//type/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NaturalType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ClockType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FloatType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" eSuperTypes="#//type/BaseType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnyType" eSuperTypes="#//type/BaseType"/>
   </eSubpackages>
 </ecore:EPackage>

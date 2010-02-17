@@ -7,6 +7,7 @@
 package hr.fer.rasip.remes.grammars.expressions.ast.impl;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.BinaryExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.BinaryExpressionImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.BinaryExpressionImpl#getParam1 <em>Param1</em>}</li>
  *   <li>{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.BinaryExpressionImpl#getParam2 <em>Param2</em>}</li>
  * </ul>
@@ -36,24 +37,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpression {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BinaryOperation TYPE_EDEFAULT = BinaryOperation.ADD;
+	protected static final BinaryOperation OPERATION_EDEFAULT = BinaryOperation.ADD;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected BinaryOperation type = TYPE_EDEFAULT;
+	protected BinaryOperation operation = OPERATION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParam1() <em>Param1</em>}' containment reference.
@@ -99,8 +100,8 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BinaryOperation getType() {
-		return type;
+	public BinaryOperation getOperation() {
+		return operation;
 	}
 
 	/**
@@ -108,11 +109,11 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(BinaryOperation newType) {
-		BinaryOperation oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setOperation(BinaryOperation newOperation) {
+		BinaryOperation oldOperation = operation;
+		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.BINARY_EXPRESSION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, AstPackage.BINARY_EXPRESSION__OPERATION, oldOperation, operation));
 	}
 
 	/**
@@ -225,8 +226,8 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AstPackage.BINARY_EXPRESSION__TYPE:
-				return getType();
+			case AstPackage.BINARY_EXPRESSION__OPERATION:
+				return getOperation();
 			case AstPackage.BINARY_EXPRESSION__PARAM1:
 				return getParam1();
 			case AstPackage.BINARY_EXPRESSION__PARAM2:
@@ -243,8 +244,8 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AstPackage.BINARY_EXPRESSION__TYPE:
-				setType((BinaryOperation)newValue);
+			case AstPackage.BINARY_EXPRESSION__OPERATION:
+				setOperation((BinaryOperation)newValue);
 				return;
 			case AstPackage.BINARY_EXPRESSION__PARAM1:
 				setParam1((Expression)newValue);
@@ -264,8 +265,8 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AstPackage.BINARY_EXPRESSION__TYPE:
-				setType(TYPE_EDEFAULT);
+			case AstPackage.BINARY_EXPRESSION__OPERATION:
+				setOperation(OPERATION_EDEFAULT);
 				return;
 			case AstPackage.BINARY_EXPRESSION__PARAM1:
 				setParam1((Expression)null);
@@ -285,8 +286,8 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AstPackage.BINARY_EXPRESSION__TYPE:
-				return type != TYPE_EDEFAULT;
+			case AstPackage.BINARY_EXPRESSION__OPERATION:
+				return operation != OPERATION_EDEFAULT;
 			case AstPackage.BINARY_EXPRESSION__PARAM1:
 				return param1 != null;
 			case AstPackage.BINARY_EXPRESSION__PARAM2:
@@ -305,10 +306,20 @@ public class BinaryExpressionImpl extends ExpressionImpl implements BinaryExpres
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (operation: ");
+		result.append(operation);
 		result.append(')');
 		return result.toString();
 	}
 
+	/**
+	 * Implements visitor pattern
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.ExpressionImpl#visit(hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor)
+	 */
+	@Override
+	public void visit(AstVisitor visitor) {
+		visitor.visitBinaryExpression(this);
+	}
+
+	
 } //BinaryExpressionImpl

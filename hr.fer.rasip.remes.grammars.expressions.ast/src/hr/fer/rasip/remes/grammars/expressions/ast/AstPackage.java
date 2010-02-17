@@ -150,13 +150,22 @@ public interface AstPackage extends EPackage {
 	int ABSTRACT_ROOT__REFERENCED_VARIABLES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ROOT__TYPE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ROOT_FEATURE_COUNT = 1;
+	int ABSTRACT_ROOT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.ActionRootImpl <em>Action Root</em>}' class.
@@ -176,6 +185,15 @@ public interface AstPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_ROOT__REFERENCED_VARIABLES = ABSTRACT_ROOT__REFERENCED_VARIABLES;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_ROOT__TYPE = ABSTRACT_ROOT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -215,6 +233,15 @@ public interface AstPackage extends EPackage {
 	int LOGICAL_ROOT__REFERENCED_VARIABLES = ABSTRACT_ROOT__REFERENCED_VARIABLES;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_ROOT__TYPE = ABSTRACT_ROOT__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,6 +279,15 @@ public interface AstPackage extends EPackage {
 	int RESOURCE_ROOT__REFERENCED_VARIABLES = ABSTRACT_ROOT__REFERENCED_VARIABLES;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ROOT__TYPE = ABSTRACT_ROOT__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,13 +306,31 @@ public interface AstPackage extends EPackage {
 	int RESOURCE_ROOT_FEATURE_COUNT = ABSTRACT_ROOT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__TEXT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 0;
+	int EXPRESSION_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -285,7 +339,25 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TERNARY_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+	int TERNARY_EXPRESSION__TYPE = EXPRESSION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERNARY_EXPRESSION__TEXT = EXPRESSION__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERNARY_EXPRESSION__OPERATION = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Param1</b></em>' containment reference.
@@ -330,7 +402,25 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BINARY_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+	int BINARY_EXPRESSION__TYPE = EXPRESSION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION__TEXT = EXPRESSION__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_EXPRESSION__OPERATION = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Param1</b></em>' containment reference.
@@ -366,7 +456,25 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+	int UNARY_EXPRESSION__TYPE = EXPRESSION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARY_EXPRESSION__TEXT = EXPRESSION__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARY_EXPRESSION__OPERATION = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Param1</b></em>' containment reference.
@@ -385,6 +493,24 @@ public interface AstPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_REFERENCE__TYPE = EXPRESSION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_REFERENCE__TEXT = EXPRESSION__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -423,13 +549,22 @@ public interface AstPackage extends EPackage {
 	int VARIABLE_REFERENCE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTANT__TYPE = EXPRESSION__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__TEXT = EXPRESSION_FEATURE_COUNT + 0;
+	int CONSTANT__TEXT = EXPRESSION__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -438,7 +573,7 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 1;
+	int CONSTANT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Constant</em>' class.
@@ -447,7 +582,16 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int CONSTANT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__TYPE = EXPRESSION__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -456,7 +600,7 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL__TEXT = EXPRESSION_FEATURE_COUNT + 0;
+	int LITERAL__TEXT = EXPRESSION__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -465,7 +609,7 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 1;
+	int LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Literal</em>' class.
@@ -474,7 +618,26 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor <em>Visitor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getAstVisitor()
+	 * @generated
+	 */
+	int AST_VISITOR = 11;
+
+	/**
+	 * The number of structural features of the '<em>Visitor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AST_VISITOR_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation <em>Binary Operation</em>}' enum.
@@ -484,7 +647,7 @@ public interface AstPackage extends EPackage {
 	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getBinaryOperation()
 	 * @generated
 	 */
-	int BINARY_OPERATION = 12;
+	int BINARY_OPERATION = 13;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.UnaryOperation <em>Unary Operation</em>}' enum.
@@ -494,7 +657,17 @@ public interface AstPackage extends EPackage {
 	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getUnaryOperation()
 	 * @generated
 	 */
-	int UNARY_OPERATION = 13;
+	int UNARY_OPERATION = 14;
+
+	/**
+	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType <em>Resolved Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getResolvedType()
+	 * @generated
+	 */
+	int RESOLVED_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation <em>Ternary Operation</em>}' enum.
@@ -504,7 +677,7 @@ public interface AstPackage extends EPackage {
 	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getTernaryOperation()
 	 * @generated
 	 */
-	int TERNARY_OPERATION = 11;
+	int TERNARY_OPERATION = 12;
 
 
 	/**
@@ -561,15 +734,15 @@ public interface AstPackage extends EPackage {
 	EClass getUnaryExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression#getType()
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression#getOperation()
 	 * @see #getUnaryExpression()
 	 * @generated
 	 */
-	EAttribute getUnaryExpression_Type();
+	EAttribute getUnaryExpression_Operation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression#getParam1 <em>Param1</em>}'.
@@ -593,6 +766,28 @@ public interface AstPackage extends EPackage {
 	EClass getExpression();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Expression#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.Expression#getType()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EAttribute getExpression_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Expression#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.Expression#getText()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EAttribute getExpression_Text();
+
+	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression <em>Binary Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -603,15 +798,15 @@ public interface AstPackage extends EPackage {
 	EClass getBinaryExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression#getType()
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression#getOperation()
 	 * @see #getBinaryExpression()
 	 * @generated
 	 */
-	EAttribute getBinaryExpression_Type();
+	EAttribute getBinaryExpression_Operation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression#getParam1 <em>Param1</em>}'.
@@ -646,15 +841,15 @@ public interface AstPackage extends EPackage {
 	EClass getTernaryExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getType()
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getOperation()
 	 * @see #getTernaryExpression()
 	 * @generated
 	 */
-	EAttribute getTernaryExpression_Type();
+	EAttribute getTernaryExpression_Operation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression#getParam1 <em>Param1</em>}'.
@@ -700,17 +895,6 @@ public interface AstPackage extends EPackage {
 	EClass getConstant();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Constant#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.Constant#getText()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_Text();
-
-	/**
 	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Constant#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -732,17 +916,6 @@ public interface AstPackage extends EPackage {
 	EClass getLiteral();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Literal#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see hr.fer.rasip.remes.grammars.expressions.ast.Literal#getText()
-	 * @see #getLiteral()
-	 * @generated
-	 */
-	EAttribute getLiteral_Text();
-
-	/**
 	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.Literal#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,6 +925,16 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor <em>Visitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Visitor</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor
+	 * @generated
+	 */
+	EClass getAstVisitor();
 
 	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot <em>Action Root</em>}'.
@@ -838,6 +1021,17 @@ public interface AstPackage extends EPackage {
 	EReference getAbstractRoot_ReferencedVariables();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.remes.grammars.expressions.ast.AbstractRoot#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AbstractRoot#getType()
+	 * @see #getAbstractRoot()
+	 * @generated
+	 */
+	EAttribute getAbstractRoot_Type();
+
+	/**
 	 * Returns the meta object for enum '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation <em>Binary Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +1050,16 @@ public interface AstPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getUnaryOperation();
+
+	/**
+	 * Returns the meta object for enum '{@link hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType <em>Resolved Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Resolved Type</em>'.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType
+	 * @generated
+	 */
+	EEnum getResolvedType();
 
 	/**
 	 * Returns the meta object for enum '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation <em>Ternary Operation</em>}'.
@@ -934,12 +1138,12 @@ public interface AstPackage extends EPackage {
 		EClass UNARY_EXPRESSION = eINSTANCE.getUnaryExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UNARY_EXPRESSION__TYPE = eINSTANCE.getUnaryExpression_Type();
+		EAttribute UNARY_EXPRESSION__OPERATION = eINSTANCE.getUnaryExpression_Operation();
 
 		/**
 		 * The meta object literal for the '<em><b>Param1</b></em>' containment reference feature.
@@ -960,6 +1164,22 @@ public interface AstPackage extends EPackage {
 		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPRESSION__TYPE = eINSTANCE.getExpression_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPRESSION__TEXT = eINSTANCE.getExpression_Text();
+
+		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.BinaryExpressionImpl <em>Binary Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -970,12 +1190,12 @@ public interface AstPackage extends EPackage {
 		EClass BINARY_EXPRESSION = eINSTANCE.getBinaryExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BINARY_EXPRESSION__TYPE = eINSTANCE.getBinaryExpression_Type();
+		EAttribute BINARY_EXPRESSION__OPERATION = eINSTANCE.getBinaryExpression_Operation();
 
 		/**
 		 * The meta object literal for the '<em><b>Param1</b></em>' containment reference feature.
@@ -1004,12 +1224,12 @@ public interface AstPackage extends EPackage {
 		EClass TERNARY_EXPRESSION = eINSTANCE.getTernaryExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TERNARY_EXPRESSION__TYPE = eINSTANCE.getTernaryExpression_Type();
+		EAttribute TERNARY_EXPRESSION__OPERATION = eINSTANCE.getTernaryExpression_Operation();
 
 		/**
 		 * The meta object literal for the '<em><b>Param1</b></em>' containment reference feature.
@@ -1046,14 +1266,6 @@ public interface AstPackage extends EPackage {
 		EClass CONSTANT = eINSTANCE.getConstant();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__TEXT = eINSTANCE.getConstant_Text();
-
-		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1072,20 +1284,22 @@ public interface AstPackage extends EPackage {
 		EClass LITERAL = eINSTANCE.getLiteral();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LITERAL__TEXT = eINSTANCE.getLiteral_Text();
-
-		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute LITERAL__VALUE = eINSTANCE.getLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor <em>Visitor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor
+		 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getAstVisitor()
+		 * @generated
+		 */
+		EClass AST_VISITOR = eINSTANCE.getAstVisitor();
 
 		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.impl.ActionRootImpl <em>Action Root</em>}' class.
@@ -1160,6 +1374,14 @@ public interface AstPackage extends EPackage {
 		EReference ABSTRACT_ROOT__REFERENCED_VARIABLES = eINSTANCE.getAbstractRoot_ReferencedVariables();
 
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ROOT__TYPE = eINSTANCE.getAbstractRoot_Type();
+
+		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation <em>Binary Operation</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1178,6 +1400,16 @@ public interface AstPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum UNARY_OPERATION = eINSTANCE.getUnaryOperation();
+
+		/**
+		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType <em>Resolved Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType
+		 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl#getResolvedType()
+		 * @generated
+		 */
+		EEnum RESOLVED_TYPE = eINSTANCE.getResolvedType();
 
 		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation <em>Ternary Operation</em>}' enum.

@@ -116,6 +116,10 @@ public class AstAdapterFactory extends AdapterFactoryImpl {
 				return createLiteralAdapter();
 			}
 			@Override
+			public Adapter caseAstVisitor(AstVisitor object) {
+				return createAstVisitorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -230,6 +234,20 @@ public class AstAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor <em>Visitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor
+	 * @generated
+	 */
+	public Adapter createAstVisitorAdapter() {
 		return null;
 	}
 

@@ -10,22 +10,27 @@ import hr.fer.rasip.remes.grammars.expressions.ast.AbstractRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation;
 import hr.fer.rasip.remes.grammars.expressions.ast.Constant;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 import hr.fer.rasip.remes.grammars.expressions.ast.Literal;
 import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryOperation;
 import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
+import hr.fer.rasip.remes.grammars.expressions.type.TypePackage;
+import hr.fer.rasip.remes.grammars.expressions.type.impl.TypePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -91,6 +96,13 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass astVisitorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass actionRootEClass = null;
 
 	/**
@@ -127,6 +139,13 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * @generated
 	 */
 	private EEnum unaryOperationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum resolvedTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,11 +200,16 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theAstPackage.createPackageContents();
+		theTypePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAstPackage.initializePackageContents();
+		theTypePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAstPackage.freeze();
@@ -246,7 +270,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUnaryExpression_Type() {
+	public EAttribute getUnaryExpression_Operation() {
 		return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -273,6 +297,24 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExpression_Type() {
+		return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExpression_Text() {
+		return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBinaryExpression() {
 		return binaryExpressionEClass;
 	}
@@ -282,7 +324,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBinaryExpression_Type() {
+	public EAttribute getBinaryExpression_Operation() {
 		return (EAttribute)binaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -318,7 +360,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTernaryExpression_Type() {
+	public EAttribute getTernaryExpression_Operation() {
 		return (EAttribute)ternaryExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -363,17 +405,8 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConstant_Text() {
-		return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getConstant_Value() {
-		return (EAttribute)constantEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -390,7 +423,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLiteral_Text() {
+	public EAttribute getLiteral_Value() {
 		return (EAttribute)literalEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -399,8 +432,8 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLiteral_Value() {
-		return (EAttribute)literalEClass.getEStructuralFeatures().get(1);
+	public EClass getAstVisitor() {
+		return astVisitorEClass;
 	}
 
 	/**
@@ -480,6 +513,15 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractRoot_Type() {
+		return (EAttribute)abstractRootEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBinaryOperation() {
 		return binaryOperationEEnum;
 	}
@@ -491,6 +533,15 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 	 */
 	public EEnum getUnaryOperation() {
 		return unaryOperationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getResolvedType() {
+		return resolvedTypeEEnum;
 	}
 
 	/**
@@ -532,6 +583,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		// Create classes and their features
 		abstractRootEClass = createEClass(ABSTRACT_ROOT);
 		createEReference(abstractRootEClass, ABSTRACT_ROOT__REFERENCED_VARIABLES);
+		createEAttribute(abstractRootEClass, ABSTRACT_ROOT__TYPE);
 
 		actionRootEClass = createEClass(ACTION_ROOT);
 		createEReference(actionRootEClass, ACTION_ROOT__EXPRESSIONS);
@@ -543,20 +595,22 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		createEReference(resourceRootEClass, RESOURCE_ROOT__EXPRESSION);
 
 		expressionEClass = createEClass(EXPRESSION);
+		createEAttribute(expressionEClass, EXPRESSION__TYPE);
+		createEAttribute(expressionEClass, EXPRESSION__TEXT);
 
 		ternaryExpressionEClass = createEClass(TERNARY_EXPRESSION);
-		createEAttribute(ternaryExpressionEClass, TERNARY_EXPRESSION__TYPE);
+		createEAttribute(ternaryExpressionEClass, TERNARY_EXPRESSION__OPERATION);
 		createEReference(ternaryExpressionEClass, TERNARY_EXPRESSION__PARAM1);
 		createEReference(ternaryExpressionEClass, TERNARY_EXPRESSION__PARAM2);
 		createEReference(ternaryExpressionEClass, TERNARY_EXPRESSION__PARAM3);
 
 		binaryExpressionEClass = createEClass(BINARY_EXPRESSION);
-		createEAttribute(binaryExpressionEClass, BINARY_EXPRESSION__TYPE);
+		createEAttribute(binaryExpressionEClass, BINARY_EXPRESSION__OPERATION);
 		createEReference(binaryExpressionEClass, BINARY_EXPRESSION__PARAM1);
 		createEReference(binaryExpressionEClass, BINARY_EXPRESSION__PARAM2);
 
 		unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
-		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__TYPE);
+		createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__OPERATION);
 		createEReference(unaryExpressionEClass, UNARY_EXPRESSION__PARAM1);
 
 		variableReferenceEClass = createEClass(VARIABLE_REFERENCE);
@@ -565,17 +619,18 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		createEReference(variableReferenceEClass, VARIABLE_REFERENCE__RESOLVED);
 
 		constantEClass = createEClass(CONSTANT);
-		createEAttribute(constantEClass, CONSTANT__TEXT);
 		createEAttribute(constantEClass, CONSTANT__VALUE);
 
 		literalEClass = createEClass(LITERAL);
-		createEAttribute(literalEClass, LITERAL__TEXT);
 		createEAttribute(literalEClass, LITERAL__VALUE);
+
+		astVisitorEClass = createEClass(AST_VISITOR);
 
 		// Create enums
 		ternaryOperationEEnum = createEEnum(TERNARY_OPERATION);
 		binaryOperationEEnum = createEEnum(BINARY_OPERATION);
 		unaryOperationEEnum = createEEnum(UNARY_OPERATION);
+		resolvedTypeEEnum = createEEnum(RESOLVED_TYPE);
 	}
 
 	/**
@@ -619,6 +674,7 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractRootEClass, AbstractRoot.class, "AbstractRoot", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractRoot_ReferencedVariables(), this.getVariableReference(), null, "referencedVariables", null, 0, -1, AbstractRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractRoot_Type(), this.getResolvedType(), "type", "unknown", 0, 1, AbstractRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionRootEClass, ActionRoot.class, "ActionRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActionRoot_Expressions(), this.getExpression(), null, "expressions", null, 1, -1, ActionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -630,20 +686,25 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		initEReference(getResourceRoot_Expression(), this.getExpression(), null, "expression", null, 1, 1, ResourceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExpression_Type(), this.getResolvedType(), "type", "unknown", 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExpression_Text(), ecorePackage.getEString(), "text", null, 1, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(expressionEClass, null, "visit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAstVisitor(), "visitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ternaryExpressionEClass, TernaryExpression.class, "TernaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTernaryExpression_Type(), this.getTernaryOperation(), "type", null, 1, 1, TernaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTernaryExpression_Operation(), this.getTernaryOperation(), "operation", null, 1, 1, TernaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTernaryExpression_Param1(), this.getExpression(), null, "param1", null, 1, 1, TernaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTernaryExpression_Param2(), this.getExpression(), null, "param2", null, 1, 1, TernaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTernaryExpression_Param3(), this.getExpression(), null, "param3", null, 1, 1, TernaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryExpressionEClass, BinaryExpression.class, "BinaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBinaryExpression_Type(), this.getBinaryOperation(), "type", null, 1, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryExpression_Operation(), this.getBinaryOperation(), "operation", null, 1, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBinaryExpression_Param1(), this.getExpression(), null, "param1", null, 1, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBinaryExpression_Param2(), this.getExpression(), null, "param2", null, 1, 1, BinaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUnaryExpression_Type(), this.getUnaryOperation(), "type", null, 1, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUnaryExpression_Operation(), this.getUnaryOperation(), "operation", null, 1, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUnaryExpression_Param1(), this.getExpression(), null, "param1", null, 1, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -652,12 +713,30 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		initEReference(getVariableReference_Resolved(), ecorePackage.getEObject(), null, "resolved", null, 1, 1, VariableReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConstant_Text(), ecorePackage.getEString(), "text", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConstant_Value(), ecorePackage.getEIntegerObject(), "value", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_Value(), ecorePackage.getEJavaObject(), "value", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiteral_Text(), ecorePackage.getEString(), "text", null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLiteral_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(astVisitorEClass, AstVisitor.class, "AstVisitor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(astVisitorEClass, null, "visitTernaryExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTernaryExpression(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(astVisitorEClass, null, "visitBinaryExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBinaryExpression(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(astVisitorEClass, null, "visitUnaryExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getUnaryExpression(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(astVisitorEClass, null, "visitVariableReference", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getVariableReference(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(astVisitorEClass, null, "visitConstant", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConstant(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(astVisitorEClass, null, "visitLiteral", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLiteral(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(ternaryOperationEEnum, TernaryOperation.class, "TernaryOperation");
@@ -689,6 +768,15 @@ public class AstPackageImpl extends EPackageImpl implements AstPackage {
 		addEEnumLiteral(unaryOperationEEnum, UnaryOperation.NOT);
 		addEEnumLiteral(unaryOperationEEnum, UnaryOperation.PLUS);
 		addEEnumLiteral(unaryOperationEEnum, UnaryOperation.MINUS);
+
+		initEEnum(resolvedTypeEEnum, ResolvedType.class, "ResolvedType");
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.INTEGER);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.BOOLEAN);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.NATURAL);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.CLOCK);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.FLOAT);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.RESOURCE);
+		addEEnumLiteral(resolvedTypeEEnum, ResolvedType.UNKNOWN);
 
 		// Create resource
 		createResource(eNS_URI);

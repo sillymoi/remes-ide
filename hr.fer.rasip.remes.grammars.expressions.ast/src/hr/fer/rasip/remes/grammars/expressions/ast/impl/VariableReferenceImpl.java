@@ -7,6 +7,7 @@
 package hr.fer.rasip.remes.grammars.expressions.ast.impl;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
 
@@ -301,6 +302,15 @@ public class VariableReferenceImpl extends ExpressionImpl implements VariableRef
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Implements visitor pattern
+	 * @see hr.fer.rasip.remes.grammars.expressions.ast.impl.ExpressionImpl#visit(hr.fer.rasip.remes.grammars.expressions.ast.AstVisitor)
+	 */
+	@Override
+	public void visit(AstVisitor visitor) {
+		visitor.visitVariableReference(this);
 	}
 
 } //VariableReferenceImpl

@@ -154,6 +154,7 @@
     <eLiterals name="boolean" value="1"/>
     <eLiterals name="natural" value="2"/>
     <eLiterals name="clock" value="3"/>
+    <eLiterals name="float" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ResourceTypes">
     <eLiterals name="cpu"/>

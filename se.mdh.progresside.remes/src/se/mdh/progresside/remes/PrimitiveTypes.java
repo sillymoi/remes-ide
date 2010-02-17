@@ -58,7 +58,15 @@ public enum PrimitiveTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLOCK(3, "clock", "clock");
+	CLOCK(3, "clock", "clock"), /**
+	 * The '<em><b>Float</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FLOAT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FLOAT(4, "float", "float");
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal value.
@@ -121,6 +129,21 @@ public enum PrimitiveTypes implements Enumerator {
 	public static final int CLOCK_VALUE = 3;
 
 	/**
+	 * The '<em><b>Float</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Float</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FLOAT
+	 * @model name="float"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FLOAT_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Primitive Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +155,7 @@ public enum PrimitiveTypes implements Enumerator {
 			BOOLEAN,
 			NATURAL,
 			CLOCK,
+			FLOAT,
 		};
 
 	/**
@@ -186,6 +210,7 @@ public enum PrimitiveTypes implements Enumerator {
 			case BOOLEAN_VALUE: return BOOLEAN;
 			case NATURAL_VALUE: return NATURAL;
 			case CLOCK_VALUE: return CLOCK;
+			case FLOAT_VALUE: return FLOAT;
 		}
 		return null;
 	}

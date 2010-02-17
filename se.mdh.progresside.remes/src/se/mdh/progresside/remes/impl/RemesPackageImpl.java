@@ -7,8 +7,11 @@
 package se.mdh.progresside.remes.impl;
 
 //import static se.mdh.progresside.remes.RemesPackage.RESOURCE;
+import static se.mdh.progresside.remes.RemesPackage.RESOURCE;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.grammars.expressions.ast.impl.AstPackageImpl;
+import hr.fer.rasip.remes.grammars.expressions.type.TypePackage;
+import hr.fer.rasip.remes.grammars.expressions.type.impl.TypePackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -236,14 +239,17 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		// Obtain or create and register interdependencies
 		AstPackageImpl theAstPackage = (AstPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) instanceof AstPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) : AstPackage.eINSTANCE);
+		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theRemesPackage.createPackageContents();
 		theAstPackage.createPackageContents();
+		theTypePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRemesPackage.initializePackageContents();
 		theAstPackage.initializePackageContents();
+		theTypePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRemesPackage.freeze();
@@ -1171,6 +1177,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.BOOLEAN);
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.NATURAL);
 		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.CLOCK);
+		addEEnumLiteral(primitiveTypesEEnum, PrimitiveTypes.FLOAT);
 
 		initEEnum(resourceTypesEEnum, ResourceTypes.class, "ResourceTypes");
 		addEEnumLiteral(resourceTypesEEnum, ResourceTypes.CPU);

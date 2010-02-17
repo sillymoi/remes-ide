@@ -8,6 +8,7 @@ package se.mdh.progresside.remes.presentation;
 
 
 import hr.fer.rasip.remes.grammars.expressions.ast.provider.AstItemProviderAdapterFactory;
+import hr.fer.rasip.remes.grammars.expressions.type.provider.TypeItemProviderAdapterFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -660,6 +661,7 @@ public class RemesEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RemesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AstItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

@@ -10,6 +10,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryExpression;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.BinaryOperation;
 
 import java.util.Collection;
@@ -65,25 +66,25 @@ public class BinaryExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BinaryExpression_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BinaryExpression_type_feature", "_UI_BinaryExpression_type"),
-				 AstPackage.Literals.BINARY_EXPRESSION__TYPE,
+				 getString("_UI_BinaryExpression_operation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BinaryExpression_operation_feature", "_UI_BinaryExpression_type"),
+				 AstPackage.Literals.BINARY_EXPRESSION__OPERATION,
 				 true,
 				 false,
 				 false,
@@ -142,7 +143,7 @@ public class BinaryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BinaryOperation labelValue = ((BinaryExpression)object).getType();
+		ResolvedType labelValue = ((BinaryExpression)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_BinaryExpression_type") :
@@ -161,7 +162,7 @@ public class BinaryExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BinaryExpression.class)) {
-			case AstPackage.BINARY_EXPRESSION__TYPE:
+			case AstPackage.BINARY_EXPRESSION__OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AstPackage.BINARY_EXPRESSION__PARAM1:

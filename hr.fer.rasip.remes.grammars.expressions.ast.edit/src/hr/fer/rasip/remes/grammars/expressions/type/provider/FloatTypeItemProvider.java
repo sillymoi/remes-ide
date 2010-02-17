@@ -4,37 +4,30 @@
  *
  * $Id$
  */
-package hr.fer.rasip.remes.grammars.expressions.ast.provider;
+package hr.fer.rasip.remes.grammars.expressions.type.provider;
 
 
-import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
-import hr.fer.rasip.remes.grammars.expressions.ast.Literal;
-
-import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link hr.fer.rasip.remes.grammars.expressions.ast.Literal} object.
+ * This is the item provider adapter for a {@link hr.fer.rasip.remes.grammars.expressions.type.FloatType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LiteralItemProvider
-	extends ExpressionItemProvider
+public class FloatTypeItemProvider
+	extends BaseTypeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -47,7 +40,7 @@ public class LiteralItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LiteralItemProvider(AdapterFactory adapterFactory) {
+	public FloatTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,42 +55,19 @@ public class LiteralItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Literal_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Literal_value_feature", "_UI_Literal_type"),
-				 AstPackage.Literals.LITERAL__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Literal.gif.
+	 * This returns FloatType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Literal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FloatType"));
 	}
 
 	/**
@@ -108,11 +78,7 @@ public class LiteralItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ResolvedType labelValue = ((Literal)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Literal_type") :
-			getString("_UI_Literal_type") + " " + label;
+		return getString("_UI_FloatType_type");
 	}
 
 	/**
@@ -125,12 +91,6 @@ public class LiteralItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Literal.class)) {
-			case AstPackage.LITERAL__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

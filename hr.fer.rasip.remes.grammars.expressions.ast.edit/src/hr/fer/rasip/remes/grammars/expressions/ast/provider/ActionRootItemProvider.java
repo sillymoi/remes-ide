@@ -11,6 +11,7 @@ import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import java.util.Collection;
 import java.util.List;
 
@@ -113,7 +114,11 @@ public class ActionRootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ActionRoot_type");
+		ResolvedType labelValue = ((ActionRoot)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ActionRoot_type") :
+			getString("_UI_ActionRoot_type") + " " + label;
 	}
 
 	/**

@@ -9,6 +9,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 
 import java.util.Collection;
@@ -115,7 +116,11 @@ public class ResourceRootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ResourceRoot_type");
+		ResolvedType labelValue = ((ResourceRoot)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ResourceRoot_type") :
+			getString("_UI_ResourceRoot_type") + " " + label;
 	}
 
 	/**

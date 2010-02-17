@@ -8,7 +8,8 @@ Bundle-Activator: hr.fer.rasip.remes.grammars.expressions.ast.provider.Expressio
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: hr.fer.rasip.remes.grammars.expressions.ast.provider
+Export-Package: hr.fer.rasip.remes.grammars.expressions.ast.provider,
+ hr.fer.rasip.remes.grammars.expressions.type.provider
 Require-Bundle: org.eclipse.core.runtime,
  hr.fer.rasip.remes.grammars.expressions.ast;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

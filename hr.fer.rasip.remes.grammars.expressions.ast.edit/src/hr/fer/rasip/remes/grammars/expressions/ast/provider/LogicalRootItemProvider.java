@@ -11,6 +11,7 @@ import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import java.util.Collection;
 import java.util.List;
 
@@ -113,7 +114,11 @@ public class LogicalRootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_LogicalRoot_type");
+		ResolvedType labelValue = ((LogicalRoot)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LogicalRoot_type") :
+			getString("_UI_LogicalRoot_type") + " " + label;
 	}
 
 	/**

@@ -9,6 +9,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryOperation;
 
@@ -65,25 +66,25 @@ public class UnaryExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_UnaryExpression_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_UnaryExpression_type_feature", "_UI_UnaryExpression_type"),
-				 AstPackage.Literals.UNARY_EXPRESSION__TYPE,
+				 getString("_UI_UnaryExpression_operation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_UnaryExpression_operation_feature", "_UI_UnaryExpression_type"),
+				 AstPackage.Literals.UNARY_EXPRESSION__OPERATION,
 				 true,
 				 false,
 				 false,
@@ -141,7 +142,7 @@ public class UnaryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		UnaryOperation labelValue = ((UnaryExpression)object).getType();
+		ResolvedType labelValue = ((UnaryExpression)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_UnaryExpression_type") :
@@ -160,7 +161,7 @@ public class UnaryExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(UnaryExpression.class)) {
-			case AstPackage.UNARY_EXPRESSION__TYPE:
+			case AstPackage.UNARY_EXPRESSION__OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AstPackage.UNARY_EXPRESSION__PARAM1:

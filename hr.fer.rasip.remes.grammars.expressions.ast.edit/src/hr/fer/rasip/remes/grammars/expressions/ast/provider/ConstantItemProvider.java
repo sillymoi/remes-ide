@@ -10,6 +10,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.grammars.expressions.ast.Constant;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,32 +62,9 @@ public class ConstantItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTextPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Text feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Constant_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_text_feature", "_UI_Constant_type"),
-				 AstPackage.Literals.CONSTANT__TEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -130,7 +108,8 @@ public class ConstantItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Constant)object).getText();
+		ResolvedType labelValue = ((Constant)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Constant_type") :
 			getString("_UI_Constant_type") + " " + label;
@@ -148,7 +127,6 @@ public class ConstantItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Constant.class)) {
-			case AstPackage.CONSTANT__TEXT:
 			case AstPackage.CONSTANT__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

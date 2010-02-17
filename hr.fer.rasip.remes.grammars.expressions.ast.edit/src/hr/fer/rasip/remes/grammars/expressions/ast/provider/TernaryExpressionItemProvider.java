@@ -9,6 +9,7 @@ package hr.fer.rasip.remes.grammars.expressions.ast.provider;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.AstFactory;
 import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryOperation;
 
@@ -65,25 +66,25 @@ public class TernaryExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addOperationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Operation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addOperationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TernaryExpression_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TernaryExpression_type_feature", "_UI_TernaryExpression_type"),
-				 AstPackage.Literals.TERNARY_EXPRESSION__TYPE,
+				 getString("_UI_TernaryExpression_operation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TernaryExpression_operation_feature", "_UI_TernaryExpression_type"),
+				 AstPackage.Literals.TERNARY_EXPRESSION__OPERATION,
 				 true,
 				 false,
 				 false,
@@ -143,7 +144,7 @@ public class TernaryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TernaryOperation labelValue = ((TernaryExpression)object).getType();
+		ResolvedType labelValue = ((TernaryExpression)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TernaryExpression_type") :
@@ -162,7 +163,7 @@ public class TernaryExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TernaryExpression.class)) {
-			case AstPackage.TERNARY_EXPRESSION__TYPE:
+			case AstPackage.TERNARY_EXPRESSION__OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AstPackage.TERNARY_EXPRESSION__PARAM1:

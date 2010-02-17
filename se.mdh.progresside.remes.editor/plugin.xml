@@ -12,13 +12,13 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="se.mdh.progresside.remes.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
             id="se.mdh.progresside.remes.presentation.RemesModelWizardID"
             name="%_UI_RemesModelWizard_label"
             class="se.mdh.progresside.remes.presentation.RemesModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="se.mdh.progresside.remes.Wizard.category.ID"
             icon="icons/full/obj16/RemesModelFile.gif">
          <description>%_UI_RemesModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
@@ -35,5 +35,9 @@
             contributorClass="se.mdh.progresside.remes.presentation.RemesActionBarContributor">
       </editor>
    </extension>
+
+
+
+
 
 </plugin>

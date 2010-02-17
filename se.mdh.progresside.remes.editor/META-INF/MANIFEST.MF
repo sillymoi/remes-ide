@@ -7,6 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: se.mdh.progresside.remes.presentation.RemesEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: se.mdh.progresside.remes.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
@@ -14,5 +15,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- hr.fer.rasip.remes.grammars.expressions.ast.edit;bundle-version="1.0.0";visibility:=reexport
+ hr.fer.rasip.remes.grammars.expressions.ast.edit;bundle-version="1.0.0";visibility:=reexport,
+ hr.fer.rasip.remes.grammars.expressions.ast.editor;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

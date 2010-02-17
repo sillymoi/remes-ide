@@ -1,10 +1,14 @@
 package hr.fer.rasip.remes.builder;
 
+import hr.fer.rasip.remes.builder.helpers.InvalidTypeErrorMark;
+import hr.fer.rasip.remes.builder.helpers.TypeCheckHelper;
 import hr.fer.rasip.remes.grammars.expressions.ast.AbstractRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.ActionRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
+import hr.fer.rasip.remes.grammars.expressions.ast.impl.PrettyPrintVisitor;
 import hr.fer.rasip.remes.grammars.expressions.parser.RemesActionParserHelper;
 import hr.fer.rasip.remes.grammars.expressions.parser.RemesLogicalParserHelper;
 import hr.fer.rasip.remes.grammars.expressions.parser.RemesResourceParserHelper;
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import se.mdh.progresside.remes.CompositeMode;
 import se.mdh.progresside.remes.Constant;
@@ -158,6 +163,9 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 				if(emf.getContents().isEmpty())
 					return;
 
+				// Type check helper 
+				TypeCheckHelper typeChecker = new TypeCheckHelper();
+				
 				for(Iterator<EObject> it = emf.getAllContents(); it.hasNext();) {
 					EObject obj = it.next();
 					
@@ -173,7 +181,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 							
 							if(!parser.parseString(invariant)) {
 								// Syntax error
-								addMarker(file, "Syntax error in mode invariant: " + invariant , (subModeProvider != null) ? subModeProvider.getText(mode) : "Mode", IMarker.SEVERITY_ERROR);
+								addMarker(file, "Syntax error in mode invariant: " + invariant , (subModeProvider != null) ? subModeProvider.getText(mode) : "SubMode", IMarker.SEVERITY_ERROR);
 								return;
 							}
 	
@@ -181,8 +189,17 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 							LogicalRoot root = parser.getLogicalRoot();
 							
 							// See if the semantics are correct													
-							if(root != null && checkModeInvariantSemantics(file, mode, root))
-								mode.setParsedInvariant(parser.getLogicalRoot());
+							if(root != null && checkModeInvariantSemantics(file, mode, root)) {
+								typeChecker.checkType(root);
+								
+								if(root.getType() != ResolvedType.BOOLEAN)
+									addMarker(file, "Invariant should be a boolean expression " + invariant , (subModeProvider != null) ? subModeProvider.getText(mode) : "SubMode", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+								else									
+									mode.setParsedInvariant(root);
+								
+								// Report errors
+								reportTypeErrors(file, subModeProvider, mode, typeChecker);
+							}
 						}
 					}
 					else if(obj instanceof Edge) {
@@ -197,14 +214,24 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 							
 							if(!parser.parseString(guard)) {
 								// Syntax error
-								addMarker(file, "Syntax error in edge guard: " + guard , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR);
+								addMarker(file, "Syntax error in edge guard: " + guard , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							else {
 								// Get parsed tree
 								LogicalRoot root = parser.getLogicalRoot();
 								
-								if(root != null && checkEdgeGuardSemantics(file, edge, root))
-									edge.setParsedActionGuard(root);
+								if(root != null && checkEdgeGuardSemantics(file, edge, root)) {
+									typeChecker.checkType(root);
+									
+									// Expecting a boolean expression for guard
+									if(root.getType() != ResolvedType.BOOLEAN)
+										addMarker(file, "Guard should be a boolean expression " + guard , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+									else									
+										edge.setParsedActionGuard(root);
+									
+									// Report errors
+									reportTypeErrors(file, edgeProvider, edge, typeChecker);
+								}
 							}
 						}
 						
@@ -225,8 +252,13 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 								ActionRoot root = parser.getActionRoot();
 								
 								// See if the semantics are correct
-								if(root != null && checkEdgeActionSemantics(file, edge, root))
+								if(root != null && checkEdgeActionSemantics(file, edge, root)) {
+									typeChecker.checkType(root);
 									edge.setParsedActionBody(root);
+									
+									// Report errors
+									reportTypeErrors(file, edgeProvider, edge, typeChecker);
+								}
 							}
 						}
 					}
@@ -242,7 +274,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 							
 							if(!parser.parseString(action)) {
 								// Syntax error
-								addMarker(file, "Syntax error in edge action: " + action , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR);
+								addMarker(file, "Syntax error in edge action: " + action , (edgeProvider != null) ? edgeProvider.getText(edge) : "InitEdge", IMarker.SEVERITY_ERROR);
 								// Clear parsed guard
 								edge.setParsedInitialization(null);
 							}
@@ -251,8 +283,13 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 								ActionRoot root = parser.getActionRoot();
 								
 								// See if the semantics are correct
-								if(root != null && checkInitActionSemantics(file, edge, root))
+								if(root != null && checkInitActionSemantics(file, edge, root)) {
+									typeChecker.checkType(root);
 									edge.setParsedInitialization(root);
+									
+									// Report errors
+									reportTypeErrors(file, edgeProvider, edge, typeChecker);
+								}
 							}
 						}
 					}
@@ -277,7 +314,11 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 								// See if the semantics are correct
 								if(root != null && res.getName().equals(root.getReferencedVariables().get(0).getName())) {// Using the same name
 									((VariableReference) root.getReferencedVariables().get(0)).setResolved(res); // This is simple
+									typeChecker.checkType(root);
 									res.setParsedExpression(root);
+									
+									// Report errors
+									reportTypeErrors(file, resourceProvider, res, typeChecker);
 								}
 								else
 									addMarker(file, "Invalid resource name '" + root.getReferencedVariables().get(0).getName() + "' in expression", (resourceProvider != null) ? resourceProvider.getText(res) : "Resource", IMarker.SEVERITY_ERROR);
@@ -291,6 +332,30 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 			} catch (Exception e1) {
 				addMarker(file, e1.getLocalizedMessage(), e1.getCause().toString(), IMarker.SEVERITY_ERROR);
 			}
+		}
+	}
+
+	/**
+	 * @param file
+	 * @param provider
+	 * @param mode
+	 * @param typeChecker
+	 */
+	private void reportTypeErrors(IFile file, IItemLabelProvider provider, EObject source, TypeCheckHelper checker) 
+	{
+		// Determine fallback text if no provider
+		String location = null;
+		if(provider == null) 
+			location = source.eClass().getName();
+		else 
+			location = provider.getText(source);
+		
+		// Report errors
+		for(InvalidTypeErrorMark mark : checker.getErrors()) {
+			PrettyPrintVisitor ppv = new PrettyPrintVisitor(mark.getCause() + ": ");
+			mark.getLocation().visit(ppv);
+			
+			addMarker(file, ppv.getResult(), location, IMarker.SEVERITY_ERROR);
 		}
 	}
 

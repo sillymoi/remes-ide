@@ -18,6 +18,11 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -34,6 +39,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.osgi.framework.Bundle;
 
 import UppaalFlat11.UppaalFlat11Factory;
+import se.mdh.progresside.proComMetamodel.proSave.Component;
+import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
+import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
 import se.mdh.progresside.remes.RemesFactory;
 
 
@@ -78,15 +86,32 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
 			IFile file = null;
 			try {
-				file = remes2pta((IFile)iterator.next());
+				//file = remes2pta((IFile)iterator.next());
+				echoSubCompNames((IFile)iterator.next());
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
-			IFile xmlFile = uppaalflat2xml(file);
+			//IFile xmlFile = uppaalflat2xml(file);
 //			runUppaalCora(xmlFile, "C:\\uppaal-cora-060910");
 		}
 	}
-
+	private void echoSubCompNames(IFile file){
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
+		CompositeComponent component = (CompositeComponent)resource.getContents().get(0).eContents().get(1);
+		EList<SubcomponentInstance>  subComponents = component.getSubcomponentInst();
+		for(SubcomponentInstance subComponent: subComponents){
+			EObject eObject = (EObject)subComponent.eCrossReferences().get(0);
+			System.out.println(eObject);
+			Resource otherResource = eObject.eResource();
+			System.out.println(subComponent.getImplComponent().getName());
+			if(otherResource != null){
+				System.out.println(otherResource.getContents());
+				Component comp= (Component)otherResource.getContents().get(0);
+			}
+			//System.out.println(comp.getName());
+		}
+	}
 	private IFile remes2pta(IFile file) throws Exception {
 
 		// Defaults

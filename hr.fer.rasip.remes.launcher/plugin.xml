@@ -4,13 +4,13 @@
    <extension point="org.eclipse.ui.popupMenus">
 	   <objectContribution
 	            objectClass="org.eclipse.core.resources.IFile"
-	            nameFilter="*.remes"
+	            nameFilter="*.prosave"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal">
 	            <action
 	               class="hr.fer.rasip.remes.launcher.Remes2PtaAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction"
-	               label="Transform to PTA">
+	               label="Transform to PTA - echo">
 	         </action>
 	      </objectContribution>  
    </extension>

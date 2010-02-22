@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.m2m.atl.core,
  se.mdh.progresside.remes;bundle-version="1.2.0",
- UPPAAL;bundle-version="1.0.0"
+ UPPAAL;bundle-version="1.0.0",
+ se.mdh.progresside.procom;bundle-version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: hr.fer.rasip.remes.launcher
 

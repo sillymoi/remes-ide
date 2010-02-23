@@ -8,12 +8,11 @@ package hr.fer.rasip.remes.grammars.expressions.type.impl;
 
 import hr.fer.rasip.remes.grammars.expressions.type.BaseType;
 import hr.fer.rasip.remes.grammars.expressions.type.Type;
-import hr.fer.rasip.remes.grammars.expressions.type.TypeFactory;
 import hr.fer.rasip.remes.grammars.expressions.type.TypePackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class BaseTypeImpl extends MinimalEObjectImpl.Container implements BaseType {
+public abstract class BaseTypeImpl extends EObjectImpl implements BaseType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

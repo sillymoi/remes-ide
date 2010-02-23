@@ -6,7 +6,7 @@
     modelPluginID="hr.fer.rasip.remes.grammars.expressions.ast" modelName="Expressions"
     editPluginClass="hr.fer.rasip.remes.grammars.expressions.ast.provider.ExpressionsEditPlugin"
     editorPluginClass="hr.fer.rasip.remes.grammars.expressions.ast.presentation.ExpressionsEditorPlugin"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="hr.fer.rasip.remes.grammars.expressions.ast.tests.ExpressionsAllTests"
+    testSuiteClass="hr.fer.rasip.remes.grammars.expressions.ast.tests.ExpressionsAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="hr.fer.rasip.remes.grammars.expressions.ast.edit" editorPluginID="hr.fer.rasip.remes.grammars.expressions.ast.editor">
   <foreignModel>expressions.ecore</foreignModel>
@@ -43,9 +43,19 @@
         <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/UnaryOperation/PLUS"/>
         <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/UnaryOperation/MINUS"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="expressions.ecore#//ast/ResolvedType">
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/integer"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/boolean"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/natural"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/clock"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/float"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/resource"/>
+        <genEnumLiterals ecoreEnumLiteral="expressions.ecore#//ast/ResolvedType/unknown"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="expressions.ecore#//ast/AbstractRoot">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference expressions.ecore#//ast/AbstractRoot/referencedVariables"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/AbstractRoot/type"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/ActionRoot">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/ActionRoot/expressions"/>
@@ -56,20 +66,26 @@
       <genClasses ecoreClass="expressions.ecore#//ast/ResourceRoot">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/ResourceRoot/expression"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="expressions.ecore#//ast/Expression"/>
+      <genClasses image="false" ecoreClass="expressions.ecore#//ast/Expression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Expression/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Expression/text"/>
+        <genOperations ecoreOperation="expressions.ecore#//ast/Expression/visit">
+          <genParameters ecoreParameter="expressions.ecore#//ast/Expression/visit/visitor"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/TernaryExpression">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/TernaryExpression/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/TernaryExpression/operation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param2"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/TernaryExpression/param3"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/BinaryExpression">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/BinaryExpression/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/BinaryExpression/operation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/BinaryExpression/param1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/BinaryExpression/param2"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/UnaryExpression">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/UnaryExpression/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/UnaryExpression/operation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference expressions.ecore#//ast/UnaryExpression/param1"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/VariableReference">
@@ -79,13 +95,47 @@
             ecoreFeature="ecore:EReference expressions.ecore#//ast/VariableReference/resolved"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/Constant">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Constant/text"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Constant/value"/>
       </genClasses>
       <genClasses ecoreClass="expressions.ecore#//ast/Literal">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Literal/text"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute expressions.ecore#//ast/Literal/value"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="expressions.ecore#//ast/AstVisitor">
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitTernaryExpression">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitTernaryExpression/node"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitBinaryExpression">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitBinaryExpression/node"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitUnaryExpression">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitUnaryExpression/node"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitVariableReference">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitVariableReference/node"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitConstant">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitConstant/node"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//ast/AstVisitor/visitLiteral">
+          <genParameters ecoreParameter="expressions.ecore#//ast/AstVisitor/visitLiteral/node"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Type" disposableProviderFactory="true" ecorePackage="expressions.ecore#//type">
+      <genClasses image="false" ecoreClass="expressions.ecore#//type/Type">
+        <genOperations ecoreOperation="expressions.ecore#//type/Type/add">
+          <genParameters ecoreParameter="expressions.ecore#//type/Type/add/rightArgument"/>
+        </genOperations>
+        <genOperations ecoreOperation="expressions.ecore#//type/Type/getPrimitiveTypeIndex"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="expressions.ecore#//type/BaseType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/IntegerType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/BooleanType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/NaturalType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/ClockType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/FloatType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/ResourceType"/>
+      <genClasses ecoreClass="expressions.ecore#//type/AnyType"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

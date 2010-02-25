@@ -5,7 +5,6 @@ package hr.fer.rasip.remes.launcher;
 
 import hr.fer.rasip.remes.launcher.actions.Remes2PtaAction;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.UUID;
@@ -21,20 +20,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
-import org.eclipse.m2m.atl.core.IInjector;
 import org.eclipse.m2m.atl.core.IModel;
 import org.eclipse.m2m.atl.core.IReferenceModel;
 import org.eclipse.m2m.atl.core.ModelFactory;
+import org.eclipse.m2m.atl.core.emf.EMFInjector;
 import org.eclipse.m2m.atl.core.launch.ILauncher;
 import org.eclipse.m2m.atl.core.service.CoreService;
-import org.eclipse.m2m.atl.core.emf.EMFInjector;
-
 import org.osgi.framework.Bundle;
-
-import UppaalFlat11.UppaalFlat11Package;
 
 import se.mdh.progresside.behaviours.core.IBehaviourModel;
 import se.mdh.progresside.behaviours.internal.core.BehaviourModel;
@@ -42,16 +36,14 @@ import se.mdh.progresside.components.ComponentsPlugin;
 import se.mdh.progresside.components.core.IArchModel;
 import se.mdh.progresside.components.core.IComponent;
 import se.mdh.progresside.components.core.IProComModelManager;
-import se.mdh.progresside.components.internal.core.ProComModelManager;
 import se.mdh.progresside.proComMetamodel.procomPackage;
 import se.mdh.progresside.proComMetamodel.proSave.Component;
 import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
 import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
 import se.mdh.progresside.proComMetamodel.proSave.impl.ComponentImpl;
 import se.mdh.progresside.proComMetamodel.util.ProComComponentResourceFactory;
-import se.mdh.progresside.remes.RemesFactory;
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.util.RemesResourceImpl;
+import UppaalFlat11.UppaalFlat11Package;
 
 /**
  * @author Marin
@@ -111,7 +103,7 @@ public class Remes2PtaConverter {
 			if (element instanceof ComponentImpl) {
 				Component c = (Component) element;
 				
-				System.out.println("Component: " + c.getName());
+				System.out.println("Component: " + c.getName()); //$NON-NLS-1$
 			
 				// TODO: konverzija komponente
 				
@@ -126,7 +118,7 @@ public class Remes2PtaConverter {
 					
 					EList<SubcomponentInstance>  subComponents = cc.getSubcomponentInst();
 					for(SubcomponentInstance subComponent: subComponents){
-						System.out.println("SubComponent: " + subComponent.getImplComponent().getName());
+						System.out.println("SubComponent: " + subComponent.getImplComponent().getName()); //$NON-NLS-1$
 						
 						IComponent subComponentResource = getComponentResource(subComponent.getImplComponent());
 						
@@ -227,7 +219,7 @@ public class Remes2PtaConverter {
 			System.out.println(subComponent.getImplComponent().getName());
 			if(otherResource != null){
 				System.out.println(otherResource.getContents());
-				Component comp = (Component)otherResource.getContents().get(0);
+				//Component comp = (Component)otherResource.getContents().get(0);
 			}
 			//System.out.println(comp.getName());
 		}

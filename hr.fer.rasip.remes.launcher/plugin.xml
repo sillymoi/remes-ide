@@ -7,12 +7,23 @@
 	            nameFilter="*.prosave"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal">
 	            <action
-	               class="hr.fer.rasip.remes.launcher.Remes2PtaAction"
+	               class="hr.fer.rasip.remes.launcher.actions.Remes2PtaAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction"
 	               label="Transform to PTA - echo">
 	         </action>
 	      </objectContribution>  
    </extension>
-
+   <extension point="org.eclipse.ui.popupMenus">
+	   <objectContribution
+	            objectClass="se.mdh.progresside.components.core.IComponent"
+	            id="hr.fer.rasip.remes.launcher.remes2uppaal2">
+	            <action
+	               class="hr.fer.rasip.remes.launcher.actions.Remes2PtaAction"
+	               enablesFor="*"
+	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction2"
+	               label="Transform to PTA - echo">
+	         </action>
+	      </objectContribution>  
+   </extension>
 </plugin>

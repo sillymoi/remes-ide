@@ -1,4 +1,6 @@
-package hr.fer.rasip.remes.launcher;
+package hr.fer.rasip.remes.launcher.actions;
+
+import hr.fer.rasip.remes.launcher.Remes2PtaConverter;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,31 +40,34 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.osgi.framework.Bundle;
 
-import UppaalFlat11.UppaalFlat11Factory;
 import se.mdh.progresside.proComMetamodel.proSave.Component;
 import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
 import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
-import se.mdh.progresside.remes.RemesFactory;
+
+import se.mdh.progresside.behaviours.core.IBehaviourModel;
+import se.mdh.progresside.behaviours.internal.core.BehaviourModel;
+import se.mdh.progresside.components.core.IArchModel;
+import se.mdh.progresside.components.core.IComponent;
+import se.mdh.progresside.components.internal.core.ArchModel;
 
 
 public class Remes2PtaAction implements IObjectActionDelegate {
-
+/*
 	private static IInjector injector;
-
 	private static IExtractor extractor;
 
 	private static IReferenceModel remesMetamodel;
 	private static IReferenceModel uppaalMetamodel;
 
-	private static final String BUNDLE_NAME = "hr.fer.rasip.remes.launcher"; //$NON-NLS-1$
-
 	private static URL asmURL;
+*/	
+	public static final String BUNDLE_NAME = "hr.fer.rasip.remes.launcher"; //$NON-NLS-1$
 
 	private ISelection currentSelection;
-
+	
+/*
 	static {
 		// ATL remes2pta transformation
-
 		Bundle bundle = Platform.getBundle(BUNDLE_NAME); //$NON-NLS-1$
 		asmURL = bundle.getEntry("resources/remes2pta.asm"); //$NON-NLS-1$
 		try {
@@ -72,29 +77,66 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 			e.printStackTrace();
 		}
 	}
-	
+*/	
 	public Remes2PtaAction() {
 		super();
 	}
 	
+	@Override
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+		
 	}
-	
+
+	/**
+	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
+	 */
+	public void selectionChanged(IAction action, ISelection selection) {
+		this.currentSelection = selection;
+	}
+
 	public void run(IAction action) {
 		// Getting files from selection
-		IStructuredSelection iss = (IStructuredSelection) currentSelection;
-		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
-			IFile file = null;
-			try {
-				//file = remes2pta((IFile)iterator.next());
-				echoSubCompNames((IFile)iterator.next());
-			} catch (Exception e) {
-				throw new RuntimeException(e);
+		if(this.currentSelection instanceof IStructuredSelection) {
+			IStructuredSelection iss = (IStructuredSelection) currentSelection;
+			for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
+				Object element = iterator.next();
+				if (element instanceof IComponent) {
+					IArchModel archModel = ArchModel.getForComponent((IComponent) element);
+					Remes2PtaConverter converter = new Remes2PtaConverter(archModel);
+					converter.doConvertArchitecture();
+				}
+				//IFile xmlFile = uppaalflat2xml(file);
+	//			runUppaalCora(xmlFile, "C:\\uppaal-cora-060910");
 			}
-			//IFile xmlFile = uppaalflat2xml(file);
-//			runUppaalCora(xmlFile, "C:\\uppaal-cora-060910");
 		}
 	}
+	
+	private void testLoadComponents(IFile file) {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		//Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
+		try {
+			Resource resource = resourceSet.createResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()));
+			resource.load(Collections.EMPTY_MAP);
+			
+			CompositeComponent component = (CompositeComponent)resource.getContents().get(0).eContents().get(1);
+			EList<SubcomponentInstance>  subComponents = component.getSubcomponentInst();
+			for(SubcomponentInstance subComponent: subComponents){
+				EObject eObject = (EObject)subComponent.eCrossReferences().get(0);
+				System.out.println(eObject);
+				Resource otherResource = eObject.eResource();
+				System.out.println(subComponent.getImplComponent().getName());
+				if(otherResource != null){
+					System.out.println(otherResource.getContents());
+					Component comp= (Component)otherResource.getContents().get(0);
+				}
+				//System.out.println(comp.getName());
+			}
+		}
+		catch(IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+
 	private void echoSubCompNames(IFile file){
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
@@ -112,6 +154,7 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 			//System.out.println(comp.getName());
 		}
 	}
+	/*
 	private IFile remes2pta(IFile file) throws Exception {
 
 		// Defaults
@@ -240,10 +283,6 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 		uri = rootUri.relativize(uri); 
 		IPath path = new Path(uri.getPath()); 
 		return root.getFile(path); 
-	} 
-	
-	
-	public void selectionChanged(IAction action, ISelection selection) {
-		this.currentSelection = selection;
 	}
+	*/
 }

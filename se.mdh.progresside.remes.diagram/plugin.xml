@@ -44,7 +44,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RemesDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="se.mdh.progresside.remes.Wizard.category.ID"
   	     class="se.mdh.progresside.remes.diagram.part.RemesCreationWizard"
   	     id="se.mdh.progresside.remes.diagram.part.RemesCreationWizardID">
   	  	 <description>%newWizardDesc</description>  

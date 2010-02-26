@@ -11,8 +11,10 @@ import java.util.UUID;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -104,7 +106,7 @@ public class Remes2PtaConverter {
 				Component c = (Component) element;
 				
 				System.out.println("Component: " + c.getName()); //$NON-NLS-1$
-			
+				
 				// TODO: konverzija komponente
 				
 				IComponent componentResource = getComponentResource(c);
@@ -119,11 +121,13 @@ public class Remes2PtaConverter {
 					EList<SubcomponentInstance>  subComponents = cc.getSubcomponentInst();
 					for(SubcomponentInstance subComponent: subComponents){
 						System.out.println("SubComponent: " + subComponent.getImplComponent().getName()); //$NON-NLS-1$
+
+						// TODO
 						
 						IComponent subComponentResource = getComponentResource(subComponent.getImplComponent());
 						
 						if(subComponentResource != null) {
-							IBehaviourModel behModel = BehaviourModel.getForComponent(componentResource);
+							IBehaviourModel behModel = BehaviourModel.getForComponent(subComponentResource);
 							
 							doConvertBehaviour(behModel);
 						}
@@ -151,8 +155,10 @@ public class Remes2PtaConverter {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(URI.createFileURI(behModel.getCorrespondingResource().getFullPath().toString()), true);
 
-		IPath path = behModel.getCorrespondingResource().getProjectRelativePath().removeFileExtension().addFileExtension("uppaalflat11");
-		IFile file = behModel.getCorrespondingResource().getParent().getFile(path);
+		IResource componentResource = behModel.getCorrespondingResource();
+		IPath path = new Path(componentResource.getName().replace(componentResource.getFileExtension(), "uppaalflat11"));
+		IFile file = componentResource.getParent().getFile(path);
+		
 		try {
 			remes2pta(resource, file);
 			file.getParent().refreshLocal(IProject.DEPTH_INFINITE, null);
@@ -187,15 +193,15 @@ public class Remes2PtaConverter {
 		
 		// Loading existing model
 		injector.inject(remesModel, inputModel);
-		
+	
 		// Launching
 		launcher.addInOutModel(remesModel, "IN", "REMES"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.addInOutModel(ptaModel, "OUT", "UPPAAL"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.launch(ILauncher.RUN_MODE, new NullProgressMonitor(), Collections
 				.<String, Object> emptyMap(), asmURL.openStream());
-		
+
 		extractor.extract(ptaModel, outputFile.getFullPath().toString());
-		
+
 		// Saving model: remesfile + uppaalflat11 file extension
 		/*
 		String ptaLocation = file.getFullPath().toString().replaceAll(file.getFileExtension(), "uppaalflat11"); //$NON-NLS-1$

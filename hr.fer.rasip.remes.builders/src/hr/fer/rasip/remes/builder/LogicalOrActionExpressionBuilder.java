@@ -110,6 +110,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 	private RemesLogicalParserHelper logicalParserHelper = null;
 	private RemesActionParserHelper actionParserHelper = null;
 	private RemesResourceParserHelper resourceParserHelper = null;
+	private TypeCheckHelper typeCheckHelper = null;
 
 	private void addMarker(IFile file, String message, Object location, int severity) {
 		try {
@@ -153,6 +154,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 			SubModeItemProvider subModeProvider = (SubModeItemProvider) factory.createSubModeAdapter();
 			ResourceItemProvider resourceProvider = (ResourceItemProvider) factory.createResourceAdapter();
 			EdgeItemProvider edgeProvider = (EdgeItemProvider) factory.createEdgeAdapter();
+			InitEdgeItemProvider initEdgeProvider = (InitEdgeItemProvider) factory.createInitEdgeAdapter();
 			
 			try {
 				// Load model
@@ -164,7 +166,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 					return;
 
 				// Type check helper 
-				TypeCheckHelper typeChecker = new TypeCheckHelper();
+				TypeCheckHelper typeChecker = getTypeCheckHelper();
 				
 				for(Iterator<EObject> it = emf.getAllContents(); it.hasNext();) {
 					EObject obj = it.next();
@@ -193,7 +195,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 								typeChecker.checkType(root);
 								
 								if(root.getType() != ResolvedType.BOOLEAN)
-									addMarker(file, "Invariant should be a boolean expression " + invariant , (subModeProvider != null) ? subModeProvider.getText(mode) : "SubMode", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+									addMarker(file, "Invariant should be a boolean expression: " + invariant , (subModeProvider != null) ? subModeProvider.getText(mode) : "SubMode", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 								else									
 									mode.setParsedInvariant(root);
 								
@@ -225,7 +227,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 									
 									// Expecting a boolean expression for guard
 									if(root.getType() != ResolvedType.BOOLEAN)
-										addMarker(file, "Guard should be a boolean expression " + guard , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+										addMarker(file, "Guard should be a boolean expression: " + guard , (edgeProvider != null) ? edgeProvider.getText(edge) : "Edge", IMarker.SEVERITY_ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 									else									
 										edge.setParsedActionGuard(root);
 									
@@ -274,7 +276,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 							
 							if(!parser.parseString(action)) {
 								// Syntax error
-								addMarker(file, "Syntax error in edge action: " + action , (edgeProvider != null) ? edgeProvider.getText(edge) : "InitEdge", IMarker.SEVERITY_ERROR);
+								addMarker(file, "Syntax error in edge action: " + action , (edgeProvider != null) ? initEdgeProvider.getText(edge) : "InitEdge", IMarker.SEVERITY_ERROR);
 								// Clear parsed guard
 								edge.setParsedInitialization(null);
 							}
@@ -288,7 +290,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 									edge.setParsedInitialization(root);
 									
 									// Report errors
-									reportTypeErrors(file, edgeProvider, edge, typeChecker);
+									reportTypeErrors(file, initEdgeProvider, edge, typeChecker);
 								}
 							}
 						}
@@ -321,7 +323,7 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 									reportTypeErrors(file, resourceProvider, res, typeChecker);
 								}
 								else
-									addMarker(file, "Invalid resource name '" + root.getReferencedVariables().get(0).getName() + "' in expression", (resourceProvider != null) ? resourceProvider.getText(res) : "Resource", IMarker.SEVERITY_ERROR);
+									addMarker(file, "Invalid resource name: '" + root.getReferencedVariables().get(0).getName() + "' in expression", (resourceProvider != null) ? resourceProvider.getText(res) : "Resource", IMarker.SEVERITY_ERROR);
 							}
 						}
 					}
@@ -472,6 +474,13 @@ public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder 
 			this.resourceParserHelper = new RemesResourceParserHelper();
 		
 		return this.resourceParserHelper;
+	}
+
+	private TypeCheckHelper getTypeCheckHelper() {
+		if(this.typeCheckHelper == null)
+			this.typeCheckHelper = new TypeCheckHelper();
+		
+		return this.typeCheckHelper;
 	}
 
 	private HashMap<String, VariableReference> resolveVariableReferences(IFile file, AbstractRoot root, EObject parent) 

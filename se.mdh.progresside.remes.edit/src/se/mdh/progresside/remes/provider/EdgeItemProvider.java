@@ -109,7 +109,7 @@ public class EdgeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Edge_actionBody_feature", "_UI_Edge_type"),
 				 RemesPackage.Literals.EDGE__ACTION_BODY,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

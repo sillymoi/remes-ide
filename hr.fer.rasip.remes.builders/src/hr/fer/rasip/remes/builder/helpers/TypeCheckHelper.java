@@ -36,6 +36,14 @@ public class TypeCheckHelper implements AstVisitor {
 	ArrayList<InvalidTypeErrorMark> errors = new ArrayList<InvalidTypeErrorMark>();
 	
 	/**
+	 * Checks if errors found during type checking.
+	 * @return
+	 */
+	public boolean hasErrors() {
+		return !errors.isEmpty();
+	}
+	
+	/**
 	 * @return the errors
 	 */
 	public ArrayList<InvalidTypeErrorMark> getErrors() {
@@ -182,7 +190,7 @@ public class TypeCheckHelper implements AstVisitor {
 	 */
 	@Override
 	public void visitConstant(Constant node) {
-		node.setType(ResolvedType.INTEGER); //TODO: float not supported yet
+		// Constant types are resolved during parsing (to differ between INTs and FLOATs)
 		return;
 	}
 

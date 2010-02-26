@@ -1,4 +1,4 @@
-/**so
+/**
  * 
  */
 package hr.fer.rasip.remes.builder.helpers;
@@ -25,10 +25,10 @@ public class TypeTable {
 	
 	private static final ResolvedType[][] arithmeticResultType = new ResolvedType[][] {
 		/*            int,	boolean,natural,clock,	float,	resource */
-		/*integer*/	{_int,	null,	_int,	null,	_float,	null},
+		/*integer*/	{_int,	null,	_int,	_clock,	_float,	null},
 		/*boolean*/	{null,  null,   null,  	null,	null,	null},
-		/*natural*/	{_int,  null, 	_nat,  	null,	_float,	null},
-		/*clock*/	{null, 	null,  	null,   _clock,	null,	null},
+		/*natural*/	{_int,  null, 	_int,  	_clock,	_float,	null},
+		/*clock*/	{_clock,null,  	_clock,	_clock,	null,	null},
 		/*float*/	{_float,null,	_float,	null,	_float,	null},
 		/*resource*/{null,	null,	null,	null,	null,	null},		
 	};
@@ -45,30 +45,30 @@ public class TypeTable {
 
 	private static final ResolvedType[][] equalityResultType = new ResolvedType[][] {
         /*            int,	boolean,natural,clock,	float,	resource */
-        /*integer*/	{_bool,	null,	_bool,	_bool,	_bool,	null},
+        /*integer*/	{_bool,	null,	_bool,	_clock,	_bool,	null},
         /*boolean*/	{null,  _bool,   null,  null,	null,	null},
-        /*natural*/	{_bool, null, 	_bool,  _bool,	_bool,	null},
-        /*clock*/	{_bool,	null,  	_bool,  _bool,	null,	null},
+        /*natural*/	{_bool, null, 	_bool,  _clock,	_bool,	null},
+        /*clock*/	{_clock,null,  	_clock,	_clock,	null,	null},
         /*float*/	{_bool,	null,	_bool,	null,	_bool,	null},      
 		/*resource*/{null,	null,	null,	null,	null,	null},		        
 	};
 
 	private static final ResolvedType[][] assignmentResultType = new ResolvedType[][] {
         /*            int,	boolean,natural,clock,	float,	resource */
-        /*integer*/ {_int,	null,	_int,	null,	_float,	null},
+        /*integer*/ {_int,	null,	_int,	null,	_int,	null},
         /*boolean*/	{null,  _bool,  null,  	null,	null,	null},
-        /*natural*/	{_int,  null, 	_nat,  	null,	_float,	null},
-        /*clock*/	{null, 	null,  	null,   _clock,	null,	null},
+        /*natural*/	{_nat,  null, 	_nat,  	null,	_nat,	null},
+        /*clock*/	{_clock,null,  	_clock, _clock,	null,	null},
         /*float*/	{_float,null,	_float,	null,	_float,	null},      
 		/*resource*/{null,	null,	null,	null,	null,	null},		        
 	};
 
 	private static final ResolvedType[][] assignmentArithmeticResultType = new ResolvedType[][] {
         /*            int,	boolean,natural,clock,	float,	resource */
-        /*integer*/ {_int,	null,	_int,	null,	_float,	_rsrc},
-        /*boolean*/	{null,  _bool,  null,  	null,	null,	null},
-        /*natural*/	{_int,  null, 	_nat,  	null,	_float,	_rsrc},
-        /*clock*/	{null, 	null,  	null,   _clock,	null,	null},
+        /*integer*/ {_int,	null,	_int,	null,	_int,	null},
+        /*boolean*/	{null,  null,  null,  	null,	null,	null},
+        /*natural*/	{_nat,  null, 	_nat,  	null,	_nat,	null},
+        /*clock*/	{_clock,null,  	_clock, _clock,	null,	null},
         /*float*/	{_float,null,	_float,	null,	_float,	null},      
 		/*resource*/{_rsrc,	null,	_rsrc,	null,	null,	null},		        
 	};

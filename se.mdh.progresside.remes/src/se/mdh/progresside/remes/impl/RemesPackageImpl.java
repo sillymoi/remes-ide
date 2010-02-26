@@ -1116,7 +1116,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEClass(pointEClass, Point.class, "Point", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(initPointEClass, InitPoint.class, "InitPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInitPoint_InitEdge(), this.getInitEdge(), this.getInitEdge_ConnectFrom(), "initEdge", null, 1, 1, InitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInitPoint_InitEdge(), this.getInitEdge(), this.getInitEdge_ConnectFrom(), "initEdge", null, 0, 1, InitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInitPoint_Container(), this.getCompositeMode(), this.getCompositeMode_InitPoint(), "container", null, 1, 1, InitPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

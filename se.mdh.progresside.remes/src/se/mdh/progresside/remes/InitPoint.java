@@ -38,7 +38,7 @@ public interface InitPoint extends Point {
 	 * @see #setInitEdge(InitEdge)
 	 * @see se.mdh.progresside.remes.RemesPackage#getInitPoint_InitEdge()
 	 * @see se.mdh.progresside.remes.InitEdge#getConnectFrom
-	 * @model opposite="connectFrom" containment="true" required="true"
+	 * @model opposite="connectFrom" containment="true"
 	 * @generated
 	 */
 	InitEdge getInitEdge();

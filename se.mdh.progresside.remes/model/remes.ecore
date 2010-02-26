@@ -65,8 +65,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="InitPoint" eSuperTypes="#//Point">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initEdge" lowerBound="1"
-        eType="#//InitEdge" containment="true" resolveProxies="false" eOpposite="#//InitEdge/connectFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initEdge" eType="#//InitEdge"
+        containment="true" resolveProxies="false" eOpposite="#//InitEdge/connectFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
         eType="#//CompositeMode" eOpposite="#//CompositeMode/initPoint"/>
   </eClassifiers>

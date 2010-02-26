@@ -12,6 +12,7 @@ import hr.fer.rasip.remes.grammars.expressions.ast.Constant;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 import hr.fer.rasip.remes.grammars.expressions.ast.Literal;
 import hr.fer.rasip.remes.grammars.expressions.ast.LogicalRoot;
+import hr.fer.rasip.remes.grammars.expressions.ast.ResolvedType;
 import hr.fer.rasip.remes.grammars.expressions.ast.ResourceRoot;
 import hr.fer.rasip.remes.grammars.expressions.ast.TernaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression;
@@ -206,6 +207,7 @@ public class TreeWalker {
 				break;
 	
 			case RemesLexer.NAT:
+			case RemesLexer.FLOAT:
 				expr = handleConstant(tree);
 				break;
 	
@@ -271,6 +273,7 @@ public class TreeWalker {
 			try {
 				Integer value = Integer.valueOf(tree.getText());
 				expr.setValue(value);
+				expr.setType(ResolvedType.INTEGER);
 			} catch(NumberFormatException nfe) {
 			}
 			break;
@@ -278,6 +281,7 @@ public class TreeWalker {
 			try {
 				Float value = Float.valueOf(tree.getText());
 				expr.setValue(value);
+				expr.setType(ResolvedType.FLOAT);
 			} catch(NumberFormatException nfe) {
 			}
 			break;

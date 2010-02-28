@@ -40,7 +40,7 @@ public class CompositeModeCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getCompositeMode_2002SemanticChildren(viewObject).iterator(); it
+				.getCompositeMode_2008SemanticChildren(viewObject).iterator(); it
 				.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}

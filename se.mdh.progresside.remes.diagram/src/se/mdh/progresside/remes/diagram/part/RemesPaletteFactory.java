@@ -74,15 +74,15 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createVariable1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
-		types.add(RemesElementTypes.Variable_3001);
-		types.add(RemesElementTypes.Variable_3004);
-		types.add(RemesElementTypes.Variable_3007);
+		types.add(RemesElementTypes.Variable_3022);
+		types.add(RemesElementTypes.Variable_3027);
+		types.add(RemesElementTypes.Variable_3034);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Variable1CreationTool_title,
 				Messages.Variable1CreationTool_desc, types);
 		entry.setId("createVariable1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RemesElementTypes
-				.getImageDescriptor(RemesElementTypes.Variable_3001));
+				.getImageDescriptor(RemesElementTypes.Variable_3022));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -92,14 +92,14 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createResource2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
-		types.add(RemesElementTypes.Resource_3002);
-		types.add(RemesElementTypes.Resource_3005);
+		types.add(RemesElementTypes.Resource_3023);
+		types.add(RemesElementTypes.Resource_3028);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Resource2CreationTool_title,
 				Messages.Resource2CreationTool_desc, types);
 		entry.setId("createResource2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RemesElementTypes
-				.getImageDescriptor(RemesElementTypes.Resource_3002));
+				.getImageDescriptor(RemesElementTypes.Resource_3023));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -109,8 +109,8 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createSubMode1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
-		types.add(RemesElementTypes.SubMode_2001);
-		types.add(RemesElementTypes.SubMode_3003);
+		types.add(RemesElementTypes.SubMode_2007);
+		types.add(RemesElementTypes.SubMode_3026);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SubMode1CreationTool_title,
 				Messages.SubMode1CreationTool_desc, types);
@@ -127,7 +127,7 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createConditionalConnector2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(RemesElementTypes.ConditionalConnector_3006);
+		types.add(RemesElementTypes.ConditionalConnector_3031);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ConditionalConnector2CreationTool_title,
 				Messages.ConditionalConnector2CreationTool_desc, types);
@@ -144,7 +144,7 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createCompositeMode3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(RemesElementTypes.CompositeMode_2002);
+		types.add(RemesElementTypes.CompositeMode_2008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CompositeMode3CreationTool_title,
 				Messages.CompositeMode3CreationTool_desc, types);
@@ -161,7 +161,7 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createEdge1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(RemesElementTypes.Edge_4001);
+		types.add(RemesElementTypes.Edge_4028);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.Edge1CreationTool_title,
 				Messages.Edge1CreationTool_desc, types);
@@ -178,7 +178,7 @@ public class RemesPaletteFactory {
 	 */
 	private ToolEntry createInitEdge2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(RemesElementTypes.InitEdge_4002);
+		types.add(RemesElementTypes.InitEdge_4029);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.InitEdge2CreationTool_title,
 				Messages.InitEdge2CreationTool_desc, types);

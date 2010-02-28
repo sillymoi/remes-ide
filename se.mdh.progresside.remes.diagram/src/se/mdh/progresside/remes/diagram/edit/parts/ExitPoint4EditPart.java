@@ -36,7 +36,7 @@ public class ExitPoint4EditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3015;
+	public static final int VISUAL_ID = 3036;
 
 	/**
 	 * @generated
@@ -199,7 +199,7 @@ public class ExitPoint4EditPart extends AbstractBorderItemEditPart {
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types.add(RemesElementTypes.Edge_4001);
+		types.add(RemesElementTypes.Edge_4028);
 		return types;
 	}
 
@@ -210,19 +210,19 @@ public class ExitPoint4EditPart extends AbstractBorderItemEditPart {
 			IGraphicalEditPart targetEditPart) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		if (targetEditPart instanceof EntryPointEditPart) {
-			types.add(RemesElementTypes.Edge_4001);
+			types.add(RemesElementTypes.Edge_4028);
 		}
 		if (targetEditPart instanceof EntryPoint2EditPart) {
-			types.add(RemesElementTypes.Edge_4001);
+			types.add(RemesElementTypes.Edge_4028);
 		}
 		if (targetEditPart instanceof EntryPoint3EditPart) {
-			types.add(RemesElementTypes.Edge_4001);
+			types.add(RemesElementTypes.Edge_4028);
 		}
 		if (targetEditPart instanceof EntryPoint4EditPart) {
-			types.add(RemesElementTypes.Edge_4001);
+			types.add(RemesElementTypes.Edge_4028);
 		}
 		if (targetEditPart instanceof CompositeExitPointEditPart) {
-			types.add(RemesElementTypes.Edge_4001);
+			types.add(RemesElementTypes.Edge_4028);
 		}
 		return types;
 	}
@@ -233,20 +233,20 @@ public class ExitPoint4EditPart extends AbstractBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.EntryPoint_3008);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.EntryPoint_3024);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.EntryPoint_3010);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.EntryPoint_3029);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.EntryPoint_3012);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.EntryPoint_3032);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.EntryPoint_3014);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.EntryPoint_3035);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.CompositeExitPoint_3017);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.CompositeExitPoint_3038);
 		}
 		return types;
 	}

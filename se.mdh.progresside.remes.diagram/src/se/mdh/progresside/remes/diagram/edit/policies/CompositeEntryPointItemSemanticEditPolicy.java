@@ -29,7 +29,7 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CompositeEntryPointItemSemanticEditPolicy() {
-		super(RemesElementTypes.CompositeEntryPoint_3016);
+		super(RemesElementTypes.CompositeEntryPoint_3037);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return getGEFWrapper(new EdgeCreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
@@ -89,7 +89,7 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return null;
 		}
 		return null;

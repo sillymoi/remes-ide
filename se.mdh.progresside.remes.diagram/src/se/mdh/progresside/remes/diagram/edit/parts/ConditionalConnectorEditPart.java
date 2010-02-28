@@ -42,7 +42,7 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3006;
+	public static final int VISUAL_ID = 3031;
 
 	/**
 	 * @generated

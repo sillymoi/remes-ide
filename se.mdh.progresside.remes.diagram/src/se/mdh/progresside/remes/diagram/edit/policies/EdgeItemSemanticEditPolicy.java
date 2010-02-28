@@ -15,7 +15,7 @@ public class EdgeItemSemanticEditPolicy extends RemesBaseItemSemanticEditPolicy 
 	 * @generated
 	 */
 	public EdgeItemSemanticEditPolicy() {
-		super(RemesElementTypes.Edge_4001);
+		super(RemesElementTypes.Edge_4028);
 	}
 
 	/**

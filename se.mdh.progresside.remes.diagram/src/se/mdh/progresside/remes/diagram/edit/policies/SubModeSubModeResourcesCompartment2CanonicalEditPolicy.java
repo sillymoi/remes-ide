@@ -34,7 +34,7 @@ public class SubModeSubModeResourcesCompartment2CanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getSubModeSubModeResourcesCompartment_7006SemanticChildren(
+				.getSubModeSubModeResourcesCompartment_7024SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}

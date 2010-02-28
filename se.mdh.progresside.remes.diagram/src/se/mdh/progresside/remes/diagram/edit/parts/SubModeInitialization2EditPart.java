@@ -60,7 +60,7 @@ public class SubModeInitialization2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5045;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class SubModeInitialization2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.SubMode_3003,
+							RemesElementTypes.SubMode_3026,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.SubModeInitialization2EditPart.VISUAL_ID));

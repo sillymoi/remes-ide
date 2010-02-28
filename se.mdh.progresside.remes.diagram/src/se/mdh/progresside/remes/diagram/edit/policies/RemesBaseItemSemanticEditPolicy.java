@@ -1,7 +1,9 @@
 package se.mdh.progresside.remes.diagram.edit.policies;
 
+import java.util.Collections;
 import java.util.Iterator;
 
+import java.util.Map;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -34,7 +36,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitPoint;
+import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.diagram.edit.helpers.RemesBaseEditHelper;
+import se.mdh.progresside.remes.diagram.expressions.RemesAbstractExpression;
+import se.mdh.progresside.remes.diagram.expressions.RemesOCLFactory;
+import se.mdh.progresside.remes.diagram.part.RemesDiagramEditorPlugin;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
@@ -305,38 +311,98 @@ public class RemesBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateEdge_4001(ExitPoint container,
+		private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
+
+		/**
+		 * @generated
+		 */
+		private static RemesAbstractExpression Edge_4028_TargetExpression;
+
+		/**
+		 * @generated
+		 */
+		private static RemesAbstractExpression InitEdge_4029_TargetExpression;
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateEdge_4028(ExitPoint container,
 				ExitPoint source, EntryPoint target) {
-			return canExistEdge_4001(container, source, target);
+			return canExistEdge_4028(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateInitEdge_4002(InitPoint container,
+		public static boolean canCreateInitEdge_4029(InitPoint container,
 				InitPoint source, EntryPoint target) {
 			if (container != null) {
 				if (container.getInitEdge() != null) {
 					return false;
 				}
 			}
-			return canExistInitEdge_4002(container, source, target);
+			return canExistInitEdge_4029(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistEdge_4001(ExitPoint container,
+		public static boolean canExistEdge_4028(ExitPoint container,
 				ExitPoint source, EntryPoint target) {
-			return true;
+			try {
+				if (target == null) {
+					return true;
+				}
+				if (Edge_4028_TargetExpression == null) {
+					Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+							RemesPackage.eINSTANCE.getExitPoint());
+					Edge_4028_TargetExpression = RemesOCLFactory
+							.getExpression(
+									"(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and \r\n\t\t\t\t\t\t((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or \r\n\t\t\t\t\t\t (self.container.oclIsTypeOf(CompositeMode))))\r\nor (oppositeEnd.container.oclIsTypeOf(SubMode) and not oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and \r\n\t\t\t\t\t\t((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(SubMode).parent) or\r\n\t\t\t\t\t\t (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(SubMode).parent) or\r\n\t\t\t\t\t\t (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(SubMode).parent)))\r\nor (oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and \r\n\t\t\t\t\t\t((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or\r\n\t\t\t\t\t\t (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or\r\n\t\t\t\t\t\t (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(ConditionalConnector).parent))) \t\t\t\t\t\t\r\nor (oppositeEnd.container.oclIsTypeOf(CompositeMode) and not oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and\r\n\t\t\t\t\t\t((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or \r\n\t\t\t\t\t\t(self.container.oclIsTypeOf(CompositeMode) and not (self.container = oppositeEnd.container) and not (self.oclIsTypeOf(CompositeExitPoint)))))\r\nor (oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and\r\n\t\t\t\t\t\t((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or\r\n\t\t\t\t\t\t  (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or\r\n\t\t\t\t\t\t  (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.oclAsType(CompositeEntryPoint).composite)))", RemesPackage.eINSTANCE.getEntryPoint(), env); //$NON-NLS-1$
+				}
+				Object targetVal = Edge_4028_TargetExpression.evaluate(target,
+						Collections.singletonMap(OPPOSITE_END_VAR, source));
+				if (false == targetVal instanceof Boolean
+						|| !((Boolean) targetVal).booleanValue()) {
+					return false;
+				} // else fall-through
+				return true;
+			} catch (Exception e) {
+				RemesDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistInitEdge_4002(InitPoint container,
+		public static boolean canExistInitEdge_4029(InitPoint container,
 				InitPoint source, EntryPoint target) {
-			return true;
+			try {
+				if (target == null) {
+					return true;
+				}
+				if (InitEdge_4029_TargetExpression == null) {
+					Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+							RemesPackage.eINSTANCE.getInitPoint());
+					InitEdge_4029_TargetExpression = RemesOCLFactory
+							.getExpression(
+									"(self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container) or\r\n(self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container)", RemesPackage.eINSTANCE.getEntryPoint(), env); //$NON-NLS-1$
+				}
+				Object targetVal = InitEdge_4029_TargetExpression.evaluate(
+						target, Collections.singletonMap(OPPOSITE_END_VAR,
+								source));
+				if (false == targetVal instanceof Boolean
+						|| !((Boolean) targetVal).booleanValue()) {
+					return false;
+				} // else fall-through
+				return true;
+			} catch (Exception e) {
+				RemesDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 	}

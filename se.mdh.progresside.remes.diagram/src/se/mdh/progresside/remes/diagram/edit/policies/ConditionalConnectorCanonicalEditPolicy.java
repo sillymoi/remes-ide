@@ -35,7 +35,7 @@ public class ConditionalConnectorCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getConditionalConnector_3006SemanticChildren(viewObject)
+				.getConditionalConnector_3031SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}

@@ -37,17 +37,17 @@ public class SubModeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SubModeItemSemanticEditPolicy() {
-		super(RemesElementTypes.SubMode_2001);
+		super(RemesElementTypes.SubMode_2007);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.EntryPoint_3008 == req.getElementType()) {
+		if (RemesElementTypes.EntryPoint_3024 == req.getElementType()) {
 			return getGEFWrapper(new EntryPointCreateCommand(req));
 		}
-		if (RemesElementTypes.ExitPoint_3009 == req.getElementType()) {
+		if (RemesElementTypes.ExitPoint_3025 == req.getElementType()) {
 			return getGEFWrapper(new ExitPointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

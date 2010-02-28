@@ -32,7 +32,7 @@ public class EntryPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public EntryPointItemSemanticEditPolicy() {
-		super(RemesElementTypes.EntryPoint_3008);
+		super(RemesElementTypes.EntryPoint_3024);
 	}
 
 	/**
@@ -87,10 +87,10 @@ public class EntryPointItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return null;
 		}
-		if (RemesElementTypes.InitEdge_4002 == req.getElementType()) {
+		if (RemesElementTypes.InitEdge_4029 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -101,11 +101,11 @@ public class EntryPointItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return getGEFWrapper(new EdgeCreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
-		if (RemesElementTypes.InitEdge_4002 == req.getElementType()) {
+		if (RemesElementTypes.InitEdge_4029 == req.getElementType()) {
 			return getGEFWrapper(new InitEdgeCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

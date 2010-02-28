@@ -239,7 +239,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case SubModeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getSubMode_2001ContainedLinks(view));
+						.getSubMode_2007ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -250,7 +250,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case CompositeModeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getCompositeMode_2002ContainedLinks(view));
+						.getCompositeMode_2008ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -261,7 +261,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case EntryPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getEntryPoint_3008ContainedLinks(view));
+						.getEntryPoint_3024ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -272,7 +272,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case ExitPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getExitPoint_3009ContainedLinks(view));
+						.getExitPoint_3025ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -283,7 +283,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case SubMode2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getSubMode_3003ContainedLinks(view));
+						.getSubMode_3026ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -294,7 +294,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case EntryPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getEntryPoint_3010ContainedLinks(view));
+						.getEntryPoint_3029ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -305,7 +305,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case ExitPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getExitPoint_3011ContainedLinks(view));
+						.getExitPoint_3030ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -316,7 +316,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case ConditionalConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getConditionalConnector_3006ContainedLinks(view));
+						.getConditionalConnector_3031ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -327,7 +327,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case EntryPoint3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getEntryPoint_3012ContainedLinks(view));
+						.getEntryPoint_3032ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -338,7 +338,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case ExitPoint3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getExitPoint_3013ContainedLinks(view));
+						.getExitPoint_3033ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -349,7 +349,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case EntryPoint4EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getEntryPoint_3014ContainedLinks(view));
+						.getEntryPoint_3035ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -360,7 +360,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case ExitPoint4EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getExitPoint_3015ContainedLinks(view));
+						.getExitPoint_3036ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -371,7 +371,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case CompositeEntryPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getCompositeEntryPoint_3016ContainedLinks(view));
+						.getCompositeEntryPoint_3037ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -382,7 +382,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case CompositeExitPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getCompositeExitPoint_3017ContainedLinks(view));
+						.getCompositeExitPoint_3038ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -393,7 +393,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case InitPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getInitPoint_3018ContainedLinks(view));
+						.getInitPoint_3039ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -404,7 +404,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case EdgeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getEdge_4001ContainedLinks(view));
+						.getEdge_4028ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -415,7 +415,7 @@ public class RemesDiagramCanonicalEditPolicy extends
 		case InitEdgeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
-						.getInitEdge_4002ContainedLinks(view));
+						.getInitEdge_4029ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import se.mdh.progresside.remes.Edge;
+import se.mdh.progresside.remes.InitEdge;
 import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
@@ -50,6 +52,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompar
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.expressions.RemesAbstractExpression;
+import se.mdh.progresside.remes.diagram.expressions.RemesOCLFactory;
 
 /**
  * This registry is used to determine which type of visual object should be

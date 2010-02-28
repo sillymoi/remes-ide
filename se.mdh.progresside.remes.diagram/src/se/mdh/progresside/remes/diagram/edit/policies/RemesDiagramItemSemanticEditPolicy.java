@@ -28,10 +28,10 @@ public class RemesDiagramItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.SubMode_2001 == req.getElementType()) {
+		if (RemesElementTypes.SubMode_2007 == req.getElementType()) {
 			return getGEFWrapper(new SubModeCreateCommand(req));
 		}
-		if (RemesElementTypes.CompositeMode_2002 == req.getElementType()) {
+		if (RemesElementTypes.CompositeMode_2008 == req.getElementType()) {
 			return getGEFWrapper(new CompositeModeCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

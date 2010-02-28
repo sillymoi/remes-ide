@@ -18,6 +18,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 
 /**
@@ -29,7 +31,6 @@ public class RemesInitDiagramFileAction implements IObjectActionDelegate {
 	 * @generated
 	 */
 	private IWorkbenchPart targetPart;
-
 	/**
 	 * @generated
 	 */

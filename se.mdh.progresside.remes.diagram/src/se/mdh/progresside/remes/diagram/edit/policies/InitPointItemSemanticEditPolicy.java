@@ -29,7 +29,7 @@ public class InitPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InitPointItemSemanticEditPolicy() {
-		super(RemesElementTypes.InitPoint_3018);
+		super(RemesElementTypes.InitPoint_3039);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class InitPointItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.InitEdge_4002 == req.getElementType()) {
+		if (RemesElementTypes.InitEdge_4029 == req.getElementType()) {
 			return getGEFWrapper(new InitEdgeCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
@@ -89,7 +89,7 @@ public class InitPointItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.InitEdge_4002 == req.getElementType()) {
+		if (RemesElementTypes.InitEdge_4029 == req.getElementType()) {
 			return null;
 		}
 		return null;

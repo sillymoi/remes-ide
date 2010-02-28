@@ -29,7 +29,7 @@ public class ExitPoint2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ExitPoint2ItemSemanticEditPolicy() {
-		super(RemesElementTypes.ExitPoint_3011);
+		super(RemesElementTypes.ExitPoint_3030);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class ExitPoint2ItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return getGEFWrapper(new EdgeCreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
@@ -89,7 +89,7 @@ public class ExitPoint2ItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (RemesElementTypes.Edge_4001 == req.getElementType()) {
+		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
 			return null;
 		}
 		return null;

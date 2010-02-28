@@ -45,7 +45,7 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2007;
 
 	/**
 	 * @generated
@@ -133,12 +133,6 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitializationEditPart) {
-			((SubModeInitializationEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureSubModeInitializationFigure());
-			return true;
-		}
 		if (childEditPart instanceof SubModeInvariantEditPart) {
 			((SubModeInvariantEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -148,6 +142,12 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof SubModeNameEditPart) {
 			((SubModeNameEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureSubModeNameFigure());
+			return true;
+		}
+		if (childEditPart instanceof SubModeInitializationEditPart) {
+			((SubModeInitializationEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSubModeInitializationFigure());
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgentEditPart) {
@@ -177,13 +177,13 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitializationEditPart) {
-			return true;
-		}
 		if (childEditPart instanceof SubModeInvariantEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof SubModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgentEditPart) {
@@ -336,11 +336,11 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RemesElementTypes.Variable_3001) {
+			if (type == RemesElementTypes.Variable_3022) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == RemesElementTypes.Resource_3002) {
+			if (type == RemesElementTypes.Resource_3023) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID));
 			}

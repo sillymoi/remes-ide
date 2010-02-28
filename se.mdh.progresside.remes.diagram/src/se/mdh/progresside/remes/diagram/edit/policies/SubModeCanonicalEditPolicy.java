@@ -33,7 +33,7 @@ public class SubModeCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
-		for (Iterator it = RemesDiagramUpdater.getSubMode_2001SemanticChildren(
+		for (Iterator it = RemesDiagramUpdater.getSubMode_2007SemanticChildren(
 				viewObject).iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}

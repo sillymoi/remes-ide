@@ -64,7 +64,7 @@ public class VariableEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 3022;
 
 	/**
 	 * @generated
@@ -327,7 +327,7 @@ public class VariableEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.Variable_3001,
+							RemesElementTypes.Variable_3022,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart.VISUAL_ID));

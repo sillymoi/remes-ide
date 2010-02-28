@@ -57,7 +57,7 @@ public class InitEdgeInitializationEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6002;
+	public static final int VISUAL_ID = 6029;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class InitEdgeInitializationEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.InitEdge_4002,
+							RemesElementTypes.InitEdge_4029,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPart.VISUAL_ID));

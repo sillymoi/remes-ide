@@ -44,133 +44,133 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser subModeName_5001Parser;
+	private IParser subModeName_5040Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeName_5001Parser() {
-		if (subModeName_5001Parser == null) {
+	private IParser getSubModeName_5040Parser() {
+		if (subModeName_5040Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeName_5001Parser = parser;
+			subModeName_5040Parser = parser;
 		}
-		return subModeName_5001Parser;
+		return subModeName_5040Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeInitialization_5002Parser;
+	private IParser subModeInitialization_5041Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeInitialization_5002Parser() {
-		if (subModeInitialization_5002Parser == null) {
+	private IParser getSubModeInitialization_5041Parser() {
+		if (subModeInitialization_5041Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getMode_Initialization() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getMode_Initialization() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeInitialization_5002Parser = parser;
+			subModeInitialization_5041Parser = parser;
 		}
-		return subModeInitialization_5002Parser;
+		return subModeInitialization_5041Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeInvariant_5003Parser;
+	private IParser subModeInvariant_5042Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeInvariant_5003Parser() {
-		if (subModeInvariant_5003Parser == null) {
+	private IParser getSubModeInvariant_5042Parser() {
+		if (subModeInvariant_5042Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_Invariant() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeInvariant_5003Parser = parser;
+			subModeInvariant_5042Parser = parser;
 		}
-		return subModeInvariant_5003Parser;
+		return subModeInvariant_5042Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeIsUrgent_5004Parser;
+	private IParser subModeIsUrgent_5043Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeIsUrgent_5004Parser() {
-		if (subModeIsUrgent_5004Parser == null) {
+	private IParser getSubModeIsUrgent_5043Parser() {
+		if (subModeIsUrgent_5043Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_IsUrgent() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_IsUrgent() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeIsUrgent_5004Parser = parser;
+			subModeIsUrgent_5043Parser = parser;
 		}
-		return subModeIsUrgent_5004Parser;
+		return subModeIsUrgent_5043Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser compositeModeName_5010Parser;
+	private IParser compositeModeName_5049Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCompositeModeName_5010Parser() {
-		if (compositeModeName_5010Parser == null) {
+	private IParser getCompositeModeName_5049Parser() {
+		if (compositeModeName_5049Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			compositeModeName_5010Parser = parser;
+			compositeModeName_5049Parser = parser;
 		}
-		return compositeModeName_5010Parser;
+		return compositeModeName_5049Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser compositeModeInitialization_5011Parser;
+	private IParser compositeModeInitialization_5050Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCompositeModeInitialization_5011Parser() {
-		if (compositeModeInitialization_5011Parser == null) {
+	private IParser getCompositeModeInitialization_5050Parser() {
+		if (compositeModeInitialization_5050Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getMode_Initialization() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			compositeModeInitialization_5011Parser = parser;
+			compositeModeInitialization_5050Parser = parser;
 		}
-		return compositeModeInitialization_5011Parser;
+		return compositeModeInitialization_5050Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser variable_3001Parser;
+	private IParser variable_3022Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariable_3001Parser() {
-		if (variable_3001Parser == null) {
+	private IParser getVariable_3022Parser() {
+		if (variable_3022Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RemesPackage.eINSTANCE.getReferable_Name(),
 					RemesPackage.eINSTANCE.getVariable_VectorSize(),
@@ -184,21 +184,21 @@ public class RemesParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}{1,choice,0#|0<[{1}]}:{2}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			variable_3001Parser = parser;
+			variable_3022Parser = parser;
 		}
-		return variable_3001Parser;
+		return variable_3022Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resource_3002Parser;
+	private IParser resource_3023Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResource_3002Parser() {
-		if (resource_3002Parser == null) {
+	private IParser getResource_3023Parser() {
+		if (resource_3023Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RemesPackage.eINSTANCE.getResource_Expression(),
 					RemesPackage.eINSTANCE.getResource_Type() };
@@ -210,105 +210,105 @@ public class RemesParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			resource_3002Parser = parser;
+			resource_3023Parser = parser;
 		}
-		return resource_3002Parser;
+		return resource_3023Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeName_5005Parser;
+	private IParser subModeName_5044Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeName_5005Parser() {
-		if (subModeName_5005Parser == null) {
+	private IParser getSubModeName_5044Parser() {
+		if (subModeName_5044Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeName_5005Parser = parser;
+			subModeName_5044Parser = parser;
 		}
-		return subModeName_5005Parser;
+		return subModeName_5044Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeInitialization_5006Parser;
+	private IParser subModeInitialization_5045Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeInitialization_5006Parser() {
-		if (subModeInitialization_5006Parser == null) {
+	private IParser getSubModeInitialization_5045Parser() {
+		if (subModeInitialization_5045Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getMode_Initialization() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getMode_Initialization() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeInitialization_5006Parser = parser;
+			subModeInitialization_5045Parser = parser;
 		}
-		return subModeInitialization_5006Parser;
+		return subModeInitialization_5045Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeInvariant_5007Parser;
+	private IParser subModeInvariant_5046Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeInvariant_5007Parser() {
-		if (subModeInvariant_5007Parser == null) {
+	private IParser getSubModeInvariant_5046Parser() {
+		if (subModeInvariant_5046Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_Invariant() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeInvariant_5007Parser = parser;
+			subModeInvariant_5046Parser = parser;
 		}
-		return subModeInvariant_5007Parser;
+		return subModeInvariant_5046Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser subModeIsUrgent_5008Parser;
+	private IParser subModeIsUrgent_5047Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSubModeIsUrgent_5008Parser() {
-		if (subModeIsUrgent_5008Parser == null) {
+	private IParser getSubModeIsUrgent_5047Parser() {
+		if (subModeIsUrgent_5047Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_IsUrgent() };
 			EAttribute[] editableFeatures = new EAttribute[] { RemesPackage.eINSTANCE
 					.getSubMode_IsUrgent() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			subModeIsUrgent_5008Parser = parser;
+			subModeIsUrgent_5047Parser = parser;
 		}
-		return subModeIsUrgent_5008Parser;
+		return subModeIsUrgent_5047Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser variable_3004Parser;
+	private IParser variable_3027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariable_3004Parser() {
-		if (variable_3004Parser == null) {
+	private IParser getVariable_3027Parser() {
+		if (variable_3027Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RemesPackage.eINSTANCE.getReferable_Name(),
 					RemesPackage.eINSTANCE.getVariable_VectorSize(),
@@ -323,21 +323,21 @@ public class RemesParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}{1,choice,0#|0<[{1}]}:{2}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			variable_3004Parser = parser;
+			variable_3027Parser = parser;
 		}
-		return variable_3004Parser;
+		return variable_3027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resource_3005Parser;
+	private IParser resource_3028Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResource_3005Parser() {
-		if (resource_3005Parser == null) {
+	private IParser getResource_3028Parser() {
+		if (resource_3028Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RemesPackage.eINSTANCE.getResource_Expression(),
 					RemesPackage.eINSTANCE.getResource_Type() };
@@ -349,39 +349,39 @@ public class RemesParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			resource_3005Parser = parser;
+			resource_3028Parser = parser;
 		}
-		return resource_3005Parser;
+		return resource_3028Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser conditionalConnectorName_5009Parser;
+	private IParser conditionalConnectorName_5048Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getConditionalConnectorName_5009Parser() {
-		if (conditionalConnectorName_5009Parser == null) {
+	private IParser getConditionalConnectorName_5048Parser() {
+		if (conditionalConnectorName_5048Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getControlPath_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			conditionalConnectorName_5009Parser = parser;
+			conditionalConnectorName_5048Parser = parser;
 		}
-		return conditionalConnectorName_5009Parser;
+		return conditionalConnectorName_5048Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser variable_3007Parser;
+	private IParser variable_3034Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariable_3007Parser() {
-		if (variable_3007Parser == null) {
+	private IParser getVariable_3034Parser() {
+		if (variable_3034Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					RemesPackage.eINSTANCE.getReferable_Name(),
 					RemesPackage.eINSTANCE.getVariable_VectorSize(),
@@ -395,45 +395,45 @@ public class RemesParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}{1,choice,0#|0<[{1}]}:{2}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
-			variable_3007Parser = parser;
+			variable_3034Parser = parser;
 		}
-		return variable_3007Parser;
+		return variable_3034Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser edgeActionGuard_6001Parser;
+	private IParser edgeActionGuard_6028Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEdgeActionGuard_6001Parser() {
-		if (edgeActionGuard_6001Parser == null) {
+	private IParser getEdgeActionGuard_6028Parser() {
+		if (edgeActionGuard_6028Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getEdge_ActionGuard() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			edgeActionGuard_6001Parser = parser;
+			edgeActionGuard_6028Parser = parser;
 		}
-		return edgeActionGuard_6001Parser;
+		return edgeActionGuard_6028Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser initEdgeInitialization_6002Parser;
+	private IParser initEdgeInitialization_6029Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInitEdgeInitialization_6002Parser() {
-		if (initEdgeInitialization_6002Parser == null) {
+	private IParser getInitEdgeInitialization_6029Parser() {
+		if (initEdgeInitialization_6029Parser == null) {
 			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
 					.getInitEdge_Initialization() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			initEdgeInitialization_6002Parser = parser;
+			initEdgeInitialization_6029Parser = parser;
 		}
-		return initEdgeInitialization_6002Parser;
+		return initEdgeInitialization_6029Parser;
 	}
 
 	/**
@@ -442,41 +442,41 @@ public class RemesParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case SubModeNameEditPart.VISUAL_ID:
-			return getSubModeName_5001Parser();
+			return getSubModeName_5040Parser();
 		case SubModeInitializationEditPart.VISUAL_ID:
-			return getSubModeInitialization_5002Parser();
+			return getSubModeInitialization_5041Parser();
 		case SubModeInvariantEditPart.VISUAL_ID:
-			return getSubModeInvariant_5003Parser();
+			return getSubModeInvariant_5042Parser();
 		case SubModeIsUrgentEditPart.VISUAL_ID:
-			return getSubModeIsUrgent_5004Parser();
+			return getSubModeIsUrgent_5043Parser();
 		case CompositeModeNameEditPart.VISUAL_ID:
-			return getCompositeModeName_5010Parser();
+			return getCompositeModeName_5049Parser();
 		case CompositeModeInitializationEditPart.VISUAL_ID:
-			return getCompositeModeInitialization_5011Parser();
+			return getCompositeModeInitialization_5050Parser();
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001Parser();
+			return getVariable_3022Parser();
 		case ResourceEditPart.VISUAL_ID:
-			return getResource_3002Parser();
+			return getResource_3023Parser();
 		case SubModeName2EditPart.VISUAL_ID:
-			return getSubModeName_5005Parser();
+			return getSubModeName_5044Parser();
 		case SubModeInitialization2EditPart.VISUAL_ID:
-			return getSubModeInitialization_5006Parser();
+			return getSubModeInitialization_5045Parser();
 		case SubModeInvariant2EditPart.VISUAL_ID:
-			return getSubModeInvariant_5007Parser();
+			return getSubModeInvariant_5046Parser();
 		case SubModeIsUrgent2EditPart.VISUAL_ID:
-			return getSubModeIsUrgent_5008Parser();
+			return getSubModeIsUrgent_5047Parser();
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3004Parser();
+			return getVariable_3027Parser();
 		case Resource2EditPart.VISUAL_ID:
-			return getResource_3005Parser();
+			return getResource_3028Parser();
 		case ConditionalConnectorNameEditPart.VISUAL_ID:
-			return getConditionalConnectorName_5009Parser();
+			return getConditionalConnectorName_5048Parser();
 		case Variable3EditPart.VISUAL_ID:
-			return getVariable_3007Parser();
+			return getVariable_3034Parser();
 		case EdgeActionGuardEditPart.VISUAL_ID:
-			return getEdgeActionGuard_6001Parser();
+			return getEdgeActionGuard_6028Parser();
 		case InitEdgeInitializationEditPart.VISUAL_ID:
-			return getInitEdgeInitialization_6002Parser();
+			return getInitEdgeInitialization_6029Parser();
 		}
 		return null;
 	}

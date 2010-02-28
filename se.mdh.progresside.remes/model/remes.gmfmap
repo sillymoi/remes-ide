@@ -498,6 +498,10 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="remes.ecore#//Edge/connectTo"/>
+    <creationConstraints>
+      <targetEnd
+          body="(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(CompositeMode))))&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(SubMode) and not oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(SubMode).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(SubMode).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(SubMode).parent)))&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(ConditionalConnector).parent))) &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(CompositeMode) and not oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(self.container.oclIsTypeOf(CompositeMode) and not (self.container = oppositeEnd.container) and not (self.oclIsTypeOf(CompositeExitPoint)))))&#xD;&#xA;or (oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.oclAsType(CompositeEntryPoint).composite)))"/>
+    </creationConstraints>
   </links>
   <links>
     <domainMetaElement
@@ -522,6 +526,10 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="remes.ecore#//InitEdge/connectTo"/>
+    <creationConstraints>
+      <targetEnd
+          body="(self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container) or&#xD;&#xA;(self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container)"/>
+    </creationConstraints>
   </links>
   <diagram>
     <diagramCanvas

@@ -2,6 +2,7 @@ package se.mdh.progresside.remes.diagram.part;
 
 import hr.fer.rasip.remes.grammars.expressions.ast.provider.AstItemProviderAdapterFactory;
 
+import hr.fer.rasip.remes.grammars.expressions.type.provider.TypeItemProviderAdapterFactory;
 import java.util.ArrayList;
 import java.util.List;
 

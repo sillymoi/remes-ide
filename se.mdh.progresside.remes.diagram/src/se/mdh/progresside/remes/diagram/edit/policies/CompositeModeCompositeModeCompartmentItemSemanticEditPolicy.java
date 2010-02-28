@@ -20,23 +20,23 @@ public class CompositeModeCompositeModeCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CompositeModeCompositeModeCompartmentItemSemanticEditPolicy() {
-		super(RemesElementTypes.CompositeMode_2002);
+		super(RemesElementTypes.CompositeMode_2008);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.SubMode_3003 == req.getElementType()) {
+		if (RemesElementTypes.SubMode_3026 == req.getElementType()) {
 			return getGEFWrapper(new SubMode2CreateCommand(req));
 		}
-		if (RemesElementTypes.ConditionalConnector_3006 == req.getElementType()) {
+		if (RemesElementTypes.ConditionalConnector_3031 == req.getElementType()) {
 			return getGEFWrapper(new ConditionalConnectorCreateCommand(req));
 		}
-		if (RemesElementTypes.CompositeEntryPoint_3016 == req.getElementType()) {
+		if (RemesElementTypes.CompositeEntryPoint_3037 == req.getElementType()) {
 			return getGEFWrapper(new CompositeEntryPointCreateCommand(req));
 		}
-		if (RemesElementTypes.CompositeExitPoint_3017 == req.getElementType()) {
+		if (RemesElementTypes.CompositeExitPoint_3038 == req.getElementType()) {
 			return getGEFWrapper(new CompositeExitPointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

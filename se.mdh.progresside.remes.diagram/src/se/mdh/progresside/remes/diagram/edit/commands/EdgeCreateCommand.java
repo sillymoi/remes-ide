@@ -70,7 +70,7 @@ public class EdgeCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return RemesBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateEdge_4001(getContainer(), getSource(), getTarget());
+				.canCreateEdge_4028(getContainer(), getSource(), getTarget());
 	}
 
 	/**

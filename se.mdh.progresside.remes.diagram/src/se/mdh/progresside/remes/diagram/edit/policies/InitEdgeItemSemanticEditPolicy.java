@@ -16,7 +16,7 @@ public class InitEdgeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public InitEdgeItemSemanticEditPolicy() {
-		super(RemesElementTypes.InitEdge_4002);
+		super(RemesElementTypes.InitEdge_4029);
 	}
 
 	/**

@@ -57,7 +57,7 @@ public class EdgeActionGuardEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6001;
+	public static final int VISUAL_ID = 6028;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class EdgeActionGuardEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.Edge_4001,
+							RemesElementTypes.Edge_4028,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart.VISUAL_ID));

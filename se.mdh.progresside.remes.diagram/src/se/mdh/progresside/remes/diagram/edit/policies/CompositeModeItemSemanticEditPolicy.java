@@ -51,20 +51,20 @@ public class CompositeModeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public CompositeModeItemSemanticEditPolicy() {
-		super(RemesElementTypes.CompositeMode_2002);
+		super(RemesElementTypes.CompositeMode_2008);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.EntryPoint_3014 == req.getElementType()) {
+		if (RemesElementTypes.EntryPoint_3035 == req.getElementType()) {
 			return getGEFWrapper(new EntryPoint4CreateCommand(req));
 		}
-		if (RemesElementTypes.ExitPoint_3015 == req.getElementType()) {
+		if (RemesElementTypes.ExitPoint_3036 == req.getElementType()) {
 			return getGEFWrapper(new ExitPoint4CreateCommand(req));
 		}
-		if (RemesElementTypes.InitPoint_3018 == req.getElementType()) {
+		if (RemesElementTypes.InitPoint_3039 == req.getElementType()) {
 			return getGEFWrapper(new InitPointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

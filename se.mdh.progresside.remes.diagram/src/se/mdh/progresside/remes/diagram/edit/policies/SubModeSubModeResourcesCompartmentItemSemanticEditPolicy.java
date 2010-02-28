@@ -16,14 +16,14 @@ public class SubModeSubModeResourcesCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public SubModeSubModeResourcesCompartmentItemSemanticEditPolicy() {
-		super(RemesElementTypes.SubMode_2001);
+		super(RemesElementTypes.SubMode_2007);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.Resource_3002 == req.getElementType()) {
+		if (RemesElementTypes.Resource_3023 == req.getElementType()) {
 			return getGEFWrapper(new ResourceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -35,7 +35,7 @@ public class EntryPointEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3008;
+	public static final int VISUAL_ID = 3024;
 
 	/**
 	 * @generated
@@ -198,8 +198,8 @@ public class EntryPointEditPart extends AbstractBorderItemEditPart {
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types.add(RemesElementTypes.Edge_4001);
-		types.add(RemesElementTypes.InitEdge_4002);
+		types.add(RemesElementTypes.Edge_4028);
+		types.add(RemesElementTypes.InitEdge_4029);
 		return types;
 	}
 
@@ -209,23 +209,23 @@ public class EntryPointEditPart extends AbstractBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.ExitPoint_3009);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.ExitPoint_3025);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.ExitPoint_3011);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.ExitPoint_3030);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.ExitPoint_3013);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.ExitPoint_3033);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.ExitPoint_3015);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.ExitPoint_3036);
 		}
-		if (relationshipType == RemesElementTypes.Edge_4001) {
-			types.add(RemesElementTypes.CompositeEntryPoint_3016);
+		if (relationshipType == RemesElementTypes.Edge_4028) {
+			types.add(RemesElementTypes.CompositeEntryPoint_3037);
 		}
-		if (relationshipType == RemesElementTypes.InitEdge_4002) {
-			types.add(RemesElementTypes.InitPoint_3018);
+		if (relationshipType == RemesElementTypes.InitEdge_4029) {
+			types.add(RemesElementTypes.InitPoint_3039);
 		}
 		return types;
 	}

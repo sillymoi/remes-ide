@@ -60,7 +60,7 @@ public class ConditionalConnectorNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5048;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class ConditionalConnectorNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.ConditionalConnector_3006,
+							RemesElementTypes.ConditionalConnector_3031,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditPart.VISUAL_ID));

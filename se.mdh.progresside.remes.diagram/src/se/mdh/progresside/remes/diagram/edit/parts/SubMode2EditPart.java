@@ -47,7 +47,7 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3003;
+	public static final int VISUAL_ID = 3026;
 
 	/**
 	 * @generated
@@ -135,27 +135,27 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInvariant2EditPart) {
-			((SubModeInvariant2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureSubModeInvariantFigure());
-			return true;
-		}
 		if (childEditPart instanceof SubModeInitialization2EditPart) {
 			((SubModeInitialization2EditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureSubModeInitializationFigure());
 			return true;
 		}
-		if (childEditPart instanceof SubModeName2EditPart) {
-			((SubModeName2EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureSubModeNameFigure());
-			return true;
-		}
 		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
 			((SubModeIsUrgent2EditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureSubModeIsUrgentFigure());
+			return true;
+		}
+		if (childEditPart instanceof SubModeInvariant2EditPart) {
+			((SubModeInvariant2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSubModeInvariantFigure());
+			return true;
+		}
+		if (childEditPart instanceof SubModeName2EditPart) {
+			((SubModeName2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureSubModeNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint2EditPart) {
@@ -179,16 +179,16 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInvariant2EditPart) {
-			return true;
-		}
 		if (childEditPart instanceof SubModeInitialization2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeName2EditPart) {
+		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
+		if (childEditPart instanceof SubModeInvariant2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof SubModeName2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint2EditPart) {
@@ -338,11 +338,11 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == RemesElementTypes.Variable_3004) {
+			if (type == RemesElementTypes.Variable_3027) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID));
 			}
-			if (type == RemesElementTypes.Resource_3005) {
+			if (type == RemesElementTypes.Resource_3028) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(SubModeSubModeResourcesCompartment2EditPart.VISUAL_ID));
 			}

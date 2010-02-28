@@ -75,103 +75,112 @@ public class RemesElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType SubMode_2001 = getElementType("se.mdh.progresside.remes.diagram.SubMode_2001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType CompositeMode_2002 = getElementType("se.mdh.progresside.remes.diagram.CompositeMode_2002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Variable_3001 = getElementType("se.mdh.progresside.remes.diagram.Variable_3001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_3002 = getElementType("se.mdh.progresside.remes.diagram.Resource_3002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType EntryPoint_3008 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3008"); //$NON-NLS-1$
+	public static final IElementType SubMode_2007 = getElementType("se.mdh.progresside.remes.diagram.SubMode_2007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExitPoint_3009 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3009"); //$NON-NLS-1$
+	public static final IElementType CompositeMode_2008 = getElementType("se.mdh.progresside.remes.diagram.CompositeMode_2008"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType SubMode_3003 = getElementType("se.mdh.progresside.remes.diagram.SubMode_3003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Variable_3004 = getElementType("se.mdh.progresside.remes.diagram.Variable_3004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_3005 = getElementType("se.mdh.progresside.remes.diagram.Resource_3005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType ConditionalConnector_3006 = getElementType("se.mdh.progresside.remes.diagram.ConditionalConnector_3006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Variable_3007 = getElementType("se.mdh.progresside.remes.diagram.Variable_3007"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType EntryPoint_3014 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3014"); //$NON-NLS-1$
+	public static final IElementType Variable_3022 = getElementType("se.mdh.progresside.remes.diagram.Variable_3022"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExitPoint_3015 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3015"); //$NON-NLS-1$
+	public static final IElementType Resource_3023 = getElementType("se.mdh.progresside.remes.diagram.Resource_3023"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CompositeEntryPoint_3016 = getElementType("se.mdh.progresside.remes.diagram.CompositeEntryPoint_3016"); //$NON-NLS-1$
+	public static final IElementType EntryPoint_3024 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3024"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CompositeExitPoint_3017 = getElementType("se.mdh.progresside.remes.diagram.CompositeExitPoint_3017"); //$NON-NLS-1$
+	public static final IElementType ExitPoint_3025 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3025"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InitPoint_3018 = getElementType("se.mdh.progresside.remes.diagram.InitPoint_3018"); //$NON-NLS-1$
+	public static final IElementType SubMode_3026 = getElementType("se.mdh.progresside.remes.diagram.SubMode_3026"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType EntryPoint_3012 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3012"); //$NON-NLS-1$
+	public static final IElementType Variable_3027 = getElementType("se.mdh.progresside.remes.diagram.Variable_3027"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExitPoint_3013 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3013"); //$NON-NLS-1$
+	public static final IElementType Resource_3028 = getElementType("se.mdh.progresside.remes.diagram.Resource_3028"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType EntryPoint_3010 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3010"); //$NON-NLS-1$
+	public static final IElementType EntryPoint_3029 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExitPoint_3011 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3011"); //$NON-NLS-1$
+	public static final IElementType ExitPoint_3030 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3030"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType Edge_4001 = getElementType("se.mdh.progresside.remes.diagram.Edge_4001"); //$NON-NLS-1$
+	public static final IElementType ConditionalConnector_3031 = getElementType("se.mdh.progresside.remes.diagram.ConditionalConnector_3031"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InitEdge_4002 = getElementType("se.mdh.progresside.remes.diagram.InitEdge_4002"); //$NON-NLS-1$
+	public static final IElementType EntryPoint_3032 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3032"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ExitPoint_3033 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3033"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Variable_3034 = getElementType("se.mdh.progresside.remes.diagram.Variable_3034"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EntryPoint_3035 = getElementType("se.mdh.progresside.remes.diagram.EntryPoint_3035"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ExitPoint_3036 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3036"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CompositeEntryPoint_3037 = getElementType("se.mdh.progresside.remes.diagram.CompositeEntryPoint_3037"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CompositeExitPoint_3038 = getElementType("se.mdh.progresside.remes.diagram.CompositeExitPoint_3038"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType InitPoint_3039 = getElementType("se.mdh.progresside.remes.diagram.InitPoint_3039"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Edge_4028 = getElementType("se.mdh.progresside.remes.diagram.Edge_4028"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType InitEdge_4029 = getElementType("se.mdh.progresside.remes.diagram.InitEdge_4029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -287,57 +296,57 @@ public class RemesElementTypes extends ElementInitializers {
 			elements.put(RemesDiagram_1000, RemesPackage.eINSTANCE
 					.getRemesDiagram());
 
-			elements.put(SubMode_2001, RemesPackage.eINSTANCE.getSubMode());
+			elements.put(SubMode_2007, RemesPackage.eINSTANCE.getSubMode());
 
-			elements.put(CompositeMode_2002, RemesPackage.eINSTANCE
+			elements.put(CompositeMode_2008, RemesPackage.eINSTANCE
 					.getCompositeMode());
 
-			elements.put(Variable_3001, RemesPackage.eINSTANCE.getVariable());
+			elements.put(Variable_3022, RemesPackage.eINSTANCE.getVariable());
 
-			elements.put(Resource_3002, RemesPackage.eINSTANCE.getResource());
+			elements.put(Resource_3023, RemesPackage.eINSTANCE.getResource());
 
-			elements.put(EntryPoint_3008, RemesPackage.eINSTANCE
+			elements.put(EntryPoint_3024, RemesPackage.eINSTANCE
 					.getEntryPoint());
 
-			elements.put(ExitPoint_3009, RemesPackage.eINSTANCE.getExitPoint());
+			elements.put(ExitPoint_3025, RemesPackage.eINSTANCE.getExitPoint());
 
-			elements.put(SubMode_3003, RemesPackage.eINSTANCE.getSubMode());
+			elements.put(SubMode_3026, RemesPackage.eINSTANCE.getSubMode());
 
-			elements.put(Variable_3004, RemesPackage.eINSTANCE.getVariable());
+			elements.put(Variable_3027, RemesPackage.eINSTANCE.getVariable());
 
-			elements.put(Resource_3005, RemesPackage.eINSTANCE.getResource());
+			elements.put(Resource_3028, RemesPackage.eINSTANCE.getResource());
 
-			elements.put(EntryPoint_3010, RemesPackage.eINSTANCE
+			elements.put(EntryPoint_3029, RemesPackage.eINSTANCE
 					.getEntryPoint());
 
-			elements.put(ExitPoint_3011, RemesPackage.eINSTANCE.getExitPoint());
+			elements.put(ExitPoint_3030, RemesPackage.eINSTANCE.getExitPoint());
 
-			elements.put(ConditionalConnector_3006, RemesPackage.eINSTANCE
+			elements.put(ConditionalConnector_3031, RemesPackage.eINSTANCE
 					.getConditionalConnector());
 
-			elements.put(EntryPoint_3012, RemesPackage.eINSTANCE
+			elements.put(EntryPoint_3032, RemesPackage.eINSTANCE
 					.getEntryPoint());
 
-			elements.put(ExitPoint_3013, RemesPackage.eINSTANCE.getExitPoint());
+			elements.put(ExitPoint_3033, RemesPackage.eINSTANCE.getExitPoint());
 
-			elements.put(Variable_3007, RemesPackage.eINSTANCE.getVariable());
+			elements.put(Variable_3034, RemesPackage.eINSTANCE.getVariable());
 
-			elements.put(EntryPoint_3014, RemesPackage.eINSTANCE
+			elements.put(EntryPoint_3035, RemesPackage.eINSTANCE
 					.getEntryPoint());
 
-			elements.put(ExitPoint_3015, RemesPackage.eINSTANCE.getExitPoint());
+			elements.put(ExitPoint_3036, RemesPackage.eINSTANCE.getExitPoint());
 
-			elements.put(CompositeEntryPoint_3016, RemesPackage.eINSTANCE
+			elements.put(CompositeEntryPoint_3037, RemesPackage.eINSTANCE
 					.getCompositeEntryPoint());
 
-			elements.put(CompositeExitPoint_3017, RemesPackage.eINSTANCE
+			elements.put(CompositeExitPoint_3038, RemesPackage.eINSTANCE
 					.getCompositeExitPoint());
 
-			elements.put(InitPoint_3018, RemesPackage.eINSTANCE.getInitPoint());
+			elements.put(InitPoint_3039, RemesPackage.eINSTANCE.getInitPoint());
 
-			elements.put(Edge_4001, RemesPackage.eINSTANCE.getEdge());
+			elements.put(Edge_4028, RemesPackage.eINSTANCE.getEdge());
 
-			elements.put(InitEdge_4002, RemesPackage.eINSTANCE.getInitEdge());
+			elements.put(InitEdge_4029, RemesPackage.eINSTANCE.getInitEdge());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -356,28 +365,28 @@ public class RemesElementTypes extends ElementInitializers {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(RemesDiagram_1000);
-			KNOWN_ELEMENT_TYPES.add(SubMode_2001);
-			KNOWN_ELEMENT_TYPES.add(CompositeMode_2002);
-			KNOWN_ELEMENT_TYPES.add(Variable_3001);
-			KNOWN_ELEMENT_TYPES.add(Resource_3002);
-			KNOWN_ELEMENT_TYPES.add(EntryPoint_3008);
-			KNOWN_ELEMENT_TYPES.add(ExitPoint_3009);
-			KNOWN_ELEMENT_TYPES.add(SubMode_3003);
-			KNOWN_ELEMENT_TYPES.add(Variable_3004);
-			KNOWN_ELEMENT_TYPES.add(Resource_3005);
-			KNOWN_ELEMENT_TYPES.add(EntryPoint_3010);
-			KNOWN_ELEMENT_TYPES.add(ExitPoint_3011);
-			KNOWN_ELEMENT_TYPES.add(ConditionalConnector_3006);
-			KNOWN_ELEMENT_TYPES.add(EntryPoint_3012);
-			KNOWN_ELEMENT_TYPES.add(ExitPoint_3013);
-			KNOWN_ELEMENT_TYPES.add(Variable_3007);
-			KNOWN_ELEMENT_TYPES.add(EntryPoint_3014);
-			KNOWN_ELEMENT_TYPES.add(ExitPoint_3015);
-			KNOWN_ELEMENT_TYPES.add(CompositeEntryPoint_3016);
-			KNOWN_ELEMENT_TYPES.add(CompositeExitPoint_3017);
-			KNOWN_ELEMENT_TYPES.add(InitPoint_3018);
-			KNOWN_ELEMENT_TYPES.add(Edge_4001);
-			KNOWN_ELEMENT_TYPES.add(InitEdge_4002);
+			KNOWN_ELEMENT_TYPES.add(SubMode_2007);
+			KNOWN_ELEMENT_TYPES.add(CompositeMode_2008);
+			KNOWN_ELEMENT_TYPES.add(Variable_3022);
+			KNOWN_ELEMENT_TYPES.add(Resource_3023);
+			KNOWN_ELEMENT_TYPES.add(EntryPoint_3024);
+			KNOWN_ELEMENT_TYPES.add(ExitPoint_3025);
+			KNOWN_ELEMENT_TYPES.add(SubMode_3026);
+			KNOWN_ELEMENT_TYPES.add(Variable_3027);
+			KNOWN_ELEMENT_TYPES.add(Resource_3028);
+			KNOWN_ELEMENT_TYPES.add(EntryPoint_3029);
+			KNOWN_ELEMENT_TYPES.add(ExitPoint_3030);
+			KNOWN_ELEMENT_TYPES.add(ConditionalConnector_3031);
+			KNOWN_ELEMENT_TYPES.add(EntryPoint_3032);
+			KNOWN_ELEMENT_TYPES.add(ExitPoint_3033);
+			KNOWN_ELEMENT_TYPES.add(Variable_3034);
+			KNOWN_ELEMENT_TYPES.add(EntryPoint_3035);
+			KNOWN_ELEMENT_TYPES.add(ExitPoint_3036);
+			KNOWN_ELEMENT_TYPES.add(CompositeEntryPoint_3037);
+			KNOWN_ELEMENT_TYPES.add(CompositeExitPoint_3038);
+			KNOWN_ELEMENT_TYPES.add(InitPoint_3039);
+			KNOWN_ELEMENT_TYPES.add(Edge_4028);
+			KNOWN_ELEMENT_TYPES.add(InitEdge_4029);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -390,49 +399,49 @@ public class RemesElementTypes extends ElementInitializers {
 		case RemesDiagramEditPart.VISUAL_ID:
 			return RemesDiagram_1000;
 		case SubModeEditPart.VISUAL_ID:
-			return SubMode_2001;
+			return SubMode_2007;
 		case CompositeModeEditPart.VISUAL_ID:
-			return CompositeMode_2002;
+			return CompositeMode_2008;
 		case VariableEditPart.VISUAL_ID:
-			return Variable_3001;
+			return Variable_3022;
 		case ResourceEditPart.VISUAL_ID:
-			return Resource_3002;
+			return Resource_3023;
 		case EntryPointEditPart.VISUAL_ID:
-			return EntryPoint_3008;
+			return EntryPoint_3024;
 		case ExitPointEditPart.VISUAL_ID:
-			return ExitPoint_3009;
+			return ExitPoint_3025;
 		case SubMode2EditPart.VISUAL_ID:
-			return SubMode_3003;
+			return SubMode_3026;
 		case Variable2EditPart.VISUAL_ID:
-			return Variable_3004;
+			return Variable_3027;
 		case Resource2EditPart.VISUAL_ID:
-			return Resource_3005;
+			return Resource_3028;
 		case EntryPoint2EditPart.VISUAL_ID:
-			return EntryPoint_3010;
+			return EntryPoint_3029;
 		case ExitPoint2EditPart.VISUAL_ID:
-			return ExitPoint_3011;
+			return ExitPoint_3030;
 		case ConditionalConnectorEditPart.VISUAL_ID:
-			return ConditionalConnector_3006;
+			return ConditionalConnector_3031;
 		case EntryPoint3EditPart.VISUAL_ID:
-			return EntryPoint_3012;
+			return EntryPoint_3032;
 		case ExitPoint3EditPart.VISUAL_ID:
-			return ExitPoint_3013;
+			return ExitPoint_3033;
 		case Variable3EditPart.VISUAL_ID:
-			return Variable_3007;
+			return Variable_3034;
 		case EntryPoint4EditPart.VISUAL_ID:
-			return EntryPoint_3014;
+			return EntryPoint_3035;
 		case ExitPoint4EditPart.VISUAL_ID:
-			return ExitPoint_3015;
+			return ExitPoint_3036;
 		case CompositeEntryPointEditPart.VISUAL_ID:
-			return CompositeEntryPoint_3016;
+			return CompositeEntryPoint_3037;
 		case CompositeExitPointEditPart.VISUAL_ID:
-			return CompositeExitPoint_3017;
+			return CompositeExitPoint_3038;
 		case InitPointEditPart.VISUAL_ID:
-			return InitPoint_3018;
+			return InitPoint_3039;
 		case EdgeEditPart.VISUAL_ID:
-			return Edge_4001;
+			return Edge_4028;
 		case InitEdgeEditPart.VISUAL_ID:
-			return InitEdge_4002;
+			return InitEdge_4029;
 		}
 		return null;
 	}

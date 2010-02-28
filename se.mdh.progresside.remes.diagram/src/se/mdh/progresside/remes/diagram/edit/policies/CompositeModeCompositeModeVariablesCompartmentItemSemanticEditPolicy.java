@@ -16,14 +16,14 @@ public class CompositeModeCompositeModeVariablesCompartmentItemSemanticEditPolic
 	 * @generated
 	 */
 	public CompositeModeCompositeModeVariablesCompartmentItemSemanticEditPolicy() {
-		super(RemesElementTypes.CompositeMode_2002);
+		super(RemesElementTypes.CompositeMode_2008);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.Variable_3007 == req.getElementType()) {
+		if (RemesElementTypes.Variable_3034 == req.getElementType()) {
 			return getGEFWrapper(new Variable3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

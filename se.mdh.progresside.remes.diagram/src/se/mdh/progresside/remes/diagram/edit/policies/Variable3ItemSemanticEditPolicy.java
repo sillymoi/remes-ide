@@ -20,7 +20,7 @@ public class Variable3ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public Variable3ItemSemanticEditPolicy() {
-		super(RemesElementTypes.Variable_3007);
+		super(RemesElementTypes.Variable_3034);
 	}
 
 	/**

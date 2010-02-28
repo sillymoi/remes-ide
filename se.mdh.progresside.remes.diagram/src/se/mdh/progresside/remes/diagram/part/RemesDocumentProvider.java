@@ -1,5 +1,6 @@
 package se.mdh.progresside.remes.diagram.part;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;

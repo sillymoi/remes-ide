@@ -72,7 +72,7 @@ public class InitEdgeReorientCommand extends EditElementCommand {
 		}
 		InitPoint container = (InitPoint) getLink().eContainer();
 		return RemesBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistInitEdge_4002(container, getNewSource(), target);
+				.canExistInitEdge_4029(container, getNewSource(), target);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class InitEdgeReorientCommand extends EditElementCommand {
 		}
 		InitPoint container = (InitPoint) getLink().eContainer();
 		return RemesBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistInitEdge_4002(container, source, getNewTarget());
+				.canExistInitEdge_4029(container, source, getNewTarget());
 	}
 
 	/**

@@ -60,7 +60,7 @@ public class CompositeModeNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 5049;
 
 	/**
 	 * @generated
@@ -312,7 +312,7 @@ public class CompositeModeNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = RemesParserProvider
 					.getParser(
-							RemesElementTypes.CompositeMode_2002,
+							RemesElementTypes.CompositeMode_2008,
 							getParserElement(),
 							RemesVisualIDRegistry
 									.getType(se.mdh.progresside.remes.diagram.edit.parts.CompositeModeNameEditPart.VISUAL_ID));

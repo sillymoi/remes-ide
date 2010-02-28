@@ -54,46 +54,46 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof SubModeEditPart) {
 			ArrayList types = new ArrayList(4);
-			types.add(RemesElementTypes.EntryPoint_3008);
-			types.add(RemesElementTypes.ExitPoint_3009);
-			types.add(RemesElementTypes.Variable_3001);
-			types.add(RemesElementTypes.Resource_3002);
+			types.add(RemesElementTypes.EntryPoint_3024);
+			types.add(RemesElementTypes.ExitPoint_3025);
+			types.add(RemesElementTypes.Variable_3022);
+			types.add(RemesElementTypes.Resource_3023);
 			return types;
 		}
 		if (editPart instanceof CompositeModeEditPart) {
 			ArrayList types = new ArrayList(4);
-			types.add(RemesElementTypes.EntryPoint_3014);
-			types.add(RemesElementTypes.ExitPoint_3015);
-			types.add(RemesElementTypes.InitPoint_3018);
-			types.add(RemesElementTypes.Variable_3007);
+			types.add(RemesElementTypes.EntryPoint_3035);
+			types.add(RemesElementTypes.ExitPoint_3036);
+			types.add(RemesElementTypes.InitPoint_3039);
+			types.add(RemesElementTypes.Variable_3034);
 			return types;
 		}
 		if (editPart instanceof SubMode2EditPart) {
 			ArrayList types = new ArrayList(4);
-			types.add(RemesElementTypes.EntryPoint_3010);
-			types.add(RemesElementTypes.ExitPoint_3011);
-			types.add(RemesElementTypes.Variable_3004);
-			types.add(RemesElementTypes.Resource_3005);
+			types.add(RemesElementTypes.EntryPoint_3029);
+			types.add(RemesElementTypes.ExitPoint_3030);
+			types.add(RemesElementTypes.Variable_3027);
+			types.add(RemesElementTypes.Resource_3028);
 			return types;
 		}
 		if (editPart instanceof ConditionalConnectorEditPart) {
 			ArrayList types = new ArrayList(2);
-			types.add(RemesElementTypes.EntryPoint_3012);
-			types.add(RemesElementTypes.ExitPoint_3013);
+			types.add(RemesElementTypes.EntryPoint_3032);
+			types.add(RemesElementTypes.ExitPoint_3033);
 			return types;
 		}
 		if (editPart instanceof CompositeModeCompositeModeCompartmentEditPart) {
 			ArrayList types = new ArrayList(4);
-			types.add(RemesElementTypes.SubMode_3003);
-			types.add(RemesElementTypes.ConditionalConnector_3006);
-			types.add(RemesElementTypes.CompositeEntryPoint_3016);
-			types.add(RemesElementTypes.CompositeExitPoint_3017);
+			types.add(RemesElementTypes.SubMode_3026);
+			types.add(RemesElementTypes.ConditionalConnector_3031);
+			types.add(RemesElementTypes.CompositeEntryPoint_3037);
+			types.add(RemesElementTypes.CompositeExitPoint_3038);
 			return types;
 		}
 		if (editPart instanceof RemesDiagramEditPart) {
 			ArrayList types = new ArrayList(2);
-			types.add(RemesElementTypes.SubMode_2001);
-			types.add(RemesElementTypes.CompositeMode_2002);
+			types.add(RemesElementTypes.SubMode_2007);
+			types.add(RemesElementTypes.CompositeMode_2008);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

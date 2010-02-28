@@ -69,25 +69,25 @@ public class RemesDiagramUpdater {
 	public static List getSemanticChildren(View view) {
 		switch (RemesVisualIDRegistry.getVisualID(view)) {
 		case SubModeEditPart.VISUAL_ID:
-			return getSubMode_2001SemanticChildren(view);
+			return getSubMode_2007SemanticChildren(view);
 		case CompositeModeEditPart.VISUAL_ID:
-			return getCompositeMode_2002SemanticChildren(view);
+			return getCompositeMode_2008SemanticChildren(view);
 		case SubMode2EditPart.VISUAL_ID:
-			return getSubMode_3003SemanticChildren(view);
+			return getSubMode_3026SemanticChildren(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
-			return getConditionalConnector_3006SemanticChildren(view);
+			return getConditionalConnector_3031SemanticChildren(view);
 		case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
-			return getSubModeSubModeVariablesCompartment_7001SemanticChildren(view);
+			return getSubModeSubModeVariablesCompartment_7019SemanticChildren(view);
 		case SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID:
-			return getSubModeSubModeResourcesCompartment_7002SemanticChildren(view);
+			return getSubModeSubModeResourcesCompartment_7020SemanticChildren(view);
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeVariablesCompartment_7003SemanticChildren(view);
+			return getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(view);
 		case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeCompartment_7004SemanticChildren(view);
+			return getCompositeModeCompositeModeCompartment_7022SemanticChildren(view);
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
-			return getSubModeSubModeVariablesCompartment_7005SemanticChildren(view);
+			return getSubModeSubModeVariablesCompartment_7023SemanticChildren(view);
 		case SubModeSubModeResourcesCompartment2EditPart.VISUAL_ID:
-			return getSubModeSubModeResourcesCompartment_7006SemanticChildren(view);
+			return getSubModeSubModeResourcesCompartment_7024SemanticChildren(view);
 		case RemesDiagramEditPart.VISUAL_ID:
 			return getRemesDiagram_1000SemanticChildren(view);
 		}
@@ -97,7 +97,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_2001SemanticChildren(View view) {
+	public static List getSubMode_2007SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
@@ -125,7 +125,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeMode_2002SemanticChildren(View view) {
+	public static List getCompositeMode_2008SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
@@ -161,7 +161,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_3003SemanticChildren(View view) {
+	public static List getSubMode_3026SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
@@ -189,7 +189,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getConditionalConnector_3006SemanticChildren(View view) {
+	public static List getConditionalConnector_3031SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
@@ -218,7 +218,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeVariablesCompartment_7001SemanticChildren(
+	public static List getSubModeSubModeVariablesCompartment_7019SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -244,7 +244,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeResourcesCompartment_7002SemanticChildren(
+	public static List getSubModeSubModeResourcesCompartment_7020SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -270,7 +270,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeVariablesCompartment_7003SemanticChildren(
+	public static List getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -296,7 +296,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeCompartment_7004SemanticChildren(
+	public static List getCompositeModeCompositeModeCompartment_7022SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -351,7 +351,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeVariablesCompartment_7005SemanticChildren(
+	public static List getSubModeSubModeVariablesCompartment_7023SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -377,7 +377,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeResourcesCompartment_7006SemanticChildren(
+	public static List getSubModeSubModeResourcesCompartment_7024SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -433,49 +433,49 @@ public class RemesDiagramUpdater {
 		case RemesDiagramEditPart.VISUAL_ID:
 			return getRemesDiagram_1000ContainedLinks(view);
 		case SubModeEditPart.VISUAL_ID:
-			return getSubMode_2001ContainedLinks(view);
+			return getSubMode_2007ContainedLinks(view);
 		case CompositeModeEditPart.VISUAL_ID:
-			return getCompositeMode_2002ContainedLinks(view);
+			return getCompositeMode_2008ContainedLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001ContainedLinks(view);
+			return getVariable_3022ContainedLinks(view);
 		case ResourceEditPart.VISUAL_ID:
-			return getResource_3002ContainedLinks(view);
+			return getResource_3023ContainedLinks(view);
 		case EntryPointEditPart.VISUAL_ID:
-			return getEntryPoint_3008ContainedLinks(view);
+			return getEntryPoint_3024ContainedLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
-			return getExitPoint_3009ContainedLinks(view);
+			return getExitPoint_3025ContainedLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
-			return getSubMode_3003ContainedLinks(view);
+			return getSubMode_3026ContainedLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3004ContainedLinks(view);
+			return getVariable_3027ContainedLinks(view);
 		case Resource2EditPart.VISUAL_ID:
-			return getResource_3005ContainedLinks(view);
+			return getResource_3028ContainedLinks(view);
 		case EntryPoint2EditPart.VISUAL_ID:
-			return getEntryPoint_3010ContainedLinks(view);
+			return getEntryPoint_3029ContainedLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
-			return getExitPoint_3011ContainedLinks(view);
+			return getExitPoint_3030ContainedLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
-			return getConditionalConnector_3006ContainedLinks(view);
+			return getConditionalConnector_3031ContainedLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
-			return getEntryPoint_3012ContainedLinks(view);
+			return getEntryPoint_3032ContainedLinks(view);
 		case ExitPoint3EditPart.VISUAL_ID:
-			return getExitPoint_3013ContainedLinks(view);
+			return getExitPoint_3033ContainedLinks(view);
 		case Variable3EditPart.VISUAL_ID:
-			return getVariable_3007ContainedLinks(view);
+			return getVariable_3034ContainedLinks(view);
 		case EntryPoint4EditPart.VISUAL_ID:
-			return getEntryPoint_3014ContainedLinks(view);
+			return getEntryPoint_3035ContainedLinks(view);
 		case ExitPoint4EditPart.VISUAL_ID:
-			return getExitPoint_3015ContainedLinks(view);
+			return getExitPoint_3036ContainedLinks(view);
 		case CompositeEntryPointEditPart.VISUAL_ID:
-			return getCompositeEntryPoint_3016ContainedLinks(view);
+			return getCompositeEntryPoint_3037ContainedLinks(view);
 		case CompositeExitPointEditPart.VISUAL_ID:
-			return getCompositeExitPoint_3017ContainedLinks(view);
+			return getCompositeExitPoint_3038ContainedLinks(view);
 		case InitPointEditPart.VISUAL_ID:
-			return getInitPoint_3018ContainedLinks(view);
+			return getInitPoint_3039ContainedLinks(view);
 		case EdgeEditPart.VISUAL_ID:
-			return getEdge_4001ContainedLinks(view);
+			return getEdge_4028ContainedLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
-			return getInitEdge_4002ContainedLinks(view);
+			return getInitEdge_4029ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -486,49 +486,49 @@ public class RemesDiagramUpdater {
 	public static List getIncomingLinks(View view) {
 		switch (RemesVisualIDRegistry.getVisualID(view)) {
 		case SubModeEditPart.VISUAL_ID:
-			return getSubMode_2001IncomingLinks(view);
+			return getSubMode_2007IncomingLinks(view);
 		case CompositeModeEditPart.VISUAL_ID:
-			return getCompositeMode_2002IncomingLinks(view);
+			return getCompositeMode_2008IncomingLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001IncomingLinks(view);
+			return getVariable_3022IncomingLinks(view);
 		case ResourceEditPart.VISUAL_ID:
-			return getResource_3002IncomingLinks(view);
+			return getResource_3023IncomingLinks(view);
 		case EntryPointEditPart.VISUAL_ID:
-			return getEntryPoint_3008IncomingLinks(view);
+			return getEntryPoint_3024IncomingLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
-			return getExitPoint_3009IncomingLinks(view);
+			return getExitPoint_3025IncomingLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
-			return getSubMode_3003IncomingLinks(view);
+			return getSubMode_3026IncomingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3004IncomingLinks(view);
+			return getVariable_3027IncomingLinks(view);
 		case Resource2EditPart.VISUAL_ID:
-			return getResource_3005IncomingLinks(view);
+			return getResource_3028IncomingLinks(view);
 		case EntryPoint2EditPart.VISUAL_ID:
-			return getEntryPoint_3010IncomingLinks(view);
+			return getEntryPoint_3029IncomingLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
-			return getExitPoint_3011IncomingLinks(view);
+			return getExitPoint_3030IncomingLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
-			return getConditionalConnector_3006IncomingLinks(view);
+			return getConditionalConnector_3031IncomingLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
-			return getEntryPoint_3012IncomingLinks(view);
+			return getEntryPoint_3032IncomingLinks(view);
 		case ExitPoint3EditPart.VISUAL_ID:
-			return getExitPoint_3013IncomingLinks(view);
+			return getExitPoint_3033IncomingLinks(view);
 		case Variable3EditPart.VISUAL_ID:
-			return getVariable_3007IncomingLinks(view);
+			return getVariable_3034IncomingLinks(view);
 		case EntryPoint4EditPart.VISUAL_ID:
-			return getEntryPoint_3014IncomingLinks(view);
+			return getEntryPoint_3035IncomingLinks(view);
 		case ExitPoint4EditPart.VISUAL_ID:
-			return getExitPoint_3015IncomingLinks(view);
+			return getExitPoint_3036IncomingLinks(view);
 		case CompositeEntryPointEditPart.VISUAL_ID:
-			return getCompositeEntryPoint_3016IncomingLinks(view);
+			return getCompositeEntryPoint_3037IncomingLinks(view);
 		case CompositeExitPointEditPart.VISUAL_ID:
-			return getCompositeExitPoint_3017IncomingLinks(view);
+			return getCompositeExitPoint_3038IncomingLinks(view);
 		case InitPointEditPart.VISUAL_ID:
-			return getInitPoint_3018IncomingLinks(view);
+			return getInitPoint_3039IncomingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
-			return getEdge_4001IncomingLinks(view);
+			return getEdge_4028IncomingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
-			return getInitEdge_4002IncomingLinks(view);
+			return getInitEdge_4029IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -539,49 +539,49 @@ public class RemesDiagramUpdater {
 	public static List getOutgoingLinks(View view) {
 		switch (RemesVisualIDRegistry.getVisualID(view)) {
 		case SubModeEditPart.VISUAL_ID:
-			return getSubMode_2001OutgoingLinks(view);
+			return getSubMode_2007OutgoingLinks(view);
 		case CompositeModeEditPart.VISUAL_ID:
-			return getCompositeMode_2002OutgoingLinks(view);
+			return getCompositeMode_2008OutgoingLinks(view);
 		case VariableEditPart.VISUAL_ID:
-			return getVariable_3001OutgoingLinks(view);
+			return getVariable_3022OutgoingLinks(view);
 		case ResourceEditPart.VISUAL_ID:
-			return getResource_3002OutgoingLinks(view);
+			return getResource_3023OutgoingLinks(view);
 		case EntryPointEditPart.VISUAL_ID:
-			return getEntryPoint_3008OutgoingLinks(view);
+			return getEntryPoint_3024OutgoingLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
-			return getExitPoint_3009OutgoingLinks(view);
+			return getExitPoint_3025OutgoingLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
-			return getSubMode_3003OutgoingLinks(view);
+			return getSubMode_3026OutgoingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
-			return getVariable_3004OutgoingLinks(view);
+			return getVariable_3027OutgoingLinks(view);
 		case Resource2EditPart.VISUAL_ID:
-			return getResource_3005OutgoingLinks(view);
+			return getResource_3028OutgoingLinks(view);
 		case EntryPoint2EditPart.VISUAL_ID:
-			return getEntryPoint_3010OutgoingLinks(view);
+			return getEntryPoint_3029OutgoingLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
-			return getExitPoint_3011OutgoingLinks(view);
+			return getExitPoint_3030OutgoingLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
-			return getConditionalConnector_3006OutgoingLinks(view);
+			return getConditionalConnector_3031OutgoingLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
-			return getEntryPoint_3012OutgoingLinks(view);
+			return getEntryPoint_3032OutgoingLinks(view);
 		case ExitPoint3EditPart.VISUAL_ID:
-			return getExitPoint_3013OutgoingLinks(view);
+			return getExitPoint_3033OutgoingLinks(view);
 		case Variable3EditPart.VISUAL_ID:
-			return getVariable_3007OutgoingLinks(view);
+			return getVariable_3034OutgoingLinks(view);
 		case EntryPoint4EditPart.VISUAL_ID:
-			return getEntryPoint_3014OutgoingLinks(view);
+			return getEntryPoint_3035OutgoingLinks(view);
 		case ExitPoint4EditPart.VISUAL_ID:
-			return getExitPoint_3015OutgoingLinks(view);
+			return getExitPoint_3036OutgoingLinks(view);
 		case CompositeEntryPointEditPart.VISUAL_ID:
-			return getCompositeEntryPoint_3016OutgoingLinks(view);
+			return getCompositeEntryPoint_3037OutgoingLinks(view);
 		case CompositeExitPointEditPart.VISUAL_ID:
-			return getCompositeExitPoint_3017OutgoingLinks(view);
+			return getCompositeExitPoint_3038OutgoingLinks(view);
 		case InitPointEditPart.VISUAL_ID:
-			return getInitPoint_3018OutgoingLinks(view);
+			return getInitPoint_3039OutgoingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
-			return getEdge_4001OutgoingLinks(view);
+			return getEdge_4028OutgoingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
-			return getInitEdge_4002OutgoingLinks(view);
+			return getInitEdge_4029OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -596,216 +596,216 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_2001ContainedLinks(View view) {
+	public static List getSubMode_2007ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeMode_2002ContainedLinks(View view) {
+	public static List getCompositeMode_2008ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3001ContainedLinks(View view) {
+	public static List getVariable_3022ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_3002ContainedLinks(View view) {
+	public static List getResource_3023ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEntryPoint_3008ContainedLinks(View view) {
+	public static List getEntryPoint_3024ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3009ContainedLinks(View view) {
+	public static List getExitPoint_3025ContainedLinks(View view) {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
-		result.addAll(getContainedTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_3003ContainedLinks(View view) {
+	public static List getSubMode_3026ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3004ContainedLinks(View view) {
+	public static List getVariable_3027ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_3005ContainedLinks(View view) {
+	public static List getResource_3028ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getConditionalConnector_3006ContainedLinks(View view) {
+	public static List getEntryPoint_3029ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3007ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3014ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExitPoint_3015ContainedLinks(View view) {
+	public static List getExitPoint_3030ContainedLinks(View view) {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
-		result.addAll(getContainedTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeEntryPoint_3016ContainedLinks(View view) {
+	public static List getConditionalConnector_3031ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEntryPoint_3032ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3033ContainedLinks(View view) {
+		ExitPoint modelElement = (ExitPoint) view.getElement();
+		List result = new LinkedList();
+		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getVariable_3034ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEntryPoint_3035ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3036ContainedLinks(View view) {
+		ExitPoint modelElement = (ExitPoint) view.getElement();
+		List result = new LinkedList();
+		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeEntryPoint_3037ContainedLinks(View view) {
 		CompositeEntryPoint modelElement = (CompositeEntryPoint) view
 				.getElement();
 		List result = new LinkedList();
-		result.addAll(getContainedTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeExitPoint_3017ContainedLinks(View view) {
+	public static List getCompositeExitPoint_3038ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInitPoint_3018ContainedLinks(View view) {
+	public static List getInitPoint_3039ContainedLinks(View view) {
 		InitPoint modelElement = (InitPoint) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getContainedTypeModelFacetLinks_InitEdge_4002(modelElement));
+				.addAll(getContainedTypeModelFacetLinks_InitEdge_4029(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEntryPoint_3012ContainedLinks(View view) {
+	public static List getEdge_4028ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3013ContainedLinks(View view) {
-		ExitPoint modelElement = (ExitPoint) view.getElement();
-		List result = new LinkedList();
-		result.addAll(getContainedTypeModelFacetLinks_Edge_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3010ContainedLinks(View view) {
+	public static List getInitEdge_4029ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3011ContainedLinks(View view) {
-		ExitPoint modelElement = (ExitPoint) view.getElement();
-		List result = new LinkedList();
-		result.addAll(getContainedTypeModelFacetLinks_Edge_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEdge_4001ContainedLinks(View view) {
+	public static List getSubMode_2007IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInitEdge_4002ContainedLinks(View view) {
+	public static List getCompositeMode_2008IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_2001IncomingLinks(View view) {
+	public static List getVariable_3022IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeMode_2002IncomingLinks(View view) {
+	public static List getResource_3023IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3001IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResource_3002IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3008IncomingLinks(View view) {
+	public static List getEntryPoint_3024IncomingLinks(View view) {
 		EntryPoint modelElement = (EntryPoint) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Edge_4001(modelElement,
+		result.addAll(getIncomingTypeModelFacetLinks_Edge_4028(modelElement,
 				crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4002(
+		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4029(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -813,56 +813,42 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3009IncomingLinks(View view) {
+	public static List getExitPoint_3025IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_3003IncomingLinks(View view) {
+	public static List getSubMode_3026IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3004IncomingLinks(View view) {
+	public static List getVariable_3027IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_3005IncomingLinks(View view) {
+	public static List getResource_3028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getConditionalConnector_3006IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getVariable_3007IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3014IncomingLinks(View view) {
+	public static List getEntryPoint_3029IncomingLinks(View view) {
 		EntryPoint modelElement = (EntryPoint) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Edge_4001(modelElement,
+		result.addAll(getIncomingTypeModelFacetLinks_Edge_4028(modelElement,
 				crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4002(
+		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4029(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -870,29 +856,87 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3015IncomingLinks(View view) {
+	public static List getExitPoint_3030IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeEntryPoint_3016IncomingLinks(View view) {
+	public static List getConditionalConnector_3031IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeExitPoint_3017IncomingLinks(View view) {
+	public static List getEntryPoint_3032IncomingLinks(View view) {
+		EntryPoint modelElement = (EntryPoint) view.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result.addAll(getIncomingTypeModelFacetLinks_Edge_4028(modelElement,
+				crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4029(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3033IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getVariable_3034IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEntryPoint_3035IncomingLinks(View view) {
+		EntryPoint modelElement = (EntryPoint) view.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result.addAll(getIncomingTypeModelFacetLinks_Edge_4028(modelElement,
+				crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4029(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3036IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeEntryPoint_3037IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeExitPoint_3038IncomingLinks(View view) {
 		CompositeExitPoint modelElement = (CompositeExitPoint) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Edge_4001(modelElement,
+		result.addAll(getIncomingTypeModelFacetLinks_Edge_4028(modelElement,
 				crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4002(
+		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4029(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -900,246 +944,202 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getInitPoint_3018IncomingLinks(View view) {
+	public static List getInitPoint_3039IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEntryPoint_3012IncomingLinks(View view) {
-		EntryPoint modelElement = (EntryPoint) view.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Edge_4001(modelElement,
-				crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4002(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExitPoint_3013IncomingLinks(View view) {
+	public static List getEdge_4028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEntryPoint_3010IncomingLinks(View view) {
-		EntryPoint modelElement = (EntryPoint) view.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Edge_4001(modelElement,
-				crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_InitEdge_4002(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExitPoint_3011IncomingLinks(View view) {
+	public static List getInitEdge_4029IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEdge_4001IncomingLinks(View view) {
+	public static List getSubMode_2007OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInitEdge_4002IncomingLinks(View view) {
+	public static List getCompositeMode_2008OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_2001OutgoingLinks(View view) {
+	public static List getVariable_3022OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeMode_2002OutgoingLinks(View view) {
+	public static List getResource_3023OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3001OutgoingLinks(View view) {
+	public static List getEntryPoint_3024OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_3002OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3008OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExitPoint_3009OutgoingLinks(View view) {
+	public static List getExitPoint_3025OutgoingLinks(View view) {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
-		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSubMode_3003OutgoingLinks(View view) {
+	public static List getSubMode_3026OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3004OutgoingLinks(View view) {
+	public static List getVariable_3027OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_3005OutgoingLinks(View view) {
+	public static List getResource_3028OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getConditionalConnector_3006OutgoingLinks(View view) {
+	public static List getEntryPoint_3029OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariable_3007OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3014OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getExitPoint_3015OutgoingLinks(View view) {
+	public static List getExitPoint_3030OutgoingLinks(View view) {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
-		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeEntryPoint_3016OutgoingLinks(View view) {
+	public static List getConditionalConnector_3031OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEntryPoint_3032OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3033OutgoingLinks(View view) {
+		ExitPoint modelElement = (ExitPoint) view.getElement();
+		List result = new LinkedList();
+		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getVariable_3034OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEntryPoint_3035OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getExitPoint_3036OutgoingLinks(View view) {
+		ExitPoint modelElement = (ExitPoint) view.getElement();
+		List result = new LinkedList();
+		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeEntryPoint_3037OutgoingLinks(View view) {
 		CompositeEntryPoint modelElement = (CompositeEntryPoint) view
 				.getElement();
 		List result = new LinkedList();
-		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getCompositeExitPoint_3017OutgoingLinks(View view) {
+	public static List getCompositeExitPoint_3038OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getInitPoint_3018OutgoingLinks(View view) {
+	public static List getInitPoint_3039OutgoingLinks(View view) {
 		InitPoint modelElement = (InitPoint) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_InitEdge_4002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_InitEdge_4029(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getEntryPoint_3012OutgoingLinks(View view) {
+	public static List getEdge_4028OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3013OutgoingLinks(View view) {
-		ExitPoint modelElement = (ExitPoint) view.getElement();
-		List result = new LinkedList();
-		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEntryPoint_3010OutgoingLinks(View view) {
+	public static List getInitEdge_4029OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getExitPoint_3011OutgoingLinks(View view) {
-		ExitPoint modelElement = (ExitPoint) view.getElement();
-		List result = new LinkedList();
-		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4001(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getEdge_4001OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getInitEdge_4002OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection getContainedTypeModelFacetLinks_Edge_4001(
+	private static Collection getContainedTypeModelFacetLinks_Edge_4028(
 			ExitPoint container) {
 		Collection result = new LinkedList();
 		for (Iterator links = container.getExitEdges().iterator(); links
@@ -1156,7 +1156,7 @@ public class RemesDiagramUpdater {
 			EntryPoint dst = link.getConnectTo();
 			ExitPoint src = link.getConnectFrom();
 			result.add(new RemesLinkDescriptor(src, dst, link,
-					RemesElementTypes.Edge_4001, EdgeEditPart.VISUAL_ID));
+					RemesElementTypes.Edge_4028, EdgeEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1164,7 +1164,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_InitEdge_4002(
+	private static Collection getContainedTypeModelFacetLinks_InitEdge_4029(
 			InitPoint container) {
 		Collection result = new LinkedList();
 		InitEdge link = container.getInitEdge();
@@ -1175,14 +1175,14 @@ public class RemesDiagramUpdater {
 		EntryPoint dst = link.getConnectTo();
 		InitPoint src = link.getConnectFrom();
 		result.add(new RemesLinkDescriptor(src, dst, link,
-				RemesElementTypes.InitEdge_4002, InitEdgeEditPart.VISUAL_ID));
+				RemesElementTypes.InitEdge_4029, InitEdgeEditPart.VISUAL_ID));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_Edge_4001(
+	private static Collection getIncomingTypeModelFacetLinks_Edge_4028(
 			EntryPoint target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -1201,7 +1201,7 @@ public class RemesDiagramUpdater {
 			}
 			ExitPoint src = link.getConnectFrom();
 			result.add(new RemesLinkDescriptor(src, target, link,
-					RemesElementTypes.Edge_4001, EdgeEditPart.VISUAL_ID));
+					RemesElementTypes.Edge_4028, EdgeEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1209,7 +1209,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_InitEdge_4002(
+	private static Collection getIncomingTypeModelFacetLinks_InitEdge_4029(
 			EntryPoint target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -1229,7 +1229,7 @@ public class RemesDiagramUpdater {
 			InitPoint src = link.getConnectFrom();
 			result
 					.add(new RemesLinkDescriptor(src, target, link,
-							RemesElementTypes.InitEdge_4002,
+							RemesElementTypes.InitEdge_4029,
 							InitEdgeEditPart.VISUAL_ID));
 		}
 		return result;
@@ -1238,7 +1238,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_Edge_4001(
+	private static Collection getOutgoingTypeModelFacetLinks_Edge_4028(
 			ExitPoint source) {
 		ExitPoint container = null;
 		// Find container element for the link.
@@ -1271,7 +1271,7 @@ public class RemesDiagramUpdater {
 				continue;
 			}
 			result.add(new RemesLinkDescriptor(src, dst, link,
-					RemesElementTypes.Edge_4001, EdgeEditPart.VISUAL_ID));
+					RemesElementTypes.Edge_4028, EdgeEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1279,7 +1279,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_InitEdge_4002(
+	private static Collection getOutgoingTypeModelFacetLinks_InitEdge_4029(
 			InitPoint source) {
 		InitPoint container = null;
 		// Find container element for the link.
@@ -1306,7 +1306,7 @@ public class RemesDiagramUpdater {
 			return result;
 		}
 		result.add(new RemesLinkDescriptor(src, dst, link,
-				RemesElementTypes.InitEdge_4002, InitEdgeEditPart.VISUAL_ID));
+				RemesElementTypes.InitEdge_4029, InitEdgeEditPart.VISUAL_ID));
 		return result;
 	}
 

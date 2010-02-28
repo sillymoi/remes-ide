@@ -20,7 +20,7 @@ public class Resource2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public Resource2ItemSemanticEditPolicy() {
-		super(RemesElementTypes.Resource_3005);
+		super(RemesElementTypes.Resource_3028);
 	}
 
 	/**

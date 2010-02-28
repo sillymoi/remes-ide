@@ -32,17 +32,17 @@ public class ConditionalConnectorItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ConditionalConnectorItemSemanticEditPolicy() {
-		super(RemesElementTypes.ConditionalConnector_3006);
+		super(RemesElementTypes.ConditionalConnector_3031);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (RemesElementTypes.EntryPoint_3012 == req.getElementType()) {
+		if (RemesElementTypes.EntryPoint_3032 == req.getElementType()) {
 			return getGEFWrapper(new EntryPoint3CreateCommand(req));
 		}
-		if (RemesElementTypes.ExitPoint_3013 == req.getElementType()) {
+		if (RemesElementTypes.ExitPoint_3033 == req.getElementType()) {
 			return getGEFWrapper(new ExitPoint3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

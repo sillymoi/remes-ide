@@ -212,7 +212,7 @@
       <viewProvider class="se.mdh.progresside.remes.diagram.providers.RemesViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Remes"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3008,3009,3003,3004,3005,3010,3011,3006,3012,3013,3007,3014,3015,3016,3017,3018"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
       </viewProvider>
    </extension>

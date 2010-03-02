@@ -41,6 +41,7 @@ import se.mdh.progresside.components.core.IProComModelManager;
 import se.mdh.progresside.proComMetamodel.procomPackage;
 import se.mdh.progresside.proComMetamodel.proSave.Component;
 import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
+import se.mdh.progresside.proComMetamodel.proSave.ProSavePackage;
 import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
 import se.mdh.progresside.proComMetamodel.proSave.impl.ComponentImpl;
 import se.mdh.progresside.proComMetamodel.util.ProComComponentResourceFactory;
@@ -57,10 +58,10 @@ public class Remes2PtaConverter {
 
 	private static IReferenceModel remesMetamodel;
 	private static IReferenceModel uppaalMetamodel;
-	private static IReferenceModel procomMetamodel;
+	private static IReferenceModel prosaveMetamodel;
 
 	private static final String remesURI = RemesPackage.eNS_URI; //"http://www.mdh.se/progresside/remes/1.2.0/remes.ecore"; //$NON-NLS-1$
-	private static final String procomURI = procomPackage.eNS_URI;
+	private static final String prosaveURI = ProSavePackage.eNS_URI;
 	private static final String uppaalURI = UppaalFlat11Package.eNS_URI; //"file:/D:/Dokumenti/Faks/PhD/Podaci/uppaal-flat-1_1.xsd"; //$NON-NLS-1$
 	
 	private static URL asmURL;
@@ -75,17 +76,6 @@ public class Remes2PtaConverter {
 		try {
 			injector = (EMFInjector) CoreService.getInjector("EMF"); //$NON-NLS-1$
 			extractor = CoreService.getExtractor("EMF"); //$NON-NLS-1$		
-			
-			// Metamodels 
-			ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
-			remesMetamodel = factory.newReferenceModel();
-			uppaalMetamodel = factory.newReferenceModel();
-			procomMetamodel = factory.newReferenceModel();
-			
-			injector.inject(remesMetamodel, remesURI);
-			injector.inject(uppaalMetamodel, uppaalURI);
-			injector.inject(procomMetamodel, procomURI);
-			
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}
@@ -93,6 +83,21 @@ public class Remes2PtaConverter {
 	
 	public Remes2PtaConverter(IArchModel model) {
 		this.archModel = model;
+		
+		try {
+			// Metamodels 
+			ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
+			remesMetamodel = factory.newReferenceModel();
+			uppaalMetamodel = factory.newReferenceModel();
+			prosaveMetamodel = factory.newReferenceModel();
+			
+			injector.inject(remesMetamodel, remesURI);
+			injector.inject(uppaalMetamodel, uppaalURI);
+			injector.inject(prosaveMetamodel, prosaveURI);
+		}
+		catch (ATLCoreException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void doConvertArchitecture() {

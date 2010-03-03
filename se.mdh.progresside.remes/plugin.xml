@@ -40,12 +40,12 @@
                   severity="ERROR"
                   lang="OCL"
                   mode="Live"
-                  name="Referrables Must be Named"
-                  id="referrableName">
+                  name="Referables Must be Named"
+                  id="referableName">
                <description>Variables, resources and constants must have names.</description>
                <message>Variable, resource or constant has no name.</message>
                
-               <target class="Referrable">
+               <target class="Referable">
                   <event name="Set">
                      <feature name="name" />
                   </event>

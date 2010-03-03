@@ -138,7 +138,7 @@ public class PointItemProvider
 	/**
 	 * Implements change listener for parent's name attribute to have labels in sync.
 	 * 
-	 * @author Marin
+	 * @author Marin Orlic <marin.orlic@fer.hr>
 	 */
 	class ParentChangeListener implements INotifyChangedListener {
 		public void notifyChanged(Notification notification) {

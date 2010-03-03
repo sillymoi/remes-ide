@@ -6,7 +6,7 @@ package hr.fer.rasip.remes.builder.helpers;
 import hr.fer.rasip.remes.grammars.expressions.ast.Expression;
 
 /**
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  * 
  */
 public class InvalidTypeErrorMark {

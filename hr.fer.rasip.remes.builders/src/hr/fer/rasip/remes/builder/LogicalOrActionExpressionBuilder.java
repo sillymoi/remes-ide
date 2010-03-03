@@ -54,7 +54,7 @@ import se.mdh.progresside.remes.provider.SubModeItemProvider;
 public class LogicalOrActionExpressionBuilder extends IncrementalProjectBuilder {
 
 	/**
-	 * @author Marin
+	 * @author Marin Orlic <marin.orlic@fer.hr>
 	 *
 	 */
 	public class ResolvedReferable {

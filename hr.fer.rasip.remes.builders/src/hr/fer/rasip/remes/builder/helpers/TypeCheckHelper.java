@@ -27,7 +27,7 @@ import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.Variable;
 
 /**
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  *
  */
 public class TypeCheckHelper implements AstVisitor {

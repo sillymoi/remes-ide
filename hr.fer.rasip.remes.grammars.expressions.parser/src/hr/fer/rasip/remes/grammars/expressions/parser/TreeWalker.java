@@ -22,7 +22,7 @@ import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
 import org.antlr.runtime.tree.Tree;
 
 /**
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  * 
  */
 public class TreeWalker {

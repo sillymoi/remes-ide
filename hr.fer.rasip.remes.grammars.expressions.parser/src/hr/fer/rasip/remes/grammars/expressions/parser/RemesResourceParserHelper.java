@@ -13,7 +13,7 @@ import org.antlr.runtime.tree.Tree;
 /**
  * Wrapper class to use parser.
  * 
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  *
  */
 public class RemesResourceParserHelper {

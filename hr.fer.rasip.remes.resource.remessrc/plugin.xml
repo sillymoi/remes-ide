@@ -28,7 +28,9 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
-		<wizard category="se.mdh.progresside.remes.Wizard.category.ID" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
 		</wizard>
 	</extension>
 	
@@ -39,6 +41,19 @@
 		</super>
 		<super type="org.eclipse.core.resources.textmarker">
 		</super>
+	</extension>
+	
+	<extension id="hr.fer.rasip.remes.resource.remessrc.nature" name="remessrc nature" point="org.eclipse.core.resources.natures">
+		<runtime>
+			<run class="hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcNature" />
+		</runtime>
+		<builder id="hr.fer.rasip.remes.resource.remessrc.builder" />
+	</extension>
+	
+	<extension point="org.eclipse.core.resources.builders" id="hr.fer.rasip.remes.resource.remessrc.builder" name="remessrc Builder">
+		<builder hasNature="true">
+			<run class="hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcBuilderAdapter" />
+		</builder>
 	</extension>
 	
 	<extension-point id="hr.fer.rasip.remes.resource.remessrc.default_load_options" name="Default Load Options" schema="schema/default_load_options.exsd"/>

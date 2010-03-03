@@ -11,6 +11,7 @@ package hr.fer.rasip.remes.resource.remessrc;
 public interface IRemessrcExpectedElement {
 	
 	public java.lang.String getTokenName();
-	public void addFollower(hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement follower);
-	public java.util.Collection<hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement> getFollowers();
+	public org.eclipse.emf.ecore.EClass getRuleMetaclass();
+	public void addFollower(hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement follower, org.eclipse.emf.ecore.EStructuralFeature[] path);
+	public java.util.Collection<hr.fer.rasip.remes.resource.remessrc.util.RemessrcPair<hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement, org.eclipse.emf.ecore.EStructuralFeature[]>> getFollowers();
 }

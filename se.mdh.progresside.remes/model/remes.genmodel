@@ -7,7 +7,8 @@
     modelPluginClass="" editPluginClass="se.mdh.progresside.remes.provider.RemesEditPlugin"
     editorPluginClass="se.mdh.progresside.remes.presentation.RemesEditorPlugin" testSuiteClass="se.mdh.progresside.remes.tests.RemesAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    editPluginID="se.mdh.progresside.remes.edit" editorPluginID="se.mdh.progresside.remes.editor">
+    editPluginID="se.mdh.progresside.remes.edit" editorPluginID="se.mdh.progresside.remes.editor"
+    runtimeVersion="2.4">
   <foreignModel>remes.ecore</foreignModel>
   <genPackages prefix="Remes" basePackage="se.mdh.progresside" resource="XMI" disposableProviderFactory="true"
       ecorePackage="remes.ecore#/">

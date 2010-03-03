@@ -585,8 +585,93 @@
       </objectContribution>
    </extension>
 
-
-
+<extension
+      id="remes.views.menus"
+      name="RemesViewDropdownMenu"
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+      <toolbar
+            id="se.mdh.progresside.remes.diagram.views.toolbar">
+         <command
+               commandId="se.mdh.progresside.remes.diagram.views.showview.command"
+               icon="icons/Remes.gif"
+               id="se.mdh.progresside.remes.diagram.views.showview.dropdowncommand"
+               label="REMES Views"
+               mode="FORCE_TEXT"
+               style="pulldown"
+               tooltip="Select REMES View Type">
+            <parameter
+                  name="se.mdh.progresside.remes.diagram.views.showview.command.param"
+                  value="se.mdh.progresside.remes.diagram.views.menupressed">
+            </parameter>
+         </command>
+      </toolbar>
+   </menuContribution>
+   <menuContribution
+         locationURI="menu:se.mdh.progresside.remes.diagram.views.showview.dropdowncommand">
+      <command
+            commandId="se.mdh.progresside.remes.diagram.views.showview.command"
+            id="se.mdh.progresside.remes.diagram.views.showview.viewallcommand"
+            label="Show All"
+            style="push">
+         <parameter
+               name="se.mdh.progresside.remes.diagram.views.showview.command.param"
+               value="se.mdh.progresside.remes.diagram.views.all">
+         </parameter>
+      </command>
+      <command
+            commandId="se.mdh.progresside.remes.diagram.views.showview.command"
+            id="se.mdh.progresside.remes.diagram.views.showview.viewbehaviourcommand"
+            label="Show Behaviour View"
+            style="push">
+         <parameter
+               name="se.mdh.progresside.remes.diagram.views.showview.command.param"
+               value="se.mdh.progresside.remes.diagram.views.behaviour">
+         </parameter>
+      </command>
+      <command
+            commandId="se.mdh.progresside.remes.diagram.views.showview.command"
+            id="se.mdh.progresside.remes.diagram.views.showview.viewtimingcommand"
+            label="Show Timing View"
+            style="push">
+         <parameter
+               name="se.mdh.progresside.remes.diagram.views.showview.command.param"
+               value="se.mdh.progresside.remes.diagram.views.timing">
+         </parameter>
+      </command>
+      <command
+            commandId="se.mdh.progresside.remes.diagram.views.showview.command"
+            id="se.mdh.progresside.remes.diagram.views.showview.viewresourcescommand"
+            label="Show Resources View"
+            style="push">
+         <parameter
+               name="se.mdh.progresside.remes.diagram.views.showview.command.param"
+               value="se.mdh.progresside.remes.diagram.views.resources">
+         </parameter>
+      </command>
+   </menuContribution>
+</extension>
+<extension
+      id="se.mdh.progresside.remes.views.commands"
+      name="Remes Views Commands"
+      point="org.eclipse.ui.commands">
+   <category
+         id="se.mdh.progresside.remes.diagram.views.category"
+         name="Remes View Category">
+   </category>
+   <command
+         categoryId="se.mdh.progresside.remes.diagram.views.category"
+         defaultHandler="se.mdh.progresside.remes.diagram.custom.handlers.ViewsHandler"
+         id="se.mdh.progresside.remes.diagram.views.showview.command"
+         name="Remes Show View Command">
+      <commandParameter
+            id="se.mdh.progresside.remes.diagram.views.showview.command.param"
+            name="viewType"
+            optional="true">
+      </commandParameter>
+   </command>
+</extension>
 
 
 

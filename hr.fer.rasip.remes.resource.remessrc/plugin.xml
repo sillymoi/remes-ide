@@ -28,9 +28,7 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
-		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
-		</category>
-		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
+		<wizard category="se.mdh.progresside.remes.Wizard.category.ID" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
 		</wizard>
 	</extension>
 	

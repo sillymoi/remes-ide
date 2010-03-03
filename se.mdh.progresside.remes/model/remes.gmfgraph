@@ -251,8 +251,8 @@
             xsi:type="gmfgraph:ConstantColor"
             value="green"/>
         <preferredSize
-            dx="15"
-            dy="15"/>
+            dx="10"
+            dy="10"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -264,8 +264,8 @@
             xsi:type="gmfgraph:ConstantColor"
             value="red"/>
         <preferredSize
-            dx="15"
-            dy="15"/>
+            dx="10"
+            dy="10"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -324,8 +324,8 @@
             xsi:type="gmfgraph:ConstantColor"
             value="yellow"/>
         <preferredSize
-            dx="15"
-            dy="15"/>
+            dx="10"
+            dy="10"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -368,19 +368,6 @@
           <template
               y="15"/>
         </children>
-      </actualFigure>
-    </descriptors>
-    <descriptors
-        name="ExitPointFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ExitPointFigure">
-        <backgroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="red"/>
-        <preferredSize
-            dx="15"
-            dy="15"/>
       </actualFigure>
     </descriptors>
     <descriptors

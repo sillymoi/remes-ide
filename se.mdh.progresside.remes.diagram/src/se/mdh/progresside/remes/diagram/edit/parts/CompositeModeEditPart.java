@@ -136,16 +136,16 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeNameEditPart) {
-			((CompositeModeNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCompositeModeNameFigure());
-			return true;
-		}
 		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			((CompositeModeInitializationEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCompositeModeInitializationFigure());
+			return true;
+		}
+		if (childEditPart instanceof CompositeModeNameEditPart) {
+			((CompositeModeNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCompositeModeNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -176,10 +176,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeNameEditPart) {
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+		if (childEditPart instanceof CompositeModeNameEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {

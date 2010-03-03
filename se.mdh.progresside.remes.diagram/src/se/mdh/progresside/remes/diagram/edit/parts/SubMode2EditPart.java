@@ -135,10 +135,9 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitialization2EditPart) {
-			((SubModeInitialization2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureSubModeInitializationFigure());
+		if (childEditPart instanceof SubModeName2EditPart) {
+			((SubModeName2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureSubModeNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
@@ -147,15 +146,16 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 							.getFigureSubModeIsUrgentFigure());
 			return true;
 		}
+		if (childEditPart instanceof SubModeInitialization2EditPart) {
+			((SubModeInitialization2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSubModeInitializationFigure());
+			return true;
+		}
 		if (childEditPart instanceof SubModeInvariant2EditPart) {
 			((SubModeInvariant2EditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureSubModeInvariantFigure());
-			return true;
-		}
-		if (childEditPart instanceof SubModeName2EditPart) {
-			((SubModeName2EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureSubModeNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint2EditPart) {
@@ -179,16 +179,16 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitialization2EditPart) {
+		if (childEditPart instanceof SubModeName2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeInvariant2EditPart) {
+		if (childEditPart instanceof SubModeInitialization2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeName2EditPart) {
+		if (childEditPart instanceof SubModeInvariant2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint2EditPart) {

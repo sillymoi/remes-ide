@@ -133,6 +133,12 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof SubModeInitializationEditPart) {
+			((SubModeInitializationEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSubModeInitializationFigure());
+			return true;
+		}
 		if (childEditPart instanceof SubModeInvariantEditPart) {
 			((SubModeInvariantEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -142,12 +148,6 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof SubModeNameEditPart) {
 			((SubModeNameEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureSubModeNameFigure());
-			return true;
-		}
-		if (childEditPart instanceof SubModeInitializationEditPart) {
-			((SubModeInitializationEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureSubModeInitializationFigure());
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgentEditPart) {
@@ -177,13 +177,13 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof SubModeInitializationEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof SubModeInvariantEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeNameEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof SubModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgentEditPart) {

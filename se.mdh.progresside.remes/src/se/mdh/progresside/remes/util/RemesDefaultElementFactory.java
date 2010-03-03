@@ -13,7 +13,7 @@ import se.mdh.progresside.remes.SubMode;
 /**
  * Creates default, initialized Remes elements.
  * 
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  */
 public class RemesDefaultElementFactory {
 	public RemesDefaultElementFactory() {

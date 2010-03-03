@@ -49,7 +49,7 @@ import se.mdh.progresside.remes.RemesPackage;
 import UppaalFlat11.UppaalFlat11Package;
 
 /**
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  *
  */
 public class Remes2PtaConverter {

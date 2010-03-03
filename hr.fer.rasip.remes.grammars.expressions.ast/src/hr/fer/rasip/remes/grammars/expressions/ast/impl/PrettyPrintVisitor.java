@@ -12,7 +12,7 @@ import hr.fer.rasip.remes.grammars.expressions.ast.UnaryExpression;
 import hr.fer.rasip.remes.grammars.expressions.ast.VariableReference;
 
 /**
- * @author Marin
+ * @author Marin Orlic <marin.orlic@fer.hr>
  *
  */
 public class PrettyPrintVisitor implements AstVisitor {

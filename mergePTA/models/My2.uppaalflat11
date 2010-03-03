@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE nta PUBLIC "-//Uppaal Team//DTD Flat System 1.1//EN" "http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd">
+<nta>
+  <template>
+    <name x="5" y="5">Mode1</name>
+    <declaration>const int C_HC=25;&#xD;
+const int       temp_HC=3;int w_mem=10;int w_pas=10;int w_cpu=10;int w_eng=10;clock x;int y,z,temp,tempROD;</declaration>
+    <location id="_VCTJkJx0Ed6mn75wr13tSA" x="16" y="-40">
+      <name x="16" y="72">Rod_1</name>
+      <committed/>
+    </location>
+    <location id="_n_2YsJx0Ed6mn75wr13tSA" x="16" y="-40">
+      <name x="16" y="72">Rod_2</name>
+      <label kind="invariant" x="15" y="78">cost'==w_cpu*20+w_mem*50+w_eng*22+w_pas*11</label>
+    </location>
+    <location id="_Uq79AJx1Ed6mn75wr13tSA" x="16" y="-40">
+      <name x="16" y="72">Rod_3</name>
+      <label kind="invariant" x="15" y="78">cost'==w_*</label>
+    </location>
+    <location id="_pEGD8Jx0Ed6mn75wr13tSA" x="16" y="-40">
+      <name x="16" y="72">Choice_1</name>
+      <committed/>
+    </location>
+    <location id="IdInit" x="16" y="-35">
+      <name x="16" y="62">Init</name>
+      <committed/>
+    </location>
+    <location id="IdEntry" x="16" y="-35">
+      <name x="16" y="62">Entry</name>
+    </location>
+    <location id="IdExit" x="16" y="-35">
+      <name x="16" y="62">Exit</name>
+      <committed/>
+    </location>
+    <init ref="IdInit"/>
+    <transition>
+      <source ref="IdInit"/>
+      <target ref="_pEGD8Jx0Ed6mn75wr13tSA"/>
+      <label kind="assignment" x="3" y="5">z=z+y</label>
+    </transition>
+    <transition>
+      <source ref="IdEntry"/>
+      <target ref="_pEGD8Jx0Ed6mn75wr13tSA"/>
+      <label kind="guard" x="3" y="5"/>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_VCTJkJx0Ed6mn75wr13tSA"/>
+      <target ref="_Uq79AJx1Ed6mn75wr13tSA"/>
+      <label kind="guard" x="3" y="5">y&lt;5</label>
+      <label kind="assignment" x="3" y="4">cost+=w_mem*10-w_cpu*220,y=22</label>
+    </transition>
+    <transition>
+      <source ref="_Uq79AJx1Ed6mn75wr13tSA"/>
+      <target ref="_n_2YsJx0Ed6mn75wr13tSA"/>
+      <label kind="guard" x="3" y="5"/>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_pEGD8Jx0Ed6mn75wr13tSA"/>
+      <target ref="IdExit"/>
+      <label kind="guard" x="3" y="5">z==0</label>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_n_2YsJx0Ed6mn75wr13tSA"/>
+      <target ref="IdExit"/>
+      <label kind="guard" x="3" y="5"/>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_Uq79AJx1Ed6mn75wr13tSA"/>
+      <target ref="IdExit"/>
+      <label kind="guard" x="3" y="5"/>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_pEGD8Jx0Ed6mn75wr13tSA"/>
+      <target ref="_Uq79AJx1Ed6mn75wr13tSA"/>
+      <label kind="guard" x="3" y="5">z!=0</label>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="_VCTJkJx0Ed6mn75wr13tSA"/>
+      <target ref="_pEGD8Jx0Ed6mn75wr13tSA"/>
+      <label kind="guard" x="3" y="5"/>
+      <label kind="assignment" x="3" y="4"></label>
+    </transition>
+    <transition>
+      <source ref="IdExit"/>
+      <target ref="IdEntry"/>
+    </transition>
+  </template>
+</nta>

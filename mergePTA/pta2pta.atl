@@ -1,0 +1,16 @@
+module pta2pta;
+create OUT : PTAOUT from IN : PTAIN1, IN1 : PTAIN2;
+
+
+rule Roots2Root {
+from
+    docIN1 : PTAIN1!DocumentRoot, docIN2 : PTAIN2!DocumentRoot
+to
+    doc: PTAOUT!DocumentRoot ( 
+    	nta <- nta_type
+	),
+	nta_type: PTAOUT!NtaType(
+		declaration <- docIN1.nta.template->first().name
+	)
+}
+

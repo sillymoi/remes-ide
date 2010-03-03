@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+		const int P=100, weng=1,
+		wcpu=15, wmem=2, C_HC=25, temp_HC=3, T=3,
+		theta_max=25, theta_min=6,
+		margin=5, R1=5, R2=6;
+
+		int temp=10, tempROD, x1, x2, rod;
+		chan t, t1, t2;
+
+		clock x;</declaration>
+	<template>
+		<name x="5" y="5">Clock_component</name>
+		<declaration>// Place local declarations here.
+
+</declaration>
+		<location id="id0" x="16" y="-40">
+			<name x="-16" y="-72">start</name>
+			<label kind="invariant" x="-112" y="-24">x&lt;=P&amp;&amp;cost'==weng*1</label>
+		</location>
+		<init ref="id0" />
+		<transition>
+			<source ref="id0" />
+			<target ref="id0" />
+			<label kind="guard" x="80" y="48">x&gt;=P</label>
+			<label kind="synchronisation" x="232" y="-56">t1!</label>
+			<label kind="assignment" x="80" y="-160">x:=0</label>
+			<nail x="200" y="96" />
+			<nail x="200" y="-200" />
+		</transition>
+	</template>
+	<template>
+		<name>HC_controller</name>
+		<location id="id1" x="400" y="-24">
+			<name x="416" y="-56">heat_cool</name>
+			<label kind="invariant" x="416" y="-8">x&lt;=C_HC&amp;&amp;
+				cost'==weng*100+wcpu</label>
+		</location>
+		<location id="id2" x="-160" y="-32"></location>
+		<location id="id3" x="-432" y="-32">
+			<committed />
+		</location>
+		<init ref="id3" />
+		<transition>
+			<source ref="id1" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="136" y="40">t1?</label>
+			<label kind="assignment" x="-104" y="40">x:=0,
+				cost+=wmem*10</label>
+			<nail x="368" y="24" />
+			<nail x="-128" y="24" />
+		</transition>
+		<transition>
+			<source ref="id2" />
+			<target ref="id1" />
+			<label kind="guard" x="232" y="-112">x==C_HC</label>
+			<label kind="synchronisation" x="128" y="-104">t2!</label>
+			<label kind="assignment" x="-128" y="-120">temp:=temp+temp_HC-tempROD,
+				cost+=wcpu*100-wmem*10</label>
+			<nail x="-128" y="-80" />
+			<nail x="368" y="-80" />
+		</transition>
+		<transition>
+			<source ref="id3" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-360" y="-56">t?</label>
+			<label kind="assignment" x="-368" y="-24">x:=0,cost+=wmem*80</label>
+		</transition>
+	</template>
+	<template>
+		<name>Rod_selector</name>
+		<declaration>int count, trace[5];
+			void run() {
+			if (count==3)
+			return;
+			trace[count]=rod;
+			count+=1;
+			}</declaration>
+		<location id="id4" x="496" y="16">
+			<name x="528" y="8">cool1</name>
+			<committed />
+		</location>
+		<location id="id5" x="280" y="296">
+			<name x="272" y="312">heat</name>
+			<committed />
+		</location>
+		<location id="id6" x="-200" y="152">
+			<committed />
+		</location>
+		<location id="id7" x="-16" y="24"></location>
+		<location id="id8" x="-16" y="-184">
+			<committed />
+		</location>
+		<init ref="id6" />
+		<transition>
+			<source ref="id4" />
+			<target ref="id7" />
+			<label kind="guard" x="280" y="-152">temp&lt;=(theta_min+margin)</label>
+			<label kind="assignment" x="72" y="-168">tempROD:=0, rod:=0, x1:=0,
+				cost+=wcpu*3-wmem*2</label>
+			<nail x="436" y="-134" />
+			<nail x="68" y="-134" />
+		</transition>
+		<transition>
+			<source ref="id4" />
+			<target ref="id7" />
+			<label kind="guard" x="224" y="-80">temp&gt;(theta_min+margin)</label>
+			<label kind="assignment" x="96" y="-96">tempROD:=R1,
+				cost+=wcpu*1</label>
+			<nail x="424" y="-64" />
+			<nail x="72" y="-64" />
+		</transition>
+		<transition>
+			<source ref="id5" />
+			<target ref="id8" />
+			<label kind="guard" x="416" y="304">x2&gt;=T&amp;&amp;temp&gt;=(theta_max-margin)</label>
+			<label kind="assignment" x="688" y="48">rod:=2,
+				run(),
+				cost+=wcpu*1+wmem*7</label>
+			<nail x="672" y="294" />
+			<nail x="672" y="-186" />
+		</transition>
+		<transition>
+			<source ref="id7" />
+			<target ref="id4" />
+			<label kind="guard" x="56" y="0">rod==1</label>
+			<label kind="synchronisation" x="288" y="0">t2?</label>
+		</transition>
+		<transition>
+			<source ref="id5" />
+			<target ref="id4" />
+			<label kind="guard" x="336" y="232">x1&gt;=T&amp;&amp;temp&gt;=(theta_max-margin)</label>
+			<label kind="assignment" x="432" y="104">rod:=1,
+				run(),
+				cost+=wcpu*1+wmem*2</label>
+		</transition>
+		<transition>
+			<source ref="id5" />
+			<target ref="id7" />
+			<label kind="guard" x="-336" y="296">not((x1&gt;=T&amp;&amp;temp&gt;=(theta_max-margin))or(x2&gt;=T&amp;&amp;temp&gt;=(theta_max-margin)))</label>
+			<label kind="assignment" x="-152" y="208">x1:=(x1==T?x1:x1+1),
+				x2:=(x2==T?x2:x2+1),
+				cost+=wcpu*10</label>
+			<nail x="-16" y="296" />
+		</transition>
+		<transition>
+			<source ref="id7" />
+			<target ref="id5" />
+			<label kind="guard" x="48" y="128">rod==0</label>
+			<label kind="synchronisation" x="96" y="141">t2?</label>
+		</transition>
+		<transition>
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="guard" x="-576" y="-88">temp&lt;=(theta_min+margin)</label>
+			<label kind="assignment" x="-584" y="-32">tempROD:=0, rod:=0, x2:=0,
+				cost+=wcpu*3-wmem*7</label>
+			<nail x="-396" y="-170" />
+			<nail x="-400" y="24" />
+		</transition>
+		<transition>
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="guard" x="-312" y="-144">temp&gt;(theta_min+margin)</label>
+			<label kind="assignment" x="-304" y="-56">tempROD:=R2,
+				cost+=wcpu*1</label>
+			<nail x="-328" y="-144" />
+			<nail x="-328" y="-16" />
+		</transition>
+		<transition>
+			<source ref="id7" />
+			<target ref="id8" />
+			<label kind="guard" x="-64" y="-80">rod==2</label>
+			<label kind="synchronisation" x="-40" y="-104">t2?</label>
+		</transition>
+		<transition>
+			<source ref="id6" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-104" y="96">t!</label>
+			<label kind="assignment" x="-296" y="88">rod:=0, cost+=wmem*40</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+		Clock =
+		Clock_component();
+		HC= HC_controller();
+		ROD = Rod_selector();
+
+		// List one
+		or more processes to be composed into a system.
+		system Clock, HC, ROD;</system>
+</nta>

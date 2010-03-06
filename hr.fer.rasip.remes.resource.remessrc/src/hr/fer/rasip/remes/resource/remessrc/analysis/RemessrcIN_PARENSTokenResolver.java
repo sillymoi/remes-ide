@@ -6,14 +6,14 @@
  */
 package hr.fer.rasip.remes.resource.remessrc.analysis;
 
-public class RemessrcQUOTED_91_93TokenResolver implements hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver {
+public class RemessrcIN_PARENSTokenResolver implements hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver {
 	
 	private hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcDefaultTokenResolver defaultTokenResolver = new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcDefaultTokenResolver();
 	
 	public java.lang.String deResolve(java.lang.Object value, org.eclipse.emf.ecore.EStructuralFeature feature, org.eclipse.emf.ecore.EObject container) {
 		java.lang.String result = defaultTokenResolver.deResolve(value, feature, container);
-		result += "]";
-		result = "[" + result;
+		result += ")";
+		result = "(" + result;
 		return result;
 	}
 	

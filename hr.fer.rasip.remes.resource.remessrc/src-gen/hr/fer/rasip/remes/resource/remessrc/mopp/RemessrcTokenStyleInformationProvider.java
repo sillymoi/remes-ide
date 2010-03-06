@@ -65,6 +65,15 @@ public class RemessrcTokenStyleInformationProvider {
 		if ("TYPE".equals(tokenName)) {
 			return new TokenStyleImpl(new int[] {0x7F, 0x00, 0x55}, true, false, false, false);
 		}
+		if ("ARRAY_SIZE".equals(tokenName)) {
+			return new TokenStyleImpl(new int[] {0x2A, 0x00, 0xFF}, false, false, false, false);
+		}
+		if ("IN_BRACES".equals(tokenName)) {
+			return new TokenStyleImpl(new int[] {0x2A, 0x00, 0xFF}, false, false, false, false);
+		}
+		if ("IN_PARENS".equals(tokenName)) {
+			return new TokenStyleImpl(new int[] {0x2A, 0x00, 0xFF}, false, false, false, false);
+		}
 		if ("RemesDiagram".equals(tokenName)) {
 			return new TokenStyleImpl(new int[] {0x7F, 0x00, 0x55}, true, false, false, false);
 		}
@@ -142,12 +151,6 @@ public class RemessrcTokenStyleInformationProvider {
 		}
 		if ("const".equals(tokenName)) {
 			return new TokenStyleImpl(new int[] {0x80, 0x00, 0x55}, true, false, false, false);
-		}
-		if ("QUOTED_40_41".equals(tokenName)) {
-			return new TokenStyleImpl(new int[] {0x2A, 0x00, 0xFF}, false, false, false, false);
-		}
-		if ("QUOTED_91_93".equals(tokenName)) {
-			return new TokenStyleImpl(new int[] {0x2A, 0x00, 0xFF}, false, false, false, false);
 		}
 		return null;
 	}

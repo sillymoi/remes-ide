@@ -142,13 +142,13 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 		// DEFINITION PART BEGINS (CsString)
 		out.print("remes");
 		out.print(" ");
+		// DEFINITION PART BEGINS (CsString)
+		out.print("{");
+		out.print(" ");
 		// DEFINITION PART BEGINS (LineBreak)
 		localtab += "	";
 		out.println();
 		out.print(localtab);
-		// DEFINITION PART BEGINS (CsString)
-		out.print("{");
-		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("modes");
 		if (count > 0) {
@@ -642,12 +642,12 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 		// DEFINITION PART BEGINS (CsString)
 		out.print("invariant");
 		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderInQuotes)
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("invariant");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), element));
 				out.print(" ");
@@ -917,12 +917,12 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 	}
 	public void print_se_mdh_progresside_remes_Edge_0(se.mdh.progresside.remes.Edge element, java.lang.String outertab, java.io.PrintWriter out, java.util.Map<java.lang.String, java.lang.Integer> printCountingMap){
 		int count;
-		// DEFINITION PART BEGINS (PlaceholderInQuotes)
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("actionGuard");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), element));
 				out.print(" ");
@@ -932,12 +932,12 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 	}
 	public void print_se_mdh_progresside_remes_Edge_1(se.mdh.progresside.remes.Edge element, java.lang.String outertab, java.io.PrintWriter out, java.util.Map<java.lang.String, java.lang.Integer> printCountingMap){
 		int count;
-		// DEFINITION PART BEGINS (PlaceholderInQuotes)
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("actionBody");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), element));
 				out.print(" ");
@@ -997,12 +997,12 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 	}
 	public void print_se_mdh_progresside_remes_InitEdge_0(se.mdh.progresside.remes.InitEdge element, java.lang.String outertab, java.io.PrintWriter out, java.util.Map<java.lang.String, java.lang.Integer> printCountingMap){
 		int count;
-		// DEFINITION PART BEGINS (PlaceholderInQuotes)
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("initialization");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), element));
 				out.print(" ");
@@ -1176,24 +1176,18 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 	}
 	public void print_se_mdh_progresside_remes_Variable_3(se.mdh.progresside.remes.Variable element, java.lang.String outertab, java.io.PrintWriter out, java.util.Map<java.lang.String, java.lang.Integer> printCountingMap){
 		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("[");
-		out.print(" ");
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("vectorSize");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("INTEGER");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("ARRAY_SIZE");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), element));
 				out.print(" ");
 			}
 			printCountingMap.put("vectorSize", count - 1);
 		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print("]");
-		out.print(" ");
 	}
 	public void print_se_mdh_progresside_remes_Variable_4(se.mdh.progresside.remes.Variable element, java.lang.String outertab, java.io.PrintWriter out, java.util.Map<java.lang.String, java.lang.Integer> printCountingMap){
 		int count;
@@ -1279,12 +1273,12 @@ public class RemessrcPrinter implements hr.fer.rasip.remes.resource.remessrc.IRe
 		// DEFINITION PART BEGINS (CsString)
 		out.print(":");
 		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderInQuotes)
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("expression");
 		if (count > 0) {
 			Object o = element.eGet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION));
 			if (o != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver resolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve((java.lang.Object) o, element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), element));
 				out.print(" ");

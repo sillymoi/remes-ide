@@ -6,7 +6,7 @@
  */
 package hr.fer.rasip.remes.resource.remessrc.analysis;
 
-public class RemessrcQUOTED_123_125TokenResolver implements hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver {
+public class RemessrcIN_BRACESTokenResolver implements hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver {
 	
 	private hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcDefaultTokenResolver defaultTokenResolver = new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcDefaultTokenResolver();
 	
@@ -26,5 +26,4 @@ public class RemessrcQUOTED_123_125TokenResolver implements hr.fer.rasip.remes.r
 	public void setOptions(java.util.Map<?,?> options) {
 		defaultTokenResolver.setOptions(options);
 	}
-	
 }

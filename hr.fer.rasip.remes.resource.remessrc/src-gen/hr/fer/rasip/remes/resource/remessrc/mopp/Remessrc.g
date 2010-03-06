@@ -311,7 +311,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 89;
+		int followSetID = 87;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -500,7 +500,7 @@ options {
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_17 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), "invariant");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_18 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "edges");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_19 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), "}");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_20 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), "QUOTED_40_41");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_20 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), "IN_PARENS");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_21 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONDITIONAL_CONNECTOR__NAME), "ID");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_22 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), "{");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_23 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), "}");
@@ -508,32 +508,30 @@ options {
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_25 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "{");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_26 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), "edge");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_27 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "}");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_28 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), "QUOTED_40_41");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_29 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), "QUOTED_91_93");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_28 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), "IN_PARENS");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_29 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), "IN_BRACES");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_30 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), "to");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_31 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__CONNECT_TO), "ID");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_32 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), "QUOTED_91_93");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_32 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), "IN_BRACES");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_33 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), "to");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_34 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__CONNECT_TO), "ID");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_35 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__GLOBAL), "T_GLOBAL");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_36 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__READABLE), "T_READABLE");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_37 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__WRITABLE), "T_WRITEABLE");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_38 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__TYPE), "TYPE");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_39 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "[");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_39 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), "ARRAY_SIZE");
 	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_40 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), "ID");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_41 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), "INTEGER");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_42 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "]");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_43 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "=");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_44 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), "INTEGER");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_45 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__TYPE), "TYPE");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_46 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__NAME), "ID");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_47 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), ":");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_48 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), "QUOTED_40_41");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_49 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__GLOBAL), "T_GLOBAL");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_50 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__TYPE), "TYPE");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_51 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__NAME), "ID");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_52 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), "=");
-	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_53 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__VALUE), "INTEGER");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_41 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "=");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_42 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), "INTEGER");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_43 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__TYPE), "TYPE");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_44 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__NAME), "ID");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_45 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), ":");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_46 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), "IN_PARENS");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_47 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__GLOBAL), "T_GLOBAL");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_48 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__TYPE), "TYPE");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_49 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__NAME), "ID");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_50 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), "=");
+	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_51 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__VALUE), "INTEGER");
 	
 	private final static org.eclipse.emf.ecore.EStructuralFeature FEATURE_0 = se.mdh.progresside.remes.RemesPackage.eINSTANCE.getRemesDiagram().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.REMES_DIAGRAM__MODES);
 	private final static org.eclipse.emf.ecore.EStructuralFeature FEATURE_1 = se.mdh.progresside.remes.RemesPackage.eINSTANCE.getMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.MODE__VARIABLES);
@@ -642,10 +640,8 @@ options {
 		TERMINAL_37.addFollower(TERMINAL_38, EMPTY_FEATURE_ARRAY);
 		TERMINAL_38.addFollower(TERMINAL_39, EMPTY_FEATURE_ARRAY);
 		TERMINAL_38.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
-		TERMINAL_39.addFollower(TERMINAL_41, EMPTY_FEATURE_ARRAY);
-		TERMINAL_41.addFollower(TERMINAL_42, EMPTY_FEATURE_ARRAY);
-		TERMINAL_42.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
-		TERMINAL_40.addFollower(TERMINAL_43, EMPTY_FEATURE_ARRAY);
+		TERMINAL_39.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
+		TERMINAL_40.addFollower(TERMINAL_41, EMPTY_FEATURE_ARRAY);
 		TERMINAL_40.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
 		TERMINAL_40.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
 		TERMINAL_40.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -657,7 +653,21 @@ options {
 		TERMINAL_40.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
 		TERMINAL_40.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
 		TERMINAL_40.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+		TERMINAL_41.addFollower(TERMINAL_42, EMPTY_FEATURE_ARRAY);
+		TERMINAL_42.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
+		TERMINAL_42.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
+		TERMINAL_42.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
+		TERMINAL_42.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
+		TERMINAL_42.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
+		TERMINAL_42.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
+		TERMINAL_42.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
+		TERMINAL_42.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
+		TERMINAL_42.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
+		TERMINAL_42.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
+		TERMINAL_42.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+		TERMINAL_8.addFollower(TERMINAL_43, EMPTY_FEATURE_ARRAY);
 		TERMINAL_43.addFollower(TERMINAL_44, EMPTY_FEATURE_ARRAY);
+		TERMINAL_44.addFollower(TERMINAL_45, EMPTY_FEATURE_ARRAY);
 		TERMINAL_44.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
 		TERMINAL_44.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
 		TERMINAL_44.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -669,9 +679,7 @@ options {
 		TERMINAL_44.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
 		TERMINAL_44.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
 		TERMINAL_44.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-		TERMINAL_8.addFollower(TERMINAL_45, EMPTY_FEATURE_ARRAY);
 		TERMINAL_45.addFollower(TERMINAL_46, EMPTY_FEATURE_ARRAY);
-		TERMINAL_46.addFollower(TERMINAL_47, EMPTY_FEATURE_ARRAY);
 		TERMINAL_46.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
 		TERMINAL_46.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
 		TERMINAL_46.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -683,23 +691,23 @@ options {
 		TERMINAL_46.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
 		TERMINAL_46.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
 		TERMINAL_46.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+		TERMINAL_9.addFollower(TERMINAL_47, EMPTY_FEATURE_ARRAY);
+		TERMINAL_9.addFollower(TERMINAL_48, EMPTY_FEATURE_ARRAY);
 		TERMINAL_47.addFollower(TERMINAL_48, EMPTY_FEATURE_ARRAY);
-		TERMINAL_48.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
-		TERMINAL_48.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
-		TERMINAL_48.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
-		TERMINAL_48.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
-		TERMINAL_48.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
-		TERMINAL_48.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
-		TERMINAL_48.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
-		TERMINAL_48.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
-		TERMINAL_48.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
-		TERMINAL_48.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
-		TERMINAL_48.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-		TERMINAL_9.addFollower(TERMINAL_49, EMPTY_FEATURE_ARRAY);
-		TERMINAL_9.addFollower(TERMINAL_50, EMPTY_FEATURE_ARRAY);
+		TERMINAL_48.addFollower(TERMINAL_49, EMPTY_FEATURE_ARRAY);
 		TERMINAL_49.addFollower(TERMINAL_50, EMPTY_FEATURE_ARRAY);
+		TERMINAL_49.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
+		TERMINAL_49.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
+		TERMINAL_49.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
+		TERMINAL_49.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
+		TERMINAL_49.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
+		TERMINAL_49.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
+		TERMINAL_49.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
+		TERMINAL_49.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
+		TERMINAL_49.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
+		TERMINAL_49.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
+		TERMINAL_49.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
 		TERMINAL_50.addFollower(TERMINAL_51, EMPTY_FEATURE_ARRAY);
-		TERMINAL_51.addFollower(TERMINAL_52, EMPTY_FEATURE_ARRAY);
 		TERMINAL_51.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
 		TERMINAL_51.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
 		TERMINAL_51.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -711,18 +719,6 @@ options {
 		TERMINAL_51.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
 		TERMINAL_51.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
 		TERMINAL_51.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-		TERMINAL_52.addFollower(TERMINAL_53, EMPTY_FEATURE_ARRAY);
-		TERMINAL_53.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
-		TERMINAL_53.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
-		TERMINAL_53.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
-		TERMINAL_53.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
-		TERMINAL_53.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
-		TERMINAL_53.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
-		TERMINAL_53.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
-		TERMINAL_53.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
-		TERMINAL_53.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
-		TERMINAL_53.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
-		TERMINAL_53.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
 	}
 	// wire the terminals
 	static {
@@ -1347,7 +1343,7 @@ parse_se_mdh_progresside_remes_SubMode returns [se.mdh.progresside.remes.SubMode
 			}
 			
 			(
-				a8 = QUOTED_40_41				
+				a8 = IN_PARENS				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -1356,7 +1352,7 @@ parse_se_mdh_progresside_remes_SubMode returns [se.mdh.progresside.remes.SubMode
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createSubMode();
 					}
 					if (a8 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
 						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), result);
@@ -1735,7 +1731,7 @@ parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge eleme
 	(
 		(
 			(
-				a1 = QUOTED_40_41				
+				a1 = IN_PARENS				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -1744,7 +1740,7 @@ parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge eleme
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createEdge();
 					}
 					if (a1 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
 						tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), result);
@@ -1779,7 +1775,7 @@ parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge eleme
 	(
 		(
 			(
-				a2 = QUOTED_91_93				
+				a2 = IN_BRACES				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -1788,7 +1784,7 @@ parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge eleme
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createEdge();
 					}
 					if (a2 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
 						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), result);
@@ -1897,7 +1893,7 @@ parse_se_mdh_progresside_remes_InitEdge returns [se.mdh.progresside.remes.InitEd
 	(
 		(
 			(
-				a1 = QUOTED_91_93				
+				a1 = IN_BRACES				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -1906,7 +1902,7 @@ parse_se_mdh_progresside_remes_InitEdge returns [se.mdh.progresside.remes.InitEd
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createInitEdge();
 					}
 					if (a1 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
 						tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), result);
@@ -2178,20 +2174,8 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 	
 	(
 		(
-			a5 = '[' {
-				if (element == null) {
-					element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-				}
-				collectHiddenTokens(element);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
-			}
-			{
-				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_41, 67));
-			}
-			
 			(
-				a6 = INTEGER				
+				a5 = ARRAY_SIZE				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -2199,14 +2183,14 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 					if (element == null) {
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
 					}
-					if (a6 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("INTEGER");
+					if (a5 != null) {
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ARRAY_SIZE");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), result);
+						tokenResolver.resolve(a5.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), result);
 						java.lang.Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a6).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStopIndex());
+							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a5).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a5).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a5).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a5).getStopIndex());
 						}
 						java.lang.Integer resolved = (java.lang.Integer)resolvedObject;
 						if (resolved != null) {
@@ -2214,16 +2198,69 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 							completedElement(resolved);
 						}
 						collectHiddenTokens(element);
-						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a6, element);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a5, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_42, 68));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 67));
 			}
 			
-			a7 = ']' {
+		)
+		
+	)?	{
+		// expected elements (follow set)
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 68));
+	}
+	
+	(
+		a6 = ID		
+		{
+			if (terminateParsing) {
+				throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
+			}
+			if (element == null) {
+				element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
+			}
+			if (a6 != null) {
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ID");
+				tokenResolver.setOptions(getOptions());
+				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), result);
+				java.lang.Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a6).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), resolved);
+					completedElement(resolved);
+				}
+				collectHiddenTokens(element);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a6, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_41, 69));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 69, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 69, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 69, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 69, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 69, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 69, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 69, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 69));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 69));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 69, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 69));
+	}
+	
+	(
+		(
+			a7 = '=' {
 				if (element == null) {
 					element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
 				}
@@ -2232,76 +2269,11 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 69));
-			}
-			
-		)
-		
-	)?	{
-		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 70));
-	}
-	
-	(
-		a8 = ID		
-		{
-			if (terminateParsing) {
-				throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
-			}
-			if (element == null) {
-				element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-			}
-			if (a8 != null) {
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ID");
-				tokenResolver.setOptions(getOptions());
-				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), result);
-				java.lang.Object resolvedObject = result.getResolvedToken();
-				if (resolvedObject == null) {
-					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a8).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStopIndex());
-				}
-				java.lang.String resolved = (java.lang.String)resolvedObject;
-				if (resolved != null) {
-					element.eSet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), resolved);
-					completedElement(resolved);
-				}
-				collectHiddenTokens(element);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a8, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_43, 71));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 71, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 71, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 71, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 71, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 71, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 71, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 71, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 71));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 71));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 71, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 71));
-	}
-	
-	(
-		(
-			a9 = '=' {
-				if (element == null) {
-					element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-				}
-				collectHiddenTokens(element);
-				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a9, element);
-			}
-			{
-				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_44, 72));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_42, 70));
 			}
 			
 			(
-				a10 = INTEGER				
+				a8 = INTEGER				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -2309,14 +2281,14 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 					if (element == null) {
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
 					}
-					if (a10 != null) {
+					if (a8 != null) {
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("INTEGER");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-						tokenResolver.resolve(a10.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), result);
+						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), result);
 						java.lang.Object resolvedObject = result.getResolvedToken();
 						if (resolvedObject == null) {
-							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a10).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a10).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a10).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a10).getStopIndex());
+							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a8).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStopIndex());
 						}
 						java.lang.String resolved = (java.lang.String)resolvedObject;
 						if (resolved != null) {
@@ -2324,40 +2296,40 @@ parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variab
 							completedElement(resolved);
 						}
 						collectHiddenTokens(element);
-						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a10, element);
+						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a8, element);
 					}
 				}
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 73, FEATURE_1));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 73, FEATURE_2));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 73, FEATURE_3));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 73, FEATURE_4));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 73, FEATURE_5));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 73, FEATURE_6));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 73, FEATURE_7));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 73));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 73));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 73, FEATURE_8));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 73));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 71, FEATURE_1));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 71, FEATURE_2));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 71, FEATURE_3));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 71, FEATURE_4));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 71, FEATURE_5));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 71, FEATURE_6));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 71, FEATURE_7));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 71));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 71));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 71, FEATURE_8));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 71));
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 74, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 74, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 74, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 74, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 74, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 74, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 74, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 74));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 74));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 74, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 74));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 72, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 72, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 72, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 72, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 72, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 72, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 72, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 72));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 72));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 72, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 72));
 	}
 	
 ;
@@ -2375,7 +2347,7 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_45, 75));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_43, 73));
 	}
 	
 	(
@@ -2408,7 +2380,7 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_46, 76));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_44, 74));
 	}
 	
 	(
@@ -2441,18 +2413,18 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_47, 77));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 77, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 77, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 77, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 77, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 77, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 77, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 77, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 77));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 77));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 77, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 77));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_45, 75));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 75, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 75, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 75, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 75, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 75, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 75, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 75, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 75));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 75));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 75, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 75));
 	}
 	
 	(
@@ -2466,11 +2438,11 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 78));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_46, 76));
 			}
 			
 			(
-				a4 = QUOTED_40_41				
+				a4 = IN_PARENS				
 				{
 					if (terminateParsing) {
 						throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
@@ -2479,7 +2451,7 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createResource();
 					}
 					if (a4 != null) {
-						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
 						tokenResolver.setOptions(getOptions());
 						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
 						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), result);
@@ -2499,34 +2471,34 @@ parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resour
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 79, FEATURE_1));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 79, FEATURE_2));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 79, FEATURE_3));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 79, FEATURE_4));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 79, FEATURE_5));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 79, FEATURE_6));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 79, FEATURE_7));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 79));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 79));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 79, FEATURE_8));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 79));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 77, FEATURE_1));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 77, FEATURE_2));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 77, FEATURE_3));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 77, FEATURE_4));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 77, FEATURE_5));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 77, FEATURE_6));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 77, FEATURE_7));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 77));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 77));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 77, FEATURE_8));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 77));
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 80, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 80, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 80, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 80, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 80, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 80, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 80, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 80));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 80));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 80, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 80));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 78, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 78, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 78, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 78, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 78, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 78, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 78, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 78));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 78));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 78, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 78));
 	}
 	
 ;
@@ -2544,8 +2516,8 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_49, 81));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 81));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_47, 79));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 79));
 	}
 	
 	(
@@ -2580,14 +2552,14 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 82));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 80));
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 83));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 81));
 	}
 	
 	(
@@ -2620,7 +2592,7 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_51, 84));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_49, 82));
 	}
 	
 	(
@@ -2653,18 +2625,18 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_52, 85));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 85, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 85, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 85, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 85, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 85, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 85, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 85, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 85));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 85));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 85, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 85));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 83));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 83, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 83, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 83, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 83, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 83, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 83, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 83, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 83));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 83));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 83, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 83));
 	}
 	
 	(
@@ -2678,7 +2650,7 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 			}
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_53, 86));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_51, 84));
 			}
 			
 			(
@@ -2711,34 +2683,34 @@ parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Consta
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 87, FEATURE_1));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 87, FEATURE_2));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 87, FEATURE_3));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 87, FEATURE_4));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 87, FEATURE_5));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 87, FEATURE_6));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 87, FEATURE_7));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 87));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 87));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 87, FEATURE_8));
-				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 87));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 85, FEATURE_1));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 85, FEATURE_2));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 85, FEATURE_3));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 85, FEATURE_4));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 85, FEATURE_5));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 85, FEATURE_6));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 85, FEATURE_7));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 85));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 85));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 85, FEATURE_8));
+				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 85));
 			}
 			
 		)
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 88, FEATURE_1));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 88, FEATURE_2));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 88, FEATURE_3));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 88, FEATURE_4));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 88, FEATURE_5));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 88, FEATURE_6));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 88, FEATURE_7));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 88));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 88));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 88, FEATURE_8));
-		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 88));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 86, FEATURE_1));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 86, FEATURE_2));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 86, FEATURE_3));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 86, FEATURE_4));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 86, FEATURE_5));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 86, FEATURE_6));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 86, FEATURE_7));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 86));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 86));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 86, FEATURE_8));
+		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 86));
 	}
 	
 ;
@@ -2772,8 +2744,14 @@ TYPE:
 ;
 ID:
 	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
-TEXT:
-	('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '-' )+	{ _channel = 99; }
+ARRAY_SIZE:
+	('[')(' ' | '\t' | '\f')*('1'..'9')('0'..'9')*(' ' | '\t' | '\f')*(']')
+;
+IN_BRACES:
+	('[')(~(']'))*(']')
+;
+IN_PARENS:
+	('\(')(~('\)'))*('\)')
 ;
 WHITESPACE:
 	(' ' | '\t' | '\f')
@@ -2782,11 +2760,5 @@ WHITESPACE:
 LINEBREAK:
 	('\r\n' | '\r' | '\n')
 	{ _channel = 99; }
-;
-QUOTED_40_41:
-	('(')(~(')'))*(')')
-;
-QUOTED_91_93:
-	('[')(~(']'))*(']')
 ;
 

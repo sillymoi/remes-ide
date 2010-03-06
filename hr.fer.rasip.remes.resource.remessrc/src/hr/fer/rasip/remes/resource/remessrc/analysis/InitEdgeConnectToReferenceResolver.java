@@ -76,8 +76,9 @@ public class InitEdgeConnectToReferenceResolver implements hr.fer.rasip.remes.re
 					ControlPath granny = (ControlPath) container.eContainer().eContainer(); // Edge->ExitPoint->ControlPath 
 					if(granny.eContainer() == ctrl) {
 						CompositeMode cm = (CompositeMode) ctrl;
-						//FIXME ugly hack
+						// We have a composite mode but no composite exit point (yet), so let's create it
 						if(cm.getCompositeExitPoint() == null) {
+							//System.out.println("Creating missing comp exit point for init edge");
 							cm.setCompositeExitPoint(RemesFactoryImpl.eINSTANCE.createCompositeExitPoint());
 						}
 						result.addMapping(identifier, cm.getCompositeExitPoint());
@@ -86,7 +87,8 @@ public class InitEdgeConnectToReferenceResolver implements hr.fer.rasip.remes.re
 				}
 				
 				if(ctrl.getEntryPoint() == null) {
-					//FIXME ugly hack
+					// Create the missing entry point to have a consistent model
+					//System.out.println("Creating missing entry point for init edge");
 					ctrl.setEntryPoint(RemesFactoryImpl.eINSTANCE.createEntryPoint());
 				}
 				result.addMapping(identifier, ctrl.getEntryPoint());

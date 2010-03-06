@@ -7,9 +7,9 @@ import org.antlr.runtime3_2_0.*;
 import java.util.HashMap;
 public class RemessrcParser extends RemessrcANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ID", "T_URGENT", "QUOTED_40_41", "QUOTED_91_93", "T_GLOBAL", "T_READABLE", "T_WRITEABLE", "TYPE", "INTEGER", "SL_COMMENT", "FLOAT", "TEXT", "WHITESPACE", "LINEBREAK", "'remes'", "'{'", "'}'", "'composite'", "'atomic'", "'invariant'", "'conditional'", "'init'", "'edges'", "'entry'", "'edge'", "'to'", "'var'", "'['", "']'", "'='", "'resource'", "':'", "'const'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ID", "T_URGENT", "IN_PARENS", "IN_BRACES", "T_GLOBAL", "T_READABLE", "T_WRITEABLE", "TYPE", "ARRAY_SIZE", "INTEGER", "SL_COMMENT", "FLOAT", "WHITESPACE", "LINEBREAK", "'remes'", "'{'", "'}'", "'composite'", "'atomic'", "'invariant'", "'conditional'", "'init'", "'edges'", "'entry'", "'edge'", "'to'", "'var'", "'='", "'resource'", "':'", "'const'"
     };
-    public static final int INTEGER=12;
+    public static final int INTEGER=13;
     public static final int T__29=29;
     public static final int T__28=28;
     public static final int T__27=27;
@@ -19,30 +19,28 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     public static final int T__23=23;
     public static final int T__22=22;
     public static final int T__21=21;
+    public static final int IN_PARENS=6;
     public static final int T__20=20;
     public static final int WHITESPACE=16;
-    public static final int FLOAT=14;
-    public static final int TEXT=15;
+    public static final int FLOAT=15;
     public static final int ID=4;
     public static final int EOF=-1;
     public static final int T_WRITEABLE=10;
     public static final int TYPE=11;
     public static final int T__19=19;
     public static final int T__30=30;
+    public static final int IN_BRACES=7;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__34=34;
-    public static final int T__35=35;
     public static final int T__18=18;
-    public static final int T__36=36;
     public static final int T_GLOBAL=8;
-    public static final int QUOTED_40_41=6;
-    public static final int SL_COMMENT=13;
+    public static final int SL_COMMENT=14;
     public static final int T_URGENT=5;
-    public static final int QUOTED_91_93=7;
     public static final int LINEBREAK=17;
     public static final int T_READABLE=9;
+    public static final int ARRAY_SIZE=12;
 
     // delegates
     // delegators
@@ -350,7 +348,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     				break;
     			}
     		}
-    		int followSetID = 89;
+    		int followSetID = 87;
     		int i;
     		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
     			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -539,7 +537,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_17 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), "invariant");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_18 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "edges");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_19 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), "}");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_20 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), "QUOTED_40_41");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_20 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getSubMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), "IN_PARENS");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_21 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONDITIONAL_CONNECTOR__NAME), "ID");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_22 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), "{");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_23 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConditionalConnector(), "}");
@@ -547,32 +545,30 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_25 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "{");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_26 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), "edge");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_27 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getExitPoint(), "}");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_28 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), "QUOTED_40_41");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_29 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), "QUOTED_91_93");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_28 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), "IN_PARENS");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_29 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), "IN_BRACES");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_30 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), "to");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_31 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__CONNECT_TO), "ID");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_32 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), "QUOTED_91_93");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_32 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), "IN_BRACES");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_33 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), "to");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_34 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getInitEdge().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__CONNECT_TO), "ID");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_35 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__GLOBAL), "T_GLOBAL");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_36 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__READABLE), "T_READABLE");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_37 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__WRITABLE), "T_WRITEABLE");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_38 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__TYPE), "TYPE");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_39 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "[");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_39 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), "ARRAY_SIZE");
     	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_40 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), "ID");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_41 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), "INTEGER");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_42 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "]");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_43 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "=");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_44 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), "INTEGER");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_45 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__TYPE), "TYPE");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_46 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__NAME), "ID");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_47 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), ":");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_48 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), "QUOTED_40_41");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_49 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__GLOBAL), "T_GLOBAL");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_50 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__TYPE), "TYPE");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_51 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__NAME), "ID");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_52 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), "=");
-    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_53 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__VALUE), "INTEGER");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_41 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), "=");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_42 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getVariable().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), "INTEGER");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_43 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__TYPE), "TYPE");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_44 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__NAME), "ID");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_45 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), ":");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_46 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getResource().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), "IN_PARENS");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_47 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__GLOBAL), "T_GLOBAL");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_48 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__TYPE), "TYPE");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_49 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__NAME), "ID");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_50 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedCsString(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), "=");
+    	private final static hr.fer.rasip.remes.resource.remessrc.IRemessrcExpectedElement TERMINAL_51 = new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedStructuralFeature(se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant(), se.mdh.progresside.remes.RemesPackage.eINSTANCE.getConstant().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.CONSTANT__VALUE), "INTEGER");
     	
     	private final static org.eclipse.emf.ecore.EStructuralFeature FEATURE_0 = se.mdh.progresside.remes.RemesPackage.eINSTANCE.getRemesDiagram().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.REMES_DIAGRAM__MODES);
     	private final static org.eclipse.emf.ecore.EStructuralFeature FEATURE_1 = se.mdh.progresside.remes.RemesPackage.eINSTANCE.getMode().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.MODE__VARIABLES);
@@ -681,10 +677,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     		TERMINAL_37.addFollower(TERMINAL_38, EMPTY_FEATURE_ARRAY);
     		TERMINAL_38.addFollower(TERMINAL_39, EMPTY_FEATURE_ARRAY);
     		TERMINAL_38.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_39.addFollower(TERMINAL_41, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_41.addFollower(TERMINAL_42, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_42.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_40.addFollower(TERMINAL_43, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_39.addFollower(TERMINAL_40, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_40.addFollower(TERMINAL_41, EMPTY_FEATURE_ARRAY);
     		TERMINAL_40.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
     		TERMINAL_40.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
     		TERMINAL_40.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -696,7 +690,21 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     		TERMINAL_40.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
     		TERMINAL_40.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
     		TERMINAL_40.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_41.addFollower(TERMINAL_42, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_42.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
+    		TERMINAL_42.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
+    		TERMINAL_42.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
+    		TERMINAL_42.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
+    		TERMINAL_42.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
+    		TERMINAL_42.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
+    		TERMINAL_42.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
+    		TERMINAL_42.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_42.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_42.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
+    		TERMINAL_42.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_8.addFollower(TERMINAL_43, EMPTY_FEATURE_ARRAY);
     		TERMINAL_43.addFollower(TERMINAL_44, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_44.addFollower(TERMINAL_45, EMPTY_FEATURE_ARRAY);
     		TERMINAL_44.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
     		TERMINAL_44.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
     		TERMINAL_44.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -708,9 +716,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     		TERMINAL_44.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
     		TERMINAL_44.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
     		TERMINAL_44.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_8.addFollower(TERMINAL_45, EMPTY_FEATURE_ARRAY);
     		TERMINAL_45.addFollower(TERMINAL_46, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_46.addFollower(TERMINAL_47, EMPTY_FEATURE_ARRAY);
     		TERMINAL_46.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
     		TERMINAL_46.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
     		TERMINAL_46.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -722,23 +728,23 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     		TERMINAL_46.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
     		TERMINAL_46.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
     		TERMINAL_46.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_9.addFollower(TERMINAL_47, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_9.addFollower(TERMINAL_48, EMPTY_FEATURE_ARRAY);
     		TERMINAL_47.addFollower(TERMINAL_48, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_48.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
-    		TERMINAL_48.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
-    		TERMINAL_48.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
-    		TERMINAL_48.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
-    		TERMINAL_48.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
-    		TERMINAL_48.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
-    		TERMINAL_48.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
-    		TERMINAL_48.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_48.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_48.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
-    		TERMINAL_48.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_9.addFollower(TERMINAL_49, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_9.addFollower(TERMINAL_50, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_48.addFollower(TERMINAL_49, EMPTY_FEATURE_ARRAY);
     		TERMINAL_49.addFollower(TERMINAL_50, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_49.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
+    		TERMINAL_49.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
+    		TERMINAL_49.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
+    		TERMINAL_49.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
+    		TERMINAL_49.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
+    		TERMINAL_49.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
+    		TERMINAL_49.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
+    		TERMINAL_49.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_49.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
+    		TERMINAL_49.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
+    		TERMINAL_49.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
     		TERMINAL_50.addFollower(TERMINAL_51, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_51.addFollower(TERMINAL_52, EMPTY_FEATURE_ARRAY);
     		TERMINAL_51.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
     		TERMINAL_51.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
     		TERMINAL_51.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
@@ -750,18 +756,6 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     		TERMINAL_51.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
     		TERMINAL_51.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
     		TERMINAL_51.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_52.addFollower(TERMINAL_53, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_53.addFollower(TERMINAL_7, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_1, });
-    		TERMINAL_53.addFollower(TERMINAL_8, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_2, });
-    		TERMINAL_53.addFollower(TERMINAL_9, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_3, });
-    		TERMINAL_53.addFollower(TERMINAL_3, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_4, });
-    		TERMINAL_53.addFollower(TERMINAL_10, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_5, });
-    		TERMINAL_53.addFollower(TERMINAL_11, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_6, });
-    		TERMINAL_53.addFollower(TERMINAL_12, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_7, });
-    		TERMINAL_53.addFollower(TERMINAL_13, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_53.addFollower(TERMINAL_17, EMPTY_FEATURE_ARRAY);
-    		TERMINAL_53.addFollower(TERMINAL_18, new org.eclipse.emf.ecore.EStructuralFeature[] {FEATURE_8, });
-    		TERMINAL_53.addFollower(TERMINAL_19, EMPTY_FEATURE_ARRAY);
     	}
     	// wire the terminals
     	static {
@@ -771,7 +765,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "start"
-    // Remessrc.g:733:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF ;
+    // Remessrc.g:729:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF ;
     public final org.eclipse.emf.ecore.EObject start() throws RecognitionException {
         org.eclipse.emf.ecore.EObject element =  null;
         int start_StartIndex = input.index();
@@ -780,8 +774,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return element; }
-            // Remessrc.g:734:1: ( (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF )
-            // Remessrc.g:735:2: (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF
+            // Remessrc.g:730:1: ( (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF )
+            // Remessrc.g:731:2: (c0= parse_se_mdh_progresside_remes_RemesDiagram ) EOF
             {
             if ( state.backtracking==0 ) {
 
@@ -790,8 +784,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		expectedElementsIndexOfLastCompleteElement = expectedElements.size() - 1;
               	
             }
-            // Remessrc.g:740:2: (c0= parse_se_mdh_progresside_remes_RemesDiagram )
-            // Remessrc.g:741:3: c0= parse_se_mdh_progresside_remes_RemesDiagram
+            // Remessrc.g:736:2: (c0= parse_se_mdh_progresside_remes_RemesDiagram )
+            // Remessrc.g:737:3: c0= parse_se_mdh_progresside_remes_RemesDiagram
             {
             pushFollow(FOLLOW_parse_se_mdh_progresside_remes_RemesDiagram_in_start82);
             c0=parse_se_mdh_progresside_remes_RemesDiagram();
@@ -822,7 +816,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_RemesDiagram"
-    // Remessrc.g:746:1: parse_se_mdh_progresside_remes_RemesDiagram returns [se.mdh.progresside.remes.RemesDiagram element = null] : a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}' ;
+    // Remessrc.g:742:1: parse_se_mdh_progresside_remes_RemesDiagram returns [se.mdh.progresside.remes.RemesDiagram element = null] : a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}' ;
     public final se.mdh.progresside.remes.RemesDiagram parse_se_mdh_progresside_remes_RemesDiagram() throws RecognitionException {
         se.mdh.progresside.remes.RemesDiagram element =  null;
         int parse_se_mdh_progresside_remes_RemesDiagram_StartIndex = input.index();
@@ -836,8 +830,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return element; }
-            // Remessrc.g:749:1: (a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}' )
-            // Remessrc.g:750:2: a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}'
+            // Remessrc.g:745:1: (a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}' )
+            // Remessrc.g:746:2: a0= 'remes' a1= '{' ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )* a3= '}'
             {
             a0=(Token)match(input,18,FOLLOW_18_in_parse_se_mdh_progresside_remes_RemesDiagram112); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -873,7 +867,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_4, 2));
               	
             }
-            // Remessrc.g:776:2: ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )*
+            // Remessrc.g:772:2: ( (a2_0= parse_se_mdh_progresside_remes_Mode ) )*
             loop1:
             do {
                 int alt1=2;
@@ -886,10 +880,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
                 switch (alt1) {
             	case 1 :
-            	    // Remessrc.g:777:3: (a2_0= parse_se_mdh_progresside_remes_Mode )
+            	    // Remessrc.g:773:3: (a2_0= parse_se_mdh_progresside_remes_Mode )
             	    {
-            	    // Remessrc.g:777:3: (a2_0= parse_se_mdh_progresside_remes_Mode )
-            	    // Remessrc.g:778:4: a2_0= parse_se_mdh_progresside_remes_Mode
+            	    // Remessrc.g:773:3: (a2_0= parse_se_mdh_progresside_remes_Mode )
+            	    // Remessrc.g:774:4: a2_0= parse_se_mdh_progresside_remes_Mode
             	    {
             	    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Mode_in_parse_se_mdh_progresside_remes_RemesDiagram149);
             	    a2_0=parse_se_mdh_progresside_remes_Mode();
@@ -965,7 +959,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_CompositeMode"
-    // Remessrc.g:815:1: parse_se_mdh_progresside_remes_CompositeMode returns [se.mdh.progresside.remes.CompositeMode element = null] : a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}' ;
+    // Remessrc.g:811:1: parse_se_mdh_progresside_remes_CompositeMode returns [se.mdh.progresside.remes.CompositeMode element = null] : a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}' ;
     public final se.mdh.progresside.remes.CompositeMode parse_se_mdh_progresside_remes_CompositeMode() throws RecognitionException {
         se.mdh.progresside.remes.CompositeMode element =  null;
         int parse_se_mdh_progresside_remes_CompositeMode_StartIndex = input.index();
@@ -992,8 +986,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return element; }
-            // Remessrc.g:818:1: (a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}' )
-            // Remessrc.g:819:2: a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}'
+            // Remessrc.g:814:1: (a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}' )
+            // Remessrc.g:815:2: a0= 'composite' (a1= ID ) a2= '{' ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )* a10= '}'
             {
             a0=(Token)match(input,21,FOLLOW_21_in_parse_se_mdh_progresside_remes_CompositeMode204); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1011,8 +1005,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_5, 5));
               	
             }
-            // Remessrc.g:831:2: (a1= ID )
-            // Remessrc.g:832:3: a1= ID
+            // Remessrc.g:827:2: (a1= ID )
+            // Remessrc.g:828:3: a1= ID
             {
             a1=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_CompositeMode222); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1074,22 +1068,22 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 7));
               	
             }
-            // Remessrc.g:883:2: ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )*
+            // Remessrc.g:879:2: ( ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) ) )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==30||LA3_0==34||LA3_0==36) ) {
+                if ( (LA3_0==30||LA3_0==32||LA3_0==34) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // Remessrc.g:884:3: ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) )
+            	    // Remessrc.g:880:3: ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) )
             	    {
-            	    // Remessrc.g:884:3: ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) )
+            	    // Remessrc.g:880:3: ( (a3_0= parse_se_mdh_progresside_remes_Variable ) | (a4_0= parse_se_mdh_progresside_remes_Resource ) | (a5_0= parse_se_mdh_progresside_remes_Constant ) )
             	    int alt2=3;
             	    switch ( input.LA(1) ) {
             	    case 30:
@@ -1097,12 +1091,12 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	        alt2=1;
             	        }
             	        break;
-            	    case 34:
+            	    case 32:
             	        {
             	        alt2=2;
             	        }
             	        break;
-            	    case 36:
+            	    case 34:
             	        {
             	        alt2=3;
             	        }
@@ -1117,10 +1111,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
             	    switch (alt2) {
             	        case 1 :
-            	            // Remessrc.g:885:4: (a3_0= parse_se_mdh_progresside_remes_Variable )
+            	            // Remessrc.g:881:4: (a3_0= parse_se_mdh_progresside_remes_Variable )
             	            {
-            	            // Remessrc.g:885:4: (a3_0= parse_se_mdh_progresside_remes_Variable )
-            	            // Remessrc.g:886:5: a3_0= parse_se_mdh_progresside_remes_Variable
+            	            // Remessrc.g:881:4: (a3_0= parse_se_mdh_progresside_remes_Variable )
+            	            // Remessrc.g:882:5: a3_0= parse_se_mdh_progresside_remes_Variable
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_CompositeMode272);
             	            a3_0=parse_se_mdh_progresside_remes_Variable();
@@ -1164,10 +1158,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 2 :
-            	            // Remessrc.g:915:8: (a4_0= parse_se_mdh_progresside_remes_Resource )
+            	            // Remessrc.g:911:8: (a4_0= parse_se_mdh_progresside_remes_Resource )
             	            {
-            	            // Remessrc.g:915:8: (a4_0= parse_se_mdh_progresside_remes_Resource )
-            	            // Remessrc.g:916:5: a4_0= parse_se_mdh_progresside_remes_Resource
+            	            // Remessrc.g:911:8: (a4_0= parse_se_mdh_progresside_remes_Resource )
+            	            // Remessrc.g:912:5: a4_0= parse_se_mdh_progresside_remes_Resource
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_CompositeMode314);
             	            a4_0=parse_se_mdh_progresside_remes_Resource();
@@ -1211,10 +1205,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 3 :
-            	            // Remessrc.g:945:8: (a5_0= parse_se_mdh_progresside_remes_Constant )
+            	            // Remessrc.g:941:8: (a5_0= parse_se_mdh_progresside_remes_Constant )
             	            {
-            	            // Remessrc.g:945:8: (a5_0= parse_se_mdh_progresside_remes_Constant )
-            	            // Remessrc.g:946:5: a5_0= parse_se_mdh_progresside_remes_Constant
+            	            // Remessrc.g:941:8: (a5_0= parse_se_mdh_progresside_remes_Constant )
+            	            // Remessrc.g:942:5: a5_0= parse_se_mdh_progresside_remes_Constant
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_CompositeMode356);
             	            a5_0=parse_se_mdh_progresside_remes_Constant();
@@ -1282,7 +1276,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 11));
               	
             }
-            // Remessrc.g:988:2: ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )*
+            // Remessrc.g:984:2: ( ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -1295,9 +1289,9 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
                 switch (alt5) {
             	case 1 :
-            	    // Remessrc.g:989:3: ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) )
+            	    // Remessrc.g:985:3: ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) )
             	    {
-            	    // Remessrc.g:989:3: ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) )
+            	    // Remessrc.g:985:3: ( (a6_0= parse_se_mdh_progresside_remes_SubMode ) | (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector ) | (a8_0= parse_se_mdh_progresside_remes_InitPoint ) | (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint ) )
             	    int alt4=4;
             	    switch ( input.LA(1) ) {
             	    case 22:
@@ -1330,10 +1324,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
             	    switch (alt4) {
             	        case 1 :
-            	            // Remessrc.g:990:4: (a6_0= parse_se_mdh_progresside_remes_SubMode )
+            	            // Remessrc.g:986:4: (a6_0= parse_se_mdh_progresside_remes_SubMode )
             	            {
-            	            // Remessrc.g:990:4: (a6_0= parse_se_mdh_progresside_remes_SubMode )
-            	            // Remessrc.g:991:5: a6_0= parse_se_mdh_progresside_remes_SubMode
+            	            // Remessrc.g:986:4: (a6_0= parse_se_mdh_progresside_remes_SubMode )
+            	            // Remessrc.g:987:5: a6_0= parse_se_mdh_progresside_remes_SubMode
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_CompositeMode412);
             	            a6_0=parse_se_mdh_progresside_remes_SubMode();
@@ -1374,10 +1368,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 2 :
-            	            // Remessrc.g:1017:8: (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector )
+            	            // Remessrc.g:1013:8: (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector )
             	            {
-            	            // Remessrc.g:1017:8: (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector )
-            	            // Remessrc.g:1018:5: a7_0= parse_se_mdh_progresside_remes_ConditionalConnector
+            	            // Remessrc.g:1013:8: (a7_0= parse_se_mdh_progresside_remes_ConditionalConnector )
+            	            // Remessrc.g:1014:5: a7_0= parse_se_mdh_progresside_remes_ConditionalConnector
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_ConditionalConnector_in_parse_se_mdh_progresside_remes_CompositeMode454);
             	            a7_0=parse_se_mdh_progresside_remes_ConditionalConnector();
@@ -1418,10 +1412,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 3 :
-            	            // Remessrc.g:1044:8: (a8_0= parse_se_mdh_progresside_remes_InitPoint )
+            	            // Remessrc.g:1040:8: (a8_0= parse_se_mdh_progresside_remes_InitPoint )
             	            {
-            	            // Remessrc.g:1044:8: (a8_0= parse_se_mdh_progresside_remes_InitPoint )
-            	            // Remessrc.g:1045:5: a8_0= parse_se_mdh_progresside_remes_InitPoint
+            	            // Remessrc.g:1040:8: (a8_0= parse_se_mdh_progresside_remes_InitPoint )
+            	            // Remessrc.g:1041:5: a8_0= parse_se_mdh_progresside_remes_InitPoint
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_InitPoint_in_parse_se_mdh_progresside_remes_CompositeMode496);
             	            a8_0=parse_se_mdh_progresside_remes_InitPoint();
@@ -1462,10 +1456,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 4 :
-            	            // Remessrc.g:1071:8: (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
+            	            // Remessrc.g:1067:8: (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
             	            {
-            	            // Remessrc.g:1071:8: (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
-            	            // Remessrc.g:1072:5: a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint
+            	            // Remessrc.g:1067:8: (a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
+            	            // Remessrc.g:1068:5: a9_0= parse_se_mdh_progresside_remes_CompositeEntryPoint
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_CompositeEntryPoint_in_parse_se_mdh_progresside_remes_CompositeMode538);
             	            a9_0=parse_se_mdh_progresside_remes_CompositeEntryPoint();
@@ -1562,7 +1556,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_SubMode"
-    // Remessrc.g:1124:1: parse_se_mdh_progresside_remes_SubMode returns [se.mdh.progresside.remes.SubMode element = null] : a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= QUOTED_40_41 ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}' ;
+    // Remessrc.g:1120:1: parse_se_mdh_progresside_remes_SubMode returns [se.mdh.progresside.remes.SubMode element = null] : a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= IN_PARENS ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}' ;
     public final se.mdh.progresside.remes.SubMode parse_se_mdh_progresside_remes_SubMode() throws RecognitionException {
         se.mdh.progresside.remes.SubMode element =  null;
         int parse_se_mdh_progresside_remes_SubMode_StartIndex = input.index();
@@ -1586,8 +1580,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return element; }
-            // Remessrc.g:1127:1: (a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= QUOTED_40_41 ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}' )
-            // Remessrc.g:1128:2: a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= QUOTED_40_41 ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}'
+            // Remessrc.g:1123:1: (a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= IN_PARENS ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}' )
+            // Remessrc.g:1124:2: a0= 'atomic' ( ( (a1= T_URGENT ) ) )? (a2= ID ) a3= '{' ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )* ( (a7= 'invariant' (a8= IN_PARENS ) ) )? ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )? a10= '}'
             {
             a0=(Token)match(input,22,FOLLOW_22_in_parse_se_mdh_progresside_remes_SubMode608); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1606,7 +1600,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_15, 18));
               	
             }
-            // Remessrc.g:1141:2: ( ( (a1= T_URGENT ) ) )?
+            // Remessrc.g:1137:2: ( ( (a1= T_URGENT ) ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1615,13 +1609,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt6) {
                 case 1 :
-                    // Remessrc.g:1142:3: ( (a1= T_URGENT ) )
+                    // Remessrc.g:1138:3: ( (a1= T_URGENT ) )
                     {
-                    // Remessrc.g:1142:3: ( (a1= T_URGENT ) )
-                    // Remessrc.g:1143:4: (a1= T_URGENT )
+                    // Remessrc.g:1138:3: ( (a1= T_URGENT ) )
+                    // Remessrc.g:1139:4: (a1= T_URGENT )
                     {
-                    // Remessrc.g:1143:4: (a1= T_URGENT )
-                    // Remessrc.g:1144:5: a1= T_URGENT
+                    // Remessrc.g:1139:4: (a1= T_URGENT )
+                    // Remessrc.g:1140:5: a1= T_URGENT
                     {
                     a1=(Token)match(input,T_URGENT,FOLLOW_T_URGENT_in_parse_se_mdh_progresside_remes_SubMode637); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -1675,8 +1669,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_15, 20));
               	
             }
-            // Remessrc.g:1183:2: (a2= ID )
-            // Remessrc.g:1184:3: a2= ID
+            // Remessrc.g:1179:2: (a2= ID )
+            // Remessrc.g:1180:3: a2= ID
             {
             a2=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_SubMode687); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1737,22 +1731,22 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 22));
               	
             }
-            // Remessrc.g:1234:2: ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )*
+            // Remessrc.g:1230:2: ( ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) ) )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==30||LA8_0==34||LA8_0==36) ) {
+                if ( (LA8_0==30||LA8_0==32||LA8_0==34) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // Remessrc.g:1235:3: ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) )
+            	    // Remessrc.g:1231:3: ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) )
             	    {
-            	    // Remessrc.g:1235:3: ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) )
+            	    // Remessrc.g:1231:3: ( (a4_0= parse_se_mdh_progresside_remes_Variable ) | (a5_0= parse_se_mdh_progresside_remes_Resource ) | (a6_0= parse_se_mdh_progresside_remes_Constant ) )
             	    int alt7=3;
             	    switch ( input.LA(1) ) {
             	    case 30:
@@ -1760,12 +1754,12 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	        alt7=1;
             	        }
             	        break;
-            	    case 34:
+            	    case 32:
             	        {
             	        alt7=2;
             	        }
             	        break;
-            	    case 36:
+            	    case 34:
             	        {
             	        alt7=3;
             	        }
@@ -1780,10 +1774,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
             	    switch (alt7) {
             	        case 1 :
-            	            // Remessrc.g:1236:4: (a4_0= parse_se_mdh_progresside_remes_Variable )
+            	            // Remessrc.g:1232:4: (a4_0= parse_se_mdh_progresside_remes_Variable )
             	            {
-            	            // Remessrc.g:1236:4: (a4_0= parse_se_mdh_progresside_remes_Variable )
-            	            // Remessrc.g:1237:5: a4_0= parse_se_mdh_progresside_remes_Variable
+            	            // Remessrc.g:1232:4: (a4_0= parse_se_mdh_progresside_remes_Variable )
+            	            // Remessrc.g:1233:5: a4_0= parse_se_mdh_progresside_remes_Variable
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_SubMode737);
             	            a4_0=parse_se_mdh_progresside_remes_Variable();
@@ -1826,10 +1820,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 2 :
-            	            // Remessrc.g:1265:8: (a5_0= parse_se_mdh_progresside_remes_Resource )
+            	            // Remessrc.g:1261:8: (a5_0= parse_se_mdh_progresside_remes_Resource )
             	            {
-            	            // Remessrc.g:1265:8: (a5_0= parse_se_mdh_progresside_remes_Resource )
-            	            // Remessrc.g:1266:5: a5_0= parse_se_mdh_progresside_remes_Resource
+            	            // Remessrc.g:1261:8: (a5_0= parse_se_mdh_progresside_remes_Resource )
+            	            // Remessrc.g:1262:5: a5_0= parse_se_mdh_progresside_remes_Resource
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_SubMode779);
             	            a5_0=parse_se_mdh_progresside_remes_Resource();
@@ -1872,10 +1866,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             	            }
             	            break;
             	        case 3 :
-            	            // Remessrc.g:1294:8: (a6_0= parse_se_mdh_progresside_remes_Constant )
+            	            // Remessrc.g:1290:8: (a6_0= parse_se_mdh_progresside_remes_Constant )
             	            {
-            	            // Remessrc.g:1294:8: (a6_0= parse_se_mdh_progresside_remes_Constant )
-            	            // Remessrc.g:1295:5: a6_0= parse_se_mdh_progresside_remes_Constant
+            	            // Remessrc.g:1290:8: (a6_0= parse_se_mdh_progresside_remes_Constant )
+            	            // Remessrc.g:1291:5: a6_0= parse_se_mdh_progresside_remes_Constant
             	            {
             	            pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_SubMode821);
             	            a6_0=parse_se_mdh_progresside_remes_Constant();
@@ -1941,7 +1935,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 26));
               	
             }
-            // Remessrc.g:1335:2: ( (a7= 'invariant' (a8= QUOTED_40_41 ) ) )?
+            // Remessrc.g:1331:2: ( (a7= 'invariant' (a8= IN_PARENS ) ) )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1950,10 +1944,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt9) {
                 case 1 :
-                    // Remessrc.g:1336:3: (a7= 'invariant' (a8= QUOTED_40_41 ) )
+                    // Remessrc.g:1332:3: (a7= 'invariant' (a8= IN_PARENS ) )
                     {
-                    // Remessrc.g:1336:3: (a7= 'invariant' (a8= QUOTED_40_41 ) )
-                    // Remessrc.g:1337:4: a7= 'invariant' (a8= QUOTED_40_41 )
+                    // Remessrc.g:1332:3: (a7= 'invariant' (a8= IN_PARENS ) )
+                    // Remessrc.g:1333:4: a7= 'invariant' (a8= IN_PARENS )
                     {
                     a7=(Token)match(input,23,FOLLOW_23_in_parse_se_mdh_progresside_remes_SubMode871); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -1971,10 +1965,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_20, 27));
                       			
                     }
-                    // Remessrc.g:1349:4: (a8= QUOTED_40_41 )
-                    // Remessrc.g:1350:5: a8= QUOTED_40_41
+                    // Remessrc.g:1345:4: (a8= IN_PARENS )
+                    // Remessrc.g:1346:5: a8= IN_PARENS
                     {
-                    a8=(Token)match(input,QUOTED_40_41,FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_SubMode897); if (state.failed) return element;
+                    a8=(Token)match(input,IN_PARENS,FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_SubMode897); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -1984,7 +1978,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createSubMode();
                       					}
                       					if (a8 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
                       						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.SUB_MODE__INVARIANT), result);
@@ -2030,7 +2024,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 29));
               	
             }
-            // Remessrc.g:1393:2: ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )?
+            // Remessrc.g:1389:2: ( ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2039,13 +2033,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt10) {
                 case 1 :
-                    // Remessrc.g:1394:3: ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) )
+                    // Remessrc.g:1390:3: ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) )
                     {
-                    // Remessrc.g:1394:3: ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) )
-                    // Remessrc.g:1395:4: (a9_0= parse_se_mdh_progresside_remes_ExitPoint )
+                    // Remessrc.g:1390:3: ( (a9_0= parse_se_mdh_progresside_remes_ExitPoint ) )
+                    // Remessrc.g:1391:4: (a9_0= parse_se_mdh_progresside_remes_ExitPoint )
                     {
-                    // Remessrc.g:1395:4: (a9_0= parse_se_mdh_progresside_remes_ExitPoint )
-                    // Remessrc.g:1396:5: a9_0= parse_se_mdh_progresside_remes_ExitPoint
+                    // Remessrc.g:1391:4: (a9_0= parse_se_mdh_progresside_remes_ExitPoint )
+                    // Remessrc.g:1392:5: a9_0= parse_se_mdh_progresside_remes_ExitPoint
                     {
                     pushFollow(FOLLOW_parse_se_mdh_progresside_remes_ExitPoint_in_parse_se_mdh_progresside_remes_SubMode958);
                     a9_0=parse_se_mdh_progresside_remes_ExitPoint();
@@ -2132,7 +2126,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_ConditionalConnector"
-    // Remessrc.g:1444:1: parse_se_mdh_progresside_remes_ConditionalConnector returns [se.mdh.progresside.remes.ConditionalConnector element = null] : a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}' ;
+    // Remessrc.g:1440:1: parse_se_mdh_progresside_remes_ConditionalConnector returns [se.mdh.progresside.remes.ConditionalConnector element = null] : a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}' ;
     public final se.mdh.progresside.remes.ConditionalConnector parse_se_mdh_progresside_remes_ConditionalConnector() throws RecognitionException {
         se.mdh.progresside.remes.ConditionalConnector element =  null;
         int parse_se_mdh_progresside_remes_ConditionalConnector_StartIndex = input.index();
@@ -2147,8 +2141,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
-            // Remessrc.g:1447:1: (a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}' )
-            // Remessrc.g:1448:2: a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}'
+            // Remessrc.g:1443:1: (a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}' )
+            // Remessrc.g:1444:2: a0= 'conditional' (a1= ID ) a2= '{' (a3_0= parse_se_mdh_progresside_remes_ExitPoint ) a4= '}'
             {
             a0=(Token)match(input,24,FOLLOW_24_in_parse_se_mdh_progresside_remes_ConditionalConnector1028); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2166,8 +2160,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_21, 33));
               	
             }
-            // Remessrc.g:1460:2: (a1= ID )
-            // Remessrc.g:1461:3: a1= ID
+            // Remessrc.g:1456:2: (a1= ID )
+            // Remessrc.g:1457:3: a1= ID
             {
             a1=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_ConditionalConnector1046); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2223,8 +2217,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 35, FEATURE_8));
               	
             }
-            // Remessrc.g:1506:2: (a3_0= parse_se_mdh_progresside_remes_ExitPoint )
-            // Remessrc.g:1507:3: a3_0= parse_se_mdh_progresside_remes_ExitPoint
+            // Remessrc.g:1502:2: (a3_0= parse_se_mdh_progresside_remes_ExitPoint )
+            // Remessrc.g:1503:3: a3_0= parse_se_mdh_progresside_remes_ExitPoint
             {
             pushFollow(FOLLOW_parse_se_mdh_progresside_remes_ExitPoint_in_parse_se_mdh_progresside_remes_ConditionalConnector1085);
             a3_0=parse_se_mdh_progresside_remes_ExitPoint();
@@ -2294,7 +2288,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_InitPoint"
-    // Remessrc.g:1546:1: parse_se_mdh_progresside_remes_InitPoint returns [se.mdh.progresside.remes.InitPoint element = null] : a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge ) ;
+    // Remessrc.g:1542:1: parse_se_mdh_progresside_remes_InitPoint returns [se.mdh.progresside.remes.InitPoint element = null] : a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge ) ;
     public final se.mdh.progresside.remes.InitPoint parse_se_mdh_progresside_remes_InitPoint() throws RecognitionException {
         se.mdh.progresside.remes.InitPoint element =  null;
         int parse_se_mdh_progresside_remes_InitPoint_StartIndex = input.index();
@@ -2306,8 +2300,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
-            // Remessrc.g:1549:1: (a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge ) )
-            // Remessrc.g:1550:2: a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge )
+            // Remessrc.g:1545:1: (a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge ) )
+            // Remessrc.g:1546:2: a0= 'init' (a1_0= parse_se_mdh_progresside_remes_InitEdge )
             {
             a0=(Token)match(input,25,FOLLOW_25_in_parse_se_mdh_progresside_remes_InitPoint1132); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2325,8 +2319,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_24, 38, FEATURE_9));
               	
             }
-            // Remessrc.g:1562:2: (a1_0= parse_se_mdh_progresside_remes_InitEdge )
-            // Remessrc.g:1563:3: a1_0= parse_se_mdh_progresside_remes_InitEdge
+            // Remessrc.g:1558:2: (a1_0= parse_se_mdh_progresside_remes_InitEdge )
+            // Remessrc.g:1559:3: a1_0= parse_se_mdh_progresside_remes_InitEdge
             {
             pushFollow(FOLLOW_parse_se_mdh_progresside_remes_InitEdge_in_parse_se_mdh_progresside_remes_InitPoint1150);
             a1_0=parse_se_mdh_progresside_remes_InitEdge();
@@ -2380,7 +2374,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_ExitPoint"
-    // Remessrc.g:1590:1: parse_se_mdh_progresside_remes_ExitPoint returns [se.mdh.progresside.remes.ExitPoint element = null] : (a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}' | c0= parse_se_mdh_progresside_remes_CompositeEntryPoint );
+    // Remessrc.g:1586:1: parse_se_mdh_progresside_remes_ExitPoint returns [se.mdh.progresside.remes.ExitPoint element = null] : (a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}' | c0= parse_se_mdh_progresside_remes_CompositeEntryPoint );
     public final se.mdh.progresside.remes.ExitPoint parse_se_mdh_progresside_remes_ExitPoint() throws RecognitionException {
         se.mdh.progresside.remes.ExitPoint element =  null;
         int parse_se_mdh_progresside_remes_ExitPoint_StartIndex = input.index();
@@ -2396,7 +2390,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
-            // Remessrc.g:1593:1: (a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}' | c0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
+            // Remessrc.g:1589:1: (a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}' | c0= parse_se_mdh_progresside_remes_CompositeEntryPoint )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2415,7 +2409,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt12) {
                 case 1 :
-                    // Remessrc.g:1594:2: a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}'
+                    // Remessrc.g:1590:2: a0= 'edges' a1= '{' ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )* a3= '}'
                     {
                     a0=(Token)match(input,26,FOLLOW_26_in_parse_se_mdh_progresside_remes_ExitPoint1183); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -2450,7 +2444,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_27, 41));
                       	
                     }
-                    // Remessrc.g:1619:2: ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )*
+                    // Remessrc.g:1615:2: ( ( (a2_0= parse_se_mdh_progresside_remes_Edge ) ) )*
                     loop11:
                     do {
                         int alt11=2;
@@ -2463,13 +2457,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // Remessrc.g:1620:3: ( (a2_0= parse_se_mdh_progresside_remes_Edge ) )
+                    	    // Remessrc.g:1616:3: ( (a2_0= parse_se_mdh_progresside_remes_Edge ) )
                     	    {
-                    	    // Remessrc.g:1620:3: ( (a2_0= parse_se_mdh_progresside_remes_Edge ) )
-                    	    // Remessrc.g:1621:4: (a2_0= parse_se_mdh_progresside_remes_Edge )
+                    	    // Remessrc.g:1616:3: ( (a2_0= parse_se_mdh_progresside_remes_Edge ) )
+                    	    // Remessrc.g:1617:4: (a2_0= parse_se_mdh_progresside_remes_Edge )
                     	    {
-                    	    // Remessrc.g:1621:4: (a2_0= parse_se_mdh_progresside_remes_Edge )
-                    	    // Remessrc.g:1622:5: a2_0= parse_se_mdh_progresside_remes_Edge
+                    	    // Remessrc.g:1617:4: (a2_0= parse_se_mdh_progresside_remes_Edge )
+                    	    // Remessrc.g:1618:5: a2_0= parse_se_mdh_progresside_remes_Edge
                     	    {
                     	    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Edge_in_parse_se_mdh_progresside_remes_ExitPoint1226);
                     	    a2_0=parse_se_mdh_progresside_remes_Edge();
@@ -2543,7 +2537,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Remessrc.g:1667:2: c0= parse_se_mdh_progresside_remes_CompositeEntryPoint
+                    // Remessrc.g:1663:2: c0= parse_se_mdh_progresside_remes_CompositeEntryPoint
                     {
                     pushFollow(FOLLOW_parse_se_mdh_progresside_remes_CompositeEntryPoint_in_parse_se_mdh_progresside_remes_ExitPoint1286);
                     c0=parse_se_mdh_progresside_remes_CompositeEntryPoint();
@@ -2572,7 +2566,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_CompositeEntryPoint"
-    // Remessrc.g:1671:1: parse_se_mdh_progresside_remes_CompositeEntryPoint returns [se.mdh.progresside.remes.CompositeEntryPoint element = null] : a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge ) ;
+    // Remessrc.g:1667:1: parse_se_mdh_progresside_remes_CompositeEntryPoint returns [se.mdh.progresside.remes.CompositeEntryPoint element = null] : a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge ) ;
     public final se.mdh.progresside.remes.CompositeEntryPoint parse_se_mdh_progresside_remes_CompositeEntryPoint() throws RecognitionException {
         se.mdh.progresside.remes.CompositeEntryPoint element =  null;
         int parse_se_mdh_progresside_remes_CompositeEntryPoint_StartIndex = input.index();
@@ -2584,8 +2578,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return element; }
-            // Remessrc.g:1674:1: (a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge ) )
-            // Remessrc.g:1675:2: a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge )
+            // Remessrc.g:1670:1: (a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge ) )
+            // Remessrc.g:1671:2: a0= 'entry' (a1_0= parse_se_mdh_progresside_remes_Edge )
             {
             a0=(Token)match(input,27,FOLLOW_27_in_parse_se_mdh_progresside_remes_CompositeEntryPoint1311); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2603,8 +2597,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_26, 45, FEATURE_10));
               	
             }
-            // Remessrc.g:1687:2: (a1_0= parse_se_mdh_progresside_remes_Edge )
-            // Remessrc.g:1688:3: a1_0= parse_se_mdh_progresside_remes_Edge
+            // Remessrc.g:1683:2: (a1_0= parse_se_mdh_progresside_remes_Edge )
+            // Remessrc.g:1684:3: a1_0= parse_se_mdh_progresside_remes_Edge
             {
             pushFollow(FOLLOW_parse_se_mdh_progresside_remes_Edge_in_parse_se_mdh_progresside_remes_CompositeEntryPoint1329);
             a1_0=parse_se_mdh_progresside_remes_Edge();
@@ -2660,7 +2654,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_Edge"
-    // Remessrc.g:1717:1: parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge element = null] : a0= 'edge' ( ( (a1= QUOTED_40_41 ) ) )? ( ( (a2= QUOTED_91_93 ) ) )? a3= 'to' (a4= ID ) ;
+    // Remessrc.g:1713:1: parse_se_mdh_progresside_remes_Edge returns [se.mdh.progresside.remes.Edge element = null] : a0= 'edge' ( ( (a1= IN_PARENS ) ) )? ( ( (a2= IN_BRACES ) ) )? a3= 'to' (a4= ID ) ;
     public final se.mdh.progresside.remes.Edge parse_se_mdh_progresside_remes_Edge() throws RecognitionException {
         se.mdh.progresside.remes.Edge element =  null;
         int parse_se_mdh_progresside_remes_Edge_StartIndex = input.index();
@@ -2674,8 +2668,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
-            // Remessrc.g:1720:1: (a0= 'edge' ( ( (a1= QUOTED_40_41 ) ) )? ( ( (a2= QUOTED_91_93 ) ) )? a3= 'to' (a4= ID ) )
-            // Remessrc.g:1721:2: a0= 'edge' ( ( (a1= QUOTED_40_41 ) ) )? ( ( (a2= QUOTED_91_93 ) ) )? a3= 'to' (a4= ID )
+            // Remessrc.g:1716:1: (a0= 'edge' ( ( (a1= IN_PARENS ) ) )? ( ( (a2= IN_BRACES ) ) )? a3= 'to' (a4= ID ) )
+            // Remessrc.g:1717:2: a0= 'edge' ( ( (a1= IN_PARENS ) ) )? ( ( (a2= IN_BRACES ) ) )? a3= 'to' (a4= ID )
             {
             a0=(Token)match(input,28,FOLLOW_28_in_parse_se_mdh_progresside_remes_Edge1362); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2695,24 +2689,24 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_30, 47));
               	
             }
-            // Remessrc.g:1735:2: ( ( (a1= QUOTED_40_41 ) ) )?
+            // Remessrc.g:1731:2: ( ( (a1= IN_PARENS ) ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==QUOTED_40_41) ) {
+            if ( (LA13_0==IN_PARENS) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // Remessrc.g:1736:3: ( (a1= QUOTED_40_41 ) )
+                    // Remessrc.g:1732:3: ( (a1= IN_PARENS ) )
                     {
-                    // Remessrc.g:1736:3: ( (a1= QUOTED_40_41 ) )
-                    // Remessrc.g:1737:4: (a1= QUOTED_40_41 )
+                    // Remessrc.g:1732:3: ( (a1= IN_PARENS ) )
+                    // Remessrc.g:1733:4: (a1= IN_PARENS )
                     {
-                    // Remessrc.g:1737:4: (a1= QUOTED_40_41 )
-                    // Remessrc.g:1738:5: a1= QUOTED_40_41
+                    // Remessrc.g:1733:4: (a1= IN_PARENS )
+                    // Remessrc.g:1734:5: a1= IN_PARENS
                     {
-                    a1=(Token)match(input,QUOTED_40_41,FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_Edge1391); if (state.failed) return element;
+                    a1=(Token)match(input,IN_PARENS,FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_Edge1391); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -2722,7 +2716,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createEdge();
                       					}
                       					if (a1 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
                       						tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_GUARD), result);
@@ -2766,24 +2760,24 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_30, 49));
               	
             }
-            // Remessrc.g:1779:2: ( ( (a2= QUOTED_91_93 ) ) )?
+            // Remessrc.g:1775:2: ( ( (a2= IN_BRACES ) ) )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==QUOTED_91_93) ) {
+            if ( (LA14_0==IN_BRACES) ) {
                 alt14=1;
             }
             switch (alt14) {
                 case 1 :
-                    // Remessrc.g:1780:3: ( (a2= QUOTED_91_93 ) )
+                    // Remessrc.g:1776:3: ( (a2= IN_BRACES ) )
                     {
-                    // Remessrc.g:1780:3: ( (a2= QUOTED_91_93 ) )
-                    // Remessrc.g:1781:4: (a2= QUOTED_91_93 )
+                    // Remessrc.g:1776:3: ( (a2= IN_BRACES ) )
+                    // Remessrc.g:1777:4: (a2= IN_BRACES )
                     {
-                    // Remessrc.g:1781:4: (a2= QUOTED_91_93 )
-                    // Remessrc.g:1782:5: a2= QUOTED_91_93
+                    // Remessrc.g:1777:4: (a2= IN_BRACES )
+                    // Remessrc.g:1778:5: a2= IN_BRACES
                     {
-                    a2=(Token)match(input,QUOTED_91_93,FOLLOW_QUOTED_91_93_in_parse_se_mdh_progresside_remes_Edge1452); if (state.failed) return element;
+                    a2=(Token)match(input,IN_BRACES,FOLLOW_IN_BRACES_in_parse_se_mdh_progresside_remes_Edge1452); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -2793,7 +2787,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createEdge();
                       					}
                       					if (a2 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
                       						tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.EDGE__ACTION_BODY), result);
@@ -2851,8 +2845,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_31, 52));
               	
             }
-            // Remessrc.g:1833:2: (a4= ID )
-            // Remessrc.g:1834:3: a4= ID
+            // Remessrc.g:1829:2: (a4= ID )
+            // Remessrc.g:1830:3: a4= ID
             {
             a4=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Edge1516); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2920,7 +2914,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_InitEdge"
-    // Remessrc.g:1880:1: parse_se_mdh_progresside_remes_InitEdge returns [se.mdh.progresside.remes.InitEdge element = null] : a0= 'edge' ( ( (a1= QUOTED_91_93 ) ) )? a2= 'to' (a3= ID ) ;
+    // Remessrc.g:1876:1: parse_se_mdh_progresside_remes_InitEdge returns [se.mdh.progresside.remes.InitEdge element = null] : a0= 'edge' ( ( (a1= IN_BRACES ) ) )? a2= 'to' (a3= ID ) ;
     public final se.mdh.progresside.remes.InitEdge parse_se_mdh_progresside_remes_InitEdge() throws RecognitionException {
         se.mdh.progresside.remes.InitEdge element =  null;
         int parse_se_mdh_progresside_remes_InitEdge_StartIndex = input.index();
@@ -2933,8 +2927,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
-            // Remessrc.g:1883:1: (a0= 'edge' ( ( (a1= QUOTED_91_93 ) ) )? a2= 'to' (a3= ID ) )
-            // Remessrc.g:1884:2: a0= 'edge' ( ( (a1= QUOTED_91_93 ) ) )? a2= 'to' (a3= ID )
+            // Remessrc.g:1879:1: (a0= 'edge' ( ( (a1= IN_BRACES ) ) )? a2= 'to' (a3= ID ) )
+            // Remessrc.g:1880:2: a0= 'edge' ( ( (a1= IN_BRACES ) ) )? a2= 'to' (a3= ID )
             {
             a0=(Token)match(input,28,FOLLOW_28_in_parse_se_mdh_progresside_remes_InitEdge1552); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -2953,24 +2947,24 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_33, 54));
               	
             }
-            // Remessrc.g:1897:2: ( ( (a1= QUOTED_91_93 ) ) )?
+            // Remessrc.g:1893:2: ( ( (a1= IN_BRACES ) ) )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==QUOTED_91_93) ) {
+            if ( (LA15_0==IN_BRACES) ) {
                 alt15=1;
             }
             switch (alt15) {
                 case 1 :
-                    // Remessrc.g:1898:3: ( (a1= QUOTED_91_93 ) )
+                    // Remessrc.g:1894:3: ( (a1= IN_BRACES ) )
                     {
-                    // Remessrc.g:1898:3: ( (a1= QUOTED_91_93 ) )
-                    // Remessrc.g:1899:4: (a1= QUOTED_91_93 )
+                    // Remessrc.g:1894:3: ( (a1= IN_BRACES ) )
+                    // Remessrc.g:1895:4: (a1= IN_BRACES )
                     {
-                    // Remessrc.g:1899:4: (a1= QUOTED_91_93 )
-                    // Remessrc.g:1900:5: a1= QUOTED_91_93
+                    // Remessrc.g:1895:4: (a1= IN_BRACES )
+                    // Remessrc.g:1896:5: a1= IN_BRACES
                     {
-                    a1=(Token)match(input,QUOTED_91_93,FOLLOW_QUOTED_91_93_in_parse_se_mdh_progresside_remes_InitEdge1581); if (state.failed) return element;
+                    a1=(Token)match(input,IN_BRACES,FOLLOW_IN_BRACES_in_parse_se_mdh_progresside_remes_InitEdge1581); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -2980,7 +2974,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createInitEdge();
                       					}
                       					if (a1 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_91_93");
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_BRACES");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
                       						tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.INIT_EDGE__INITIALIZATION), result);
@@ -3038,8 +3032,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_34, 57));
               	
             }
-            // Remessrc.g:1951:2: (a3= ID )
-            // Remessrc.g:1952:3: a3= ID
+            // Remessrc.g:1947:2: (a3= ID )
+            // Remessrc.g:1948:3: a3= ID
             {
             a3=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_InitEdge1645); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -3103,7 +3097,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_Variable"
-    // Remessrc.g:1994:1: parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variable element = null] : a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( (a5= '[' (a6= INTEGER ) a7= ']' ) )? (a8= ID ) ( (a9= '=' (a10= INTEGER ) ) )? ;
+    // Remessrc.g:1990:1: parse_se_mdh_progresside_remes_Variable returns [se.mdh.progresside.remes.Variable element = null] : a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( ( (a5= ARRAY_SIZE ) ) )? (a6= ID ) ( (a7= '=' (a8= INTEGER ) ) )? ;
     public final se.mdh.progresside.remes.Variable parse_se_mdh_progresside_remes_Variable() throws RecognitionException {
         se.mdh.progresside.remes.Variable element =  null;
         int parse_se_mdh_progresside_remes_Variable_StartIndex = input.index();
@@ -3116,15 +3110,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
         Token a6=null;
         Token a7=null;
         Token a8=null;
-        Token a9=null;
-        Token a10=null;
 
 
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
-            // Remessrc.g:1997:1: (a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( (a5= '[' (a6= INTEGER ) a7= ']' ) )? (a8= ID ) ( (a9= '=' (a10= INTEGER ) ) )? )
-            // Remessrc.g:1998:2: a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( (a5= '[' (a6= INTEGER ) a7= ']' ) )? (a8= ID ) ( (a9= '=' (a10= INTEGER ) ) )?
+            // Remessrc.g:1993:1: (a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( ( (a5= ARRAY_SIZE ) ) )? (a6= ID ) ( (a7= '=' (a8= INTEGER ) ) )? )
+            // Remessrc.g:1994:2: a0= 'var' ( ( (a1= T_GLOBAL ) ) )? ( ( (a2= T_READABLE ) ) )? ( ( (a3= T_WRITEABLE ) ) )? (a4= TYPE ) ( ( (a5= ARRAY_SIZE ) ) )? (a6= ID ) ( (a7= '=' (a8= INTEGER ) ) )?
             {
             a0=(Token)match(input,30,FOLLOW_30_in_parse_se_mdh_progresside_remes_Variable1681); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -3145,7 +3137,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_38, 59));
               	
             }
-            // Remessrc.g:2013:2: ( ( (a1= T_GLOBAL ) ) )?
+            // Remessrc.g:2009:2: ( ( (a1= T_GLOBAL ) ) )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -3154,13 +3146,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt16) {
                 case 1 :
-                    // Remessrc.g:2014:3: ( (a1= T_GLOBAL ) )
+                    // Remessrc.g:2010:3: ( (a1= T_GLOBAL ) )
                     {
-                    // Remessrc.g:2014:3: ( (a1= T_GLOBAL ) )
-                    // Remessrc.g:2015:4: (a1= T_GLOBAL )
+                    // Remessrc.g:2010:3: ( (a1= T_GLOBAL ) )
+                    // Remessrc.g:2011:4: (a1= T_GLOBAL )
                     {
-                    // Remessrc.g:2015:4: (a1= T_GLOBAL )
-                    // Remessrc.g:2016:5: a1= T_GLOBAL
+                    // Remessrc.g:2011:4: (a1= T_GLOBAL )
+                    // Remessrc.g:2012:5: a1= T_GLOBAL
                     {
                     a1=(Token)match(input,T_GLOBAL,FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Variable1710); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -3218,7 +3210,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_38, 61));
               	
             }
-            // Remessrc.g:2059:2: ( ( (a2= T_READABLE ) ) )?
+            // Remessrc.g:2055:2: ( ( (a2= T_READABLE ) ) )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -3227,13 +3219,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt17) {
                 case 1 :
-                    // Remessrc.g:2060:3: ( (a2= T_READABLE ) )
+                    // Remessrc.g:2056:3: ( (a2= T_READABLE ) )
                     {
-                    // Remessrc.g:2060:3: ( (a2= T_READABLE ) )
-                    // Remessrc.g:2061:4: (a2= T_READABLE )
+                    // Remessrc.g:2056:3: ( (a2= T_READABLE ) )
+                    // Remessrc.g:2057:4: (a2= T_READABLE )
                     {
-                    // Remessrc.g:2061:4: (a2= T_READABLE )
-                    // Remessrc.g:2062:5: a2= T_READABLE
+                    // Remessrc.g:2057:4: (a2= T_READABLE )
+                    // Remessrc.g:2058:5: a2= T_READABLE
                     {
                     a2=(Token)match(input,T_READABLE,FOLLOW_T_READABLE_in_parse_se_mdh_progresside_remes_Variable1771); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -3289,7 +3281,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_38, 63));
               	
             }
-            // Remessrc.g:2103:2: ( ( (a3= T_WRITEABLE ) ) )?
+            // Remessrc.g:2099:2: ( ( (a3= T_WRITEABLE ) ) )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -3298,13 +3290,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt18) {
                 case 1 :
-                    // Remessrc.g:2104:3: ( (a3= T_WRITEABLE ) )
+                    // Remessrc.g:2100:3: ( (a3= T_WRITEABLE ) )
                     {
-                    // Remessrc.g:2104:3: ( (a3= T_WRITEABLE ) )
-                    // Remessrc.g:2105:4: (a3= T_WRITEABLE )
+                    // Remessrc.g:2100:3: ( (a3= T_WRITEABLE ) )
+                    // Remessrc.g:2101:4: (a3= T_WRITEABLE )
                     {
-                    // Remessrc.g:2105:4: (a3= T_WRITEABLE )
-                    // Remessrc.g:2106:5: a3= T_WRITEABLE
+                    // Remessrc.g:2101:4: (a3= T_WRITEABLE )
+                    // Remessrc.g:2102:5: a3= T_WRITEABLE
                     {
                     a3=(Token)match(input,T_WRITEABLE,FOLLOW_T_WRITEABLE_in_parse_se_mdh_progresside_remes_Variable1832); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -3358,8 +3350,8 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_38, 65));
               	
             }
-            // Remessrc.g:2145:2: (a4= TYPE )
-            // Remessrc.g:2146:3: a4= TYPE
+            // Remessrc.g:2141:2: (a4= TYPE )
+            // Remessrc.g:2142:3: a4= TYPE
             {
             a4=(Token)match(input,TYPE,FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Variable1882); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -3399,40 +3391,24 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
               		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 66));
               	
             }
-            // Remessrc.g:2179:2: ( (a5= '[' (a6= INTEGER ) a7= ']' ) )?
+            // Remessrc.g:2175:2: ( ( (a5= ARRAY_SIZE ) ) )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==31) ) {
+            if ( (LA19_0==ARRAY_SIZE) ) {
                 alt19=1;
             }
             switch (alt19) {
                 case 1 :
-                    // Remessrc.g:2180:3: (a5= '[' (a6= INTEGER ) a7= ']' )
+                    // Remessrc.g:2176:3: ( (a5= ARRAY_SIZE ) )
                     {
-                    // Remessrc.g:2180:3: (a5= '[' (a6= INTEGER ) a7= ']' )
-                    // Remessrc.g:2181:4: a5= '[' (a6= INTEGER ) a7= ']'
+                    // Remessrc.g:2176:3: ( (a5= ARRAY_SIZE ) )
+                    // Remessrc.g:2177:4: (a5= ARRAY_SIZE )
                     {
-                    a5=(Token)match(input,31,FOLLOW_31_in_parse_se_mdh_progresside_remes_Variable1912); if (state.failed) return element;
-                    if ( state.backtracking==0 ) {
-
-                      				if (element == null) {
-                      					element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-                      				}
-                      				collectHiddenTokens(element);
-                      				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a5, element);
-                      			
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_41, 67));
-                      			
-                    }
-                    // Remessrc.g:2193:4: (a6= INTEGER )
-                    // Remessrc.g:2194:5: a6= INTEGER
+                    // Remessrc.g:2177:4: (a5= ARRAY_SIZE )
+                    // Remessrc.g:2178:5: a5= ARRAY_SIZE
                     {
-                    a6=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable1938); if (state.failed) return element;
+                    a5=(Token)match(input,ARRAY_SIZE,FOLLOW_ARRAY_SIZE_in_parse_se_mdh_progresside_remes_Variable1918); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -3441,14 +3417,14 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       					if (element == null) {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
                       					}
-                      					if (a6 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("INTEGER");
+                      					if (a5 != null) {
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ARRAY_SIZE");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-                      						tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), result);
+                      						tokenResolver.resolve(a5.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VECTOR_SIZE), result);
                       						java.lang.Object resolvedObject = result.getResolvedToken();
                       						if (resolvedObject == null) {
-                      							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a6).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStopIndex());
+                      							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a5).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a5).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a5).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a5).getStopIndex());
                       						}
                       						java.lang.Integer resolved = (java.lang.Integer)resolvedObject;
                       						if (resolved != null) {
@@ -3456,7 +3432,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       							completedElement(resolved);
                       						}
                       						collectHiddenTokens(element);
-                      						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a6, element);
+                      						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a5, element);
                       					}
                       				
                     }
@@ -3466,10 +3442,90 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_42, 68));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 67));
                       			
                     }
-                    a7=(Token)match(input,32,FOLLOW_32_in_parse_se_mdh_progresside_remes_Variable1971); if (state.failed) return element;
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              		// expected elements (follow set)
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 68));
+              	
+            }
+            // Remessrc.g:2217:2: (a6= ID )
+            // Remessrc.g:2218:3: a6= ID
+            {
+            a6=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Variable1968); if (state.failed) return element;
+            if ( state.backtracking==0 ) {
+
+              			if (terminateParsing) {
+              				throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
+              			}
+              			if (element == null) {
+              				element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
+              			}
+              			if (a6 != null) {
+              				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ID");
+              				tokenResolver.setOptions(getOptions());
+              				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
+              				tokenResolver.resolve(a6.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), result);
+              				java.lang.Object resolvedObject = result.getResolvedToken();
+              				if (resolvedObject == null) {
+              					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a6).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a6).getStopIndex());
+              				}
+              				java.lang.String resolved = (java.lang.String)resolvedObject;
+              				if (resolved != null) {
+              					element.eSet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), resolved);
+              					completedElement(resolved);
+              				}
+              				collectHiddenTokens(element);
+              				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a6, element);
+              			}
+              		
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              		// expected elements (follow set)
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_41, 69));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 69, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 69, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 69, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 69, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 69, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 69, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 69, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 69));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 69));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 69, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 69));
+              	
+            }
+            // Remessrc.g:2261:2: ( (a7= '=' (a8= INTEGER ) ) )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
+
+            if ( (LA20_0==31) ) {
+                alt20=1;
+            }
+            switch (alt20) {
+                case 1 :
+                    // Remessrc.g:2262:3: (a7= '=' (a8= INTEGER ) )
+                    {
+                    // Remessrc.g:2262:3: (a7= '=' (a8= INTEGER ) )
+                    // Remessrc.g:2263:4: a7= '=' (a8= INTEGER )
+                    {
+                    a7=(Token)match(input,31,FOLLOW_31_in_parse_se_mdh_progresside_remes_Variable1998); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -3482,109 +3538,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 69));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_42, 70));
                       			
                     }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_40, 70));
-              	
-            }
-            // Remessrc.g:2245:2: (a8= ID )
-            // Remessrc.g:2246:3: a8= ID
-            {
-            a8=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Variable2008); if (state.failed) return element;
-            if ( state.backtracking==0 ) {
-
-              			if (terminateParsing) {
-              				throw new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcTerminateParsingException();
-              			}
-              			if (element == null) {
-              				element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-              			}
-              			if (a8 != null) {
-              				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("ID");
-              				tokenResolver.setOptions(getOptions());
-              				hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-              				tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), result);
-              				java.lang.Object resolvedObject = result.getResolvedToken();
-              				if (resolvedObject == null) {
-              					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a8).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStopIndex());
-              				}
-              				java.lang.String resolved = (java.lang.String)resolvedObject;
-              				if (resolved != null) {
-              					element.eSet(element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__NAME), resolved);
-              					completedElement(resolved);
-              				}
-              				collectHiddenTokens(element);
-              				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a8, element);
-              			}
-              		
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_43, 71));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 71, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 71, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 71, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 71, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 71, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 71, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 71, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 71));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 71));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 71, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 71));
-              	
-            }
-            // Remessrc.g:2289:2: ( (a9= '=' (a10= INTEGER ) ) )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
-
-            if ( (LA20_0==33) ) {
-                alt20=1;
-            }
-            switch (alt20) {
-                case 1 :
-                    // Remessrc.g:2290:3: (a9= '=' (a10= INTEGER ) )
+                    // Remessrc.g:2275:4: (a8= INTEGER )
+                    // Remessrc.g:2276:5: a8= INTEGER
                     {
-                    // Remessrc.g:2290:3: (a9= '=' (a10= INTEGER ) )
-                    // Remessrc.g:2291:4: a9= '=' (a10= INTEGER )
-                    {
-                    a9=(Token)match(input,33,FOLLOW_33_in_parse_se_mdh_progresside_remes_Variable2038); if (state.failed) return element;
-                    if ( state.backtracking==0 ) {
-
-                      				if (element == null) {
-                      					element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
-                      				}
-                      				collectHiddenTokens(element);
-                      				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a9, element);
-                      			
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_44, 72));
-                      			
-                    }
-                    // Remessrc.g:2303:4: (a10= INTEGER )
-                    // Remessrc.g:2304:5: a10= INTEGER
-                    {
-                    a10=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable2064); if (state.failed) return element;
+                    a8=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable2024); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -3593,14 +3553,14 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       					if (element == null) {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createVariable();
                       					}
-                      					if (a10 != null) {
+                      					if (a8 != null) {
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("INTEGER");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
-                      						tokenResolver.resolve(a10.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), result);
+                      						tokenResolver.resolve(a8.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.VARIABLE__VALUE), result);
                       						java.lang.Object resolvedObject = result.getResolvedToken();
                       						if (resolvedObject == null) {
-                      							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a10).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a10).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a10).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a10).getStopIndex());
+                      							addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a8).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a8).getStopIndex());
                       						}
                       						java.lang.String resolved = (java.lang.String)resolvedObject;
                       						if (resolved != null) {
@@ -3608,7 +3568,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       							completedElement(resolved);
                       						}
                       						collectHiddenTokens(element);
-                      						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a10, element);
+                      						copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a8, element);
                       					}
                       				
                     }
@@ -3618,17 +3578,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 73, FEATURE_1));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 73, FEATURE_2));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 73, FEATURE_3));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 73, FEATURE_4));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 73, FEATURE_5));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 73, FEATURE_6));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 73, FEATURE_7));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 73));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 73));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 73, FEATURE_8));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 73));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 71, FEATURE_1));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 71, FEATURE_2));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 71, FEATURE_3));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 71, FEATURE_4));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 71, FEATURE_5));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 71, FEATURE_6));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 71, FEATURE_7));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 71));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 71));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 71, FEATURE_8));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 71));
                       			
                     }
 
@@ -3643,17 +3603,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 74, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 74, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 74, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 74, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 74, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 74, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 74, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 74));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 74));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 74, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 74));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 72, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 72, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 72, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 72, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 72, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 72, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 72, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 72));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 72));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 72, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 72));
               	
             }
 
@@ -3673,7 +3633,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_Resource"
-    // Remessrc.g:2365:1: parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resource element = null] : a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= QUOTED_40_41 ) ) )? ;
+    // Remessrc.g:2337:1: parse_se_mdh_progresside_remes_Resource returns [se.mdh.progresside.remes.Resource element = null] : a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= IN_PARENS ) ) )? ;
     public final se.mdh.progresside.remes.Resource parse_se_mdh_progresside_remes_Resource() throws RecognitionException {
         se.mdh.progresside.remes.Resource element =  null;
         int parse_se_mdh_progresside_remes_Resource_StartIndex = input.index();
@@ -3687,10 +3647,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
-            // Remessrc.g:2368:1: (a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= QUOTED_40_41 ) ) )? )
-            // Remessrc.g:2369:2: a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= QUOTED_40_41 ) ) )?
+            // Remessrc.g:2340:1: (a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= IN_PARENS ) ) )? )
+            // Remessrc.g:2341:2: a0= 'resource' (a1= TYPE ) (a2= ID ) ( (a3= ':' (a4= IN_PARENS ) ) )?
             {
-            a0=(Token)match(input,34,FOLLOW_34_in_parse_se_mdh_progresside_remes_Resource2125); if (state.failed) return element;
+            a0=(Token)match(input,32,FOLLOW_32_in_parse_se_mdh_progresside_remes_Resource2085); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3703,13 +3663,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_45, 75));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_43, 73));
               	
             }
-            // Remessrc.g:2381:2: (a1= TYPE )
-            // Remessrc.g:2382:3: a1= TYPE
+            // Remessrc.g:2353:2: (a1= TYPE )
+            // Remessrc.g:2354:3: a1= TYPE
             {
-            a1=(Token)match(input,TYPE,FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Resource2143); if (state.failed) return element;
+            a1=(Token)match(input,TYPE,FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Resource2103); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3743,13 +3703,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_46, 76));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_44, 74));
               	
             }
-            // Remessrc.g:2414:2: (a2= ID )
-            // Remessrc.g:2415:3: a2= ID
+            // Remessrc.g:2386:2: (a2= ID )
+            // Remessrc.g:2387:3: a2= ID
             {
-            a2=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Resource2168); if (state.failed) return element;
+            a2=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Resource2128); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3783,35 +3743,35 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_47, 77));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 77, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 77, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 77, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 77, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 77, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 77, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 77, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 77));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 77));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 77, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 77));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_45, 75));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 75, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 75, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 75, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 75, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 75, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 75, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 75, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 75));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 75));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 75, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 75));
               	
             }
-            // Remessrc.g:2458:2: ( (a3= ':' (a4= QUOTED_40_41 ) ) )?
+            // Remessrc.g:2430:2: ( (a3= ':' (a4= IN_PARENS ) ) )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==35) ) {
+            if ( (LA21_0==33) ) {
                 alt21=1;
             }
             switch (alt21) {
                 case 1 :
-                    // Remessrc.g:2459:3: (a3= ':' (a4= QUOTED_40_41 ) )
+                    // Remessrc.g:2431:3: (a3= ':' (a4= IN_PARENS ) )
                     {
-                    // Remessrc.g:2459:3: (a3= ':' (a4= QUOTED_40_41 ) )
-                    // Remessrc.g:2460:4: a3= ':' (a4= QUOTED_40_41 )
+                    // Remessrc.g:2431:3: (a3= ':' (a4= IN_PARENS ) )
+                    // Remessrc.g:2432:4: a3= ':' (a4= IN_PARENS )
                     {
-                    a3=(Token)match(input,35,FOLLOW_35_in_parse_se_mdh_progresside_remes_Resource2198); if (state.failed) return element;
+                    a3=(Token)match(input,33,FOLLOW_33_in_parse_se_mdh_progresside_remes_Resource2158); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -3824,13 +3784,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 78));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_46, 76));
                       			
                     }
-                    // Remessrc.g:2472:4: (a4= QUOTED_40_41 )
-                    // Remessrc.g:2473:5: a4= QUOTED_40_41
+                    // Remessrc.g:2444:4: (a4= IN_PARENS )
+                    // Remessrc.g:2445:5: a4= IN_PARENS
                     {
-                    a4=(Token)match(input,QUOTED_40_41,FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_Resource2224); if (state.failed) return element;
+                    a4=(Token)match(input,IN_PARENS,FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_Resource2184); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -3840,7 +3800,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                       						element = se.mdh.progresside.remes.RemesFactory.eINSTANCE.createResource();
                       					}
                       					if (a4 != null) {
-                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("QUOTED_40_41");
+                      						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IN_PARENS");
                       						tokenResolver.setOptions(getOptions());
                       						hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolveResult result = getFreshTokenResolveResult();
                       						tokenResolver.resolve(a4.getText(), element.eClass().getEStructuralFeature(se.mdh.progresside.remes.RemesPackage.RESOURCE__EXPRESSION), result);
@@ -3864,17 +3824,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 79, FEATURE_1));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 79, FEATURE_2));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 79, FEATURE_3));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 79, FEATURE_4));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 79, FEATURE_5));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 79, FEATURE_6));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 79, FEATURE_7));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 79));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 79));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 79, FEATURE_8));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 79));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 77, FEATURE_1));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 77, FEATURE_2));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 77, FEATURE_3));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 77, FEATURE_4));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 77, FEATURE_5));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 77, FEATURE_6));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 77, FEATURE_7));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 77));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 77));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 77, FEATURE_8));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 77));
                       			
                     }
 
@@ -3889,17 +3849,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 80, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 80, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 80, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 80, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 80, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 80, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 80, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 80));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 80));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 80, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 80));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 78, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 78, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 78, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 78, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 78, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 78, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 78, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 78));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 78));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 78, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 78));
               	
             }
 
@@ -3919,7 +3879,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_Constant"
-    // Remessrc.g:2534:1: parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Constant element = null] : a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )? ;
+    // Remessrc.g:2506:1: parse_se_mdh_progresside_remes_Constant returns [se.mdh.progresside.remes.Constant element = null] : a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )? ;
     public final se.mdh.progresside.remes.Constant parse_se_mdh_progresside_remes_Constant() throws RecognitionException {
         se.mdh.progresside.remes.Constant element =  null;
         int parse_se_mdh_progresside_remes_Constant_StartIndex = input.index();
@@ -3934,10 +3894,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
-            // Remessrc.g:2537:1: (a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )? )
-            // Remessrc.g:2538:2: a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )?
+            // Remessrc.g:2509:1: (a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )? )
+            // Remessrc.g:2510:2: a0= 'const' ( ( (a1= T_GLOBAL ) ) )? (a2= TYPE ) (a3= ID ) ( (a4= '=' (a5= INTEGER ) ) )?
             {
-            a0=(Token)match(input,36,FOLLOW_36_in_parse_se_mdh_progresside_remes_Constant2285); if (state.failed) return element;
+            a0=(Token)match(input,34,FOLLOW_34_in_parse_se_mdh_progresside_remes_Constant2245); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3950,11 +3910,11 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_49, 81));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 81));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_47, 79));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 79));
               	
             }
-            // Remessrc.g:2551:2: ( ( (a1= T_GLOBAL ) ) )?
+            // Remessrc.g:2523:2: ( ( (a1= T_GLOBAL ) ) )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -3963,15 +3923,15 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt22) {
                 case 1 :
-                    // Remessrc.g:2552:3: ( (a1= T_GLOBAL ) )
+                    // Remessrc.g:2524:3: ( (a1= T_GLOBAL ) )
                     {
-                    // Remessrc.g:2552:3: ( (a1= T_GLOBAL ) )
-                    // Remessrc.g:2553:4: (a1= T_GLOBAL )
+                    // Remessrc.g:2524:3: ( (a1= T_GLOBAL ) )
+                    // Remessrc.g:2525:4: (a1= T_GLOBAL )
                     {
-                    // Remessrc.g:2553:4: (a1= T_GLOBAL )
-                    // Remessrc.g:2554:5: a1= T_GLOBAL
+                    // Remessrc.g:2525:4: (a1= T_GLOBAL )
+                    // Remessrc.g:2526:5: a1= T_GLOBAL
                     {
-                    a1=(Token)match(input,T_GLOBAL,FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Constant2314); if (state.failed) return element;
+                    a1=(Token)match(input,T_GLOBAL,FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Constant2274); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -4005,7 +3965,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 82));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 80));
                       			
                     }
 
@@ -4020,13 +3980,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 83));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_48, 81));
               	
             }
-            // Remessrc.g:2593:2: (a2= TYPE )
-            // Remessrc.g:2594:3: a2= TYPE
+            // Remessrc.g:2565:2: (a2= TYPE )
+            // Remessrc.g:2566:3: a2= TYPE
             {
-            a2=(Token)match(input,TYPE,FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Constant2364); if (state.failed) return element;
+            a2=(Token)match(input,TYPE,FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Constant2324); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -4060,13 +4020,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_51, 84));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_49, 82));
               	
             }
-            // Remessrc.g:2626:2: (a3= ID )
-            // Remessrc.g:2627:3: a3= ID
+            // Remessrc.g:2598:2: (a3= ID )
+            // Remessrc.g:2599:3: a3= ID
             {
-            a3=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Constant2389); if (state.failed) return element;
+            a3=(Token)match(input,ID,FOLLOW_ID_in_parse_se_mdh_progresside_remes_Constant2349); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -4100,35 +4060,35 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_52, 85));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 85, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 85, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 85, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 85, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 85, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 85, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 85, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 85));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 85));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 85, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 85));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_50, 83));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 83, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 83, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 83, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 83, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 83, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 83, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 83, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 83));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 83));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 83, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 83));
               	
             }
-            // Remessrc.g:2670:2: ( (a4= '=' (a5= INTEGER ) ) )?
+            // Remessrc.g:2642:2: ( (a4= '=' (a5= INTEGER ) ) )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==33) ) {
+            if ( (LA23_0==31) ) {
                 alt23=1;
             }
             switch (alt23) {
                 case 1 :
-                    // Remessrc.g:2671:3: (a4= '=' (a5= INTEGER ) )
+                    // Remessrc.g:2643:3: (a4= '=' (a5= INTEGER ) )
                     {
-                    // Remessrc.g:2671:3: (a4= '=' (a5= INTEGER ) )
-                    // Remessrc.g:2672:4: a4= '=' (a5= INTEGER )
+                    // Remessrc.g:2643:3: (a4= '=' (a5= INTEGER ) )
+                    // Remessrc.g:2644:4: a4= '=' (a5= INTEGER )
                     {
-                    a4=(Token)match(input,33,FOLLOW_33_in_parse_se_mdh_progresside_remes_Constant2419); if (state.failed) return element;
+                    a4=(Token)match(input,31,FOLLOW_31_in_parse_se_mdh_progresside_remes_Constant2379); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (element == null) {
@@ -4141,13 +4101,13 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_53, 86));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_51, 84));
                       			
                     }
-                    // Remessrc.g:2684:4: (a5= INTEGER )
-                    // Remessrc.g:2685:5: a5= INTEGER
+                    // Remessrc.g:2656:4: (a5= INTEGER )
+                    // Remessrc.g:2657:5: a5= INTEGER
                     {
-                    a5=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Constant2445); if (state.failed) return element;
+                    a5=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Constant2405); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       					if (terminateParsing) {
@@ -4181,17 +4141,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     if ( state.backtracking==0 ) {
 
                       				// expected elements (follow set)
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 87, FEATURE_1));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 87, FEATURE_2));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 87, FEATURE_3));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 87, FEATURE_4));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 87, FEATURE_5));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 87, FEATURE_6));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 87, FEATURE_7));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 87));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 87));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 87, FEATURE_8));
-                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 87));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 85, FEATURE_1));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 85, FEATURE_2));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 85, FEATURE_3));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 85, FEATURE_4));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 85, FEATURE_5));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 85, FEATURE_6));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 85, FEATURE_7));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 85));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 85));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 85, FEATURE_8));
+                      				addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 85));
                       			
                     }
 
@@ -4206,17 +4166,17 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 88, FEATURE_1));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 88, FEATURE_2));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 88, FEATURE_3));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 88, FEATURE_4));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 88, FEATURE_5));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 88, FEATURE_6));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 88, FEATURE_7));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 88));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 88));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 88, FEATURE_8));
-              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 88));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_7, 86, FEATURE_1));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_8, 86, FEATURE_2));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_9, 86, FEATURE_3));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_3, 86, FEATURE_4));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_10, 86, FEATURE_5));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_11, 86, FEATURE_6));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_12, 86, FEATURE_7));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_13, 86));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_17, 86));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_18, 86, FEATURE_8));
+              		addExpectedElement(new hr.fer.rasip.remes.resource.remessrc.mopp.RemessrcExpectedTerminal(TERMINAL_19, 86));
               	
             }
 
@@ -4236,7 +4196,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
 
     // $ANTLR start "parse_se_mdh_progresside_remes_Mode"
-    // Remessrc.g:2746:1: parse_se_mdh_progresside_remes_Mode returns [se.mdh.progresside.remes.Mode element = null] : (c0= parse_se_mdh_progresside_remes_CompositeMode | c1= parse_se_mdh_progresside_remes_SubMode );
+    // Remessrc.g:2718:1: parse_se_mdh_progresside_remes_Mode returns [se.mdh.progresside.remes.Mode element = null] : (c0= parse_se_mdh_progresside_remes_CompositeMode | c1= parse_se_mdh_progresside_remes_SubMode );
     public final se.mdh.progresside.remes.Mode parse_se_mdh_progresside_remes_Mode() throws RecognitionException {
         se.mdh.progresside.remes.Mode element =  null;
         int parse_se_mdh_progresside_remes_Mode_StartIndex = input.index();
@@ -4247,7 +4207,7 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
-            // Remessrc.g:2747:1: (c0= parse_se_mdh_progresside_remes_CompositeMode | c1= parse_se_mdh_progresside_remes_SubMode )
+            // Remessrc.g:2719:1: (c0= parse_se_mdh_progresside_remes_CompositeMode | c1= parse_se_mdh_progresside_remes_SubMode )
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -4266,9 +4226,9 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
             }
             switch (alt24) {
                 case 1 :
-                    // Remessrc.g:2748:2: c0= parse_se_mdh_progresside_remes_CompositeMode
+                    // Remessrc.g:2720:2: c0= parse_se_mdh_progresside_remes_CompositeMode
                     {
-                    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_CompositeMode_in_parse_se_mdh_progresside_remes_Mode2502);
+                    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_CompositeMode_in_parse_se_mdh_progresside_remes_Mode2462);
                     c0=parse_se_mdh_progresside_remes_CompositeMode();
 
                     state._fsp--;
@@ -4280,9 +4240,9 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Remessrc.g:2749:4: c1= parse_se_mdh_progresside_remes_SubMode
+                    // Remessrc.g:2721:4: c1= parse_se_mdh_progresside_remes_SubMode
                     {
-                    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_Mode2512);
+                    pushFollow(FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_Mode2472);
                     c1=parse_se_mdh_progresside_remes_SubMode();
 
                     state._fsp--;
@@ -4320,10 +4280,10 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     public static final BitSet FOLLOW_20_in_parse_se_mdh_progresside_remes_RemesDiagram175 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_21_in_parse_se_mdh_progresside_remes_CompositeMode204 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_CompositeMode222 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_parse_se_mdh_progresside_remes_CompositeMode243 = new BitSet(new long[]{0x000000144B700000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_CompositeMode272 = new BitSet(new long[]{0x000000144B700000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_CompositeMode314 = new BitSet(new long[]{0x000000144B700000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_CompositeMode356 = new BitSet(new long[]{0x000000144B700000L});
+    public static final BitSet FOLLOW_19_in_parse_se_mdh_progresside_remes_CompositeMode243 = new BitSet(new long[]{0x000000054B700000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_CompositeMode272 = new BitSet(new long[]{0x000000054B700000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_CompositeMode314 = new BitSet(new long[]{0x000000054B700000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_CompositeMode356 = new BitSet(new long[]{0x000000054B700000L});
     public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_CompositeMode412 = new BitSet(new long[]{0x000000000B700000L});
     public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_ConditionalConnector_in_parse_se_mdh_progresside_remes_CompositeMode454 = new BitSet(new long[]{0x000000000B700000L});
     public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_InitPoint_in_parse_se_mdh_progresside_remes_CompositeMode496 = new BitSet(new long[]{0x000000000B700000L});
@@ -4332,12 +4292,12 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     public static final BitSet FOLLOW_22_in_parse_se_mdh_progresside_remes_SubMode608 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_T_URGENT_in_parse_se_mdh_progresside_remes_SubMode637 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_SubMode687 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_parse_se_mdh_progresside_remes_SubMode708 = new BitSet(new long[]{0x000000144FF00000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_SubMode737 = new BitSet(new long[]{0x000000144FF00000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_SubMode779 = new BitSet(new long[]{0x000000144FF00000L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_SubMode821 = new BitSet(new long[]{0x000000144FF00000L});
+    public static final BitSet FOLLOW_19_in_parse_se_mdh_progresside_remes_SubMode708 = new BitSet(new long[]{0x000000054FF00000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Variable_in_parse_se_mdh_progresside_remes_SubMode737 = new BitSet(new long[]{0x000000054FF00000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Resource_in_parse_se_mdh_progresside_remes_SubMode779 = new BitSet(new long[]{0x000000054FF00000L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Constant_in_parse_se_mdh_progresside_remes_SubMode821 = new BitSet(new long[]{0x000000054FF00000L});
     public static final BitSet FOLLOW_23_in_parse_se_mdh_progresside_remes_SubMode871 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_SubMode897 = new BitSet(new long[]{0x000000000F700000L});
+    public static final BitSet FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_SubMode897 = new BitSet(new long[]{0x000000000F700000L});
     public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_ExitPoint_in_parse_se_mdh_progresside_remes_SubMode958 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_parse_se_mdh_progresside_remes_SubMode999 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_parse_se_mdh_progresside_remes_ConditionalConnector1028 = new BitSet(new long[]{0x0000000000000010L});
@@ -4355,37 +4315,35 @@ public class RemessrcParser extends RemessrcANTLRParserBase {
     public static final BitSet FOLLOW_27_in_parse_se_mdh_progresside_remes_CompositeEntryPoint1311 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_Edge_in_parse_se_mdh_progresside_remes_CompositeEntryPoint1329 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_parse_se_mdh_progresside_remes_Edge1362 = new BitSet(new long[]{0x00000000200000C0L});
-    public static final BitSet FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_Edge1391 = new BitSet(new long[]{0x0000000020000080L});
-    public static final BitSet FOLLOW_QUOTED_91_93_in_parse_se_mdh_progresside_remes_Edge1452 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_Edge1391 = new BitSet(new long[]{0x0000000020000080L});
+    public static final BitSet FOLLOW_IN_BRACES_in_parse_se_mdh_progresside_remes_Edge1452 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_29_in_parse_se_mdh_progresside_remes_Edge1498 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Edge1516 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_parse_se_mdh_progresside_remes_InitEdge1552 = new BitSet(new long[]{0x0000000020000080L});
-    public static final BitSet FOLLOW_QUOTED_91_93_in_parse_se_mdh_progresside_remes_InitEdge1581 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_IN_BRACES_in_parse_se_mdh_progresside_remes_InitEdge1581 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_29_in_parse_se_mdh_progresside_remes_InitEdge1627 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_InitEdge1645 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_30_in_parse_se_mdh_progresside_remes_Variable1681 = new BitSet(new long[]{0x0000000000000F00L});
     public static final BitSet FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Variable1710 = new BitSet(new long[]{0x0000000000000E00L});
     public static final BitSet FOLLOW_T_READABLE_in_parse_se_mdh_progresside_remes_Variable1771 = new BitSet(new long[]{0x0000000000000C00L});
     public static final BitSet FOLLOW_T_WRITEABLE_in_parse_se_mdh_progresside_remes_Variable1832 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Variable1882 = new BitSet(new long[]{0x0000000080000010L});
-    public static final BitSet FOLLOW_31_in_parse_se_mdh_progresside_remes_Variable1912 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable1938 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_parse_se_mdh_progresside_remes_Variable1971 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Variable2008 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_33_in_parse_se_mdh_progresside_remes_Variable2038 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable2064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_parse_se_mdh_progresside_remes_Resource2125 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Resource2143 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Resource2168 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_parse_se_mdh_progresside_remes_Resource2198 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_QUOTED_40_41_in_parse_se_mdh_progresside_remes_Resource2224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_parse_se_mdh_progresside_remes_Constant2285 = new BitSet(new long[]{0x0000000000000900L});
-    public static final BitSet FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Constant2314 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Constant2364 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Constant2389 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_33_in_parse_se_mdh_progresside_remes_Constant2419 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Constant2445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_CompositeMode_in_parse_se_mdh_progresside_remes_Mode2502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_Mode2512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Variable1882 = new BitSet(new long[]{0x0000000000001010L});
+    public static final BitSet FOLLOW_ARRAY_SIZE_in_parse_se_mdh_progresside_remes_Variable1918 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Variable1968 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_31_in_parse_se_mdh_progresside_remes_Variable1998 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Variable2024 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_parse_se_mdh_progresside_remes_Resource2085 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Resource2103 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Resource2128 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_33_in_parse_se_mdh_progresside_remes_Resource2158 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_IN_PARENS_in_parse_se_mdh_progresside_remes_Resource2184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_parse_se_mdh_progresside_remes_Constant2245 = new BitSet(new long[]{0x0000000000000900L});
+    public static final BitSet FOLLOW_T_GLOBAL_in_parse_se_mdh_progresside_remes_Constant2274 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_TYPE_in_parse_se_mdh_progresside_remes_Constant2324 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ID_in_parse_se_mdh_progresside_remes_Constant2349 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_31_in_parse_se_mdh_progresside_remes_Constant2379 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_INTEGER_in_parse_se_mdh_progresside_remes_Constant2405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_CompositeMode_in_parse_se_mdh_progresside_remes_Mode2462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_se_mdh_progresside_remes_SubMode_in_parse_se_mdh_progresside_remes_Mode2472 = new BitSet(new long[]{0x0000000000000002L});
 
 }

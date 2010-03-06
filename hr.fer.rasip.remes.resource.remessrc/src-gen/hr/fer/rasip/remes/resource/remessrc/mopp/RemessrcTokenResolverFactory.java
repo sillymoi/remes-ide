@@ -22,8 +22,9 @@ public class RemessrcTokenResolverFactory implements hr.fer.rasip.remes.resource
 		registerTokenResolver("T_URGENT", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcT_URGENTTokenResolver());
 		registerTokenResolver("TYPE", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcTYPETokenResolver());
 		registerTokenResolver("ID", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcIDTokenResolver());
-		registerTokenResolver("QUOTED_40_41", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcQUOTED_40_41TokenResolver());
-		registerTokenResolver("QUOTED_91_93", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcQUOTED_91_93TokenResolver());
+		registerTokenResolver("ARRAY_SIZE", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcARRAY_SIZETokenResolver());
+		registerTokenResolver("IN_BRACES", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcIN_BRACESTokenResolver());
+		registerTokenResolver("IN_PARENS", new hr.fer.rasip.remes.resource.remessrc.analysis.RemessrcIN_PARENSTokenResolver());
 	}
 	
 	public hr.fer.rasip.remes.resource.remessrc.IRemessrcTokenResolver createTokenResolver(java.lang.String tokenName) {

@@ -37,8 +37,6 @@ public class RemessrcBracketInformationProvider {
 	public java.util.Collection<hr.fer.rasip.remes.resource.remessrc.IRemessrcBracketPair> getBracketPairs() {
 		java.util.Collection<hr.fer.rasip.remes.resource.remessrc.IRemessrcBracketPair> result = new java.util.ArrayList<hr.fer.rasip.remes.resource.remessrc.IRemessrcBracketPair>();
 		result.add(new BracketPair("{", "}", true));
-		result.add(new BracketPair("[", "]", true));
-		result.add(new BracketPair("(", ")", false));
 		return result;
 	}
 	

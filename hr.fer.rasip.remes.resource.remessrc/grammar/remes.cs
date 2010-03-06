@@ -9,7 +9,7 @@ IMPORTS{
 OPTIONS {
 basePackage = "hr.fer.rasip.remes.resource.remessrc" ;
 resourcePluginID = "hr.fer.rasip.remes.resource.remessrc" ; 
-usePredefinedTokens = "true";
+usePredefinedTokens = "false";
 }
 
 TOKENS{
@@ -25,6 +25,13 @@ TOKENS{
 	DEFINE TYPE$('integer'|'natural'|'boolean'|'clock'|'float')$;
 	
 	DEFINE ID$('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*$;
+	
+	DEFINE ARRAY_SIZE$('[')(' ' | '\t' | '\f')*('1'..'9')('0'..'9')*(' ' | '\t' | '\f')*(']')$;
+	DEFINE IN_BRACES$('[')(~(']'))*(']')$;
+	DEFINE IN_PARENS$('\(')(~('\)'))*('\)')$;
+	
+	DEFINE WHITESPACE$(' ' | '\t' | '\f')$;
+	DEFINE LINEBREAK$('\r\n' | '\r' | '\n')$;	
 }
 
 TOKENSTYLES{
@@ -34,6 +41,9 @@ TOKENSTYLES{
 	"T_WRITEABLE" COLOR #7F0055, BOLD;
 	"T_URGENT" COLOR #7F0055, BOLD;
 	"TYPE" COLOR #7F0055, BOLD;
+	"ARRAY_SIZE" COLOR #2A00FF;
+	"IN_BRACES" COLOR #2A00FF;
+	"IN_PARENS" COLOR #2A00FF;
 		
 	"RemesDiagram" COLOR #7F0055, BOLD;
 	"CompositeMode" COLOR #7F0055, BOLD;
@@ -106,36 +116,30 @@ TOKENSTYLES{
 //	"Literal" COLOR #7F0055, BOLD;
 }
 
-RULES{
+RULES {
 	
-	RemesDiagram::= "remes" !1 "{" modes* !1 "}"  ;
+	RemesDiagram::= "remes" "{" !1 modes* !1"}"  ;
 	
-	CompositeMode::= "composite" name[ID] "{" !1 ( variables | resources | constants )* ( subModes | conditionalConnectors | initPoint | compositeEntryPoint )* !1 "}"  ;
+	CompositeMode::= "composite" name[ID] "{" !1 ( variables | resources | constants )* ( subModes | conditionalConnectors | initPoint | compositeEntryPoint )* !1"}"  ;
 	
-	SubMode::= "atomic" (isUrgent[T_URGENT])? name[ID] "{" !1 ( variables | resources | constants )* ( "invariant" invariant['(',')'] )? (exitPoint)? !1 "}"  ;
+	SubMode::= "atomic" (isUrgent[T_URGENT])? name[ID] "{" !1 ( variables | resources | constants )* ( "invariant" invariant[IN_PARENS] )? (exitPoint)? !1"}"  ;
 	
-	ConditionalConnector::= "conditional"  name[ID] "{" !1 exitPoint !1 "}" ;
+	ConditionalConnector::= "conditional"  name[ID] "{" !1 exitPoint !1"}" ;
 	
 	InitPoint::= "init" initEdge  ;
 	
-//	EntryPoint::= "Entry"  "{" ( entryEdges[] )* "}"  ;
-	
-	ExitPoint::= "edges"  "{" !1 ( exitEdges )* !1 "}"  ;
+	ExitPoint::= "edges"  "{" !1 ( exitEdges )* !1"}"  ;
 	
 	CompositeEntryPoint::= "entry"  exitEdges  ;
 		
-	Edge::= "edge" ( actionGuard['(',')'] )? ( actionBody['[', ']'] )? "to" connectTo[ID] ;
+	Edge::= "edge" ( actionGuard[IN_PARENS] )? ( actionBody[IN_BRACES] )? "to" connectTo[ID] ;
 	
-	InitEdge::= "edge" ( initialization['[',']'] )? "to" connectTo[ID] ;
+	InitEdge::= "edge" ( initialization[IN_BRACES] )? "to" connectTo[ID] ;
 	
-	Variable::= "var" (global[T_GLOBAL])? (readable[T_READABLE])? (writable[T_WRITEABLE])? type[TYPE] ( "[" vectorSize[INTEGER] "]" )? name[ID] ( "=" value[INTEGER] )? ;
+	Variable::= "var" (global[T_GLOBAL])? (readable[T_READABLE])? (writable[T_WRITEABLE])? type[TYPE] ( vectorSize[ARRAY_SIZE] )? name[ID] ( "=" value[INTEGER] )? ;
 	
-//	Variable::= "var" type[] ( "[" vectorSize[INTEGER] "]" )? name[ID]  ( "=" value[INTEGER] )?   ;
-	
-	Resource::= "resource" type[TYPE] name[ID] ( ":" expression['(',')'] )?  ;
+	Resource::= "resource" type[TYPE] name[ID] ( ":" expression[IN_PARENS] )?  ;
 	
 	Constant::= "const" (global[T_GLOBAL])? type[TYPE] name[ID] ("="  value[INTEGER])?  ;
-	
-	//PrimitiveType.integer::= "int" | "boolean" | "natural" | "clock" | "float";
 	
 }

@@ -28,7 +28,9 @@
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
-		<wizard category="se.mdh.progresside.remes.Wizard.category.ID" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="EMFText .remessrc file">
+		<category id="se.mdh.progresside.remes.Wizard.category.ID"
+            name="Remes Model Creation Wizards"/>
+		<wizard category="se.mdh.progresside.remes.Wizard.category.ID" icon="/icons/default_new_icon.gif" class="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" id="hr.fer.rasip.remes.resource.remessrc.ui.RemessrcNewFileWizard" name="REMES text file (.remessrc)">
 		</wizard>
 	</extension>
 	

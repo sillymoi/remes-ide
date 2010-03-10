@@ -5,13 +5,18 @@ package hr.fer.rasip.remes.launcher;
 
 import hr.fer.rasip.remes.launcher.actions.Remes2PtaAction;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.UUID;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -41,15 +46,15 @@ import se.mdh.progresside.components.core.IProComModelManager;
 import se.mdh.progresside.proComMetamodel.procomPackage;
 import se.mdh.progresside.proComMetamodel.proSave.Component;
 import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
-import se.mdh.progresside.proComMetamodel.proSave.ProSavePackage;
 import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
 import se.mdh.progresside.proComMetamodel.proSave.impl.ComponentImpl;
 import se.mdh.progresside.proComMetamodel.util.ProComComponentResourceFactory;
+import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesPackage;
 import UppaalFlat11.UppaalFlat11Package;
 
 /**
- * @author Marin Orlic <marin.orlic@fer.hr>
+ * @author Marin
  *
  */
 public class Remes2PtaConverter {
@@ -58,10 +63,10 @@ public class Remes2PtaConverter {
 
 	private static IReferenceModel remesMetamodel;
 	private static IReferenceModel uppaalMetamodel;
-	private static IReferenceModel prosaveMetamodel;
+	private static IReferenceModel procomMetamodel;
 
 	private static final String remesURI = RemesPackage.eNS_URI; //"http://www.mdh.se/progresside/remes/1.2.0/remes.ecore"; //$NON-NLS-1$
-	private static final String prosaveURI = ProSavePackage.eNS_URI;
+	private static final String procomURI = procomPackage.eNS_URI;
 	private static final String uppaalURI = UppaalFlat11Package.eNS_URI; //"file:/D:/Dokumenti/Faks/PhD/Podaci/uppaal-flat-1_1.xsd"; //$NON-NLS-1$
 	
 	private static URL asmURL;
@@ -76,6 +81,16 @@ public class Remes2PtaConverter {
 		try {
 			injector = (EMFInjector) CoreService.getInjector("EMF"); //$NON-NLS-1$
 			extractor = CoreService.getExtractor("EMF"); //$NON-NLS-1$		
+			
+			// Metamodels 
+			ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
+			remesMetamodel = factory.newReferenceModel();
+			uppaalMetamodel = factory.newReferenceModel();
+			procomMetamodel = factory.newReferenceModel();
+			
+			injector.inject(remesMetamodel, remesURI);
+			injector.inject(uppaalMetamodel, uppaalURI);
+			injector.inject(procomMetamodel, procomURI);
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}
@@ -83,60 +98,22 @@ public class Remes2PtaConverter {
 	
 	public Remes2PtaConverter(IArchModel model) {
 		this.archModel = model;
-		
-		try {
-			// Metamodels 
-			ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
-			remesMetamodel = factory.newReferenceModel();
-			uppaalMetamodel = factory.newReferenceModel();
-			prosaveMetamodel = factory.newReferenceModel();
-			
-			injector.inject(remesMetamodel, remesURI);
-			injector.inject(uppaalMetamodel, uppaalURI);
-			injector.inject(prosaveMetamodel, prosaveURI);
-		}
-		catch (ATLCoreException e) {
-			e.printStackTrace();
-		}
 	}
 	
-	public void doConvertArchitecture() {
+	public void doConvertArchitecture(){
 		//IProComModelManager modelManager = ComponentsPlugin.getDefault().getProComModelManager();
 		//IProComElement proComElement = modelManager.getProComElement(archModel.getCorrespondingResource());
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource modelResource = resourceSet.getResource(ProComComponentResourceFactory.getEmfResource(archModel.getCorrespondingResource()).getURI(), true);
-		
+
 		for (Object element : modelResource.getContents()) {
 			if (element instanceof ComponentImpl) {
 				Component c = (Component) element;
 				
-				System.out.println("Component: " + c.getName()); //$NON-NLS-1$
-				
-				// TODO: konverzija komponente
-				
 				IComponent componentResource = getComponentResource(c);
 				if(componentResource != null) {
 					IBehaviourModel behModel = BehaviourModel.getForComponent(componentResource);	
-					doConvertBehaviour(behModel);
-				}
-				
-				if(c.getRealization() instanceof CompositeComponent) {
-					CompositeComponent cc = (CompositeComponent) c.getRealization();
-					
-					EList<SubcomponentInstance>  subComponents = cc.getSubcomponentInst();
-					for(SubcomponentInstance subComponent: subComponents){
-						System.out.println("SubComponent: " + subComponent.getImplComponent().getName()); //$NON-NLS-1$
-
-						// TODO
-						
-						IComponent subComponentResource = getComponentResource(subComponent.getImplComponent());
-						
-						if(subComponentResource != null) {
-							IBehaviourModel behModel = BehaviourModel.getForComponent(subComponentResource);
-							
-							doConvertBehaviour(behModel);
-						}
-					}
+					doConvertBehaviour(modelResource, behModel);
 				}
 			}
 		}
@@ -153,27 +130,27 @@ public class Remes2PtaConverter {
 		return null;
 	}
 
-	public void doConvertBehaviour(IBehaviourModel behModel) {
-		if(!behModel.getCorrespondingResource().exists())
-			return;
+	public void doConvertBehaviour(Resource modelResource, IBehaviourModel behModel) {
+	//	if(!behModel.getCorrespondingResource().exists())
+	//		return;
 
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.getResource(URI.createFileURI(behModel.getCorrespondingResource().getFullPath().toString()), true);
+//		ResourceSet resourceSet = new ResourceSetImpl();
+//		Resource resource = resourceSet.getResource(URI.createFileURI(behModel.getCorrespondingResource().getFullPath().toString()), true);
 
-		IResource componentResource = behModel.getCorrespondingResource();
-		IPath path = new Path(componentResource.getName().replace(componentResource.getFileExtension(), "uppaalflat11"));
-		IFile file = componentResource.getParent().getFile(path);
-		
+		URI remesUri = modelResource.getURI().trimSegments(4).appendSegments(new String[]{"system Models", "res.remes"});
+		URI ptaUri = modelResource.getURI().trimSegments(4).appendSegments(new String[]{"system Models", "res.uppaalflat11"});
+		//	IFile file = behModel.getCorrespondingResource().getParent().getFile(path);
+		System.out.println(ptaUri.toString());
 		try {
-			remes2pta(resource, file);
-			file.getParent().refreshLocal(IProject.DEPTH_INFINITE, null);
+			remes2pta(modelResource, remesUri.toString(), ptaUri.toString());
+	//		file.getParent().refreshLocal(IProject.DEPTH_INFINITE, null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	private void remes2pta(Resource inputModel, IFile outputFile) throws Exception {
+	private void remes2pta(Resource procomModelResource, String remesFile, String outputFile) throws Exception {
 
 		// Defaults
 		ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
@@ -193,20 +170,23 @@ public class Remes2PtaConverter {
 		launcher.initialize(Collections.<String, Object> emptyMap());
 		
 		// Creating models
+		IModel procomModel = factory.newModel(procomMetamodel);
 		IModel remesModel = factory.newModel(remesMetamodel);
 		IModel ptaModel = factory.newModel(uppaalMetamodel);
 		
 		// Loading existing model
-		injector.inject(remesModel, inputModel);
-	
+		injector.inject(remesModel, remesFile);
+		injector.inject(procomModel, procomModelResource);
+		
 		// Launching
 		launcher.addInOutModel(remesModel, "IN", "REMES"); //$NON-NLS-1$ //$NON-NLS-2$
+		launcher.addInOutModel(procomModel, "IN1", "PROCOM"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.addInOutModel(ptaModel, "OUT", "UPPAAL"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.launch(ILauncher.RUN_MODE, new NullProgressMonitor(), Collections
 				.<String, Object> emptyMap(), asmURL.openStream());
-
-		extractor.extract(ptaModel, outputFile.getFullPath().toString());
-
+		
+		extractor.extract(ptaModel, outputFile);
+		
 		// Saving model: remesfile + uppaalflat11 file extension
 		/*
 		String ptaLocation = file.getFullPath().toString().replaceAll(file.getFileExtension(), "uppaalflat11"); //$NON-NLS-1$
@@ -215,6 +195,54 @@ public class Remes2PtaConverter {
 		// Refresh workspace
 		file.getParent().refreshLocal(IProject.DEPTH_INFINITE, null);
 		return file;*/
+	}
+	
+	public void mergeRemesModels(IBehaviourModel behModel){
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.getResource(URI.createFileURI(behModel.getCorrespondingResource().getFullPath().toString()), true);
+		
+		IPath resultPath = behModel.getCorrespondingResource().getFullPath().removeLastSegments(4).append("/system Models/res.remes");
+		IFile resultFile = behModel.getCorrespondingResource().getParent().getParent().getParent().getParent().getParent().getFile(resultPath);
+		
+		if(resultFile.exists()){
+			Resource resultResource = resourceSet.getResource(URI.createFileURI(resultFile.getFullPath().toString()), true);
+			if(resultResource != null){
+				RemesDiagram diagramResult = (RemesDiagram)resultResource.getContents().get(0);
+				RemesDiagram diagram = (RemesDiagram)resource.getContents().get(0);
+				
+				diagramResult.getModes().addAll(diagram.getModes());
+				resultResource.getContents().set(0, diagramResult);
+				try {
+					resultResource.save(null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		} else if (!resultFile.exists()){
+			java.io.File input = new java.io.File(behModel.getCorrespondingResource().getLocationURI());
+			try {
+				resultFile.create(new FileInputStream(input), true, null);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+		}
+		// = getIFileFromURI(java.net.URI.create(resource.getURI().toString()));
+		//IFile resultFile = getIFileFromURI()
+		//if(componentFile.exists()){
+		//	System.out.println(componentFile.getFullPath().removeLastSegments(4).append("/system Models/res.remes"));
+		//}
+		System.out.println(resultFile);
+	}
+	
+	private IFile getIFileFromURI(java.net.URI uri){ 
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot(); 
+		java.net.URI rootUri = root.getLocationURI(); 
+		uri = rootUri.relativize(uri); 
+		IPath path = new Path(uri.getPath()); 
+		return root.getFile(path); 
 	}
 	
 	public void testLoadComponent() {

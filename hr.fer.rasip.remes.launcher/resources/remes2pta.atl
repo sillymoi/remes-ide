@@ -1,5 +1,5 @@
 module remes2pta;
-create OUT : UPPAAL from IN : REMES;
+create OUT : UPPAAL from IN : REMES, IN1 : PROCOM;
 -------------------
 ------HELPERS-------
 -------------------
@@ -105,11 +105,18 @@ helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
 --SUB MODE LOCATION TYPE---
 ----------------------------
 
+-- TEMPLATE TYPE
+helper context REMES!SubMode def: isTopLevelMode() : Boolean =
+	if self.parent.oclIsUndefined()
+	then true
+	else false
+	endif;
+
 --CONDITIONAL
 
-helper context REMES!SubMode def: connectedToConditional() : Boolean = 
-	self.exitPoint.exitEdges->iterate(e; res : Boolean = false|
-	if REMES!ConditionalConnector.allInstances()->collect(i | i.entryPoint)->includes(e.connectTo)	
+helper context REMES!SubMode def: connectedFromConditional() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = false|
+	if REMES!ConditionalConnector.allInstances()->collect(i | i.exitPoint)->includes(e.connectFrom)	
 	then true
 	else res
 	endif);
@@ -214,6 +221,16 @@ helper context REMES!InitEdge def: connectsTo() : String =
 	else self.connectTo.__xmiID__
 	endif;
 
+helper def: initEdgeConnectsTo(edge : REMES!InitEdge) : String =
+	if edge.oclIsUndefined()
+	then ''
+	else 
+		if REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->notEmpty()
+		then REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->first().__xmiID__
+		else edge.connectTo.__xmiID__
+		endif
+	endif;
+
 --helper context REMES!Edge def: connectsFrom() : String = 
 --	if REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->notEmpty()
 --	then REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->first().__xmiID__
@@ -226,6 +243,33 @@ helper context REMES!Edge def: connectsFrom() : String =
 	else self.connectFrom.container.__xmiID__
 	endif;
 
+-----------------------------
+--- SUBMODES - GUARDS--------
+-----------------------------
+
+helper context REMES!SubMode def: toInvariant() : String =
+	if self.parsedInvariant.oclIsUndefined()
+	then self.toCost()
+	else 
+		if self.toCost() = ''
+		then self.invariant
+		else self.invariant+'&&'+self.toCost()
+		endif
+	endif;
+	
+	
+helper context REMES!SubMode def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then ''
+	else self.cost()->iterate(e; res: String = 'cost\'== ' | res + e)
+	endif;
+
+helper context	REMES!SubMode def: cost() : Sequence(String) =
+	self.resources->iterate(e; res : Sequence(String) =Sequence{} |
+		if not e.parsedExpression.oclIsUndefined()
+		then res.append('w_'+ e.parsedExpression.expression.param1.name+'*'+e.parsedExpression.expression.param2.value)
+		else res
+		endif);
 ----------------------------------------------
 --- EDGEs - PARSE ACTION BODY AND GUARD--------
 -------------------------------------------
@@ -237,10 +281,20 @@ helper context REMES!Edge def: actionBodyToAssigment() : String =
 	else self.parsedActionBody.toAssigment()
 	endif;
 	
-helper context REMES!InitEdge def: initializationToAssigment() : String = 
-	if self.parsedInitialization.oclIsUndefined()
-	then self.parsedInitialization
-	else self.parsedInitialization.toAssigment()
+--helper context REMES!InitEdge def: initializationToAssigment() : String = 
+--	if self.parsedInitialization.oclIsUndefined()
+--	then self.parsedInitialization
+--	else self.parsedInitialization.toAssigment()
+--	endif;	
+	
+helper def: initializationToAssigment(e : REMES!InitEdge) : String = 
+	if e.oclIsUndefined()
+	then ''
+	else
+		if e.parsedInitialization.oclIsUndefined()
+		then e.parsedInitialization
+		else e.parsedInitialization.toAssigment()
+		endif
 	endif;	
 	
 	
@@ -351,7 +405,7 @@ helper context REMES!Expression def: binaryExpToString() : String =
 																			then self.param1.expressionToString() + ' %= ' + self.param2.expressionToString()
 																			else 
 																				if self.type.toString() = 'DIFF'
-																				then self.param1.expressionToString() + ' \'= ' + self.param2.expressionToString()
+																				then self.param1.expressionToString() + ' \'== ' + self.param2.expressionToString()
 																				else ''
 																				endif
 																			endif
@@ -392,7 +446,7 @@ helper context REMES!Expression def: unaryExpToString() : String =
 helper context REMES!ActionRoot def: toCost() : String = 
 	if self.cost()->isEmpty() 
 	then ''
-	else self.cost()->iterate(e; res: String = 'cost += ' | res + e)
+	else self.cost()->iterate(e; res: String = 'cost = ' | res + e)
 	endif;
 
 helper context	REMES!ActionRoot def: cost() : Sequence(String) =
@@ -409,15 +463,17 @@ helper context	REMES!ActionRoot def: cost() : Sequence(String) =
 			endif
 		else res
 		endif);
+
+
 --------------------------------------
 --- COMPOSITE MODE DECLARATION--------
 ---------------------------------------
 
-helper context REMES!CompositeMode def : toDeclaration() : String = 
+helper context REMES!Mode def : toDeclaration() : String = 
 	self.variablesToDeclaration()+self.constantsToDeclaration();
 
 
-helper context REMES!CompositeMode def : variablesToDeclaration() : String = 
+helper context REMES!Mode def : variablesToDeclaration() : String = 
 	self.variables->iterate(e; res : String = ''| 
 		if e.value.oclIsUndefined()
 		then res + e.uppaalType() + ' ' + e.name + '; '
@@ -429,7 +485,7 @@ helper context REMES!CompositeMode def : variablesToDeclaration() : String =
 		endif
 	);
 
-helper context REMES!CompositeMode def : constantsToDeclaration() : String = 
+helper context REMES!Mode def : constantsToDeclaration() : String = 
 	self.constants->iterate(e; res : String = ''| 
 		 res + 'const '+ e.uppaalType() + ' ' + e.name + ' = ' + e.value + '; '
 	);
@@ -448,6 +504,77 @@ helper context REMES!Referable def: uppaalType() : String =
 		endif
 	endif;
 
+----------------------------
+--- TRIGGERS TO SYNC -------
+----------------------------
+
+helper context REMES!Mode def: hasProSaveInputTrigger() : Boolean =
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : Boolean = false |
+		if self.name = e.destSubcomponent.implComponent.name
+		then true
+		else res
+		endif
+	);
+
+helper context REMES!Mode def: hasProSaveOutputTrigger() : Boolean =
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : Boolean = false |
+		if self.name = e.sourceSubcomponent.implComponent.name 
+		then true
+		else res
+		endif
+	);
+
+helper context REMES!Edge def: hasInputSync() : Boolean = 
+	if self.formCompositeEntryPoint() and not self.toCompositeExitPoint()
+	then self.connectTo.container.parent.hasProSaveInputTrigger()
+	else false
+	endif;
+
+helper context REMES!Mode def: hasInputSync() : Boolean = 
+	self.hasProSaveInputTrigger();
+
+helper context REMES!Mode def: hasOutputSync() : Boolean = 
+	self.hasProSaveOutputTrigger();
+		
+
+helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
+	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
+
+helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
+	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
+
+helper context REMES!Mode def: inputSync() : String = 
+	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+	->iterate(e; res : String = '' |
+		if self.name = e.implComponent.name
+		then e.implComponent.service->first().inputPortGroup.trigger.name.concat('?')
+		else res
+		endif
+	);
+
+helper context REMES!Mode def: outputSync() : String = 
+	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+	->iterate(e; res : String = '' |
+		if self.name = e.implComponent.name
+		then e.implComponent.service->first().outputPortGroup->first().trigger.name.concat('!')
+		else res
+		endif
+	);
+
+----------------------------
+--- NTA DECLARATION -------
+----------------------------
+
+helper def: ntaDeclaration() : String = 
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))	
+	->iterate(e; res : String = '' | res + 'chan '+e.destPort.name+'; ');
+
+
 -------------------
 ------RULES-------
 -------------------
@@ -461,7 +588,8 @@ to
     	nta <- nta_type
 	),
 	nta_type: UPPAAL!NtaType(
-		template <- Sequence{cm.modes}
+    	declaration <- thisModule.ntaDeclaration(),
+		template <- Sequence{cm.modes, thisModule.initTemplate()}
 	)
 }
 
@@ -473,12 +601,36 @@ rule Template_type{
 			declaration <- cMode.toDeclaration(),
 			name <- thisModule.Name_type('5','5', cMode.name.regexReplaceAll(' ', '_')),
 			location <-Sequence{thisModule.startLocation(), cMode.compositeEntryPoint, cMode.compositeExitPoint, cMode.subModes},
-			init <- thisModule.Init_type(cMode.initPoint. __xmiID__),
+			init <- thisModule.Init_type('idStart'),
 			transition <- Sequence{thisModule.initTransition(cMode), thisModule.exitToEntryTransition(cMode), cMode.entryEdges(), cMode.allInternalEdges(), cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))}
 		)	
 }
 
+rule initTemplate(){	
+	to
+		tp: UPPAAL!TemplateType (
+			name <- thisModule.Name_type('5','5', 'InitTemplate'),
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyExitLocation()},
+			init <- thisModule.Init_type('idStart'),
+			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idExit',  't!')}
+		)
+	do{
+		tp;
+	}
+}
 
+rule subMode2Template{
+	from
+		sm : REMES!SubMode ( sm.isTopLevelMode())		
+	to
+		tp: UPPAAL!TemplateType (
+			declaration <- sm.toDeclaration(),
+			name <- thisModule.Name_type('5','5', sm.name),
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyEntryLocation(), thisModule.location_Type(sm), thisModule.emptyExitLocation()},
+			init <- thisModule.Init_type('idStart'),
+			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idEntry', 't?'), thisModule.emptyTransition(sm.__xmiID__, 'idExit'), thisModule.exitToEntryTransition(sm), thisModule.topLevelSubModeEntryTransition(sm)}
+		)	
+}
 ----------------
 ---LOCATIONS----
 ----------------
@@ -490,6 +642,32 @@ rule startLocation(){
 			y<-'-35',
 			name <- thisModule.Name_type('16', '62', 'Start'),
 			committed <-thisModule.Committed_type()
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyExitLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idExit',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Exit')
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyEntryLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idEntry',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Entry')
 		)
 		do{
 			loc;
@@ -527,10 +705,10 @@ abstract rule SubMode2Location{
 }
 rule NonUrgentSubMode2Location extends SubMode2Location{
 	from
-		sm : REMES!SubMode (not (sm.isUrgent()))
+		sm : REMES!SubMode (not sm.isUrgent() and not sm.isTopLevelMode())
 	to 
 		tpl: UPPAAL!LocationType(
-			label <- thisModule.Label_type('15', '78', 'invariant' , sm.invariant),
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
 			id <- sm.__xmiID__,
 			x<-'16',
 			y<-'-40',
@@ -540,11 +718,11 @@ rule NonUrgentSubMode2Location extends SubMode2Location{
 
 rule UrgentSubMode2UrgentLocation extends SubMode2Location{
 	from
-		sm : REMES!SubMode ( sm.isUrgent )
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode())
 	to 
 		tpl: UPPAAL!LocationType(
 			
-			label <- thisModule.Label_type('15', '78', 'invariant' , sm.invariant),
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
 			id <- sm.__xmiID__,
 			x<-'16',
 			y<-'-40',
@@ -552,14 +730,28 @@ rule UrgentSubMode2UrgentLocation extends SubMode2Location{
 			committed <- thisModule.Committed_type()
 		)
 	do{
-			if(sm.connectedToNonUrgentMode() or sm.noClocksOnTransitions()) {
+			if(sm.connectedToNonUrgentMode()) {
 					thisModule.urgent <-thisModule.Urgent_type();
 			}
 			else {}
-			if(sm.connectedToConditional() or not sm.noClocksOnTransitions()){
+			if(sm.connectedFromConditional()){
 					thisModule.commited <-thisModule.Committed_type();
 			}
 			else {}
+	}
+}
+
+rule location_Type(sm : REMES!SubMode){
+	to 
+		tpl: UPPAAL!LocationType(
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+	do{
+		tpl;
 	}
 }
 -------------------------
@@ -577,13 +769,13 @@ rule initTransition(cMode: REMES!CompositeMode){
 			source <- thisModule.Source_type('idStart'),
 			target <- thisModule.Target_type(cMode.compositeEntryPoint.__xmiID__),
 				label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
-					thisModule.Label_type('3', '5', 'assignment', cMode.initPoint.initEdge.initializationToAssigment())}
+					thisModule.Label_type('3', '5', 'assignment', thisModule.initializationToAssigment(cMode.initPoint.initEdge))}
 		),
 		tt3:UPPAAL!TransitionType(
 			source <- thisModule.Source_type('idStart'),
-			target <- thisModule.Target_type(cMode.initPoint.initEdge.connectsTo()),
+			target <- thisModule.Target_type(thisModule.initEdgeConnectsTo(cMode.initPoint.initEdge)),
 			label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
-					thisModule.Label_type('3', '5', 'assignment', cMode.initPoint.initEdge.initializationToAssigment())}
+					thisModule.Label_type('3', '5', 'assignment',  thisModule.initializationToAssigment(cMode.initPoint.initEdge))}
 		)
 	do{
 		if(cMode.initPoint.initEdge.oclIsUndefined()){
@@ -591,7 +783,7 @@ rule initTransition(cMode: REMES!CompositeMode){
 		}
 		else{
 			if(cMode.initPoint.initEdge.connectTo = cMode.compositeEntryPoint.exitEdges->first().connectTo){
-				tt2;
+				tt1;
 			}
 			else{
 				tt3;
@@ -600,20 +792,30 @@ rule initTransition(cMode: REMES!CompositeMode){
 	}
 }
 
-rule exitToEntryTransition(cMode: REMES!CompositeMode){		
+
+rule exitToEntryTransition(mode: REMES!Mode){		
 	to 
-		tt:UPPAAL!TransitionType(
+		tt1:UPPAAL!TransitionType(
 			source <- thisModule.Source_type('idExit'),
 			target <- thisModule.Target_type('idEntry')
-	)
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idExit'),
+			target <- thisModule.Target_type('idEntry'),
+			label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', mode.outputSync())} 
+		)
 	do{
-		tt;
+		if(mode.hasOutputSync()){
+			tt2;
+		} else if(not mode.hasOutputSync()){
+			tt1;
+		}
 	}
 }
 
-rule internalEdge2Transition{
+rule internalEdge2TransitionWithoutSync{
 	from
-		e:REMES!Edge
+		e:REMES!Edge ( not e.hasInputSync())
 
 	to 
 		tt:UPPAAL!TransitionType(
@@ -624,16 +826,42 @@ rule internalEdge2Transition{
 	)
 }
 
+rule internalEdge2TransitionWithSync{
+	from
+		e:REMES!Edge (e.hasInputSync())
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(e.connectsFrom()),
+			target <- thisModule.Target_type(e.connectsTo()),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', e.actionBodyToAssigment()),
+							thisModule.Label_type('3', '4', 'guard', e.actionGuard),
+							thisModule.Label_type('3', '4', 'synchronisation', e.connectTo.container.parent.inputSync())}
+	)
+}
+
 rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
-	to tt:UPPAAL!TransitionType(
+	to tt1:UPPAAL!TransitionType(
 		source <- thisModule.Source_type(edge1.connectsFrom()),
 		target <- thisModule.Target_type(edge2.connectsTo()),
 		label <- Sequence{thisModule.Label_type('3', '5', 'guard', thisModule.mergeActionGuard(edge1, edge2)),
 				thisModule.Label_type('3', '4', 'assignment', thisModule.mergeActionBody(edge1, edge2))
 			}
-		)
+		),
+		tt2:UPPAAL!TransitionType(
+		source <- thisModule.Source_type(edge1.connectsFrom()),
+		target <- thisModule.Target_type(edge2.connectsTo()),
+		label <- Sequence{thisModule.Label_type('3', '5', 'guard', thisModule.mergeActionGuard(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'assignment', thisModule.mergeActionBody(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'synchronisation', edge1.connectTo.container.parent.inputSync())
+			}
+		) 
 	do{
-		tt;
+		if(edge1.hasInputSync()){
+			tt2;
+		} else if(not edge1.hasInputSync()){
+			tt1;
+		}
 	}
 	
 }
@@ -646,6 +874,50 @@ rule transition(source : String, destination : String,  guard : String, action :
 			target <- thisModule.Target_type(destination),
 			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', action)}
 	)
+}
+
+rule transitionWithSync(source : String, destination : String,  sync : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination),
+			label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', sync)}
+	)
+	do{
+		tt;
+	}
+}
+
+rule emptyTransition(source : String, destination : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination)
+	)
+	do{
+		tt;
+	}
+}
+
+rule topLevelSubModeEntryTransition(sm: REMES!SubMode){
+	to tt1:UPPAAL!TransitionType(
+		source <- thisModule.Source_type('idEntry'),
+		target <- thisModule.Target_type(sm.__xmiID__)
+		),
+		tt2:UPPAAL!TransitionType(
+		source <- thisModule.Source_type('idEntry'),
+		target <- thisModule.Target_type(sm.__xmiID__),
+		label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', sm.inputSync())}
+		) 
+	do{
+		if(sm.hasInputSync()){
+			tt2;
+		} else if(not sm.hasInputSync()){
+			tt1;
+		}
+	}
 }
 
 -- committed type

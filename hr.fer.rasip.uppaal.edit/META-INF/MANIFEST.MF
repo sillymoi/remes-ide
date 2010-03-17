@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: hr.fer.rasip.uppaal.edit;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: hr.fer.rasip.uppaal.provider.uppaalEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: hr.fer.rasip.uppaal.provider
+Require-Bundle: org.eclipse.core.runtime,
+ hr.fer.rasip.uppaal;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="file:/uppaal-flat-1_1.xsd#/"
+    outputs="uppaal.ecore#/" topToBottom="true">
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//committed;XSDElementDeclaration=9/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//CommittedType"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//committed;XSDElementDeclaration=9" outputs="uppaal.ecore#//DocumentRoot/committed"/>
+  <nested inputs="bundleentry://623.fwk20698484/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//declaration;XSDElementDeclaration=2"
+      outputs="uppaal.ecore#//DocumentRoot/declaration"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//imports;XSDElementDeclaration=1" outputs="uppaal.ecore#//DocumentRoot/imports"/>
+  <nested inputs="bundleentry://623.fwk20698484/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//init;XSDElementDeclaration=7/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//InitType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//init;XSDElementDeclaration=7/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//InitType/ref"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//init;XSDElementDeclaration=7" outputs="uppaal.ecore#//DocumentRoot/init"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//instantiation;XSDElementDeclaration=15"
+      outputs="uppaal.ecore#//DocumentRoot/instantiation"/>
+  <nested inputs="bundleentry://623.fwk20698484/cache/www.w3.org/2001/MagicXMLSchema.xsd#//anySimpleType;XSDSimpleTypeDefinition=1"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//label;XSDElementDeclaration=13/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//LabelType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//label;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//LabelType/kind"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//label;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//LabelType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//label;XSDElementDeclaration=13/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="uppaal.ecore#//LabelType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//label;XSDElementDeclaration=13" outputs="uppaal.ecore#//DocumentRoot/label"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//name;XSDElementDeclaration=4/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//NameType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//name;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//NameType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//name;XSDElementDeclaration=4/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//NameType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//urgent;XSDElementDeclaration=8/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//UrgentType"/>
+  <nested inputs="bundleentry://623.fwk20698484/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//LocationType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="uppaal.ecore#//LocationType/name"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="uppaal.ecore#//LocationType/label"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="uppaal.ecore#//LocationType/urgent"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="uppaal.ecore#//LocationType/committed"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="uppaal.ecore#//LocationType/color"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//LocationType/id"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//LocationType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="uppaal.ecore#//LocationType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//location;XSDElementDeclaration=6" outputs="uppaal.ecore#//DocumentRoot/location"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//nail;XSDElementDeclaration=14/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//NailType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nail;XSDElementDeclaration=14/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//NailType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nail;XSDElementDeclaration=14/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//NailType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//nail;XSDElementDeclaration=14" outputs="uppaal.ecore#//DocumentRoot/nail"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//name;XSDElementDeclaration=4" outputs="uppaal.ecore#//DocumentRoot/name"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//parameter;XSDElementDeclaration=5/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//ParameterType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//parameter;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//ParameterType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//parameter;XSDElementDeclaration=5/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//ParameterType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//source;XSDElementDeclaration=11/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//SourceType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//source;XSDElementDeclaration=11/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//SourceType/ref"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//target;XSDElementDeclaration=12/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//TargetType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//target;XSDElementDeclaration=12/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//TargetType/ref"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//TransitionType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="uppaal.ecore#//TransitionType/source"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="uppaal.ecore#//TransitionType/target"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="uppaal.ecore#//TransitionType/label"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="uppaal.ecore#//TransitionType/nail"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="uppaal.ecore#//TransitionType/color"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="uppaal.ecore#//TransitionType/id"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="uppaal.ecore#//TransitionType/x"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="uppaal.ecore#//TransitionType/y"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//TemplateType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="uppaal.ecore#//TemplateType/name"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="uppaal.ecore#//TemplateType/parameter"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="uppaal.ecore#//TemplateType/declaration"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="uppaal.ecore#//TemplateType/location"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="uppaal.ecore#//TemplateType/init"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="uppaal.ecore#//TemplateType/transition"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="uppaal.ecore#//NtaType">
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="uppaal.ecore#//NtaType/imports"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="uppaal.ecore#//NtaType/declaration"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="uppaal.ecore#//NtaType/template"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="uppaal.ecore#//NtaType/instantiation"/>
+    <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="uppaal.ecore#//NtaType/system"/>
+  </nested>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//nta;XSDElementDeclaration" outputs="uppaal.ecore#//DocumentRoot/nta"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//parameter;XSDElementDeclaration=5" outputs="uppaal.ecore#//DocumentRoot/parameter"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//source;XSDElementDeclaration=11" outputs="uppaal.ecore#//DocumentRoot/source"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//system;XSDElementDeclaration=16" outputs="uppaal.ecore#//DocumentRoot/system"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//target;XSDElementDeclaration=12" outputs="uppaal.ecore#//DocumentRoot/target"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//template;XSDElementDeclaration=3" outputs="uppaal.ecore#//DocumentRoot/template"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//transition;XSDElementDeclaration=10"
+      outputs="uppaal.ecore#//DocumentRoot/transition"/>
+  <nested inputs="file:/uppaal-flat-1_1.xsd#//urgent;XSDElementDeclaration=8" outputs="uppaal.ecore#//DocumentRoot/urgent"/>
+</xsd2ecore:XSD2EcoreMappingRoot>

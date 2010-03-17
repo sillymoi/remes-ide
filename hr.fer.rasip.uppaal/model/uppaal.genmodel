@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hr.fer.rasip.uppaal/src"
+    editDirectory="/hr.fer.rasip.uppaal.edit/src" editorDirectory="/hr.fer.rasip.uppaal.editor/src"
+    modelPluginID="hr.fer.rasip.uppaal" modelName="uppaal" importerID="org.eclipse.xsd.ecore.importer"
+    copyrightFields="false" editPluginID="hr.fer.rasip.uppaal.edit" editorPluginID="hr.fer.rasip.uppaal.editor">
+  <foreignModel>file:/D:/Dokumenti/Faks/PhD/Podaci/uppaal-flat-1_1.xsd</foreignModel>
+  <genPackages prefix="Uppaal" basePackage="hr.fer.rasip" resource="XML" disposableProviderFactory="true"
+      fileExtensions="uppaal" ecorePackage="uppaal.ecore#/">
+    <genClasses ecoreClass="uppaal.ecore#//CommittedType"/>
+    <genClasses ecoreClass="uppaal.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/committed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//DocumentRoot/declaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//DocumentRoot/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/init"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//DocumentRoot/instantiation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/nail"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/nta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//DocumentRoot/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/template"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/transition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//DocumentRoot/urgent"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//InitType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//InitType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//LabelType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute uppaal.ecore#//LabelType/mixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LabelType/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LabelType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LabelType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//LocationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//LocationType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//LocationType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//LocationType/urgent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//LocationType/committed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LocationType/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LocationType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LocationType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//LocationType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//NailType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NailType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NailType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//NameType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute uppaal.ecore#//NameType/mixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NameType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NameType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//NtaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NtaType/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NtaType/declaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//NtaType/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NtaType/instantiation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//NtaType/system"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//ParameterType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute uppaal.ecore#//ParameterType/mixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//ParameterType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//ParameterType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//SourceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//SourceType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//TargetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TargetType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//TemplateType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TemplateType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TemplateType/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TemplateType/declaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TemplateType/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TemplateType/init"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TemplateType/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//TransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TransitionType/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TransitionType/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TransitionType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaal.ecore#//TransitionType/nail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TransitionType/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TransitionType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TransitionType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaal.ecore#//TransitionType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="uppaal.ecore#//UrgentType"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -39,7 +39,7 @@ public interface ExitPoint extends Point {
 	 * @return the value of the '<em>Exit Edges</em>' containment reference list.
 	 * @see se.mdh.progresside.remes.RemesPackage#getExitPoint_ExitEdges()
 	 * @see se.mdh.progresside.remes.Edge#getConnectFrom
-	 * @model opposite="connectFrom" containment="true" required="true"
+	 * @model opposite="connectFrom" containment="true"
 	 * @generated
 	 */
 	EList<Edge> getExitEdges();

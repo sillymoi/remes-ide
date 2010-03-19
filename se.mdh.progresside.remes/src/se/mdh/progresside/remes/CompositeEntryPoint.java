@@ -6,7 +6,6 @@
  */
 package se.mdh.progresside.remes;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Composite Entry Point</b></em>'.

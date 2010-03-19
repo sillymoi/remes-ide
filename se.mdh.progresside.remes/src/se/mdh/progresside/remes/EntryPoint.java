@@ -39,7 +39,7 @@ public interface EntryPoint extends Point {
 	 * @return the value of the '<em>Entry Edges</em>' reference list.
 	 * @see se.mdh.progresside.remes.RemesPackage#getEntryPoint_EntryEdges()
 	 * @see se.mdh.progresside.remes.Edge#getConnectTo
-	 * @model opposite="connectTo" required="true"
+	 * @model opposite="connectTo"
 	 * @generated
 	 */
 	EList<Edge> getEntryEdges();

@@ -71,15 +71,14 @@
         eType="#//CompositeMode" eOpposite="#//CompositeMode/initPoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntryPoint" eSuperTypes="#//Point">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entryEdges" lowerBound="1"
-        upperBound="-1" eType="#//Edge" eOpposite="#//Edge/connectTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryEdges" upperBound="-1"
+        eType="#//Edge" eOpposite="#//Edge/connectTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ControlPath"
         eOpposite="#//ControlPath/entryPoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExitPoint" eSuperTypes="#//Point">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exitEdges" lowerBound="1"
-        upperBound="-1" eType="#//Edge" containment="true" resolveProxies="false"
-        eOpposite="#//Edge/connectFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exitEdges" upperBound="-1"
+        eType="#//Edge" containment="true" resolveProxies="false" eOpposite="#//Edge/connectFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ControlPath"
         eOpposite="#//ControlPath/exitPoint"/>
   </eClassifiers>

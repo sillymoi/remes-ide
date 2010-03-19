@@ -8,8 +8,8 @@ package se.mdh.progresside.remes.presentation;
 
 
 import hr.fer.rasip.remes.grammars.expressions.ast.provider.AstItemProviderAdapterFactory;
-import hr.fer.rasip.remes.grammars.expressions.type.provider.TypeItemProviderAdapterFactory;
 
+import hr.fer.rasip.remes.grammars.expressions.type.provider.TypeItemProviderAdapterFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

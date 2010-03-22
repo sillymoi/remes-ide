@@ -148,21 +148,21 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 		}
 	}
 
-	private void echoSubCompNames(IFile file){
+	private void echoSubCompNames(IFile file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
-		CompositeComponent component = (CompositeComponent)resource.getContents().get(0).eContents().get(1);
-		EList<SubcomponentInstance>  subComponents = component.getSubcomponentInst();
-		for(SubcomponentInstance subComponent: subComponents){
-			EObject eObject = (EObject)subComponent.eCrossReferences().get(0);
+		CompositeComponent component = (CompositeComponent) resource.getContents().get(0).eContents().get(1);
+		EList<SubcomponentInstance> subComponents = component.getSubcomponentInst();
+		for (SubcomponentInstance subComponent : subComponents) {
+			EObject eObject = (EObject) subComponent.eCrossReferences().get(0);
 			System.out.println(eObject);
 			Resource otherResource = eObject.eResource();
 			System.out.println(subComponent.getImplComponent().getName());
-			if(otherResource != null){
+			if (otherResource != null) {
 				System.out.println(otherResource.getContents());
-				Component comp= (Component)otherResource.getContents().get(0);
+				Component comp = (Component) otherResource.getContents().get(0);
 			}
-			//System.out.println(comp.getName());
+			// System.out.println(comp.getName());
 		}
 	}
 	/*

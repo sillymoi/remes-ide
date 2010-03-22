@@ -4,6 +4,7 @@
 package hr.fer.rasip.remes.launcher;
 
 import hr.fer.rasip.remes.launcher.actions.Remes2PtaAction;
+import hr.fer.rasip.uppaal.UppaalPackage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -51,7 +52,6 @@ import se.mdh.progresside.proComMetamodel.proSave.impl.ComponentImpl;
 import se.mdh.progresside.proComMetamodel.util.ProComComponentResourceFactory;
 import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesPackage;
-import UppaalFlat11.UppaalFlat11Package;
 
 /**
  * @author Marin
@@ -67,7 +67,7 @@ public class Remes2PtaConverter {
 
 	private static final String remesURI = RemesPackage.eNS_URI; //"http://www.mdh.se/progresside/remes/1.2.0/remes.ecore"; //$NON-NLS-1$
 	private static final String procomURI = procomPackage.eNS_URI;
-	private static final String uppaalURI = UppaalFlat11Package.eNS_URI; //"file:/D:/Dokumenti/Faks/PhD/Podaci/uppaal-flat-1_1.xsd"; //$NON-NLS-1$
+	private static final String uppaalURI = UppaalPackage.eNS_URI; //"file:/D:/Dokumenti/Faks/PhD/Podaci/uppaal-flat-1_1.xsd"; //$NON-NLS-1$
 	
 	private static URL asmURL;
 

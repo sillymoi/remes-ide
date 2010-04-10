@@ -1,13 +1,15 @@
 package se.mdh.progresside.remes.diagram.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -19,7 +21,6 @@ import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdap
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -32,8 +33,11 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCanonicalEditPolicy;
 import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeItemSemanticEditPolicy;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -133,7 +137,11 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * Generated implementation is overriden to provide offset for entry and
+	 * exit points which are located on the border. This will make the points
+	 * overlap the border.
+	 * 
+	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CompositeModeInitializationEditPart) {
@@ -151,6 +159,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof EntryPoint4EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint4EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -158,6 +167,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ExitPoint4EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint4EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -165,6 +175,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof InitPointEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((InitPointEditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -176,10 +187,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+		if (childEditPart instanceof CompositeModeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CompositeModeNameEditPart) {
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -241,8 +252,8 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -256,9 +267,11 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -362,8 +375,11 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		public CompositeModeFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(11),
 					getMapMode().DPtoLP(11)));
-			this.setLineWidth(1);
+			this.setLineWidth(2);
 			this.setBackgroundColor(ColorConstants.white);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
@@ -374,6 +390,9 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 
 			fFigureCompositeModeNameFigure = new WrappingLabel();
 			fFigureCompositeModeNameFigure.setText("CompositeMode Name");
+
+			fFigureCompositeModeNameFigure
+					.setFont(FFIGURECOMPOSITEMODENAMEFIGURE_FONT);
 
 			this.add(fFigureCompositeModeNameFigure);
 
@@ -418,5 +437,13 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURECOMPOSITEMODENAMEFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
+			SWT.BOLD);
 
 }

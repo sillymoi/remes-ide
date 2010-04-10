@@ -2,6 +2,7 @@ package se.mdh.progresside.remes.diagram.edit.parts;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
@@ -32,8 +33,11 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.widgets.Display;
 import se.mdh.progresside.remes.diagram.edit.policies.SubMode2CanonicalEditPolicy;
 import se.mdh.progresside.remes.diagram.edit.policies.SubMode2ItemSemanticEditPolicy;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -132,7 +136,11 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * Generated implementation is overriden to provide offset for entry and
+	 * exit points which are located on the border. This will make the points
+	 * overlap the border.
+	 * 
+	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof SubModeName2EditPart) {
@@ -161,6 +169,7 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof EntryPoint2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint2EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -168,6 +177,7 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ExitPoint2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint2EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -179,16 +189,16 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeName2EditPart) {
+		if (childEditPart instanceof SubModeInitialization2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeInitialization2EditPart) {
+		if (childEditPart instanceof SubModeInvariant2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeInvariant2EditPart) {
+		if (childEditPart instanceof SubModeName2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint2EditPart) {
@@ -245,8 +255,8 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -260,9 +270,11 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -378,7 +390,10 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		public SubModeFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setLineWidth(1);
+			this.setLineWidth(2);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 
@@ -389,6 +404,8 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 
 			fFigureSubModeNameFigure = new WrappingLabel();
 			fFigureSubModeNameFigure.setText("Submode Name");
+
+			fFigureSubModeNameFigure.setFont(FFIGURESUBMODENAMEFIGURE_FONT);
 
 			this.add(fFigureSubModeNameFigure);
 
@@ -457,5 +474,13 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Font FFIGURESUBMODENAMEFIGURE_FONT = new Font(Display
+			.getCurrent(),
+			Display.getDefault().getSystemFont().getFontData()[0].getName(), 9,
+			SWT.BOLD);
 
 }

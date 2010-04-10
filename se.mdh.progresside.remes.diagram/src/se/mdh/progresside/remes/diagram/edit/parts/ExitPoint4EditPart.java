@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -263,7 +264,7 @@ public class ExitPoint4EditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public class ExitPointFigure extends RectangleFigure {
+	public class ExitPointFigure extends Ellipse {
 
 		/**
 		 * @generated

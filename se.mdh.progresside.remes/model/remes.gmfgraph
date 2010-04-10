@@ -190,14 +190,27 @@
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
           name="CompositeModeRoundedFigure"
+          lineWidth="2"
           cornerWidth="11"
           cornerHeight="11">
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="CompositeModeNameFigure"
-            text="CompositeMode Name"/>
+            text="CompositeMode Name">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              style="BOLD"/>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="CompositeModeInitializationFigure"
@@ -215,6 +228,14 @@
           name="ConditionalConnectorEllipseFigure">
         <layout
             xsi:type="gmfgraph:GridLayout"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="ConditionalConnectorNameFigure"
@@ -245,7 +266,7 @@
     <descriptors
         name="EntryPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:Ellipse"
           name="EntryPointFigure">
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
@@ -258,7 +279,7 @@
     <descriptors
         name="ExitPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:Ellipse"
           name="ExitPointFigure">
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"
@@ -286,13 +307,26 @@
         name="SubModeFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="SubModeFigure">
+          name="SubModeFigure"
+          lineWidth="2">
         <layoutData
             xsi:type="gmfgraph:BorderLayoutData"/>
+        <border
+            xsi:type="gmfgraph:MarginBorder">
+          <insets
+              top="5"
+              left="5"
+              bottom="5"
+              right="5"/>
+        </border>
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeNameFigure"
-            text="Submode Name"/>
+            text="Submode Name">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              style="BOLD"/>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeInitializationFigure"
@@ -318,7 +352,7 @@
     <descriptors
         name="InitPointFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
+          xsi:type="gmfgraph:Ellipse"
           name="InitPointFigure">
         <backgroundColor
             xsi:type="gmfgraph:ConstantColor"

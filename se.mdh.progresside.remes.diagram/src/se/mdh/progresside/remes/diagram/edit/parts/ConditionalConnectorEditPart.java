@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -127,7 +128,11 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 	}
 
 	/**
-	 * @generated
+	 * Generated implementation is overriden to provide offset for entry and
+	 * exit points which are located on the border. This will make the points
+	 * overlap the border.
+	 * 
+	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ConditionalConnectorNameEditPart) {
@@ -139,6 +144,7 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 		if (childEditPart instanceof EntryPoint3EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint3EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -146,6 +152,7 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 		if (childEditPart instanceof ExitPoint3EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(5, 5));
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint3EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -214,8 +221,8 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -229,9 +236,11 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {

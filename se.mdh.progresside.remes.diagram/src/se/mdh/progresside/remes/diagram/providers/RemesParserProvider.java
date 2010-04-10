@@ -316,8 +316,7 @@ public class RemesParserProvider extends AbstractProvider implements
 					RemesPackage.eINSTANCE.getVariable_Global() };
 			EAttribute[] editableFeatures = new EAttribute[] {
 					RemesPackage.eINSTANCE.getReferable_Name(),
-					RemesPackage.eINSTANCE.getVariable_Type(),
-					RemesPackage.eINSTANCE.getVariable_Global() };
+					RemesPackage.eINSTANCE.getVariable_Type() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
 			parser.setViewPattern("{0}{1,choice,0#|0<[{1}]}:{2}"); //$NON-NLS-1$

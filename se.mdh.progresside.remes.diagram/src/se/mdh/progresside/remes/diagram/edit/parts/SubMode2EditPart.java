@@ -169,7 +169,7 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof EntryPoint2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint2EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -177,7 +177,7 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ExitPoint2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint2EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -189,13 +189,13 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitialization2EditPart) {
+		if (childEditPart instanceof SubModeInvariant2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgent2EditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeInvariant2EditPart) {
+		if (childEditPart instanceof SubModeInitialization2EditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeName2EditPart) {
@@ -407,20 +407,29 @@ public class SubMode2EditPart extends AbstractBorderedShapeEditPart {
 
 			fFigureSubModeNameFigure.setFont(FFIGURESUBMODENAMEFIGURE_FONT);
 
+			fFigureSubModeNameFigure.setMaximumSize(new Dimension(getMapMode()
+					.DPtoLP(1000), getMapMode().DPtoLP(20)));
+
 			this.add(fFigureSubModeNameFigure);
 
 			fFigureSubModeInitializationFigure = new WrappingLabel();
 			fFigureSubModeInitializationFigure.setText("");
+			fFigureSubModeInitializationFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(1000), getMapMode().DPtoLP(20)));
 
 			this.add(fFigureSubModeInitializationFigure);
 
 			fFigureSubModeInvariantFigure = new WrappingLabel();
 			fFigureSubModeInvariantFigure.setText("");
+			fFigureSubModeInvariantFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(1000), getMapMode().DPtoLP(20)));
 
 			this.add(fFigureSubModeInvariantFigure);
 
 			fFigureSubModeIsUrgentFigure = new WrappingLabel();
 			fFigureSubModeIsUrgentFigure.setText("false");
+			fFigureSubModeIsUrgentFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(1000), getMapMode().DPtoLP(20)));
 
 			this.add(fFigureSubModeIsUrgentFigure);
 

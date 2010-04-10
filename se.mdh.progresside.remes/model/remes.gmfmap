@@ -258,8 +258,6 @@
                     href="remes.ecore#//Referable/name"/>
                 <editableFeatures
                     href="remes.ecore#//Variable/type"/>
-                <editableFeatures
-                    href="remes.ecore#//Variable/global"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

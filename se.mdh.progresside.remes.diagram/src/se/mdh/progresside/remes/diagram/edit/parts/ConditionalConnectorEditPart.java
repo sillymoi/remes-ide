@@ -4,6 +4,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -144,7 +145,7 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 		if (childEditPart instanceof EntryPoint3EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint3EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -152,7 +153,7 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 		if (childEditPart instanceof ExitPoint3EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint3EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -327,6 +328,9 @@ public class ConditionalConnectorEditPart extends AbstractBorderedShapeEditPart 
 			this.setLayoutManager(layoutThis);
 
 			this.setLineWidth(1);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			createContents();
 		}
 

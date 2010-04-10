@@ -159,7 +159,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof EntryPoint4EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((EntryPoint4EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -167,7 +167,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ExitPoint4EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((ExitPoint4EditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -187,10 +187,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeNameEditPart) {
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+		if (childEditPart instanceof CompositeModeNameEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -394,10 +394,16 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 			fFigureCompositeModeNameFigure
 					.setFont(FFIGURECOMPOSITEMODENAMEFIGURE_FONT);
 
+			fFigureCompositeModeNameFigure.setMaximumSize(new Dimension(
+					getMapMode().DPtoLP(1000), getMapMode().DPtoLP(20)));
+
 			this.add(fFigureCompositeModeNameFigure);
 
 			fFigureCompositeModeInitializationFigure = new WrappingLabel();
 			fFigureCompositeModeInitializationFigure.setText("");
+			fFigureCompositeModeInitializationFigure
+					.setMaximumSize(new Dimension(getMapMode().DPtoLP(1000),
+							getMapMode().DPtoLP(20)));
 
 			this.add(fFigureCompositeModeInitializationFigure);
 

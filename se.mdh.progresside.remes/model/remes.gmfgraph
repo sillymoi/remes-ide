@@ -207,6 +207,9 @@
             xsi:type="gmfgraph:Label"
             name="CompositeModeNameFigure"
             text="CompositeMode Name">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
           <font
               xsi:type="gmfgraph:BasicFont"
               style="BOLD"/>
@@ -214,7 +217,11 @@
         <children
             xsi:type="gmfgraph:Label"
             name="CompositeModeInitializationFigure"
-            text=""/>
+            text="">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
@@ -323,6 +330,9 @@
             xsi:type="gmfgraph:Label"
             name="SubModeNameFigure"
             text="Submode Name">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
           <font
               xsi:type="gmfgraph:BasicFont"
               style="BOLD"/>
@@ -330,15 +340,27 @@
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeInitializationFigure"
-            text=""/>
+            text="">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeInvariantFigure"
-            text=""/>
+            text="">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
+        </children>
         <children
             xsi:type="gmfgraph:Label"
             name="SubModeIsUrgentFigure"
-            text="false"/>
+            text="false">
+          <maximumSize
+              dx="1000"
+              dy="20"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>

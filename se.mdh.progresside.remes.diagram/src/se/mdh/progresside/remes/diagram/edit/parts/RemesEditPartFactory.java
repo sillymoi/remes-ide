@@ -125,6 +125,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 			case InitPointEditPart.VISUAL_ID:
 				return new InitPointEditPart(view);
 
+			case Resource3EditPart.VISUAL_ID:
+				return new Resource3EditPart(view);
+
 			case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
 				return new SubModeSubModeVariablesCompartmentEditPart(view);
 
@@ -133,6 +136,10 @@ public class RemesEditPartFactory implements EditPartFactory {
 
 			case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
 				return new CompositeModeCompositeModeVariablesCompartmentEditPart(
+						view);
+
+			case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
+				return new CompositeModeCompositeModeResourcesCompartmentEditPart(
 						view);
 
 			case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:

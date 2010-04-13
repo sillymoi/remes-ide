@@ -1,53 +1,49 @@
 package se.mdh.progresside.remes.diagram.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeCompartmentCanonicalEditPolicy;
-import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeCompartmentItemSemanticEditPolicy;
+import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeResourcesCompartmentCanonicalEditPolicy;
+import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeResourcesCompartmentItemSemanticEditPolicy;
 import se.mdh.progresside.remes.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class CompositeModeCompositeModeCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class CompositeModeCompositeModeResourcesCompartmentEditPart extends
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7025;
+	public static final int VISUAL_ID = 7022;
 
 	/**
 	 * @generated
 	 */
-	public CompositeModeCompositeModeCompartmentEditPart(View view) {
+	public CompositeModeCompositeModeResourcesCompartmentEditPart(View view) {
 		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	public String getCompartmentName() {
-		return Messages.CompositeModeCompositeModeCompartmentEditPart_title;
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
 	}
 
 	/**
 	 * @generated
 	 */
-	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
-		result.setTitleVisibility(false);
-		return result;
+	public String getCompartmentName() {
+		return Messages.CompositeModeCompositeModeResourcesCompartmentEditPart_title;
 	}
 
 	/**
@@ -59,13 +55,14 @@ public class CompositeModeCompositeModeCompartmentEditPart extends
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new CompositeModeCompositeModeCompartmentItemSemanticEditPolicy());
+				new CompositeModeCompositeModeResourcesCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new CompositeModeCompositeModeCompartmentCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new CompositeModeCompositeModeResourcesCompartmentCanonicalEditPolicy());
 	}
 
 	/**

@@ -348,6 +348,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CompositeModeCompositeModeResourcesCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CompositeModeCompositeModeCompartmentEditPart_title;
 
 	/**

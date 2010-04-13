@@ -25,6 +25,7 @@ import se.mdh.progresside.remes.diagram.edit.commands.InitPointCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
@@ -36,6 +37,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint4EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -167,6 +169,21 @@ public class CompositeModeItemSemanticEditPolicy extends
 					Node cnode = (Node) cit.next();
 					switch (RemesVisualIDRegistry.getVisualID(cnode)) {
 					case Variable3EditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
+				break;
+			case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (RemesVisualIDRegistry.getVisualID(cnode)) {
+					case Resource3EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

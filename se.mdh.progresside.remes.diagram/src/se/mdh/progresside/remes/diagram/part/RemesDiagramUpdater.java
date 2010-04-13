@@ -30,6 +30,7 @@ import se.mdh.progresside.remes.Variable;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
@@ -46,6 +47,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
@@ -82,8 +84,10 @@ public class RemesDiagramUpdater {
 			return getSubModeSubModeResourcesCompartment_7020SemanticChildren(view);
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
 			return getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(view);
+		case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
+			return getCompositeModeCompositeModeResourcesCompartment_7022SemanticChildren(view);
 		case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeCompartment_7022SemanticChildren(view);
+			return getCompositeModeCompositeModeCompartment_7025SemanticChildren(view);
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
 			return getSubModeSubModeVariablesCompartment_7023SemanticChildren(view);
 		case SubModeSubModeResourcesCompartment2EditPart.VISUAL_ID:
@@ -296,7 +300,33 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeCompartment_7022SemanticChildren(
+	public static List getCompositeModeCompositeModeResourcesCompartment_7022SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		CompositeMode modelElement = (CompositeMode) containerView.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getResources().iterator(); it.hasNext();) {
+			Resource childElement = (Resource) it.next();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Resource3EditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeModeCompositeModeCompartment_7025SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -472,6 +502,8 @@ public class RemesDiagramUpdater {
 			return getCompositeExitPoint_3038ContainedLinks(view);
 		case InitPointEditPart.VISUAL_ID:
 			return getInitPoint_3039ContainedLinks(view);
+		case Resource3EditPart.VISUAL_ID:
+			return getResource_3040ContainedLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028ContainedLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -525,6 +557,8 @@ public class RemesDiagramUpdater {
 			return getCompositeExitPoint_3038IncomingLinks(view);
 		case InitPointEditPart.VISUAL_ID:
 			return getInitPoint_3039IncomingLinks(view);
+		case Resource3EditPart.VISUAL_ID:
+			return getResource_3040IncomingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028IncomingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -578,6 +612,8 @@ public class RemesDiagramUpdater {
 			return getCompositeExitPoint_3038OutgoingLinks(view);
 		case InitPointEditPart.VISUAL_ID:
 			return getInitPoint_3039OutgoingLinks(view);
+		case Resource3EditPart.VISUAL_ID:
+			return getResource_3040OutgoingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028OutgoingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -751,6 +787,13 @@ public class RemesDiagramUpdater {
 		result
 				.addAll(getContainedTypeModelFacetLinks_InitEdge_4029(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getResource_3040ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -951,6 +994,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getResource_3040IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1120,6 +1170,13 @@ public class RemesDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_InitEdge_4029(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getResource_3040OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**

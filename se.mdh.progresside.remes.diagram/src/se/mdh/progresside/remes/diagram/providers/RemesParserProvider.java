@@ -20,6 +20,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditP
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeInitialization2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeInitializationEditPart;
@@ -402,6 +403,32 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser resource_3040Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResource_3040Parser() {
+		if (resource_3040Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					RemesPackage.eINSTANCE.getResource_Expression(),
+					RemesPackage.eINSTANCE.getResource_Type() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					RemesPackage.eINSTANCE.getResource_Expression(),
+					RemesPackage.eINSTANCE.getResource_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}:{1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}:{1}"); //$NON-NLS-1$
+			resource_3040Parser = parser;
+		}
+		return resource_3040Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser edgeActionGuard_6028Parser;
 
 	/**
@@ -472,6 +499,8 @@ public class RemesParserProvider extends AbstractProvider implements
 			return getConditionalConnectorName_5048Parser();
 		case Variable3EditPart.VISUAL_ID:
 			return getVariable_3034Parser();
+		case Resource3EditPart.VISUAL_ID:
+			return getResource_3040Parser();
 		case EdgeActionGuardEditPart.VISUAL_ID:
 			return getEdgeActionGuard_6028Parser();
 		case InitEdgeInitializationEditPart.VISUAL_ID:

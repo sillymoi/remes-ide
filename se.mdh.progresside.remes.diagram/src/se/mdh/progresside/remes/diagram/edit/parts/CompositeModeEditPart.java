@@ -187,10 +187,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+		if (childEditPart instanceof CompositeModeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CompositeModeNameEditPart) {
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -350,6 +350,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 			if (type == RemesElementTypes.Variable_3034) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID));
+			}
+			if (type == RemesElementTypes.Resource_3040) {
+				return getChildBySemanticHint(RemesVisualIDRegistry
+						.getType(CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);

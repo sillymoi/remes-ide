@@ -11,11 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
-import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
-import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
-import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
-import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramUpdater;
 import se.mdh.progresside.remes.diagram.part.RemesNodeDescriptor;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -23,8 +19,8 @@ import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 /**
  * @generated
  */
-public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class CompositeModeCompositeModeResourcesCompartmentCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
 	/**
 	 * @generated
@@ -38,7 +34,7 @@ public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getCompositeModeCompositeModeCompartment_7025SemanticChildren(
+				.getCompositeModeCompositeModeResourcesCompartment_7022SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}
@@ -51,10 +47,7 @@ public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = RemesVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case SubMode2EditPart.VISUAL_ID:
-		case ConditionalConnectorEditPart.VISUAL_ID:
-		case CompositeEntryPointEditPart.VISUAL_ID:
-		case CompositeExitPointEditPart.VISUAL_ID:
+		case Resource3EditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -76,13 +69,7 @@ public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_SubModes());
-			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_ConditionalConnectors());
-			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_CompositeEntryPoint());
-			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_CompositeExitPoint());
+					.getMode_Resources());
 		}
 		return myFeaturesToSynchronize;
 	}

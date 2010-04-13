@@ -193,10 +193,10 @@
         notationViewFactoryClassName="SubModeViewFactory"
         canonicalEditPolicyClassName="SubMode2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8"
-        compartments="//@diagram/@compartments.4 //@diagram/@compartments.5"
+        compartments="//@diagram/@compartments.5 //@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="SubMode2GraphicalNodeEditPolicy"
         createCommandClassName="SubMode2CreateCommand"
-        containers="//@diagram/@compartments.3">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -313,7 +313,7 @@
         canonicalEditPolicyClassName="Variable2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="Variable2GraphicalNodeEditPolicy"
         createCommandClassName="Variable2CreateCommand"
-        containers="//@diagram/@compartments.4"
+        containers="//@diagram/@compartments.5"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -361,7 +361,7 @@
         canonicalEditPolicyClassName="Resource2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="Resource2GraphicalNodeEditPolicy"
         createCommandClassName="Resource2CreateCommand"
-        containers="//@diagram/@compartments.5"
+        containers="//@diagram/@compartments.6"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -479,7 +479,7 @@
         childNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.11"
         graphicalNodeEditPolicyClassName="ConditionalConnectorGraphicalNodeEditPolicy"
         createCommandClassName="ConditionalConnectorCreateCommand"
-        containers="//@diagram/@compartments.3">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -721,7 +721,7 @@
         canonicalEditPolicyClassName="CompositeEntryPointCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CompositeEntryPointGraphicalNodeEditPolicy"
         createCommandClassName="CompositeEntryPointCreateCommand"
-        containers="//@diagram/@compartments.3">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -753,7 +753,7 @@
         canonicalEditPolicyClassName="CompositeExitPointCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CompositeExitPointGraphicalNodeEditPolicy"
         createCommandClassName="CompositeExitPointCreateCommand"
-        containers="//@diagram/@compartments.3">
+        containers="//@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -813,6 +813,50 @@
         <childMetaFeature
             href="remes.genmodel#//remes/CompositeMode/initPoint"/>
       </modelFacet>
+    </childNodes>
+    <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
+        visualID="3040"
+        editPartClassName="Resource3EditPart"
+        itemSemanticEditPolicyClassName="Resource3ItemSemanticEditPolicy"
+        notationViewFactoryClassName="ResourceViewFactory"
+        canonicalEditPolicyClassName="Resource3CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="Resource3GraphicalNodeEditPolicy"
+        createCommandClassName="Resource3CreateCommand"
+        containers="//@diagram/@compartments.3"
+        labelElementIcon="true">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.1/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ResourceFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Resources&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet>
+        <metaClass
+            href="remes.genmodel#//remes/Resource"/>
+        <containmentMetaFeature
+            href="remes.genmodel#//remes/Mode/resources"/>
+        <childMetaFeature
+            href="remes.genmodel#//remes/Mode/resources"/>
+      </modelFacet>
+      <labelModelFacet
+          xsi:type="gmfgen:FeatureLabelModelFacet"
+          parser="//@labelParsers/@implementations.0"
+          viewPattern="{0}"
+          editorPattern="{0}:{1}"
+          editPattern="{0}:{1}">
+        <metaFeatures
+            href="remes.genmodel#//remes/Resource/expression"/>
+        <metaFeatures
+            href="remes.genmodel#//remes/Resource/type"/>
+        <editableMetaFeatures
+            href="remes.genmodel#//remes/Resource/expression"/>
+        <editableMetaFeatures
+            href="remes.genmodel#//remes/Resource/type"/>
+      </labelModelFacet>
     </childNodes>
     <topLevelNodes
         visualID="2007"
@@ -938,7 +982,7 @@
         notationViewFactoryClassName="CompositeModeViewFactory"
         canonicalEditPolicyClassName="CompositeModeCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.17"
-        compartments="//@diagram/@compartments.2 //@diagram/@compartments.3"
+        compartments="//@diagram/@compartments.2 //@diagram/@compartments.3 //@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="CompositeModeGraphicalNodeEditPolicy"
         createCommandClassName="CompositeModeCreateCommand">
       <diagramRunTimeClass
@@ -1168,6 +1212,26 @@
     </compartments>
     <compartments
         visualID="7022"
+        editPartClassName="CompositeModeCompositeModeResourcesCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CompositeModeCompositeModeResourcesCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="CompositeModeCompositeModeResourcesCompartmentViewFactory"
+        canonicalEditPolicyClassName="CompositeModeCompositeModeResourcesCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.18"
+        title="CompositeModeResourcesCompartment"
+        node="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CompositeModeFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CompositeModeFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCompositeModeNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCompositeModeInitializationFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CompositeModeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(11)&#xA;, getMapMode().DPtoLP(11)&#xA;));&#xA;this.setLineWidth(2);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.white);&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCompositeModeNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureCompositeModeNameFigure.setText(&quot;CompositeMode Name&quot;);&#xA;&#xA;fFigureCompositeModeNameFigure.setFont(FFIGURECOMPOSITEMODENAMEFIGURE_FONT);&#xA;&#xA;&#xA;fFigureCompositeModeNameFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(1000)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.add(fFigureCompositeModeNameFigure);&#xA;&#xA;&#xA;&#xA;fFigureCompositeModeInitializationFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureCompositeModeInitializationFigure.setText(&quot;&quot;);&#xA;fFigureCompositeModeInitializationFigure.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(1000)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;&#xA;this.add(fFigureCompositeModeInitializationFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCompositeModeNameFigure() {&#xA;&#x9;&#x9;return fFigureCompositeModeNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCompositeModeInitializationFigure() {&#xA;&#x9;&#x9;return fFigureCompositeModeInitializationFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECOMPOSITEMODENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), org.eclipse.swt.widgets.Display.getDefault().getSystemFont().getFontData()[0].getName(), 9, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedBackground="true"/>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="7025"
         editPartClassName="CompositeModeCompositeModeCompartmentEditPart"
         itemSemanticEditPolicyClassName="CompositeModeCompositeModeCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeModeCompositeModeCompartmentViewFactory"
@@ -1233,7 +1297,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Resource"
             description="Create new Resource"
-            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.6 //@diagram/@childNodes.18"/>
       </groups>
       <groups
           title="Nodes"
@@ -1342,7 +1406,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.0/@labels.2/@modelFacet //@diagram/@topLevelNodes.0/@labels.3/@modelFacet //@diagram/@childNodes.5/@labelModelFacet //@diagram/@childNodes.6/@labelModelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.1/@modelFacet //@diagram/@childNodes.4/@labels.2/@modelFacet //@diagram/@childNodes.4/@labels.3/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.12/@labelModelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.1/@modelFacet //@diagram/@topLevelNodes.0/@labels.2/@modelFacet //@diagram/@topLevelNodes.0/@labels.3/@modelFacet //@diagram/@childNodes.5/@labelModelFacet //@diagram/@childNodes.6/@labelModelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.1/@modelFacet //@diagram/@childNodes.4/@labels.2/@modelFacet //@diagram/@childNodes.4/@labels.3/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@childNodes.12/@labelModelFacet //@diagram/@childNodes.18/@labelModelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@links.0/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

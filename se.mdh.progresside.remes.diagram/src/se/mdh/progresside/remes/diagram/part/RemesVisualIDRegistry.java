@@ -13,6 +13,7 @@ import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeInitializationEditPart;
@@ -34,6 +35,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPar
 import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
@@ -224,6 +226,12 @@ public class RemesVisualIDRegistry {
 				return Variable3EditPart.VISUAL_ID;
 			}
 			break;
+		case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
+			if (RemesPackage.eINSTANCE.getResource().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Resource3EditPart.VISUAL_ID;
+			}
+			break;
 		case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
 			if (RemesPackage.eINSTANCE.getSubMode().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -325,6 +333,9 @@ public class RemesVisualIDRegistry {
 			if (CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -387,6 +398,11 @@ public class RemesVisualIDRegistry {
 			break;
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
 			if (Variable3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
+			if (Resource3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

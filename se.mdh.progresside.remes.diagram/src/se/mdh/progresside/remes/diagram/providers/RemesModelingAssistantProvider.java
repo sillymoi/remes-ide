@@ -61,11 +61,12 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof CompositeModeEditPart) {
-			ArrayList types = new ArrayList(4);
+			ArrayList types = new ArrayList(5);
 			types.add(RemesElementTypes.EntryPoint_3035);
 			types.add(RemesElementTypes.ExitPoint_3036);
 			types.add(RemesElementTypes.InitPoint_3039);
 			types.add(RemesElementTypes.Variable_3034);
+			types.add(RemesElementTypes.Resource_3040);
 			return types;
 		}
 		if (editPart instanceof SubMode2EditPart) {

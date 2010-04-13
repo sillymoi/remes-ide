@@ -34,6 +34,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
@@ -171,6 +172,11 @@ public class RemesElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType InitPoint_3039 = getElementType("se.mdh.progresside.remes.diagram.InitPoint_3039"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_3040 = getElementType("se.mdh.progresside.remes.diagram.Resource_3040"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -344,6 +350,8 @@ public class RemesElementTypes extends ElementInitializers {
 
 			elements.put(InitPoint_3039, RemesPackage.eINSTANCE.getInitPoint());
 
+			elements.put(Resource_3040, RemesPackage.eINSTANCE.getResource());
+
 			elements.put(Edge_4028, RemesPackage.eINSTANCE.getEdge());
 
 			elements.put(InitEdge_4029, RemesPackage.eINSTANCE.getInitEdge());
@@ -385,6 +393,7 @@ public class RemesElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CompositeEntryPoint_3037);
 			KNOWN_ELEMENT_TYPES.add(CompositeExitPoint_3038);
 			KNOWN_ELEMENT_TYPES.add(InitPoint_3039);
+			KNOWN_ELEMENT_TYPES.add(Resource_3040);
 			KNOWN_ELEMENT_TYPES.add(Edge_4028);
 			KNOWN_ELEMENT_TYPES.add(InitEdge_4029);
 		}
@@ -438,6 +447,8 @@ public class RemesElementTypes extends ElementInitializers {
 			return CompositeExitPoint_3038;
 		case InitPointEditPart.VISUAL_ID:
 			return InitPoint_3039;
+		case Resource3EditPart.VISUAL_ID:
+			return Resource_3040;
 		case EdgeEditPart.VISUAL_ID:
 			return Edge_4028;
 		case InitEdgeEditPart.VISUAL_ID:

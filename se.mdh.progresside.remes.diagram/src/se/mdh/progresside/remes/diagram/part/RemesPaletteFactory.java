@@ -91,9 +91,10 @@ public class RemesPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createResource2CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types.add(RemesElementTypes.Resource_3023);
 		types.add(RemesElementTypes.Resource_3028);
+		types.add(RemesElementTypes.Resource_3040);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Resource2CreationTool_title,
 				Messages.Resource2CreationTool_desc, types);

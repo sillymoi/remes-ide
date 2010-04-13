@@ -180,7 +180,7 @@
       <diagramNode
           href="remes.gmfgraph#CompositeMode"/>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//CompositeMode/subModes"/>
         <childrenFeature
@@ -331,7 +331,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//CompositeMode/conditionalConnectors"/>
         <childrenFeature
@@ -430,7 +430,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeEntryPoint"/>
         <ownedChild>
@@ -441,7 +441,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeExitPoint"/>
         <ownedChild>
@@ -461,10 +461,47 @@
               href="remes.gmfgraph#InitPoint"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="remes.ecore#//Mode/resources"/>
+        <childrenFeature
+            href="remes.ecore#//Mode/resources"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//Resource"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="{0}"
+              editorPattern="{0}:{1}"
+              editPattern="{0}:{1}">
+            <diagramLabel
+                href="remes.gmfgraph#ResourceLabel"/>
+            <features
+                href="remes.ecore#//Resource/expression"/>
+            <features
+                href="remes.ecore#//Resource/type"/>
+            <editableFeatures
+                href="remes.ecore#//Resource/expression"/>
+            <editableFeatures
+                href="remes.ecore#//Resource/type"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="remes.gmftool#//@palette/@tools.1"/>
+          <diagramNode
+              href="remes.gmfgraph#ResourceLabel"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.1/@ownedChild/@children.2">
         <compartment
             href="remes.gmfgraph#CompositeModeVariablesCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.8">
+        <compartment
+            href="remes.gmfgraph#CompositeModeResourcesCompartment"/>
       </compartments>
       <compartments
           children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.5 //@nodes.1/@ownedChild/@children.6">

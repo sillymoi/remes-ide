@@ -520,6 +520,14 @@
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </compartments>
+  <compartments
+      name="CompositeModeResourcesCompartment"
+      figure="CompositeModeFigure"
+      collapsible="true"
+      needsTitle="true">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"/>
+  </compartments>
   <labels
       name="CompositeModeName"
       figure="CompositeModeFigure"

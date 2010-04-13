@@ -13,6 +13,7 @@ import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
@@ -20,6 +21,9 @@ import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeInitializationEd
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeNameEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
@@ -47,6 +51,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeIsUrgent2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeIsUrgentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeName2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeNameEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartment2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartment2EditPart;
@@ -197,6 +203,10 @@ public class RemesVisualIDRegistry {
 					domainElement.eClass())) {
 				return ExitPoint2EditPart.VISUAL_ID;
 			}
+			if (RemesPackage.eINSTANCE.getConstant().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Constant2EditPart.VISUAL_ID;
+			}
 			break;
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			if (RemesPackage.eINSTANCE.getEntryPoint().isSuperTypeOf(
@@ -206,6 +216,12 @@ public class RemesVisualIDRegistry {
 			if (RemesPackage.eINSTANCE.getExitPoint().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ExitPoint3EditPart.VISUAL_ID;
+			}
+			break;
+		case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
+			if (RemesPackage.eINSTANCE.getConstant().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ConstantEditPart.VISUAL_ID;
 			}
 			break;
 		case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
@@ -218,6 +234,12 @@ public class RemesVisualIDRegistry {
 			if (RemesPackage.eINSTANCE.getResource().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ResourceEditPart.VISUAL_ID;
+			}
+			break;
+		case CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID:
+			if (RemesPackage.eINSTANCE.getConstant().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Constant3EditPart.VISUAL_ID;
 			}
 			break;
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
@@ -310,6 +332,9 @@ public class RemesVisualIDRegistry {
 			if (SubModeIsUrgentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -328,6 +353,9 @@ public class RemesVisualIDRegistry {
 				return true;
 			}
 			if (CompositeModeInitializationEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -362,6 +390,9 @@ public class RemesVisualIDRegistry {
 			if (SubModeIsUrgent2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (SubModeSubModeConstantsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -372,6 +403,9 @@ public class RemesVisualIDRegistry {
 				return true;
 			}
 			if (ExitPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (Constant2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -386,6 +420,11 @@ public class RemesVisualIDRegistry {
 				return true;
 			}
 			break;
+		case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
+			if (ConstantEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
 			if (VariableEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -393,6 +432,11 @@ public class RemesVisualIDRegistry {
 			break;
 		case SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID:
 			if (ResourceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID:
+			if (Constant3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

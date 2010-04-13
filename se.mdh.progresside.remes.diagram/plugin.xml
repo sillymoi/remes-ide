@@ -210,7 +210,7 @@
             <method name="getType()" value="Remes"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2007,2008,3022,3023,3024,3025,3026,3027,3028,3029,3030,3031,3032,3033,3034,3035,3036,3037,3038,3039,3040"/>
+            <method name="getType()" value="2007,2008,3022,3023,3024,3025,3041,3026,3027,3028,3029,3030,3042,3031,3032,3033,3034,3035,3036,3037,3038,3039,3040,3043"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4028,4029"/>
@@ -219,7 +219,7 @@
             <method name="getType()" value="5040,5041,5042,5043,5049,5050,5044,5045,5046,5047,5048"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7019,7020,7021,7022,7025,7023,7024"/>
+            <method name="getType()" value="7019,7020,7027,7026,7021,7022,7025,7023,7024,7028"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -323,6 +323,16 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
+         <metamodelType
+               id="se.mdh.progresside.remes.diagram.Constant_3041"
+               name="%metatype.name.Constant_3041"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Constant"
+               edithelper="se.mdh.progresside.remes.diagram.edit.helpers.ConstantEditHelper">
+            <param name="semanticHint" value="3041"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
          <specializationType
                id="se.mdh.progresside.remes.diagram.SubMode_3026"
                name="%metatype.name.SubMode_3026"
@@ -365,6 +375,15 @@
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="se.mdh.progresside.remes.diagram.ExitPoint_3025"/>
             <param name="semanticHint" value="3030"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
+         <specializationType
+               id="se.mdh.progresside.remes.diagram.Constant_3042"
+               name="%metatype.name.Constant_3042"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="se.mdh.progresside.remes.diagram.Constant_3041"/>
+            <param name="semanticHint" value="3042"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
@@ -462,6 +481,15 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
+         <specializationType
+               id="se.mdh.progresside.remes.diagram.Constant_3043"
+               name="%metatype.name.Constant_3043"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="se.mdh.progresside.remes.diagram.Constant_3041"/>
+            <param name="semanticHint" value="3043"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.mdh.se/progresside/remes/1.2.0/remes.ecore">
          <metamodelType
                id="se.mdh.progresside.remes.diagram.Edge_4028"
                name="%metatype.name.Edge_4028"
@@ -500,11 +528,13 @@
          <elementType ref="se.mdh.progresside.remes.diagram.Resource_3023"/>
          <elementType ref="se.mdh.progresside.remes.diagram.EntryPoint_3024"/>
          <elementType ref="se.mdh.progresside.remes.diagram.ExitPoint_3025"/>
+         <elementType ref="se.mdh.progresside.remes.diagram.Constant_3041"/>
          <elementType ref="se.mdh.progresside.remes.diagram.SubMode_3026"/>
          <elementType ref="se.mdh.progresside.remes.diagram.Variable_3027"/>
          <elementType ref="se.mdh.progresside.remes.diagram.Resource_3028"/>
          <elementType ref="se.mdh.progresside.remes.diagram.EntryPoint_3029"/>
          <elementType ref="se.mdh.progresside.remes.diagram.ExitPoint_3030"/>
+         <elementType ref="se.mdh.progresside.remes.diagram.Constant_3042"/>
          <elementType ref="se.mdh.progresside.remes.diagram.ConditionalConnector_3031"/>
          <elementType ref="se.mdh.progresside.remes.diagram.EntryPoint_3032"/>
          <elementType ref="se.mdh.progresside.remes.diagram.ExitPoint_3033"/>
@@ -515,6 +545,7 @@
          <elementType ref="se.mdh.progresside.remes.diagram.CompositeExitPoint_3038"/>
          <elementType ref="se.mdh.progresside.remes.diagram.InitPoint_3039"/>
          <elementType ref="se.mdh.progresside.remes.diagram.Resource_3040"/>
+         <elementType ref="se.mdh.progresside.remes.diagram.Constant_3043"/>
          <elementType ref="se.mdh.progresside.remes.diagram.Edge_4028"/>
          <elementType ref="se.mdh.progresside.remes.diagram.InitEdge_4029"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>

@@ -50,11 +50,11 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="remes.gmftool#//@palette/@tools.2/@tools.0"/>
+          href="remes.gmftool#//@palette/@tools.3/@tools.0"/>
       <diagramNode
           href="remes.gmfgraph#SubMode"/>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
             href="remes.ecore#//Mode/variables"/>
         <childrenFeature
@@ -84,13 +84,13 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.0"/>
+              href="remes.gmftool#//@palette/@tools.1"/>
           <diagramNode
               href="remes.gmfgraph#VariableLabel"/>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.0/@ownedChild/@compartments.1">
+          compartment="//@nodes.0/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//Mode/resources"/>
         <childrenFeature
@@ -116,7 +116,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.1"/>
+              href="remes.gmftool#//@palette/@tools.2"/>
           <diagramNode
               href="remes.gmfgraph#ResourceLabel"/>
         </ownedChild>
@@ -141,6 +141,45 @@
               href="remes.gmfgraph#ExitPoint"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="remes.ecore#//Mode/constants"/>
+        <childrenFeature
+            href="remes.ecore#//Mode/constants"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//Constant"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="{0}={2} ({1})"
+              editorPattern="{0}={1}"
+              editPattern="{0}={1}">
+            <diagramLabel
+                href="remes.gmfgraph#ConstantLabel"/>
+            <features
+                href="remes.ecore#//Referable/name"/>
+            <features
+                href="remes.ecore#//Constant/type"/>
+            <features
+                href="remes.ecore#//Constant/value"/>
+            <editableFeatures
+                href="remes.ecore#//Referable/name"/>
+            <editableFeatures
+                href="remes.ecore#//Constant/value"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="remes.gmftool#//@palette/@tools.0"/>
+          <diagramNode
+              href="remes.gmfgraph#ConstantLabel"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.4">
+        <compartment
+            href="remes.gmfgraph#SubModeConstantsCompartment"/>
+      </compartments>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0">
         <compartment
@@ -176,11 +215,11 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="remes.gmftool#//@palette/@tools.2/@tools.2"/>
+          href="remes.gmftool#//@palette/@tools.3/@tools.2"/>
       <diagramNode
           href="remes.gmfgraph#CompositeMode"/>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
+          compartment="//@nodes.1/@ownedChild/@compartments.3">
         <containmentFeature
             href="remes.ecore#//CompositeMode/subModes"/>
         <childrenFeature
@@ -227,11 +266,11 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.2/@tools.0"/>
+              href="remes.gmftool#//@palette/@tools.3/@tools.0"/>
           <diagramNode
               href="remes.gmfgraph#SubMode"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.0">
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
             <containmentFeature
                 href="remes.ecore#//Mode/variables"/>
             <childrenFeature
@@ -267,7 +306,7 @@
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.1">
+              compartment="//@nodes.1/@ownedChild/@children.0/@ownedChild/@compartments.2">
             <containmentFeature
                 href="remes.ecore#//Mode/resources"/>
             <childrenFeature
@@ -318,6 +357,43 @@
                   href="remes.gmfgraph#ExitPoint"/>
             </ownedChild>
           </children>
+          <children>
+            <containmentFeature
+                href="remes.ecore#//Mode/constants"/>
+            <childrenFeature
+                href="remes.ecore#//Mode/constants"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="remes.ecore#//Constant"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  viewPattern="{0}={2} ({1})"
+                  editorPattern="{0}={1}"
+                  editPattern="{0}={1}">
+                <diagramLabel
+                    href="remes.gmfgraph#ConstantLabel"/>
+                <features
+                    href="remes.ecore#//Referable/name"/>
+                <features
+                    href="remes.ecore#//Constant/type"/>
+                <features
+                    href="remes.ecore#//Constant/value"/>
+                <editableFeatures
+                    href="remes.ecore#//Referable/name"/>
+                <editableFeatures
+                    href="remes.ecore#//Constant/value"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="remes.gmftool#//@palette/@tools.0"/>
+              <diagramNode
+                  href="remes.gmfgraph#ConstantLabel"/>
+            </ownedChild>
+          </children>
+          <compartments>
+            <compartment
+                href="remes.gmfgraph#SubModeConstantsCompartment"/>
+          </compartments>
           <compartments
               children="//@nodes.1/@ownedChild/@children.0/@ownedChild/@children.0">
             <compartment
@@ -331,7 +407,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
+          compartment="//@nodes.1/@ownedChild/@compartments.3">
         <containmentFeature
             href="remes.ecore#//CompositeMode/conditionalConnectors"/>
         <childrenFeature
@@ -348,7 +424,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.2/@tools.1"/>
+              href="remes.gmftool#//@palette/@tools.3/@tools.1"/>
           <diagramNode
               href="remes.gmfgraph#ConditionalConnector"/>
           <children>
@@ -374,7 +450,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
         <containmentFeature
             href="remes.ecore#//Mode/variables"/>
         <childrenFeature
@@ -404,7 +480,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.0"/>
+              href="remes.gmftool#//@palette/@tools.1"/>
           <diagramNode
               href="remes.gmfgraph#VariableLabel"/>
         </ownedChild>
@@ -430,7 +506,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
+          compartment="//@nodes.1/@ownedChild/@compartments.3">
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeEntryPoint"/>
         <ownedChild>
@@ -441,7 +517,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
+          compartment="//@nodes.1/@ownedChild/@compartments.3">
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeExitPoint"/>
         <ownedChild>
@@ -462,7 +538,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
         <containmentFeature
             href="remes.ecore#//Mode/resources"/>
         <childrenFeature
@@ -488,11 +564,50 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="remes.gmftool#//@palette/@tools.1"/>
+              href="remes.gmftool#//@palette/@tools.2"/>
           <diagramNode
               href="remes.gmfgraph#ResourceLabel"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="remes.ecore#//Mode/constants"/>
+        <childrenFeature
+            href="remes.ecore#//Mode/constants"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//Constant"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="{0}={2} ({1})"
+              editorPattern="{0}={1}"
+              editPattern="{0}={1}">
+            <diagramLabel
+                href="remes.gmfgraph#ConstantLabel"/>
+            <features
+                href="remes.ecore#//Referable/name"/>
+            <features
+                href="remes.ecore#//Constant/type"/>
+            <features
+                href="remes.ecore#//Constant/value"/>
+            <editableFeatures
+                href="remes.ecore#//Referable/name"/>
+            <editableFeatures
+                href="remes.ecore#//Constant/value"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="remes.gmftool#//@palette/@tools.0"/>
+          <diagramNode
+              href="remes.gmfgraph#ConstantLabel"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.9">
+        <compartment
+            href="remes.gmfgraph#CompositeModeConstantsCompartment"/>
+      </compartments>
       <compartments
           children="//@nodes.1/@ownedChild/@children.2">
         <compartment
@@ -524,7 +639,7 @@
         href="remes.ecore#//ExitPoint/exitEdges"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.0"/>
+        href="remes.gmftool#//@palette/@tools.4/@tools.0"/>
     <diagramLink
         href="remes.gmfgraph#Edge"/>
     <sourceMetaFeature
@@ -552,7 +667,7 @@
         href="remes.ecore#//InitPoint/initEdge"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="remes.gmftool#//@palette/@tools.3/@tools.1"/>
+        href="remes.gmftool#//@palette/@tools.4/@tools.1"/>
     <diagramLink
         href="remes.gmfgraph#InitEdge"/>
     <sourceMetaFeature

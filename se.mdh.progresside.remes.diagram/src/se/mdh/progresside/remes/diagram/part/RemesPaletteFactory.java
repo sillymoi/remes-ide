@@ -37,8 +37,9 @@ public class RemesPaletteFactory {
 				Messages.Default1Group_title);
 		paletteContainer.setId("createDefault1Group"); //$NON-NLS-1$
 		paletteContainer.setDescription(Messages.Default1Group_desc);
-		paletteContainer.add(createVariable1CreationTool());
-		paletteContainer.add(createResource2CreationTool());
+		paletteContainer.add(createConstant1CreationTool());
+		paletteContainer.add(createVariable2CreationTool());
+		paletteContainer.add(createResource3CreationTool());
 		return paletteContainer;
 	}
 
@@ -72,15 +73,34 @@ public class RemesPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createVariable1CreationTool() {
+	private ToolEntry createConstant1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(4);
+		types.add(RemesElementTypes.Constant_3041);
+		types.add(RemesElementTypes.Variable_3027);
+		types.add(RemesElementTypes.Constant_3042);
+		types.add(RemesElementTypes.Constant_3043);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Constant1CreationTool_title,
+				Messages.Constant1CreationTool_desc, types);
+		entry.setId("createConstant1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(RemesElementTypes
+				.getImageDescriptor(RemesElementTypes.Constant_3041));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createVariable2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types.add(RemesElementTypes.Variable_3022);
-		types.add(RemesElementTypes.Variable_3027);
+		types.add(RemesElementTypes.Resource_3028);
 		types.add(RemesElementTypes.Variable_3034);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Variable1CreationTool_title,
-				Messages.Variable1CreationTool_desc, types);
-		entry.setId("createVariable1CreationTool"); //$NON-NLS-1$
+				Messages.Variable2CreationTool_title,
+				Messages.Variable2CreationTool_desc, types);
+		entry.setId("createVariable2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RemesElementTypes
 				.getImageDescriptor(RemesElementTypes.Variable_3022));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -90,15 +110,14 @@ public class RemesPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createResource2CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
+	private ToolEntry createResource3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
 		types.add(RemesElementTypes.Resource_3023);
-		types.add(RemesElementTypes.Resource_3028);
 		types.add(RemesElementTypes.Resource_3040);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Resource2CreationTool_title,
-				Messages.Resource2CreationTool_desc, types);
-		entry.setId("createResource2CreationTool"); //$NON-NLS-1$
+				Messages.Resource3CreationTool_title,
+				Messages.Resource3CreationTool_desc, types);
+		entry.setId("createResource3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(RemesElementTypes
 				.getImageDescriptor(RemesElementTypes.Resource_3023));
 		entry.setLargeIcon(entry.getSmallIcon());

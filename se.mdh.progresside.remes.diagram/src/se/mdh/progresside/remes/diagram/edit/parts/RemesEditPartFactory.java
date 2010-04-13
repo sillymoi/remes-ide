@@ -68,6 +68,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 			case ExitPointEditPart.VISUAL_ID:
 				return new ExitPointEditPart(view);
 
+			case ConstantEditPart.VISUAL_ID:
+				return new ConstantEditPart(view);
+
 			case SubMode2EditPart.VISUAL_ID:
 				return new SubMode2EditPart(view);
 
@@ -94,6 +97,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 
 			case ExitPoint2EditPart.VISUAL_ID:
 				return new ExitPoint2EditPart(view);
+
+			case Constant2EditPart.VISUAL_ID:
+				return new Constant2EditPart(view);
 
 			case ConditionalConnectorEditPart.VISUAL_ID:
 				return new ConditionalConnectorEditPart(view);
@@ -128,11 +134,21 @@ public class RemesEditPartFactory implements EditPartFactory {
 			case Resource3EditPart.VISUAL_ID:
 				return new Resource3EditPart(view);
 
+			case Constant3EditPart.VISUAL_ID:
+				return new Constant3EditPart(view);
+
+			case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
+				return new SubModeSubModeConstantsCompartmentEditPart(view);
+
 			case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
 				return new SubModeSubModeVariablesCompartmentEditPart(view);
 
 			case SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID:
 				return new SubModeSubModeResourcesCompartmentEditPart(view);
+
+			case CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID:
+				return new CompositeModeCompositeModeConstantsCompartmentEditPart(
+						view);
 
 			case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
 				return new CompositeModeCompositeModeVariablesCompartmentEditPart(
@@ -144,6 +160,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 
 			case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
 				return new CompositeModeCompositeModeCompartmentEditPart(view);
+
+			case SubModeSubModeConstantsCompartment2EditPart.VISUAL_ID:
+				return new SubModeSubModeConstantsCompartment2EditPart(view);
 
 			case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
 				return new SubModeSubModeVariablesCompartment2EditPart(view);

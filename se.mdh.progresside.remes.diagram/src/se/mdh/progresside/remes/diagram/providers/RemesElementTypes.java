@@ -21,6 +21,9 @@ import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint3EditPart;
@@ -106,6 +109,11 @@ public class RemesElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Constant_3041 = getElementType("se.mdh.progresside.remes.diagram.Constant_3041"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType SubMode_3026 = getElementType("se.mdh.progresside.remes.diagram.SubMode_3026"); //$NON-NLS-1$
 
 	/**
@@ -127,6 +135,11 @@ public class RemesElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ExitPoint_3030 = getElementType("se.mdh.progresside.remes.diagram.ExitPoint_3030"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Constant_3042 = getElementType("se.mdh.progresside.remes.diagram.Constant_3042"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -177,6 +190,11 @@ public class RemesElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType Resource_3040 = getElementType("se.mdh.progresside.remes.diagram.Resource_3040"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Constant_3043 = getElementType("se.mdh.progresside.remes.diagram.Constant_3043"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -316,6 +334,8 @@ public class RemesElementTypes extends ElementInitializers {
 
 			elements.put(ExitPoint_3025, RemesPackage.eINSTANCE.getExitPoint());
 
+			elements.put(Constant_3041, RemesPackage.eINSTANCE.getConstant());
+
 			elements.put(SubMode_3026, RemesPackage.eINSTANCE.getSubMode());
 
 			elements.put(Variable_3027, RemesPackage.eINSTANCE.getVariable());
@@ -326,6 +346,8 @@ public class RemesElementTypes extends ElementInitializers {
 					.getEntryPoint());
 
 			elements.put(ExitPoint_3030, RemesPackage.eINSTANCE.getExitPoint());
+
+			elements.put(Constant_3042, RemesPackage.eINSTANCE.getConstant());
 
 			elements.put(ConditionalConnector_3031, RemesPackage.eINSTANCE
 					.getConditionalConnector());
@@ -351,6 +373,8 @@ public class RemesElementTypes extends ElementInitializers {
 			elements.put(InitPoint_3039, RemesPackage.eINSTANCE.getInitPoint());
 
 			elements.put(Resource_3040, RemesPackage.eINSTANCE.getResource());
+
+			elements.put(Constant_3043, RemesPackage.eINSTANCE.getConstant());
 
 			elements.put(Edge_4028, RemesPackage.eINSTANCE.getEdge());
 
@@ -379,11 +403,13 @@ public class RemesElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Resource_3023);
 			KNOWN_ELEMENT_TYPES.add(EntryPoint_3024);
 			KNOWN_ELEMENT_TYPES.add(ExitPoint_3025);
+			KNOWN_ELEMENT_TYPES.add(Constant_3041);
 			KNOWN_ELEMENT_TYPES.add(SubMode_3026);
 			KNOWN_ELEMENT_TYPES.add(Variable_3027);
 			KNOWN_ELEMENT_TYPES.add(Resource_3028);
 			KNOWN_ELEMENT_TYPES.add(EntryPoint_3029);
 			KNOWN_ELEMENT_TYPES.add(ExitPoint_3030);
+			KNOWN_ELEMENT_TYPES.add(Constant_3042);
 			KNOWN_ELEMENT_TYPES.add(ConditionalConnector_3031);
 			KNOWN_ELEMENT_TYPES.add(EntryPoint_3032);
 			KNOWN_ELEMENT_TYPES.add(ExitPoint_3033);
@@ -394,6 +420,7 @@ public class RemesElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CompositeExitPoint_3038);
 			KNOWN_ELEMENT_TYPES.add(InitPoint_3039);
 			KNOWN_ELEMENT_TYPES.add(Resource_3040);
+			KNOWN_ELEMENT_TYPES.add(Constant_3043);
 			KNOWN_ELEMENT_TYPES.add(Edge_4028);
 			KNOWN_ELEMENT_TYPES.add(InitEdge_4029);
 		}
@@ -419,6 +446,8 @@ public class RemesElementTypes extends ElementInitializers {
 			return EntryPoint_3024;
 		case ExitPointEditPart.VISUAL_ID:
 			return ExitPoint_3025;
+		case ConstantEditPart.VISUAL_ID:
+			return Constant_3041;
 		case SubMode2EditPart.VISUAL_ID:
 			return SubMode_3026;
 		case Variable2EditPart.VISUAL_ID:
@@ -429,6 +458,8 @@ public class RemesElementTypes extends ElementInitializers {
 			return EntryPoint_3029;
 		case ExitPoint2EditPart.VISUAL_ID:
 			return ExitPoint_3030;
+		case Constant2EditPart.VISUAL_ID:
+			return Constant_3042;
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return ConditionalConnector_3031;
 		case EntryPoint3EditPart.VISUAL_ID:
@@ -449,6 +480,8 @@ public class RemesElementTypes extends ElementInitializers {
 			return InitPoint_3039;
 		case Resource3EditPart.VISUAL_ID:
 			return Resource_3040;
+		case Constant3EditPart.VISUAL_ID:
+			return Constant_3043;
 		case EdgeEditPart.VISUAL_ID:
 			return Edge_4028;
 		case InitEdgeEditPart.VISUAL_ID:

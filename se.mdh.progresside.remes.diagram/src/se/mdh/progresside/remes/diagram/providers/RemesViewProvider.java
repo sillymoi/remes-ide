@@ -46,6 +46,7 @@ import org.eclipse.swt.graphics.FontData;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
@@ -53,6 +54,9 @@ import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeInitializationEd
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeNameEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
@@ -80,6 +84,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeIsUrgent2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeIsUrgentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeName2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeNameEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartment2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartment2EditPart;
@@ -185,6 +191,7 @@ public class RemesViewProvider extends AbstractProvider implements
 				case ResourceEditPart.VISUAL_ID:
 				case EntryPointEditPart.VISUAL_ID:
 				case ExitPointEditPart.VISUAL_ID:
+				case ConstantEditPart.VISUAL_ID:
 				case ConditionalConnectorEditPart.VISUAL_ID:
 				case CompositeEntryPointEditPart.VISUAL_ID:
 				case CompositeExitPointEditPart.VISUAL_ID:
@@ -194,12 +201,14 @@ public class RemesViewProvider extends AbstractProvider implements
 				case Resource2EditPart.VISUAL_ID:
 				case EntryPoint2EditPart.VISUAL_ID:
 				case ExitPoint2EditPart.VISUAL_ID:
+				case Constant2EditPart.VISUAL_ID:
 				case EntryPoint3EditPart.VISUAL_ID:
 				case ExitPoint3EditPart.VISUAL_ID:
 				case Variable3EditPart.VISUAL_ID:
 				case EntryPoint4EditPart.VISUAL_ID:
 				case ExitPoint4EditPart.VISUAL_ID:
 				case Resource3EditPart.VISUAL_ID:
+				case Constant3EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != RemesVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -218,11 +227,13 @@ public class RemesViewProvider extends AbstractProvider implements
 				|| ResourceEditPart.VISUAL_ID == visualID
 				|| EntryPointEditPart.VISUAL_ID == visualID
 				|| ExitPointEditPart.VISUAL_ID == visualID
+				|| ConstantEditPart.VISUAL_ID == visualID
 				|| SubMode2EditPart.VISUAL_ID == visualID
 				|| Variable2EditPart.VISUAL_ID == visualID
 				|| Resource2EditPart.VISUAL_ID == visualID
 				|| EntryPoint2EditPart.VISUAL_ID == visualID
 				|| ExitPoint2EditPart.VISUAL_ID == visualID
+				|| Constant2EditPart.VISUAL_ID == visualID
 				|| ConditionalConnectorEditPart.VISUAL_ID == visualID
 				|| EntryPoint3EditPart.VISUAL_ID == visualID
 				|| ExitPoint3EditPart.VISUAL_ID == visualID
@@ -232,7 +243,8 @@ public class RemesViewProvider extends AbstractProvider implements
 				|| CompositeEntryPointEditPart.VISUAL_ID == visualID
 				|| CompositeExitPointEditPart.VISUAL_ID == visualID
 				|| InitPointEditPart.VISUAL_ID == visualID
-				|| Resource3EditPart.VISUAL_ID == visualID;
+				|| Resource3EditPart.VISUAL_ID == visualID
+				|| Constant3EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -307,6 +319,9 @@ public class RemesViewProvider extends AbstractProvider implements
 		case ExitPointEditPart.VISUAL_ID:
 			return createExitPoint_3025(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case ConstantEditPart.VISUAL_ID:
+			return createConstant_3041(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case SubMode2EditPart.VISUAL_ID:
 			return createSubMode_3026(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -321,6 +336,9 @@ public class RemesViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case ExitPoint2EditPart.VISUAL_ID:
 			return createExitPoint_3030(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Constant2EditPart.VISUAL_ID:
+			return createConstant_3042(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return createConditionalConnector_3031(domainElement,
@@ -351,6 +369,9 @@ public class RemesViewProvider extends AbstractProvider implements
 					persisted, preferencesHint);
 		case Resource3EditPart.VISUAL_ID:
 			return createResource_3040(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Constant3EditPart.VISUAL_ID:
+			return createConstant_3043(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -425,6 +446,9 @@ public class RemesViewProvider extends AbstractProvider implements
 		Node label5043 = createLabel(node, RemesVisualIDRegistry
 				.getType(SubModeIsUrgentEditPart.VISUAL_ID));
 		createCompartment(node, RemesVisualIDRegistry
+				.getType(SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID),
+				true, true, true, true);
+		createCompartment(node, RemesVisualIDRegistry
 				.getType(SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID),
 				true, true, true, true);
 		createCompartment(node, RemesVisualIDRegistry
@@ -477,6 +501,11 @@ public class RemesViewProvider extends AbstractProvider implements
 				.getType(CompositeModeNameEditPart.VISUAL_ID));
 		Node label5050 = createLabel(node, RemesVisualIDRegistry
 				.getType(CompositeModeInitializationEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				RemesVisualIDRegistry
+						.getType(CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID),
+				true, true, true, true);
 		createCompartment(
 				node,
 				RemesVisualIDRegistry
@@ -608,6 +637,19 @@ public class RemesViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	public Node createConstant_3041(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node.setType(RemesVisualIDRegistry.getType(ConstantEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Node createSubMode_3026(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -651,6 +693,11 @@ public class RemesViewProvider extends AbstractProvider implements
 				.getType(SubModeInvariant2EditPart.VISUAL_ID));
 		Node label5047 = createLabel(node, RemesVisualIDRegistry
 				.getType(SubModeIsUrgent2EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				RemesVisualIDRegistry
+						.getType(SubModeSubModeConstantsCompartment2EditPart.VISUAL_ID),
+				true, true, true, true);
 		createCompartment(
 				node,
 				RemesVisualIDRegistry
@@ -774,6 +821,21 @@ public class RemesViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createConstant_3042(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node
+				.setType(RemesVisualIDRegistry
+						.getType(Constant2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
 		return node;
 	}
 
@@ -1141,6 +1203,21 @@ public class RemesViewProvider extends AbstractProvider implements
 		node
 				.setType(RemesVisualIDRegistry
 						.getType(Resource3EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createConstant_3043(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		node
+				.setType(RemesVisualIDRegistry
+						.getType(Constant3EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		return node;

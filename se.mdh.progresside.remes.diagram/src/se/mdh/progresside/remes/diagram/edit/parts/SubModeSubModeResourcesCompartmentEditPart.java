@@ -23,7 +23,7 @@ public class SubModeSubModeResourcesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7020;
+	public static final int VISUAL_ID = 7027;
 
 	/**
 	 * @generated

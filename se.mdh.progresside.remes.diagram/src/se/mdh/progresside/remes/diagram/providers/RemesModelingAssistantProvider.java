@@ -53,26 +53,29 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof SubModeEditPart) {
-			ArrayList types = new ArrayList(4);
+			ArrayList types = new ArrayList(5);
 			types.add(RemesElementTypes.EntryPoint_3024);
 			types.add(RemesElementTypes.ExitPoint_3025);
+			types.add(RemesElementTypes.Constant_3041);
 			types.add(RemesElementTypes.Variable_3022);
 			types.add(RemesElementTypes.Resource_3023);
 			return types;
 		}
 		if (editPart instanceof CompositeModeEditPart) {
-			ArrayList types = new ArrayList(5);
+			ArrayList types = new ArrayList(6);
 			types.add(RemesElementTypes.EntryPoint_3035);
 			types.add(RemesElementTypes.ExitPoint_3036);
 			types.add(RemesElementTypes.InitPoint_3039);
+			types.add(RemesElementTypes.Constant_3043);
 			types.add(RemesElementTypes.Variable_3034);
 			types.add(RemesElementTypes.Resource_3040);
 			return types;
 		}
 		if (editPart instanceof SubMode2EditPart) {
-			ArrayList types = new ArrayList(4);
+			ArrayList types = new ArrayList(5);
 			types.add(RemesElementTypes.EntryPoint_3029);
 			types.add(RemesElementTypes.ExitPoint_3030);
+			types.add(RemesElementTypes.Constant_3042);
 			types.add(RemesElementTypes.Variable_3027);
 			types.add(RemesElementTypes.Resource_3028);
 			return types;

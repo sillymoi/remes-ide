@@ -347,6 +347,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
+			if (type == RemesElementTypes.Constant_3043) {
+				return getChildBySemanticHint(RemesVisualIDRegistry
+						.getType(CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID));
+			}
 			if (type == RemesElementTypes.Variable_3034) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID));

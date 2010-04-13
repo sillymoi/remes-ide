@@ -16,6 +16,7 @@ import se.mdh.progresside.remes.CompositeEntryPoint;
 import se.mdh.progresside.remes.CompositeExitPoint;
 import se.mdh.progresside.remes.CompositeMode;
 import se.mdh.progresside.remes.ConditionalConnector;
+import se.mdh.progresside.remes.Constant;
 import se.mdh.progresside.remes.Edge;
 import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.ExitPoint;
@@ -30,10 +31,14 @@ import se.mdh.progresside.remes.Variable;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint3EditPart;
@@ -51,6 +56,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartment2EditPart;
@@ -78,10 +84,14 @@ public class RemesDiagramUpdater {
 			return getSubMode_3026SemanticChildren(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return getConditionalConnector_3031SemanticChildren(view);
+		case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
+			return getSubModeSubModeConstantsCompartment_7019SemanticChildren(view);
 		case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
-			return getSubModeSubModeVariablesCompartment_7019SemanticChildren(view);
+			return getSubModeSubModeVariablesCompartment_7020SemanticChildren(view);
 		case SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID:
-			return getSubModeSubModeResourcesCompartment_7020SemanticChildren(view);
+			return getSubModeSubModeResourcesCompartment_7027SemanticChildren(view);
+		case CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID:
+			return getCompositeModeCompositeModeConstantsCompartment_7026SemanticChildren(view);
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
 			return getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(view);
 		case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
@@ -89,9 +99,9 @@ public class RemesDiagramUpdater {
 		case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
 			return getCompositeModeCompositeModeCompartment_7025SemanticChildren(view);
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
-			return getSubModeSubModeVariablesCompartment_7023SemanticChildren(view);
+			return getSubModeSubModeVariablesCompartment_7024SemanticChildren(view);
 		case SubModeSubModeResourcesCompartment2EditPart.VISUAL_ID:
-			return getSubModeSubModeResourcesCompartment_7024SemanticChildren(view);
+			return getSubModeSubModeResourcesCompartment_7028SemanticChildren(view);
 		case RemesDiagramEditPart.VISUAL_ID:
 			return getRemesDiagram_1000SemanticChildren(view);
 		}
@@ -187,6 +197,15 @@ public class RemesDiagramUpdater {
 				result.add(new RemesNodeDescriptor(childElement, visualID));
 			}
 		}
+		for (Iterator it = modelElement.getConstants().iterator(); it.hasNext();) {
+			Constant childElement = (Constant) it.next();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Constant2EditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
@@ -222,7 +241,33 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeVariablesCompartment_7019SemanticChildren(
+	public static List getSubModeSubModeConstantsCompartment_7019SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		SubMode modelElement = (SubMode) containerView.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getConstants().iterator(); it.hasNext();) {
+			Constant childElement = (Constant) it.next();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ConstantEditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSubModeSubModeVariablesCompartment_7020SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -248,7 +293,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeResourcesCompartment_7020SemanticChildren(
+	public static List getSubModeSubModeResourcesCompartment_7027SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -381,7 +426,33 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeVariablesCompartment_7023SemanticChildren(
+	public static List getCompositeModeCompositeModeConstantsCompartment_7026SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		CompositeMode modelElement = (CompositeMode) containerView.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getConstants().iterator(); it.hasNext();) {
+			Constant childElement = (Constant) it.next();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Constant3EditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSubModeSubModeVariablesCompartment_7024SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -407,7 +478,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSubModeSubModeResourcesCompartment_7024SemanticChildren(
+	public static List getSubModeSubModeResourcesCompartment_7028SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -474,6 +545,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3024ContainedLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
 			return getExitPoint_3025ContainedLinks(view);
+		case ConstantEditPart.VISUAL_ID:
+			return getConstant_3041ContainedLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
 			return getSubMode_3026ContainedLinks(view);
 		case Variable2EditPart.VISUAL_ID:
@@ -484,6 +557,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3029ContainedLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
 			return getExitPoint_3030ContainedLinks(view);
+		case Constant2EditPart.VISUAL_ID:
+			return getConstant_3042ContainedLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return getConditionalConnector_3031ContainedLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
@@ -504,6 +579,8 @@ public class RemesDiagramUpdater {
 			return getInitPoint_3039ContainedLinks(view);
 		case Resource3EditPart.VISUAL_ID:
 			return getResource_3040ContainedLinks(view);
+		case Constant3EditPart.VISUAL_ID:
+			return getConstant_3043ContainedLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028ContainedLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -529,6 +606,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3024IncomingLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
 			return getExitPoint_3025IncomingLinks(view);
+		case ConstantEditPart.VISUAL_ID:
+			return getConstant_3041IncomingLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
 			return getSubMode_3026IncomingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
@@ -539,6 +618,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3029IncomingLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
 			return getExitPoint_3030IncomingLinks(view);
+		case Constant2EditPart.VISUAL_ID:
+			return getConstant_3042IncomingLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return getConditionalConnector_3031IncomingLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
@@ -559,6 +640,8 @@ public class RemesDiagramUpdater {
 			return getInitPoint_3039IncomingLinks(view);
 		case Resource3EditPart.VISUAL_ID:
 			return getResource_3040IncomingLinks(view);
+		case Constant3EditPart.VISUAL_ID:
+			return getConstant_3043IncomingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028IncomingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -584,6 +667,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3024OutgoingLinks(view);
 		case ExitPointEditPart.VISUAL_ID:
 			return getExitPoint_3025OutgoingLinks(view);
+		case ConstantEditPart.VISUAL_ID:
+			return getConstant_3041OutgoingLinks(view);
 		case SubMode2EditPart.VISUAL_ID:
 			return getSubMode_3026OutgoingLinks(view);
 		case Variable2EditPart.VISUAL_ID:
@@ -594,6 +679,8 @@ public class RemesDiagramUpdater {
 			return getEntryPoint_3029OutgoingLinks(view);
 		case ExitPoint2EditPart.VISUAL_ID:
 			return getExitPoint_3030OutgoingLinks(view);
+		case Constant2EditPart.VISUAL_ID:
+			return getConstant_3042OutgoingLinks(view);
 		case ConditionalConnectorEditPart.VISUAL_ID:
 			return getConditionalConnector_3031OutgoingLinks(view);
 		case EntryPoint3EditPart.VISUAL_ID:
@@ -614,6 +701,8 @@ public class RemesDiagramUpdater {
 			return getInitPoint_3039OutgoingLinks(view);
 		case Resource3EditPart.VISUAL_ID:
 			return getResource_3040OutgoingLinks(view);
+		case Constant3EditPart.VISUAL_ID:
+			return getConstant_3043OutgoingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028OutgoingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
@@ -677,6 +766,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getConstant_3041ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSubMode_3026ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -710,6 +806,13 @@ public class RemesDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getContainedTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getConstant_3042ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -799,6 +902,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getConstant_3043ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -863,6 +973,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getConstant_3041IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSubMode_3026IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -900,6 +1017,13 @@ public class RemesDiagramUpdater {
 	 * @generated
 	 */
 	public static List getExitPoint_3030IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getConstant_3042IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1001,6 +1125,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getConstant_3043IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1060,6 +1191,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getConstant_3041OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSubMode_3026OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1093,6 +1231,13 @@ public class RemesDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getConstant_3042OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -1176,6 +1321,13 @@ public class RemesDiagramUpdater {
 	 * @generated
 	 */
 	public static List getResource_3040OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getConstant_3043OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

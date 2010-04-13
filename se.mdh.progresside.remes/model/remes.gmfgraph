@@ -185,6 +185,12 @@
       <layout
           xsi:type="gmfgraph:StackLayout"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:Rectangle"
+        name="ConstantsFigure">
+      <layout
+          xsi:type="gmfgraph:StackLayout"/>
+    </figures>
     <descriptors
         name="CompositeModeFigure">
       <actualFigure
@@ -454,6 +460,13 @@
         </children>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="ConstantFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ConstantFigure"
+          text="Constants"/>
+    </descriptors>
   </figures>
   <nodes
       name="CompositeMode"
@@ -497,8 +510,32 @@
         alignment="FILL"/>
   </compartments>
   <compartments
+      name="CompositeModeConstantsCompartment"
+      figure="CompositeModeFigure"
+      collapsible="true"
+      needsTitle="true">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"/>
+  </compartments>
+  <compartments
       name="CompositeModeVariablesCompartment"
       figure="CompositeModeFigure"
+      collapsible="true"
+      needsTitle="true">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"/>
+  </compartments>
+  <compartments
+      name="CompositeModeResourcesCompartment"
+      figure="CompositeModeFigure"
+      collapsible="true"
+      needsTitle="true">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"/>
+  </compartments>
+  <compartments
+      name="SubModeConstantsCompartment"
+      figure="SubModeFigure"
       collapsible="true"
       needsTitle="true">
     <facets
@@ -515,14 +552,6 @@
   <compartments
       name="SubModeResourcesCompartment"
       figure="SubModeFigure"
-      collapsible="true"
-      needsTitle="true">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </compartments>
-  <compartments
-      name="CompositeModeResourcesCompartment"
-      figure="CompositeModeFigure"
       collapsible="true"
       needsTitle="true">
     <facets
@@ -556,6 +585,9 @@
       name="SubModeIsUrgent"
       figure="SubModeFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.3"/>
+  <labels
+      name="ConstantLabel"
+      figure="ConstantFigure"/>
   <labels
       name="VariableLabel"
       figure="VariableFigure"/>

@@ -14,13 +14,16 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import se.mdh.progresside.remes.diagram.edit.commands.Constant2CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.EntryPoint2CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.ExitPoint2CreateCommand;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
@@ -49,6 +52,9 @@ public class SubMode2ItemSemanticEditPolicy extends
 		}
 		if (RemesElementTypes.ExitPoint_3030 == req.getElementType()) {
 			return getGEFWrapper(new ExitPoint2CreateCommand(req));
+		}
+		if (RemesElementTypes.Constant_3042 == req.getElementType()) {
+			return getGEFWrapper(new Constant2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -125,6 +131,20 @@ public class SubMode2ItemSemanticEditPolicy extends
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case Constant2EditPart.VISUAL_ID:
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case SubModeSubModeConstantsCompartment2EditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (RemesVisualIDRegistry.getVisualID(cnode)) {
+					}
+				}
 				break;
 			case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit

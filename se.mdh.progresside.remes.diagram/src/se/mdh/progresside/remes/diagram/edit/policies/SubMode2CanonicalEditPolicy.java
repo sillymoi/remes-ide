@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint2EditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramUpdater;
@@ -48,6 +49,7 @@ public class SubMode2CanonicalEditPolicy extends CanonicalEditPolicy {
 		switch (visualID) {
 		case EntryPoint2EditPart.VISUAL_ID:
 		case ExitPoint2EditPart.VISUAL_ID:
+		case Constant2EditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -72,6 +74,8 @@ public class SubMode2CanonicalEditPolicy extends CanonicalEditPolicy {
 					.getControlPath_EntryPoint());
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
 					.getControlPath_ExitPoint());
+			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
+					.getMode_Constants());
 		}
 		return myFeaturesToSynchronize;
 	}

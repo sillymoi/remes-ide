@@ -7,6 +7,10 @@
       title="remesPalette">
     <tools
         xsi:type="gmftool:CreationTool"
+        title="Constant"
+        description="Create new Constant"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
         title="Variable"
         description="Create new Variable"/>
     <tools
@@ -17,7 +21,7 @@
         xsi:type="gmftool:ToolGroup"
         title="Nodes"
         collapsible="true"
-        active="//@palette/@tools.2">
+        active="//@palette/@tools.3">
       <tools
           xsi:type="gmftool:CreationTool"
           title="SubMode"
@@ -50,7 +54,7 @@
         xsi:type="gmftool:ToolGroup"
         title="Edges"
         collapsible="true"
-        active="//@palette/@tools.3">
+        active="//@palette/@tools.4">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Edge"

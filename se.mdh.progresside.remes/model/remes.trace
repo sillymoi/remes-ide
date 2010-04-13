@@ -23,6 +23,9 @@
     <compartmentTraces
         visualID="7020"
         queryText="true"/>
+    <compartmentTraces
+        visualID="7027"
+        queryText="true"/>
   </nodeTraces>
   <nodeTraces
       visualID="2008"
@@ -41,6 +44,9 @@
         queryText="true"/>
     <compartmentTraces
         visualID="7025"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7026"
         queryText="true"/>
   </nodeTraces>
   <childNodeTraces
@@ -75,6 +81,9 @@
         queryText="true"/>
     <compartmentTraces
         visualID="7024"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7028"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
@@ -123,6 +132,15 @@
   <childNodeTraces
       visualID="3040"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Resource') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Mode') and _containmentMF_.name = 'resources')"/>
+  <childNodeTraces
+      visualID="3041"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Constant') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Mode') and _containmentMF_.name = 'constants')"/>
+  <childNodeTraces
+      visualID="3042"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Constant') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Mode') and _containmentMF_.name = 'constants')"/>
+  <childNodeTraces
+      visualID="3043"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Constant') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Mode') and _containmentMF_.name = 'constants')"/>
   <linkTraces
       visualID="4028"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Edge')">

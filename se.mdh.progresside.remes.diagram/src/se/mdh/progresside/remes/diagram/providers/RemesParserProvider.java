@@ -17,6 +17,9 @@ import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeNameEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
@@ -219,6 +222,33 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser constant_3041Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConstant_3041Parser() {
+		if (constant_3041Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Type(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}={2} ({1})"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}={1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}={1}"); //$NON-NLS-1$
+			constant_3041Parser = parser;
+		}
+		return constant_3041Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser subModeName_5044Parser;
 
 	/**
@@ -357,6 +387,33 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser constant_3042Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConstant_3042Parser() {
+		if (constant_3042Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Type(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}={2} ({1})"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}={1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}={1}"); //$NON-NLS-1$
+			constant_3042Parser = parser;
+		}
+		return constant_3042Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser conditionalConnectorName_5048Parser;
 
 	/**
@@ -429,6 +486,33 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser constant_3043Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConstant_3043Parser() {
+		if (constant_3043Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Type(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					RemesPackage.eINSTANCE.getReferable_Name(),
+					RemesPackage.eINSTANCE.getConstant_Value() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}={2} ({1})"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}={1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}={1}"); //$NON-NLS-1$
+			constant_3043Parser = parser;
+		}
+		return constant_3043Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser edgeActionGuard_6028Parser;
 
 	/**
@@ -483,6 +567,8 @@ public class RemesParserProvider extends AbstractProvider implements
 			return getVariable_3022Parser();
 		case ResourceEditPart.VISUAL_ID:
 			return getResource_3023Parser();
+		case ConstantEditPart.VISUAL_ID:
+			return getConstant_3041Parser();
 		case SubModeName2EditPart.VISUAL_ID:
 			return getSubModeName_5044Parser();
 		case SubModeInitialization2EditPart.VISUAL_ID:
@@ -495,12 +581,16 @@ public class RemesParserProvider extends AbstractProvider implements
 			return getVariable_3027Parser();
 		case Resource2EditPart.VISUAL_ID:
 			return getResource_3028Parser();
+		case Constant2EditPart.VISUAL_ID:
+			return getConstant_3042Parser();
 		case ConditionalConnectorNameEditPart.VISUAL_ID:
 			return getConditionalConnectorName_5048Parser();
 		case Variable3EditPart.VISUAL_ID:
 			return getVariable_3034Parser();
 		case Resource3EditPart.VISUAL_ID:
 			return getResource_3040Parser();
+		case Constant3EditPart.VISUAL_ID:
+			return getConstant_3043Parser();
 		case EdgeActionGuardEditPart.VISUAL_ID:
 			return getEdgeActionGuard_6028Parser();
 		case InitEdgeInitializationEditPart.VISUAL_ID:

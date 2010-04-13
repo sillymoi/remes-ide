@@ -10,25 +10,25 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import se.mdh.progresside.remes.diagram.edit.policies.SubModeSubModeResourcesCompartment2CanonicalEditPolicy;
-import se.mdh.progresside.remes.diagram.edit.policies.SubModeSubModeResourcesCompartment2ItemSemanticEditPolicy;
+import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeConstantsCompartmentCanonicalEditPolicy;
+import se.mdh.progresside.remes.diagram.edit.policies.CompositeModeCompositeModeConstantsCompartmentItemSemanticEditPolicy;
 import se.mdh.progresside.remes.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class SubModeSubModeResourcesCompartment2EditPart extends
+public class CompositeModeCompositeModeConstantsCompartmentEditPart extends
 		ListCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7028;
+	public static final int VISUAL_ID = 7026;
 
 	/**
 	 * @generated
 	 */
-	public SubModeSubModeResourcesCompartment2EditPart(View view) {
+	public CompositeModeCompositeModeConstantsCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -43,7 +43,7 @@ public class SubModeSubModeResourcesCompartment2EditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.SubModeSubModeResourcesCompartment2EditPart_title;
+		return Messages.CompositeModeCompositeModeConstantsCompartmentEditPart_title;
 	}
 
 	/**
@@ -53,14 +53,16 @@ public class SubModeSubModeResourcesCompartment2EditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SubModeSubModeResourcesCompartment2ItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new CompositeModeCompositeModeConstantsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SubModeSubModeResourcesCompartment2CanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new CompositeModeCompositeModeConstantsCompartmentCanonicalEditPolicy());
 	}
 
 	/**

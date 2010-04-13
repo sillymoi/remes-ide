@@ -187,10 +187,10 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInitializationEditPart) {
+		if (childEditPart instanceof SubModeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeNameEditPart) {
+		if (childEditPart instanceof SubModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeInvariantEditPart) {
@@ -348,6 +348,10 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
+			if (type == RemesElementTypes.Constant_3041) {
+				return getChildBySemanticHint(RemesVisualIDRegistry
+						.getType(SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID));
+			}
 			if (type == RemesElementTypes.Variable_3022) {
 				return getChildBySemanticHint(RemesVisualIDRegistry
 						.getType(SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID));

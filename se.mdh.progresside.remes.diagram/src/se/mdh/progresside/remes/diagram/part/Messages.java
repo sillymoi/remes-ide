@@ -263,22 +263,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Variable1CreationTool_title;
+	public static String Constant1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Variable1CreationTool_desc;
+	public static String Constant1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Resource2CreationTool_title;
+	public static String Variable2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Resource2CreationTool_desc;
+	public static String Variable2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Resource3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Resource3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -333,6 +343,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String SubModeSubModeConstantsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String SubModeSubModeVariablesCompartmentEditPart_title;
 
 	/**
@@ -354,6 +369,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String CompositeModeCompositeModeCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CompositeModeCompositeModeConstantsCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SubModeSubModeConstantsCompartment2EditPart_title;
 
 	/**
 	 * @generated

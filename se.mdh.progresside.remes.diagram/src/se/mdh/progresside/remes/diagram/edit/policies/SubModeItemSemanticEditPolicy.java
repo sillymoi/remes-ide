@@ -16,11 +16,13 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.diagram.edit.commands.EntryPointCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.ExitPointCreateCommand;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ResourceEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
@@ -125,6 +127,21 @@ public class SubModeItemSemanticEditPolicy extends
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (RemesVisualIDRegistry.getVisualID(cnode)) {
+					case ConstantEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					}
+				}
 				break;
 			case SubModeSubModeVariablesCompartmentEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit

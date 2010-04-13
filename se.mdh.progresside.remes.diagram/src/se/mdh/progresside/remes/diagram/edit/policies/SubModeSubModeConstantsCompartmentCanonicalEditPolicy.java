@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.RemesPackage;
-import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramUpdater;
 import se.mdh.progresside.remes.diagram.part.RemesNodeDescriptor;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -19,7 +19,7 @@ import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 /**
  * @generated
  */
-public class SubModeSubModeResourcesCompartment2CanonicalEditPolicy extends
+public class SubModeSubModeConstantsCompartmentCanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -34,7 +34,7 @@ public class SubModeSubModeResourcesCompartment2CanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getSubModeSubModeResourcesCompartment_7028SemanticChildren(
+				.getSubModeSubModeConstantsCompartment_7019SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}
@@ -47,7 +47,7 @@ public class SubModeSubModeResourcesCompartment2CanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = RemesVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case Resource2EditPart.VISUAL_ID:
+		case ConstantEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -69,7 +69,7 @@ public class SubModeSubModeResourcesCompartment2CanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getMode_Resources());
+					.getMode_Constants());
 		}
 		return myFeaturesToSynchronize;
 	}

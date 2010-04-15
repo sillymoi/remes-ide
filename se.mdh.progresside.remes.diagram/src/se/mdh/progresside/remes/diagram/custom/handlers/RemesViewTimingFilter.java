@@ -1,11 +1,15 @@
 package se.mdh.progresside.remes.diagram.custom.handlers;
 
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeConstantsCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeInitialization2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeInitializationEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartment2EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartment2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartment2EditPart;
@@ -17,7 +21,11 @@ public class RemesViewTimingFilter implements IRemesViewsFilter {
 		if (obj instanceof CompositeModeInitializationEditPart
 				|| obj instanceof SubModeInitialization2EditPart
 				|| obj instanceof SubModeInitializationEditPart
+				|| obj instanceof CompositeModeCompositeModeConstantsCompartmentEditPart
 				|| obj instanceof CompositeModeCompositeModeVariablesCompartmentEditPart
+				|| obj instanceof CompositeModeCompositeModeResourcesCompartmentEditPart
+				|| obj instanceof SubModeSubModeConstantsCompartment2EditPart
+				|| obj instanceof SubModeSubModeConstantsCompartmentEditPart
 				|| obj instanceof SubModeSubModeResourcesCompartment2EditPart
 				|| obj instanceof SubModeSubModeResourcesCompartmentEditPart
 				|| obj instanceof SubModeSubModeVariablesCompartment2EditPart

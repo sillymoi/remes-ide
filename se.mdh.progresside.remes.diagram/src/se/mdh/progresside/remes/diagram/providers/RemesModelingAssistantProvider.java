@@ -24,6 +24,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;

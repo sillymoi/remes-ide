@@ -34,7 +34,7 @@ public class CompositeModeCompositeModeVariablesCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = RemesDiagramUpdater
-				.getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(
+				.getCompositeModeCompositeModeVariablesCompartment_7022SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((RemesNodeDescriptor) it.next()).getModelElement());
 		}

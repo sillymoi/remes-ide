@@ -23,7 +23,7 @@ public class CompositeModeCompositeModeVariablesCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7021;
+	public static final int VISUAL_ID = 7022;
 
 	/**
 	 * @generated

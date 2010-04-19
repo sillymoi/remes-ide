@@ -219,7 +219,7 @@
             <method name="getType()" value="5040,5041,5042,5043,5049,5050,5044,5045,5046,5047,5048"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7019,7020,7027,7026,7021,7022,7025,7023,7024,7028"/>
+            <method name="getType()" value="7019,7020,7027,7021,7022,7025,7026,7023,7024,7028"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>

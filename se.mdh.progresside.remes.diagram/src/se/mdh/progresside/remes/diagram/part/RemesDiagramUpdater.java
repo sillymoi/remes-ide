@@ -91,13 +91,13 @@ public class RemesDiagramUpdater {
 		case SubModeSubModeResourcesCompartmentEditPart.VISUAL_ID:
 			return getSubModeSubModeResourcesCompartment_7027SemanticChildren(view);
 		case CompositeModeCompositeModeConstantsCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeConstantsCompartment_7026SemanticChildren(view);
+			return getCompositeModeCompositeModeConstantsCompartment_7021SemanticChildren(view);
 		case CompositeModeCompositeModeVariablesCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(view);
+			return getCompositeModeCompositeModeVariablesCompartment_7022SemanticChildren(view);
 		case CompositeModeCompositeModeResourcesCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeResourcesCompartment_7022SemanticChildren(view);
+			return getCompositeModeCompositeModeResourcesCompartment_7025SemanticChildren(view);
 		case CompositeModeCompositeModeCompartmentEditPart.VISUAL_ID:
-			return getCompositeModeCompositeModeCompartment_7025SemanticChildren(view);
+			return getCompositeModeCompositeModeCompartment_7026SemanticChildren(view);
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
 			return getSubModeSubModeVariablesCompartment_7024SemanticChildren(view);
 		case SubModeSubModeResourcesCompartment2EditPart.VISUAL_ID:
@@ -319,7 +319,33 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeVariablesCompartment_7021SemanticChildren(
+	public static List getCompositeModeCompositeModeConstantsCompartment_7021SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		CompositeMode modelElement = (CompositeMode) containerView.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement.getConstants().iterator(); it.hasNext();) {
+			Constant childElement = (Constant) it.next();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Constant3EditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompositeModeCompositeModeVariablesCompartment_7022SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -345,7 +371,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeResourcesCompartment_7022SemanticChildren(
+	public static List getCompositeModeCompositeModeResourcesCompartment_7025SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -371,7 +397,7 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeModeCompositeModeCompartment_7025SemanticChildren(
+	public static List getCompositeModeCompositeModeCompartment_7026SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -418,32 +444,6 @@ public class RemesDiagramUpdater {
 					childElement);
 			if (visualID == CompositeExitPointEditPart.VISUAL_ID) {
 				result.add(new RemesNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCompositeModeCompositeModeConstantsCompartment_7026SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		CompositeMode modelElement = (CompositeMode) containerView.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getConstants().iterator(); it.hasNext();) {
-			Constant childElement = (Constant) it.next();
-			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == Constant3EditPart.VISUAL_ID) {
-				result.add(new RemesNodeDescriptor(childElement, visualID));
-				continue;
 			}
 		}
 		return result;

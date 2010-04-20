@@ -759,7 +759,8 @@
             width="10"
             height="10"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
         <metaClass
             href="remes.genmodel#//remes/EntryPoint"/>
         <containmentMetaFeature
@@ -796,7 +797,8 @@
             width="10"
             height="10"/>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.1">
         <metaClass
             href="remes.genmodel#//remes/ExitPoint"/>
         <containmentMetaFeature
@@ -806,6 +808,7 @@
       </modelFacet>
     </childNodes>
     <childNodes
+        xsi:type="gmfgen:GenChildSideAffixedNode"
         visualID="3037"
         editPartClassName="CompositeEntryPointEditPart"
         itemSemanticEditPolicyClassName="CompositeEntryPointItemSemanticEditPolicy"
@@ -813,7 +816,8 @@
         canonicalEditPolicyClassName="CompositeEntryPointCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CompositeEntryPointGraphicalNodeEditPolicy"
         createCommandClassName="CompositeEntryPointCreateCommand"
-        containers="//@diagram/@compartments.6">
+        containers="//@diagram/@topLevelNodes.1"
+        preferredSideName="WEST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -822,11 +826,14 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="CompositeEntryPointFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CompositeEntryPointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CompositeEntryPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setOutline(false);&#xA;this.setLineWidth(1);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Polygon polyline0 = new org.eclipse.draw2d.Polygon();&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(7)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;polyline0.setFill(true);&#xA;polyline0.setLineWidth(1);&#xA;&#x9;polyline0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.green);&#xA;&#xA;this.add(polyline0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = true;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CompositeEntryPointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CompositeEntryPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(1);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Polygon polyline0 = new org.eclipse.draw2d.Polygon();&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;polyline0.setFill(true);&#xA;polyline0.setLineWidth(1);&#xA;&#x9;polyline0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.green);&#xA;&#xA;this.add(polyline0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = true;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
-            width="15"
-            height="15"/>
+            width="10"
+            height="10"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -838,6 +845,7 @@
       </modelFacet>
     </childNodes>
     <childNodes
+        xsi:type="gmfgen:GenChildSideAffixedNode"
         visualID="3038"
         editPartClassName="CompositeExitPointEditPart"
         itemSemanticEditPolicyClassName="CompositeExitPointItemSemanticEditPolicy"
@@ -845,7 +853,8 @@
         canonicalEditPolicyClassName="CompositeExitPointCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="CompositeExitPointGraphicalNodeEditPolicy"
         createCommandClassName="CompositeExitPointCreateCommand"
-        containers="//@diagram/@compartments.6">
+        containers="//@diagram/@topLevelNodes.1"
+        preferredSideName="EAST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -854,11 +863,14 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="CompositeExitPointFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CompositeExitPointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CompositeExitPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setOutline(false);&#xA;this.setLineWidth(1);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Polygon polyline0 = new org.eclipse.draw2d.Polygon();&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(15)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(15)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(7)&#xA;));&#xA;polyline0.setFill(true);&#xA;polyline0.setLineWidth(1);&#xA;&#x9;polyline0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;&#xA;this.add(polyline0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = true;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CompositeExitPointFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CompositeExitPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(1);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Polygon polyline0 = new org.eclipse.draw2d.Polygon();&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;polyline0.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;polyline0.setFill(true);&#xA;polyline0.setLineWidth(1);&#xA;&#x9;polyline0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);&#xA;&#xA;this.add(polyline0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = true;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
-            width="15"
-            height="15"/>
+            width="10"
+            height="10"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -1119,7 +1131,7 @@
         itemSemanticEditPolicyClassName="CompositeModeItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeModeViewFactory"
         canonicalEditPolicyClassName="CompositeModeCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.19"
+        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19"
         compartments="//@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="CompositeModeGraphicalNodeEditPolicy"
         createCommandClassName="CompositeModeCreateCommand">
@@ -1240,7 +1252,7 @@
         </modelFacet>
       </labels>
       <creationConstraints
-          targetEnd="//@expressionProviders/@providers.0/@expressions.0"/>
+          targetEnd="//@expressionProviders/@providers.0/@expressions.2"/>
     </links>
     <links
         visualID="4029"
@@ -1294,7 +1306,7 @@
         </modelFacet>
       </labels>
       <creationConstraints
-          targetEnd="//@expressionProviders/@providers.0/@expressions.1"/>
+          targetEnd="//@expressionProviders/@providers.0/@expressions.3"/>
     </links>
     <compartments
         visualID="7019"
@@ -1410,7 +1422,7 @@
         itemSemanticEditPolicyClassName="CompositeModeCompositeModeCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeModeCompositeModeCompartmentViewFactory"
         canonicalEditPolicyClassName="CompositeModeCompositeModeCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.5 //@diagram/@childNodes.11 //@diagram/@childNodes.17 //@diagram/@childNodes.18"
+        childNodes="//@diagram/@childNodes.5 //@diagram/@childNodes.11"
         title="CompositeModeCompartment"
         needsTitle="false"
         node="//@diagram/@topLevelNodes.1"
@@ -1588,6 +1600,12 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="not oclIsKindOf(remes::CompositeExitPoint)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="not oclIsKindOf(remes::CompositeEntryPoint)"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(CompositeMode))))&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(SubMode) and not oppositeEnd.container.oclAsType(SubMode).parent.oclIsUndefined() and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(SubMode).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(SubMode).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(SubMode).parent)))&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container.oclAsType(ConditionalConnector).parent) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.container.oclAsType(ConditionalConnector).parent))) &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;or (oppositeEnd.container.oclIsTypeOf(CompositeMode) and not oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent.oclIsUndefined()) or &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(self.container.oclIsTypeOf(CompositeMode) and not (self.container = oppositeEnd.container) and not (self.oclIsTypeOf(CompositeExitPoint)))))&#xD;&#xA;or (oppositeEnd.oclIsTypeOf(CompositeEntryPoint) and&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;((self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  (self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.oclAsType(CompositeEntryPoint).composite) or&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  (self.oclIsTypeOf(CompositeExitPoint) and self.oclAsType(CompositeExitPoint).composite = oppositeEnd.oclAsType(CompositeEntryPoint).composite)))"/>

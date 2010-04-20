@@ -409,10 +409,8 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="CompositeEntryPointFigure"
-          outline="false">
-        <preferredSize
-            dx="15"
-            dy="15"/>
+          outline="false"
+          fill="false">
         <children
             xsi:type="gmfgraph:Polygon">
           <backgroundColor
@@ -420,15 +418,15 @@
               value="green"/>
           <template/>
           <template
-              x="7"/>
+              x="10"/>
           <template
-              x="15"
-              y="7"/>
+              x="10"
+              y="10"/>
           <template
-              x="7"
-              y="15"/>
+              y="10"/>
           <template
-              y="15"/>
+              x="5"
+              y="5"/>
         </children>
       </actualFigure>
     </descriptors>
@@ -437,10 +435,8 @@
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
           name="CompositeExitPointFigure"
-          outline="false">
-        <preferredSize
-            dx="15"
-            dy="15"/>
+          outline="false"
+          fill="false">
         <children
             xsi:type="gmfgraph:Polygon">
           <backgroundColor
@@ -448,15 +444,15 @@
               value="red"/>
           <template/>
           <template
-              x="15"/>
+              x="10"/>
           <template
-              x="15"
-              y="15"/>
+              x="5"
+              y="5"/>
           <template
-              y="15"/>
+              x="10"
+              y="10"/>
           <template
-              x="7"
-              y="7"/>
+              y="10"/>
         </children>
       </actualFigure>
     </descriptors>
@@ -487,10 +483,12 @@
       affixedParentSide="EAST"/>
   <nodes
       name="CompositeEntryPoint"
-      figure="CompositeEntryPointFigure"/>
+      figure="CompositeEntryPointFigure"
+      affixedParentSide="WEST"/>
   <nodes
       name="CompositeExitPoint"
-      figure="CompositeExitPointFigure"/>
+      figure="CompositeExitPointFigure"
+      affixedParentSide="EAST"/>
   <nodes
       name="InitPoint"
       figure="InitPointFigure"

@@ -89,7 +89,8 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * Overriden to disable movement of the entry/exit/init points on the border
+	 * @generated NOT
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		LayoutEditPolicy lep = new LayoutEditPolicy() {
@@ -99,8 +100,15 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 				switch (RemesVisualIDRegistry.getVisualID(childView)) {
 				case EntryPoint4EditPart.VISUAL_ID:
 				case ExitPoint4EditPart.VISUAL_ID:
+				case CompositeEntryPointEditPart.VISUAL_ID:
+				case CompositeExitPointEditPart.VISUAL_ID:
 				case InitPointEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
+					return new BorderItemSelectionEditPolicy() {
+						protected Command getMoveCommand(
+								org.eclipse.gef.requests.ChangeBoundsRequest request) {
+							return null;
+						};
+					};
 				}
 				EditPolicy result = child
 						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -144,16 +152,16 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
-			((CompositeModeInitializationEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCompositeModeInitializationFigure());
-			return true;
-		}
 		if (childEditPart instanceof CompositeModeNameEditPart) {
 			((CompositeModeNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCompositeModeNameFigure());
+			return true;
+		}
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+			((CompositeModeInitializationEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCompositeModeInitializationFigure());
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -172,10 +180,28 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 					((ExitPoint4EditPart) childEditPart).getFigure(), locator);
 			return true;
 		}
+		if (childEditPart instanceof CompositeEntryPointEditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.WEST);
+			locator.setBorderItemOffset(new Dimension(15, 5)); // custom
+			getBorderedFigure().getBorderItemContainer().add(
+					((CompositeEntryPointEditPart) childEditPart).getFigure(),
+					locator);
+			return true;
+		}
+		if (childEditPart instanceof CompositeExitPointEditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(15, 5)); // custom
+			getBorderedFigure().getBorderItemContainer().add(
+					((CompositeExitPointEditPart) childEditPart).getFigure(),
+					locator);
+			return true;
+		}
 		if (childEditPart instanceof InitPointEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			locator.setBorderItemOffset(new Dimension(5, 5));
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
 			getBorderedFigure().getBorderItemContainer().add(
 					((InitPointEditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -201,6 +227,16 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof ExitPoint4EditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((ExitPoint4EditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof CompositeEntryPointEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((CompositeEntryPointEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof CompositeExitPointEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((CompositeExitPointEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof InitPointEditPart) {

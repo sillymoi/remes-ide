@@ -53,8 +53,6 @@ public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
 		switch (visualID) {
 		case SubMode2EditPart.VISUAL_ID:
 		case ConditionalConnectorEditPart.VISUAL_ID:
-		case CompositeEntryPointEditPart.VISUAL_ID:
-		case CompositeExitPointEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -79,10 +77,6 @@ public class CompositeModeCompositeModeCompartmentCanonicalEditPolicy extends
 					.getCompositeMode_SubModes());
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
 					.getCompositeMode_ConditionalConnectors());
-			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_CompositeEntryPoint());
-			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
-					.getCompositeMode_CompositeExitPoint());
 		}
 		return myFeaturesToSynchronize;
 	}

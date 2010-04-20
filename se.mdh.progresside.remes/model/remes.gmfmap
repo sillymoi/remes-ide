@@ -491,6 +491,8 @@
         <ownedChild>
           <domainMetaElement
               href="remes.ecore#//EntryPoint"/>
+          <domainSpecialization
+              body="not oclIsKindOf(remes::CompositeExitPoint)"/>
           <diagramNode
               href="remes.gmfgraph#EntryPoint"/>
         </ownedChild>
@@ -501,12 +503,13 @@
         <ownedChild>
           <domainMetaElement
               href="remes.ecore#//ExitPoint"/>
+          <domainSpecialization
+              body="not oclIsKindOf(remes::CompositeEntryPoint)"/>
           <diagramNode
               href="remes.gmfgraph#ExitPoint"/>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.3">
+      <children>
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeEntryPoint"/>
         <ownedChild>
@@ -516,8 +519,7 @@
               href="remes.gmfgraph#CompositeEntryPoint"/>
         </ownedChild>
       </children>
-      <children
-          compartment="//@nodes.1/@ownedChild/@compartments.3">
+      <children>
         <containmentFeature
             href="remes.ecore#//CompositeMode/compositeExitPoint"/>
         <ownedChild>
@@ -619,7 +621,7 @@
             href="remes.gmfgraph#CompositeModeResourcesCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1 //@nodes.1/@ownedChild/@children.5 //@nodes.1/@ownedChild/@children.6">
+          children="//@nodes.1/@ownedChild/@children.0 //@nodes.1/@ownedChild/@children.1">
         <compartment
             href="remes.gmfgraph#CompositeModeCompartment"/>
       </compartments>

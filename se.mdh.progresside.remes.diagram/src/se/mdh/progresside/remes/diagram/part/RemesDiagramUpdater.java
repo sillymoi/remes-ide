@@ -162,6 +162,24 @@ public class RemesDiagramUpdater {
 			}
 		}
 		{
+			CompositeEntryPoint childElement = modelElement
+					.getCompositeEntryPoint();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == CompositeEntryPointEditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			CompositeExitPoint childElement = modelElement
+					.getCompositeExitPoint();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == CompositeExitPointEditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
 			InitPoint childElement = modelElement.getInitPoint();
 			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
 					childElement);
@@ -426,24 +444,6 @@ public class RemesDiagramUpdater {
 			if (visualID == ConditionalConnectorEditPart.VISUAL_ID) {
 				result.add(new RemesNodeDescriptor(childElement, visualID));
 				continue;
-			}
-		}
-		{
-			CompositeEntryPoint childElement = modelElement
-					.getCompositeEntryPoint();
-			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == CompositeEntryPointEditPart.VISUAL_ID) {
-				result.add(new RemesNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			CompositeExitPoint childElement = modelElement
-					.getCompositeExitPoint();
-			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == CompositeExitPointEditPart.VISUAL_ID) {
-				result.add(new RemesNodeDescriptor(childElement, visualID));
 			}
 		}
 		return result;

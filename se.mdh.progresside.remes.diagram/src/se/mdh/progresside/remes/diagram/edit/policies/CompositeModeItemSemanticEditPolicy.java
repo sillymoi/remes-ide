@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import se.mdh.progresside.remes.diagram.edit.commands.CompositeEntryPointCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.CompositeExitPointCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.EntryPoint2CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.EntryPoint3CreateCommand;
@@ -67,6 +68,12 @@ public class CompositeModeItemSemanticEditPolicy extends
 		}
 		if (RemesElementTypes.ExitPoint_3036 == req.getElementType()) {
 			return getGEFWrapper(new ExitPoint4CreateCommand(req));
+		}
+		if (RemesElementTypes.CompositeEntryPoint_3037 == req.getElementType()) {
+			return getGEFWrapper(new CompositeEntryPointCreateCommand(req));
+		}
+		if (RemesElementTypes.CompositeExitPoint_3038 == req.getElementType()) {
+			return getGEFWrapper(new CompositeExitPointCreateCommand(req));
 		}
 		if (RemesElementTypes.InitPoint_3039 == req.getElementType()) {
 			return getGEFWrapper(new InitPointCreateCommand(req));
@@ -139,6 +146,50 @@ public class CompositeModeItemSemanticEditPolicy extends
 						cmd.add(new DestroyElementCommand(r));
 						cmd.add(new DeleteCommand(getEditingDomain(),
 								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case CompositeEntryPointEditPart.VISUAL_ID:
+				for (Iterator it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == EdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case CompositeExitPointEditPart.VISUAL_ID:
+				for (Iterator it = node.getTargetEdges().iterator(); it
+						.hasNext();) {
+					Edge incomingLink = (Edge) it.next();
+					if (RemesVisualIDRegistry.getVisualID(incomingLink) == EdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
+					if (RemesVisualIDRegistry.getVisualID(incomingLink) == InitEdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
 						continue;
 					}
 				}
@@ -223,52 +274,6 @@ public class CompositeModeItemSemanticEditPolicy extends
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case ConditionalConnectorEditPart.VISUAL_ID:
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case CompositeEntryPointEditPart.VISUAL_ID:
-						for (Iterator it = cnode.getSourceEdges().iterator(); it
-								.hasNext();) {
-							Edge outgoingLink = (Edge) it.next();
-							if (RemesVisualIDRegistry.getVisualID(outgoingLink) == EdgeEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(
-										outgoingLink.getElement(), false);
-								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										outgoingLink));
-								continue;
-							}
-						}
-						cmd.add(new DestroyElementCommand(
-								new DestroyElementRequest(getEditingDomain(),
-										cnode.getElement(), false))); // directlyOwned: true
-						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
-						break;
-					case CompositeExitPointEditPart.VISUAL_ID:
-						for (Iterator it = cnode.getTargetEdges().iterator(); it
-								.hasNext();) {
-							Edge incomingLink = (Edge) it.next();
-							if (RemesVisualIDRegistry.getVisualID(incomingLink) == EdgeEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(
-										incomingLink.getElement(), false);
-								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										incomingLink));
-								continue;
-							}
-							if (RemesVisualIDRegistry.getVisualID(incomingLink) == InitEdgeEditPart.VISUAL_ID) {
-								DestroyElementRequest r = new DestroyElementRequest(
-										incomingLink.getElement(), false);
-								cmd.add(new DestroyElementCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(),
-										incomingLink));
-								continue;
-							}
-						}
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

@@ -7,6 +7,8 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.Edge;
+import se.mdh.progresside.remes.EntryPoint;
+import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitEdge;
 import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesPackage;
@@ -76,6 +78,15 @@ public class RemesVisualIDRegistry {
 	 * @generated
 	 */
 	private static final String DEBUG_KEY = "se.mdh.progresside.remes.diagram/debug/visualID"; //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	private static RemesAbstractExpression EntryPoint_3035_Constraint;
+	/**
+	 * @generated
+	 */
+	private static RemesAbstractExpression ExitPoint_3036_Constraint;
 
 	/**
 	 * @generated
@@ -182,12 +193,22 @@ public class RemesVisualIDRegistry {
 			break;
 		case CompositeModeEditPart.VISUAL_ID:
 			if (RemesPackage.eINSTANCE.getEntryPoint().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isEntryPoint_3035((EntryPoint) domainElement)) {
 				return EntryPoint4EditPart.VISUAL_ID;
 			}
 			if (RemesPackage.eINSTANCE.getExitPoint().isSuperTypeOf(
-					domainElement.eClass())) {
+					domainElement.eClass())
+					&& isExitPoint_3036((ExitPoint) domainElement)) {
 				return ExitPoint4EditPart.VISUAL_ID;
+			}
+			if (RemesPackage.eINSTANCE.getCompositeEntryPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return CompositeEntryPointEditPart.VISUAL_ID;
+			}
+			if (RemesPackage.eINSTANCE.getCompositeExitPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return CompositeExitPointEditPart.VISUAL_ID;
 			}
 			if (RemesPackage.eINSTANCE.getInitPoint().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -262,14 +283,6 @@ public class RemesVisualIDRegistry {
 			if (RemesPackage.eINSTANCE.getConditionalConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ConditionalConnectorEditPart.VISUAL_ID;
-			}
-			if (RemesPackage.eINSTANCE.getCompositeEntryPoint().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CompositeEntryPointEditPart.VISUAL_ID;
-			}
-			if (RemesPackage.eINSTANCE.getCompositeExitPoint().isSuperTypeOf(
-					domainElement.eClass())) {
-				return CompositeExitPointEditPart.VISUAL_ID;
 			}
 			break;
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
@@ -373,6 +386,12 @@ public class RemesVisualIDRegistry {
 			if (ExitPoint4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CompositeEntryPointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CompositeExitPointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (InitPointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -457,12 +476,6 @@ public class RemesVisualIDRegistry {
 			if (ConditionalConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (CompositeEntryPointEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CompositeExitPointEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			break;
 		case SubModeSubModeVariablesCompartment2EditPart.VISUAL_ID:
 			if (Variable2EditPart.VISUAL_ID == nodeVisualID) {
@@ -522,6 +535,32 @@ public class RemesVisualIDRegistry {
 	 */
 	private static boolean isDiagram(RemesDiagram element) {
 		return true;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isEntryPoint_3035(EntryPoint domainElement) {
+		if (EntryPoint_3035_Constraint == null) { // lazy initialization
+			EntryPoint_3035_Constraint = RemesOCLFactory
+					.getExpression(
+							"not oclIsKindOf(remes::CompositeExitPoint)", RemesPackage.eINSTANCE.getEntryPoint()); //$NON-NLS-1$
+		}
+		Object result = EntryPoint_3035_Constraint.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isExitPoint_3036(ExitPoint domainElement) {
+		if (ExitPoint_3036_Constraint == null) { // lazy initialization
+			ExitPoint_3036_Constraint = RemesOCLFactory
+					.getExpression(
+							"not oclIsKindOf(remes::CompositeEntryPoint)", RemesPackage.eINSTANCE.getExitPoint()); //$NON-NLS-1$
+		}
+		Object result = ExitPoint_3036_Constraint.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 }

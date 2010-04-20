@@ -63,9 +63,11 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof CompositeModeEditPart) {
-			ArrayList types = new ArrayList(6);
+			ArrayList types = new ArrayList(8);
 			types.add(RemesElementTypes.EntryPoint_3035);
 			types.add(RemesElementTypes.ExitPoint_3036);
+			types.add(RemesElementTypes.CompositeEntryPoint_3037);
+			types.add(RemesElementTypes.CompositeExitPoint_3038);
 			types.add(RemesElementTypes.InitPoint_3039);
 			types.add(RemesElementTypes.Constant_3043);
 			types.add(RemesElementTypes.Variable_3034);
@@ -88,11 +90,9 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof CompositeModeCompositeModeCompartmentEditPart) {
-			ArrayList types = new ArrayList(4);
+			ArrayList types = new ArrayList(2);
 			types.add(RemesElementTypes.SubMode_3026);
 			types.add(RemesElementTypes.ConditionalConnector_3031);
-			types.add(RemesElementTypes.CompositeEntryPoint_3037);
-			types.add(RemesElementTypes.CompositeExitPoint_3038);
 			return types;
 		}
 		if (editPart instanceof RemesDiagramEditPart) {

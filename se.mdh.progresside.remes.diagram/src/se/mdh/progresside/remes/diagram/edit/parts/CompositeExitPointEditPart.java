@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Polygon;
 import org.eclipse.draw2d.RectangleFigure;
@@ -20,6 +21,7 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.GroupRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -35,7 +37,7 @@ import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 /**
  * @generated
  */
-public class CompositeExitPointEditPart extends ShapeNodeEditPart {
+public class CompositeExitPointEditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -123,7 +125,10 @@ public class CompositeExitPointEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(15, 15);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(10, 10);
+
+		//FIXME: workaround for #154536
+		result.getBounds().setSize(result.getPreferredSize());
 		return result;
 	}
 
@@ -246,10 +251,9 @@ public class CompositeExitPointEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public CompositeExitPointFigure() {
+			this.setFill(false);
 			this.setOutline(false);
 			this.setLineWidth(1);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(15),
-					getMapMode().DPtoLP(15)));
 			createContents();
 		}
 
@@ -261,14 +265,14 @@ public class CompositeExitPointEditPart extends ShapeNodeEditPart {
 			Polygon polyline0 = new Polygon();
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()
 					.DPtoLP(0)));
-			polyline0.addPoint(new Point(getMapMode().DPtoLP(15), getMapMode()
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(0)));
-			polyline0.addPoint(new Point(getMapMode().DPtoLP(15), getMapMode()
-					.DPtoLP(15)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(5), getMapMode()
+					.DPtoLP(5)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
+					.DPtoLP(10)));
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()
-					.DPtoLP(15)));
-			polyline0.addPoint(new Point(getMapMode().DPtoLP(7), getMapMode()
-					.DPtoLP(7)));
+					.DPtoLP(10)));
 			polyline0.setFill(true);
 			polyline0.setLineWidth(1);
 			polyline0.setBackgroundColor(ColorConstants.red);

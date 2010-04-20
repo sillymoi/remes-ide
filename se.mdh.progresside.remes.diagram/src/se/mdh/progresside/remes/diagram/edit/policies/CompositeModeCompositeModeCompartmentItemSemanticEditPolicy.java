@@ -33,12 +33,6 @@ public class CompositeModeCompositeModeCompartmentItemSemanticEditPolicy extends
 		if (RemesElementTypes.ConditionalConnector_3031 == req.getElementType()) {
 			return getGEFWrapper(new ConditionalConnectorCreateCommand(req));
 		}
-		if (RemesElementTypes.CompositeEntryPoint_3037 == req.getElementType()) {
-			return getGEFWrapper(new CompositeEntryPointCreateCommand(req));
-		}
-		if (RemesElementTypes.CompositeExitPoint_3038 == req.getElementType()) {
-			return getGEFWrapper(new CompositeExitPointCreateCommand(req));
-		}
 		return super.getCreateCommand(req);
 	}
 

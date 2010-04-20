@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
 import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint3EditPart;
@@ -55,6 +56,8 @@ public class CompositeModeCanonicalEditPolicy extends CanonicalEditPolicy {
 		switch (visualID) {
 		case EntryPoint4EditPart.VISUAL_ID:
 		case ExitPoint4EditPart.VISUAL_ID:
+		case CompositeEntryPointEditPart.VISUAL_ID:
+		case CompositeExitPointEditPart.VISUAL_ID:
 		case InitPointEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
@@ -80,6 +83,10 @@ public class CompositeModeCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getControlPath_EntryPoint());
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
 					.getControlPath_ExitPoint());
+			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
+					.getCompositeMode_CompositeEntryPoint());
+			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
+					.getCompositeMode_CompositeExitPoint());
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
 					.getCompositeMode_InitPoint());
 		}

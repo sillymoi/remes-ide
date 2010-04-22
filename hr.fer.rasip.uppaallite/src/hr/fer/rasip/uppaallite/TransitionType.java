@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getGuard <em>Guard</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getSource <em>Source</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getTarget <em>Target</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,5 +159,33 @@ public interface TransitionType extends EObject {
 	 * @generated
 	 */
 	void setTarget(LocationType value);
+
+	/**
+	 * Returns the value of the '<em><b>Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link hr.fer.rasip.uppaallite.TemplateType#getTransition <em>Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Container</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container</em>' container reference.
+	 * @see #setContainer(TemplateType)
+	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getTransitionType_Container()
+	 * @see hr.fer.rasip.uppaallite.TemplateType#getTransition
+	 * @model opposite="transition" required="true" transient="false"
+	 * @generated
+	 */
+	TemplateType getContainer();
+
+	/**
+	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.TransitionType#getContainer <em>Container</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Container</em>' container reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
+	void setContainer(TemplateType value);
 
 } // TransitionType

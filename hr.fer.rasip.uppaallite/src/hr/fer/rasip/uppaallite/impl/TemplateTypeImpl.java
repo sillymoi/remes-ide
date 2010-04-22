@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -172,7 +173,7 @@ public class TemplateTypeImpl extends EObjectImpl implements TemplateType {
 	 */
 	public EList<LocationType> getLocation() {
 		if (location == null) {
-			location = new EObjectContainmentEList<LocationType>(LocationType.class, this, UppaallitePackage.TEMPLATE_TYPE__LOCATION);
+			location = new EObjectContainmentWithInverseEList<LocationType>(LocationType.class, this, UppaallitePackage.TEMPLATE_TYPE__LOCATION, UppaallitePackage.LOCATION_TYPE__CONTAINER);
 		}
 		return location;
 	}
@@ -184,9 +185,26 @@ public class TemplateTypeImpl extends EObjectImpl implements TemplateType {
 	 */
 	public EList<TransitionType> getTransition() {
 		if (transition == null) {
-			transition = new EObjectContainmentEList<TransitionType>(TransitionType.class, this, UppaallitePackage.TEMPLATE_TYPE__TRANSITION);
+			transition = new EObjectContainmentWithInverseEList<TransitionType>(TransitionType.class, this, UppaallitePackage.TEMPLATE_TYPE__TRANSITION, UppaallitePackage.TRANSITION_TYPE__CONTAINER);
 		}
 		return transition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UppaallitePackage.TEMPLATE_TYPE__LOCATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLocation()).basicAdd(otherEnd, msgs);
+			case UppaallitePackage.TEMPLATE_TYPE__TRANSITION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTransition()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

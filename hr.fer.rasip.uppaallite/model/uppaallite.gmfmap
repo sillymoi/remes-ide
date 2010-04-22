@@ -12,7 +12,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = false and self.urgent = false"/>
+          body="self.commited = self.urgent and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -41,7 +41,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = true and self.urgent = false"/>
+          body="self.commited = true and self.urgent = false and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -67,7 +67,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = false and self.urgent = true"/>
+          body="self.commited = false and self.urgent = true and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -84,6 +84,84 @@
       </labelMappings>
       <diagramNode
           href="uppaallite.gmfgraph#LocationTypeUrgent"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="uppaallite.ecore#//TemplateType/location"/>
+    <ownedChild>
+      <domainMetaElement
+          href="uppaallite.ecore#//LocationType"/>
+      <domainSpecialization
+          body="self.commited = self.urgent and self.initial = true"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationName"/>
+        <features
+            href="uppaallite.ecore#//LocationType/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationInvariant"/>
+        <features
+            href="uppaallite.ecore#//LocationType/invariant"/>
+      </labelMappings>
+      <diagramNode
+          href="uppaallite.gmfgraph#LocationTypeInit"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="uppaallite.ecore#//TemplateType/location"/>
+    <ownedChild>
+      <domainMetaElement
+          href="uppaallite.ecore#//LocationType"/>
+      <domainSpecialization
+          body="self.commited = false and self.urgent = true and self.initial = true"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationName"/>
+        <features
+            href="uppaallite.ecore#//LocationType/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationInvariant"/>
+        <features
+            href="uppaallite.ecore#//LocationType/invariant"/>
+      </labelMappings>
+      <diagramNode
+          href="uppaallite.gmfgraph#LocationTypeInitUrgent"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="uppaallite.ecore#//TemplateType/location"/>
+    <ownedChild>
+      <domainMetaElement
+          href="uppaallite.ecore#//LocationType"/>
+      <domainSpecialization
+          body="self.commited = true and self.urgent = false and self.initial = true"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationName"/>
+        <features
+            href="uppaallite.ecore#//LocationType/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="uppaallite.gmfgraph#LocationInvariant"/>
+        <features
+            href="uppaallite.ecore#//LocationType/invariant"/>
+      </labelMappings>
+      <diagramNode
+          href="uppaallite.gmfgraph#LocationTypeInitCommited"/>
     </ownedChild>
   </nodes>
   <links>
@@ -136,12 +214,12 @@
   </diagram>
   <audits
       id="templateTypeAuditC"
-      name="templateTypeAuditC">
+      name="templateTypeAuditC"
+      description="templateTypeAuditC">
     <audits
         name="oneInitialState"
         description="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )"
         id="oneInitialState"
-        severity="WARNING"
         message="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )">
       <rule
           body="self.location->select(p  | p.initial = true)->size() = 1"/>
@@ -149,6 +227,32 @@
           xsi:type="gmfmap:DomainElementTarget">
         <element
             href="uppaallite.ecore#//TemplateType"/>
+      </target>
+    </audits>
+    <audits
+        name="locUrgentCommited"
+        description="Location can't be urgent and commited in the same time"
+        id="loc1"
+        message="Location can't be urgent and commited in the same time">
+      <rule
+          body="not (self.commited = true and self.urgent = true)"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="uppaallite.ecore#//LocationType"/>
+      </target>
+    </audits>
+    <audits
+        name="locId1"
+        description="Location must have uniqe id"
+        id="locId1"
+        message="Location must have uniqe id">
+      <rule
+          body="self.container.location->select(p | p.id = self.id)->size()=1"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="uppaallite.ecore#//LocationType"/>
       </target>
     </audits>
   </audits>

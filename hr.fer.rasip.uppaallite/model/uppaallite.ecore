@@ -12,9 +12,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" ordered="false"
-        upperBound="-1" eType="#//LocationType" containment="true"/>
+        upperBound="-1" eType="#//LocationType" containment="true" eOpposite="#//LocationType/container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" ordered="false"
-        upperBound="-1" eType="#//TransitionType" containment="true"/>
+        upperBound="-1" eType="#//TransitionType" containment="true" eOpposite="#//TransitionType/container"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocationType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -23,6 +23,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="#//TemplateType" eOpposite="#//TemplateType/location"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sync" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -32,5 +34,7 @@
         eType="#//LocationType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//LocationType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="#//TemplateType" eOpposite="#//TemplateType/transition"/>
   </eClassifiers>
 </ecore:EPackage>

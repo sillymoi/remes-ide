@@ -7,14 +7,18 @@
 package hr.fer.rasip.uppaallite.impl;
 
 import hr.fer.rasip.uppaallite.LocationType;
+import hr.fer.rasip.uppaallite.TemplateType;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#isInitial <em>Initial</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getInvariant <em>Invariant</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -305,6 +310,91 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TemplateType getContainer() {
+		if (eContainerFeatureID() != UppaallitePackage.LOCATION_TYPE__CONTAINER) return null;
+		return (TemplateType)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(TemplateType newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, UppaallitePackage.LOCATION_TYPE__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(TemplateType newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != UppaallitePackage.LOCATION_TYPE__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, UppaallitePackage.TEMPLATE_TYPE__LOCATION, TemplateType.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((TemplateType)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				return basicSetContainer(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, UppaallitePackage.TEMPLATE_TYPE__LOCATION, TemplateType.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -320,6 +410,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return getId();
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
 				return getInvariant();
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -349,6 +441,9 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return;
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
 				setInvariant((String)newValue);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				setContainer((TemplateType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -380,6 +475,9 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
 				setInvariant(INVARIANT_EDEFAULT);
 				return;
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				setContainer((TemplateType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,6 +502,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
 				return INVARIANT_EDEFAULT == null ? invariant != null : !INVARIANT_EDEFAULT.equals(invariant);
+			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
+				return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

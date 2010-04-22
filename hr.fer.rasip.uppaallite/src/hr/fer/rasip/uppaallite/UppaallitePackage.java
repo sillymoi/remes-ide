@@ -216,13 +216,22 @@ public interface UppaallitePackage extends EPackage {
 	int LOCATION_TYPE__INVARIANT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATION_TYPE__CONTAINER = 6;
+
+	/**
 	 * The number of structural features of the '<em>Location Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCATION_TYPE_FEATURE_COUNT = 6;
+	int LOCATION_TYPE_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
@@ -280,13 +289,22 @@ public interface UppaallitePackage extends EPackage {
 	int TRANSITION_TYPE__TARGET = 4;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_TYPE__CONTAINER = 5;
+
+	/**
 	 * The number of structural features of the '<em>Transition Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_TYPE_FEATURE_COUNT = 5;
+	int TRANSITION_TYPE_FEATURE_COUNT = 6;
 
 
 	/**
@@ -452,6 +470,17 @@ public interface UppaallitePackage extends EPackage {
 	EAttribute getLocationType_Invariant();
 
 	/**
+	 * Returns the meta object for the container reference '{@link hr.fer.rasip.uppaallite.LocationType#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see hr.fer.rasip.uppaallite.LocationType#getContainer()
+	 * @see #getLocationType()
+	 * @generated
+	 */
+	EReference getLocationType_Container();
+
+	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.uppaallite.TransitionType <em>Transition Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,6 +544,17 @@ public interface UppaallitePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransitionType_Target();
+
+	/**
+	 * Returns the meta object for the container reference '{@link hr.fer.rasip.uppaallite.TransitionType#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see hr.fer.rasip.uppaallite.TransitionType#getContainer()
+	 * @see #getTransitionType()
+	 * @generated
+	 */
+	EReference getTransitionType_Container();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -665,6 +705,14 @@ public interface UppaallitePackage extends EPackage {
 		EAttribute LOCATION_TYPE__INVARIANT = eINSTANCE.getLocationType_Invariant();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOCATION_TYPE__CONTAINER = eINSTANCE.getLocationType_Container();
+
+		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -713,6 +761,14 @@ public interface UppaallitePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION_TYPE__TARGET = eINSTANCE.getTransitionType_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSITION_TYPE__CONTAINER = eINSTANCE.getTransitionType_Container();
 
 	}
 

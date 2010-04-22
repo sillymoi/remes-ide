@@ -7,16 +7,19 @@
 package hr.fer.rasip.uppaallite.impl;
 
 import hr.fer.rasip.uppaallite.LocationType;
+import hr.fer.rasip.uppaallite.TemplateType;
 import hr.fer.rasip.uppaallite.TransitionType;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,6 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getSource <em>Source</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -279,6 +283,91 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TemplateType getContainer() {
+		if (eContainerFeatureID() != UppaallitePackage.TRANSITION_TYPE__CONTAINER) return null;
+		return (TemplateType)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(TemplateType newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, UppaallitePackage.TRANSITION_TYPE__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(TemplateType newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != UppaallitePackage.TRANSITION_TYPE__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, UppaallitePackage.TEMPLATE_TYPE__TRANSITION, TemplateType.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.TRANSITION_TYPE__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((TemplateType)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				return basicSetContainer(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, UppaallitePackage.TEMPLATE_TYPE__TRANSITION, TemplateType.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -294,6 +383,8 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 			case UppaallitePackage.TRANSITION_TYPE__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -320,6 +411,9 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 				return;
 			case UppaallitePackage.TRANSITION_TYPE__TARGET:
 				setTarget((LocationType)newValue);
+				return;
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				setContainer((TemplateType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -348,6 +442,9 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 			case UppaallitePackage.TRANSITION_TYPE__TARGET:
 				setTarget((LocationType)null);
 				return;
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				setContainer((TemplateType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +467,8 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 				return source != null;
 			case UppaallitePackage.TRANSITION_TYPE__TARGET:
 				return target != null;
+			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
+				return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

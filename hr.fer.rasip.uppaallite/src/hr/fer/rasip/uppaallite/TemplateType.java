@@ -85,6 +85,7 @@ public interface TemplateType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' containment reference list.
 	 * The list contents are of type {@link hr.fer.rasip.uppaallite.LocationType}.
+	 * It is bidirectional and its opposite is '{@link hr.fer.rasip.uppaallite.LocationType#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Location</em>' containment reference list isn't clear,
@@ -93,7 +94,8 @@ public interface TemplateType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' containment reference list.
 	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getTemplateType_Location()
-	 * @model containment="true" ordered="false"
+	 * @see hr.fer.rasip.uppaallite.LocationType#getContainer
+	 * @model opposite="container" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<LocationType> getLocation();
@@ -101,6 +103,7 @@ public interface TemplateType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Transition</b></em>' containment reference list.
 	 * The list contents are of type {@link hr.fer.rasip.uppaallite.TransitionType}.
+	 * It is bidirectional and its opposite is '{@link hr.fer.rasip.uppaallite.TransitionType#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transition</em>' containment reference list isn't clear,
@@ -109,7 +112,8 @@ public interface TemplateType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transition</em>' containment reference list.
 	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getTemplateType_Transition()
-	 * @model containment="true" ordered="false"
+	 * @see hr.fer.rasip.uppaallite.TransitionType#getContainer
+	 * @model opposite="container" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<TransitionType> getTransition();

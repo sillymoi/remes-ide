@@ -267,8 +267,12 @@ public class CompositeExitPointEditPart extends AbstractBorderItemEditPart {
 					.DPtoLP(0)));
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(0)));
-			polyline0.addPoint(new Point(getMapMode().DPtoLP(5), getMapMode()
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(7), getMapMode()
+					.DPtoLP(2)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(6), getMapMode()
 					.DPtoLP(5)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(7), getMapMode()
+					.DPtoLP(8)));
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(10), getMapMode()
 					.DPtoLP(10)));
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()

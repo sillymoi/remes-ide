@@ -187,16 +187,16 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SubModeInvariantEditPart) {
+		if (childEditPart instanceof SubModeInitializationEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeNameEditPart) {
+		if (childEditPart instanceof SubModeInvariantEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof SubModeIsUrgentEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeInitializationEditPart) {
+		if (childEditPart instanceof SubModeNameEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPointEditPart) {

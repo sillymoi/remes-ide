@@ -291,8 +291,12 @@ public class CompositeEntryPointEditPart extends AbstractBorderItemEditPart {
 					.DPtoLP(10)));
 			polyline0.addPoint(new Point(getMapMode().DPtoLP(0), getMapMode()
 					.DPtoLP(10)));
-			polyline0.addPoint(new Point(getMapMode().DPtoLP(5), getMapMode()
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(3), getMapMode()
+					.DPtoLP(8)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(4), getMapMode()
 					.DPtoLP(5)));
+			polyline0.addPoint(new Point(getMapMode().DPtoLP(3), getMapMode()
+					.DPtoLP(2)));
 			polyline0.setFill(true);
 			polyline0.setLineWidth(1);
 			polyline0.setBackgroundColor(ColorConstants.green);

@@ -425,8 +425,14 @@
           <template
               y="10"/>
           <template
-              x="5"
+              x="3"
+              y="8"/>
+          <template
+              x="4"
               y="5"/>
+          <template
+              x="3"
+              y="2"/>
         </children>
       </actualFigure>
     </descriptors>
@@ -446,8 +452,14 @@
           <template
               x="10"/>
           <template
-              x="5"
+              x="7"
+              y="2"/>
+          <template
+              x="6"
               y="5"/>
+          <template
+              x="7"
+              y="8"/>
           <template
               x="10"
               y="10"/>

@@ -1,7 +1,0 @@
-# Tracing options for the hr.fer.rasip.uppaallite.diagram plug-in
-
-# Common issues
-hr.fer.rasip.uppaallite.diagram/debug=false
-
-# Visual IDs
-hr.fer.rasip.uppaallite.diagram/debug/visualID=false

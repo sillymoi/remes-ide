@@ -547,23 +547,36 @@ helper context REMES!Edge def: formCompositeEntryPoint() : Boolean =
 helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
 	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
 
+--helper context REMES!Mode def: inputSync() : String = 
+--	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+--	->iterate(e; res : String = '' |
+--		if self.name = e.implComponent.name
+--		then e.implComponent.service->first().inputPortGroup.trigger.name.concat('?')
+--		else res
+--		endif
+--	);
+
 helper context REMES!Mode def: inputSync() : String = 
-	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
 	->iterate(e; res : String = '' |
-		if self.name = e.implComponent.name
-		then e.implComponent.service->first().inputPortGroup.trigger.name.concat('?')
+		if  self.name = e.destSubcomponent.implComponent.name
+		then 'Syn_'.concat(e.__xmiID__).concat('?').regexReplaceAll('-', '_')
 		else res
 		endif
 	);
 
 helper context REMES!Mode def: outputSync() : String = 
-	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
 	->iterate(e; res : String = '' |
-		if self.name = e.implComponent.name
-		then e.implComponent.service->first().outputPortGroup->first().trigger.name.concat('!')
+		if  self.name = e.sourceSubcomponent.implComponent.name
+		then 'Syn_'.concat(e.__xmiID__).concat('!').regexReplaceAll('-', '_')
 		else res
 		endif
 	);
+
+
 
 ----------------------------
 --- NTA DECLARATION -------
@@ -628,7 +641,7 @@ rule subMode2Template{
 			name <- thisModule.Name_type('5','5', sm.name),
 			location <-Sequence{thisModule.startLocation(), thisModule.emptyEntryLocation(), thisModule.location_Type(sm), thisModule.emptyExitLocation()},
 			init <- thisModule.Init_type('idStart'),
-			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idEntry', 't?'), thisModule.emptyTransition(sm.__xmiID__, 'idExit'), thisModule.exitToEntryTransition(sm), thisModule.topLevelSubModeEntryTransition(sm)}
+			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idEntry', 't?'), thisModule.emptyTransition(sm.__xmiID__, 'idExit'), thisModule.exitToEntryTransitionHC(sm), thisModule.topLevelSubModeEntryTransition(sm)}
 		)	
 }
 ----------------
@@ -793,7 +806,28 @@ rule initTransition(cMode: REMES!CompositeMode){
 }
 
 
-rule exitToEntryTransition(mode: REMES!Mode){		
+rule exitToEntryTransition(mode: REMES!CompositeMode){		
+	to 
+		tt1:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(mode.compositeEntryPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeExitPoint.__xmiID__)
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(mode.compositeEntryPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeExitPoint.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', mode.outputSync())} 
+		)
+	do{
+		if(mode.hasOutputSync()){
+			tt2;
+		} 
+		else if(not mode.hasOutputSync()){
+			tt1;
+		}
+	}
+}
+
+rule exitToEntryTransitionHC(mode: REMES!SubMode){		
 	to 
 		tt1:UPPAAL!TransitionType(
 			source <- thisModule.Source_type('idExit'),
@@ -807,7 +841,8 @@ rule exitToEntryTransition(mode: REMES!Mode){
 	do{
 		if(mode.hasOutputSync()){
 			tt2;
-		} else if(not mode.hasOutputSync()){
+		} 
+		else if(not mode.hasOutputSync()){
 			tt1;
 		}
 	}

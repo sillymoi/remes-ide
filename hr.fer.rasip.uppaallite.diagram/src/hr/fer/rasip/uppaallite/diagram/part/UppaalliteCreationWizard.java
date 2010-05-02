@@ -37,11 +37,6 @@ public class UppaalliteCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	protected UppaalliteCreationWizardPage domainModelFilePage;
-
-	/**
-	 * @generated
-	 */
 	protected Resource diagram;
 
 	/**
@@ -108,26 +103,6 @@ public class UppaalliteCreationWizard extends Wizard implements INewWizard {
 		diagramModelFilePage
 				.setDescription(Messages.UppaalliteCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
-
-		domainModelFilePage = new UppaalliteCreationWizardPage(
-				"DomainModelFile", getSelection(), "uppaallite") { //$NON-NLS-1$ //$NON-NLS-2$
-
-			public void setVisible(boolean visible) {
-				if (visible) {
-					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".uppaallite_diagram".length()); //$NON-NLS-1$
-					setFileName(UppaalliteDiagramEditorUtil.getUniqueFileName(
-							getContainerFullPath(), fileName, "uppaallite")); //$NON-NLS-1$
-				}
-				super.setVisible(visible);
-			}
-		};
-		domainModelFilePage
-				.setTitle(Messages.UppaalliteCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(Messages.UppaalliteCreationWizard_DomainModelFilePageDescription);
-		addPage(domainModelFilePage);
 	}
 
 	/**
@@ -139,8 +114,7 @@ public class UppaalliteCreationWizard extends Wizard implements INewWizard {
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
 				diagram = UppaalliteDiagramEditorUtil.createDiagram(
-						diagramModelFilePage.getURI(), domainModelFilePage
-								.getURI(), monitor);
+						diagramModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						UppaalliteDiagramEditorUtil.openDiagram(diagram);

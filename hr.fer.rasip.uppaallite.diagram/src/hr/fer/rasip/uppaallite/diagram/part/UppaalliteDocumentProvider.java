@@ -54,6 +54,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 
+
+import hr.fer.rasip.uppaallite.transform.UppaalConverter;
+
 /**
  * @generated
  */
@@ -618,13 +621,19 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 											.getLocalizedMessage(), null));
 						}
 					}
+					/* run transformation */
+					UppaalConverter.transformLiteToFlat(nextResource);
 					monitor.worked(1);
 				}
 				monitor.done();
 				info.setModificationStamp(computeModificationStamp(info));
 			} catch (RuntimeException x) {
+				x.printStackTrace();
 				fireElementStateChangeFailed(element);
 				throw x;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			} finally {
 				info.startResourceListening();
 			}
@@ -636,6 +645,13 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 				affectedFiles = Collections.singletonList(newFile);
 				newResoruceURI = URI.createPlatformResourceURI(newFile
 						.getFullPath().toString(), true);
+				if(newFile.getFileExtension().equals("uppaallite_diagram")){
+					try {
+						UppaalConverter.transformLiteToFlat(newFile);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 			} else if (element instanceof URIEditorInput) {
 				newResoruceURI = ((URIEditorInput) element).getURI();
 			} else {

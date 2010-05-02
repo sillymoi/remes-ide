@@ -66,6 +66,21 @@
          </action>
       </objectContribution>
    </extension>
+   
+    <extension point="org.eclipse.ui.popupMenus">
+    	<?gmfgen generated="false"?>
+		<objectContribution
+            id="initUppaalLiteDiagram"
+            nameFilter="*.uppaalflat11"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="hr.fer.rasip.uppaallite.diagram.part.UppaalliteInitDiagramFileFromUppaalflatAction"
+               enablesFor="*"
+               id="UppaalliteInitDiagramFileFromUppaalflatAction.java.InitDiagramFromUppaalflatAction"
+               label="Initialize uppaallite Diagram">
+         </action>
+      </objectContribution>
+   </extension>
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>

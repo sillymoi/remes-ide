@@ -139,6 +139,7 @@ public class UppaalliteNewDiagramFileWizard extends Wizard {
 						UppaalDiagramEditPart.MODEL_ID,
 						UppaalliteDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
+				diagramResource.getContents().add(diagram.getElement());
 				return CommandResult.newOKCommandResult();
 			}
 		};

@@ -1,6 +1,9 @@
 package hr.fer.rasip.uppaallite.diagram.part;
 
 import hr.fer.rasip.uppaallite.diagram.edit.parts.UppaalDiagramEditPart;
+import hr.fer.rasip.uppaallite.transform.UppaalConverter;
+
+import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
@@ -21,56 +24,45 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-/**
- * @generated
- */
-public class UppaalliteInitDiagramFileAction implements IObjectActionDelegate {
-
-	/**
-	 * @generated
-	 */
+public class UppaalliteInitDiagramFileFromUppaalflatAction implements IObjectActionDelegate {
+	
 	private IWorkbenchPart targetPart;
 
-	/**
-	 * @generated
-	 */
-	private URI domainModelURI;
+	private ISelection currentSelection;
 
 	/**
-	 * @generated
+	 * Constructor for Action1.
 	 */
+	public UppaalliteInitDiagramFileFromUppaalflatAction() {
+		super();
+	}
+
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 		this.targetPart = targetPart;
 	}
+	
 
-	/**
-	 * @generated
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		domainModelURI = null;
-		action.setEnabled(false);
-		if (selection instanceof IStructuredSelection == false
-				|| selection.isEmpty()) {
-			return;
-		}
-		IFile file = (IFile) ((IStructuredSelection) selection)
-				.getFirstElement();
-		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
-				.toString(), true);
-		action.setEnabled(true);
-	}
-
-	/**
-	 * @generated
-	 */
 	private Shell getShell() {
 		return targetPart.getSite().getShell();
 	}
 
-	/**
-	 * @generated
-	 */
 	public void run(IAction action) {
+		// Getting files from selection
+		IStructuredSelection iss = (IStructuredSelection)currentSelection;
+		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
+			try {
+				IFile uppaalliteFile = UppaalConverter.transformFlatToLite((IFile)iterator.next());
+				initDiagram(uppaalliteFile);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+	}
+
+	
+	
+	public void initDiagram(IFile file) {
+		URI domainModelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -79,8 +71,7 @@ public class UppaalliteInitDiagramFileAction implements IObjectActionDelegate {
 			Resource resource = resourceSet.getResource(domainModelURI, true);
 			diagramRoot = (EObject) resource.getContents().get(0);
 		} catch (WrappedException ex) {
-			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
+			ex.printStackTrace();
 		}
 		if (diagramRoot == null) {
 			MessageDialog.openError(getShell(),
@@ -94,5 +85,11 @@ public class UppaalliteInitDiagramFileAction implements IObjectActionDelegate {
 				UppaalDiagramEditPart.MODEL_ID));
 		UppaalliteDiagramEditorUtil.runWizard(getShell(), wizard,
 				"InitDiagramFile"); //$NON-NLS-1$
+	}
+	
+	
+
+	public void selectionChanged(IAction action, ISelection selection) {
+		this.currentSelection = selection;
 	}
 }

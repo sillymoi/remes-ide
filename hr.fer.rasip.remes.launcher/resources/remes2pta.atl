@@ -584,8 +584,8 @@ helper context REMES!Mode def: outputSync() : String =
 
 helper def: ntaDeclaration() : String = 
 	PROCOM!Component.allInstances()->first().realization.connection
-	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))	
-	->iterate(e; res : String = '' | res + 'chan '+e.destPort.name+'; ');
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))	
+	->iterate(e; res : String = 'chan t; ' | res + 'chan Syn_'+e.__xmiID__.regexReplaceAll('-', '_')+'; ');
 
 
 -------------------
@@ -731,7 +731,7 @@ rule NonUrgentSubMode2Location extends SubMode2Location{
 
 rule UrgentSubMode2UrgentLocation extends SubMode2Location{
 	from
-		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode())
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and not sm.connectedToNonUrgentMode() and not sm.connectedFromConditional())
 	to 
 		tpl: UPPAAL!LocationType(
 			
@@ -742,16 +742,36 @@ rule UrgentSubMode2UrgentLocation extends SubMode2Location{
 			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
 			committed <- thisModule.Committed_type()
 		)
-	do{
-			if(sm.connectedToNonUrgentMode()) {
-					thisModule.urgent <-thisModule.Urgent_type();
-			}
-			else {}
-			if(sm.connectedFromConditional()){
-					thisModule.commited <-thisModule.Committed_type();
-			}
-			else {}
-	}
+}
+
+rule UrgentSubMode2CommitedLocation extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and sm.connectedFromConditional() and not sm.connectedToNonUrgentMode())
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			committed <- thisModule.Committed_type()
+		)
+}
+
+rule UrgentSubMode2UrgentLocation extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and sm.connectedToNonUrgentMode() and not sm.connectedFromConditional())
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			urgent <-thisModule.Urgent_type()
+		)
 }
 
 rule location_Type(sm : REMES!SubMode){
@@ -809,12 +829,12 @@ rule initTransition(cMode: REMES!CompositeMode){
 rule exitToEntryTransition(mode: REMES!CompositeMode){		
 	to 
 		tt1:UPPAAL!TransitionType(
-			source <- thisModule.Source_type(mode.compositeEntryPoint.__xmiID__),
-			target <- thisModule.Target_type(mode.compositeExitPoint.__xmiID__)
+			source <- thisModule.Source_type(mode.compositeExitPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeEntryPoint.__xmiID__)
 		),
 		tt2:UPPAAL!TransitionType(
-			source <- thisModule.Source_type(mode.compositeEntryPoint.__xmiID__),
-			target <- thisModule.Target_type(mode.compositeExitPoint.__xmiID__),
+			source <- thisModule.Source_type(mode.compositeExitPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeEntryPoint.__xmiID__),
 			label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', mode.outputSync())} 
 		)
 	do{

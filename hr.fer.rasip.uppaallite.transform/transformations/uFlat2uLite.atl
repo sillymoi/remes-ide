@@ -1,0 +1,146 @@
+module uFlat2uLite;
+create OUT : ULITE from IN : UFLAT;
+
+----------------
+---HELPERS----
+----------------
+
+helper context UFLAT!NameType def: toSimpleString() : String = 
+	self.mixed->first()->toString().split('text=')->last();
+
+helper context UFLAT!LocationType def: invariant() : String = 
+	if self.label->select(i | i.kind='invariant')->last().oclIsUndefined()
+
+	then self.label->select(i | i.kind='invariant')->last()
+	else
+		if 		self.label->select(i | i.kind='invariant')->last().mixed->first().oclIsUndefined()
+		then 	self.label->select(i | i.kind='invariant')->last().mixed->first()
+		else 
+		self.label->select(i | i.kind='invariant')->last()
+		.mixed->first()->toString().split('text=')->last()
+		endif
+	endif;
+
+helper context UFLAT!LocationType def: initial() : Boolean = 
+	 if self.template().init.ref = self.id
+	 then true
+	 else false
+	 endif;
+	
+helper context UFLAT!LocationType def: committed() : Boolean = 
+	 if self.committed.oclIsUndefined()
+	 then false
+	 else true
+	 endif;
+
+helper context UFLAT!LocationType def: urgent() : Boolean = 
+	 if self.urgent.oclIsUndefined()
+	 then false
+	 else true
+	 endif;
+
+helper context UFLAT!LocationType def: template() : UFLAT!TemplateType = 
+	UFLAT!TemplateType.allInstances()->select(i | not i.location->select(e | e = self)->isEmpty())->first();
+
+helper context UFLAT!TransitionType def: template() : UFLAT!TemplateType = 
+	UFLAT!TemplateType.allInstances()->select(i | not i.transition->select(e | e = self)->isEmpty())->first();
+
+helper context UFLAT!TransitionType def: source() : UFLAT!LocationType = 
+	self.template().location->select(i | i.id = self.source.ref)->first();
+
+helper context UFLAT!TransitionType def: target() : UFLAT!LocationType = 
+	self.template().location->select(i | i.id = self.target.ref)->first();
+
+helper context UFLAT!TransitionType def: sync() : String = 
+	if self.label->select(i | i.kind='synchronisation')->last().oclIsUndefined()
+
+	then self.label->select(i | i.kind='synchronisation')->last()
+	else
+		if 		self.label->select(i | i.kind='synchronisation')->last().mixed->first().oclIsUndefined()
+		then 	self.label->select(i | i.kind='synchronisation')->last().mixed->first()
+		else 
+		self.label->select(i | i.kind='synchronisation')->last()
+		.mixed->first()->toString().split('text=')->last()
+		endif
+	endif;
+
+helper context UFLAT!TransitionType def: assignment() : String = 
+	if self.label->select(i | i.kind='assignment')->last().oclIsUndefined()
+
+	then self.label->select(i | i.kind='assignment')->last()
+	else
+		if 		self.label->select(i | i.kind='assignment')->last().mixed->first().oclIsUndefined()
+		then 	self.label->select(i | i.kind='assignment')->last().mixed->first()
+		else 
+		self.label->select(i | i.kind='assignment')->last()
+		.mixed->first()->toString().split('text=')->last()
+		endif
+	endif;
+
+helper context UFLAT!TransitionType def: guard() : String = 
+	if self.label->select(i | i.kind='guard')->last().oclIsUndefined()
+
+	then self.label->select(i | i.kind='guard')->last()
+	else
+		if 		self.label->select(i | i.kind='guard')->last().mixed->first().oclIsUndefined()
+		then 	self.label->select(i | i.kind='guard')->last().mixed->first()
+		else 
+		self.label->select(i | i.kind='guard')->last()
+		.mixed->first()->toString().split('text=')->last()
+		endif
+	endif;
+
+-------------------
+------RULES----
+------------------
+
+rule Root2Diagram {
+from
+    doc: UFLAT!DocumentRoot
+to
+	diag: ULITE!UppaalDiagram
+     ( 
+     	declaration <- doc.nta.declaration,
+    	Template <- doc.nta.template
+	)
+}
+
+rule Template2Template{
+	from 
+		tt1: UFLAT!TemplateType
+	to
+		tt2: ULITE!TemplateType(
+			name <- tt1.name.toSimpleString(),
+			declaration <- tt1.declaration,
+			location <- tt1.location,
+			transition <- tt1.transition
+		)
+}
+
+rule Location2Location{
+	from
+		loc1: UFLAT!LocationType
+	to
+		loc2: ULITE!LocationType(
+			name <- loc1.name.toSimpleString(),
+			id <- loc1.id,
+			invariant <- loc1.invariant(),
+			initial <- loc1.initial(),
+			commited <- loc1.committed(),
+			urgent <- loc1.urgent()
+		)
+}
+
+rule Transition2Transition{
+	from 
+		tt1 : UFLAT!TransitionType
+	to
+		tt2 : ULITE!TransitionType(
+			source <- tt1.source(),
+			target <- tt1.target(),
+			sync <- tt1.sync(),
+			assignment <- tt1.assignment(),
+			guard <- tt1.guard()
+		)
+	
+}

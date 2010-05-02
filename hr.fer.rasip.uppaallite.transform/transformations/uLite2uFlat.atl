@@ -1,0 +1,193 @@
+module uLite2uFlat;
+create OUT : UFLAT from IN : ULITE;
+
+-------------------
+-----HELPERS----
+------------------
+helper context ULITE!TemplateType def: initId(): String = 
+	if self.location->isEmpty()
+	then self.location->first()
+	else self.location->select(i | i.initial = true)->first().id
+	endif;
+
+--helper context ULITE!LocationType def: invariant(): String = 
+	
+
+
+
+
+
+-------------------
+------RULES----
+------------------
+
+rule Diagram2Root {
+	from
+	    diag: ULITE!UppaalDiagram
+	to
+		doc: UFLAT!DocumentRoot
+	    ( 
+	     	nta <- nta_type
+		),
+		nta_type: UFLAT!NtaType(
+	    	declaration <- diag.declaration,
+			template <- diag.Template
+		)
+}
+
+rule Template2Template{
+	from 
+		tt1 : ULITE!TemplateType
+	to
+		tt2: UFLAT!TemplateType(
+			name <- thisModule.Name_type('5', '10', tt1.name),
+			declaration <- tt1.declaration,
+			location <- tt1.location,
+			transition <- tt1.transition,
+			init <- thisModule.Init_type(tt1)
+		)
+}
+
+abstract rule Location2Location{
+	from
+		loc1: ULITE!LocationType
+	to 
+		loc2: UFLAT!LocationType(
+			name <- thisModule.Name_type('5', '10', loc1.name),	
+			id <- loc1.id,
+			x<-'16',
+			y<-'-40',
+			label <- thisModule.Label_type('15', '78', 'invariant' , loc1.invariant)
+		)
+	
+}
+
+rule Location2LocationRegular extends Location2Location{
+	from
+		loc1: ULITE!LocationType(loc1.commited = false and loc1.urgent = false)
+	to 
+		loc2: UFLAT!LocationType()
+}
+
+rule Location2LocationCommitted extends Location2Location{
+	from
+		loc1: ULITE!LocationType(loc1.commited = true)
+	to 
+		loc2: UFLAT!LocationType(
+			committed <-thisModule.Committed_type()
+		)
+}
+
+rule Location2LocationUrgent extends Location2Location{
+	from
+		loc1: ULITE!LocationType(loc1.urgent = true)
+	to 
+		loc2: UFLAT!LocationType(
+			urgent <-thisModule.UrgentType()
+		)
+}
+
+rule Transition2Transition{
+	from 
+		tt1 : ULITE!TransitionType
+	to
+		tt2 : UFLAT!TransitionType(
+			source <- thisModule.Source_type(tt1.source.id),
+			target <- thisModule.Target_type(tt1.target.id),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', tt1.guard),
+				thisModule.Label_type('3', '4', 'assignment', tt1.assignment),
+				thisModule.Label_type('3', '4', 'synchronisation', tt1.sync)
+			}
+		) 
+}
+
+-- committed type
+rule Committed_type(){
+	to
+		com: UFLAT!CommittedType()
+		do{
+			com;
+		}
+}
+
+-- urgent type
+rule Urgent_type(){
+	to
+		u: UFLAT!UrgentType()
+		do{
+			u;
+		}
+}
+
+-- init location
+rule Init_type(tt1 : ULITE!TemplateType){
+	to  ip: UFLAT!InitType(
+		ref <- tt1.initId()
+	)
+	do{
+		ip;
+	}
+}
+
+-------------------------------------
+-- transitions target and source ---
+-------------------------------------
+
+
+rule Source_type(locId : String){
+	to  ip: UFLAT!SourceType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+rule Target_type(locId : String){
+	to  ip: UFLAT!TargetType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+--------------------
+---Name and Label--
+---------------------
+rule Name_type(x : String, y : String, value : String){
+	to name_type:UFLAT!NameType(	
+		mixed <- thisModule.Xml_mixed(value).mixed,	
+		x <- x,
+		y <- y
+	)
+	do{
+		name_type;
+	}
+}
+
+rule Label_type(x: String, y: String, kind: String, value: String){
+	to label_type: UFLAT!LabelType(
+		mixed <- thisModule.Xml_mixed(value).mixed,
+		kind <- kind,
+		x <- x,
+		y <- y
+	)
+	do{
+		if(value.oclIsUndefined()){
+			value;
+		}else{
+		label_type;
+		}
+	}
+}
+
+rule Xml_mixed(value : String){
+	to xml_mixed:UFLAT!XMLTypeDocumentRoot(
+	text <- Sequence{value}
+	)
+	do {
+		xml_mixed;
+	}
+}
+

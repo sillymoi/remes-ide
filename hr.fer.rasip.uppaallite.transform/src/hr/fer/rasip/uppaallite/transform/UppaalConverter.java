@@ -1,15 +1,12 @@
 package hr.fer.rasip.uppaallite.transform;
 
+import hr.fer.rasip.uppaal.UppaalPackage;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
 import java.io.IOException;
 import java.net.URL;
-//import java.net.URI;
 import java.util.Collections;
 
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -19,9 +16,9 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
-import org.eclipse.m2m.atl.core.IInjector;
 import org.eclipse.m2m.atl.core.IModel;
 import org.eclipse.m2m.atl.core.IReferenceModel;
 import org.eclipse.m2m.atl.core.ModelFactory;
@@ -29,8 +26,6 @@ import org.eclipse.m2m.atl.core.emf.EMFInjector;
 import org.eclipse.m2m.atl.core.launch.ILauncher;
 import org.eclipse.m2m.atl.core.service.CoreService;
 import org.osgi.framework.Bundle;
-
-import UppaalFlat11.UppaalFlat11Package;
 
 public class UppaalConverter {
 	private static EMFInjector injector;
@@ -40,7 +35,7 @@ public class UppaalConverter {
 	private static IReferenceModel uppaalliteMetamodel;
 
 
-	private static final String uppaalflatURI = UppaalFlat11Package.eNS_URI;
+	private static final String uppaalflatURI = UppaalPackage.eNS_URI;
 	private static final String uppaalliteURI = UppaallitePackage.eNS_URI;
 
 	private static URL flatToLiteAsmURL;

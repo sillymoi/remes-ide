@@ -4,6 +4,7 @@ import hr.fer.rasip.uppaal.UppaalPackage;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.Collections;
 
@@ -16,6 +17,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
@@ -33,7 +35,6 @@ public class UppaalConverter {
 
 	private static IReferenceModel uppaalflatMetamodel;
 	private static IReferenceModel uppaalliteMetamodel;
-
 
 	private static final String uppaalflatURI = UppaalPackage.eNS_URI;
 	private static final String uppaalliteURI = UppaallitePackage.eNS_URI;
@@ -77,7 +78,7 @@ public class UppaalConverter {
 		IModel uppaalliteModel = factory.newModel(uppaalliteMetamodel);
 
 		// Loading existing model
-		injector.inject(uppaalflatModel, file.getFullPath().toString());
+		injector.inject(uppaalflatModel, file.getLocationURI().toString());
 
 		// Launching
 		launcher.addInOutModel(uppaalflatModel, "IN", "UFLAT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -87,7 +88,9 @@ public class UppaalConverter {
 				.<String, Object> emptyMap(), flatToLiteAsmURL.openStream());
 
 		// Saving model
-		String uppaallitePath = file.getFullPath().removeFileExtension().addFileExtension("uppaallite").toString();
+		IPath ulPath = file.getLocation().removeFileExtension().addFileExtension("uppaallite");
+		URI uppaalliteURI = URIUtil.toURI(ulPath.makeAbsolute());
+		String uppaallitePath =  uppaalliteURI.toString();
 		try {
 			extractor.extract(uppaalliteModel, uppaallitePath);
 		} catch (ATLCoreException e) {
@@ -97,7 +100,7 @@ public class UppaalConverter {
 		// Refresh workspace
 		refreshWorkspace();
 		
-		return getIFileFromURI(java.net.URI.create(uppaallitePath));
+		return getIFileFromURI(uppaalliteURI);
 	}
 	
 
@@ -129,8 +132,6 @@ public class UppaalConverter {
 
 		// Saving model
 		String uppaalflatPath = uppaalliteModelResource.getURI().trimFileExtension().appendFileExtension("uppaalflat11").toString().replaceAll("platform:/resource", "");
-		String uppaalflatPath2 = "asdf";
-		uppaalflatPath2.toString();
 		try {
 			extractor.extract(uppaalflatModel, uppaalflatPath);
 		} catch (ATLCoreException e) {

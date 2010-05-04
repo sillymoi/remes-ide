@@ -12,15 +12,10 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd"
-            class="hr.fer.rasip.uppaal.UppaalPackage"
-            genModel="model/uppaal.genmodel"/>
+            uri="Ns URI	http://www.fer.hr/rasip/uppaallite/upallite.hr"
+            class="hr.fer.rasip.uppaallite.UppaallitePackage"
+            genModel="model/uppaallite.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="uppaal"
-            class="hr.fer.rasip.uppaal.util.UppaalResourceFactoryImpl"/>
-   </extension>
 
 </plugin>

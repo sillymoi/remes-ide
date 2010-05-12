@@ -83,7 +83,7 @@ rule Location2LocationUrgent extends Location2Location{
 		loc1: ULITE!LocationType(loc1.urgent = true)
 	to 
 		loc2: UFLAT!LocationType(
-			urgent <-thisModule.UrgentType()
+			urgent <-thisModule.Urgent_type()
 		)
 }
 

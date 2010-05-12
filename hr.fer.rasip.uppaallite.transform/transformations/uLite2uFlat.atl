@@ -64,14 +64,14 @@ abstract rule Location2Location{
 
 rule Location2LocationRegular extends Location2Location{
 	from
-		loc1: ULITE!LocationType(loc1.commited = false and loc1.urgent = false)
+		loc1: ULITE!LocationType(loc1.committed = false and loc1.urgent = false)
 	to 
 		loc2: UFLAT!LocationType()
 }
 
 rule Location2LocationCommitted extends Location2Location{
 	from
-		loc1: ULITE!LocationType(loc1.commited = true)
+		loc1: ULITE!LocationType(loc1.committed = true)
 	to 
 		loc2: UFLAT!LocationType(
 			committed <-thisModule.Committed_type()

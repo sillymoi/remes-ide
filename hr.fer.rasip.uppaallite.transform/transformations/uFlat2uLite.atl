@@ -126,7 +126,7 @@ rule Location2Location{
 			id <- loc1.id,
 			invariant <- loc1.invariant(),
 			initial <- loc1.initial(),
-			commited <- loc1.committed(),
+			committed <- loc1.committed(),
 			urgent <- loc1.urgent()
 		)
 }

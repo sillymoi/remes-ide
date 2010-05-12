@@ -66,10 +66,11 @@ public class LocationTypeItemProvider
 
 			addNamePropertyDescriptor(object);
 			addUrgentPropertyDescriptor(object);
-			addCommitedPropertyDescriptor(object);
+			addCommittedPropertyDescriptor(object);
 			addInitialPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addInvariantPropertyDescriptor(object);
+			addCostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,19 +120,19 @@ public class LocationTypeItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Commited feature.
+	 * This adds a property descriptor for the Committed feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCommitedPropertyDescriptor(Object object) {
+	protected void addCommittedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LocationType_commited_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_commited_feature", "_UI_LocationType_type"),
-				 UppaallitePackage.Literals.LOCATION_TYPE__COMMITED,
+				 getString("_UI_LocationType_committed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_committed_feature", "_UI_LocationType_type"),
+				 UppaallitePackage.Literals.LOCATION_TYPE__COMMITTED,
 				 true,
 				 false,
 				 false,
@@ -207,6 +208,28 @@ public class LocationTypeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Cost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationType_cost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_cost_feature", "_UI_LocationType_type"),
+				 UppaallitePackage.Literals.LOCATION_TYPE__COST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns LocationType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,10 +268,11 @@ public class LocationTypeItemProvider
 		switch (notification.getFeatureID(LocationType.class)) {
 			case UppaallitePackage.LOCATION_TYPE__NAME:
 			case UppaallitePackage.LOCATION_TYPE__URGENT:
-			case UppaallitePackage.LOCATION_TYPE__COMMITED:
+			case UppaallitePackage.LOCATION_TYPE__COMMITTED:
 			case UppaallitePackage.LOCATION_TYPE__INITIAL:
 			case UppaallitePackage.LOCATION_TYPE__ID:
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
+			case UppaallitePackage.LOCATION_TYPE__COST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

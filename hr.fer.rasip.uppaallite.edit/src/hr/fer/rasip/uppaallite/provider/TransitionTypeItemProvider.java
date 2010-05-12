@@ -69,6 +69,7 @@ public class TransitionTypeItemProvider
 			addGuardPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
+			addCostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -184,6 +185,28 @@ public class TransitionTypeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Cost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TransitionType_cost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransitionType_cost_feature", "_UI_TransitionType_type"),
+				 UppaallitePackage.Literals.TRANSITION_TYPE__COST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns TransitionType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +246,7 @@ public class TransitionTypeItemProvider
 			case UppaallitePackage.TRANSITION_TYPE__SYNC:
 			case UppaallitePackage.TRANSITION_TYPE__ASSIGNMENT:
 			case UppaallitePackage.TRANSITION_TYPE__GUARD:
+			case UppaallitePackage.TRANSITION_TYPE__COST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

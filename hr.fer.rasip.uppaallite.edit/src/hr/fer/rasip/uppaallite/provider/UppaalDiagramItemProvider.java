@@ -68,6 +68,7 @@ public class UppaalDiagramItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDeclarationPropertyDescriptor(object);
+			addResourceWeightDeclarationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class UppaalDiagramItemProvider
 				 getString("_UI_UppaalDiagram_declaration_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UppaalDiagram_declaration_feature", "_UI_UppaalDiagram_type"),
 				 UppaallitePackage.Literals.UPPAAL_DIAGRAM__DECLARATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Weight Declaration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceWeightDeclarationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_UppaalDiagram_resourceWeightDeclaration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_UppaalDiagram_resourceWeightDeclaration_feature", "_UI_UppaalDiagram_type"),
+				 UppaallitePackage.Literals.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION,
 				 true,
 				 false,
 				 false,
@@ -162,6 +185,7 @@ public class UppaalDiagramItemProvider
 
 		switch (notification.getFeatureID(UppaalDiagram.class)) {
 			case UppaallitePackage.UPPAAL_DIAGRAM__DECLARATION:
+			case UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case UppaallitePackage.UPPAAL_DIAGRAM__TEMPLATE:

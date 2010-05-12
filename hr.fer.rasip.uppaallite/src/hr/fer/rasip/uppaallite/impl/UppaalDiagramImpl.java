@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.UppaalDiagramImpl#getTemplate <em>Template</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.UppaalDiagramImpl#getDeclaration <em>Declaration</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.UppaalDiagramImpl#getResourceWeightDeclaration <em>Resource Weight Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +71,26 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 	 * @ordered
 	 */
 	protected String declaration = DECLARATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResourceWeightDeclaration() <em>Resource Weight Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceWeightDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESOURCE_WEIGHT_DECLARATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResourceWeightDeclaration() <em>Resource Weight Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceWeightDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resourceWeightDeclaration = RESOURCE_WEIGHT_DECLARATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +149,27 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getResourceWeightDeclaration() {
+		return resourceWeightDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourceWeightDeclaration(String newResourceWeightDeclaration) {
+		String oldResourceWeightDeclaration = resourceWeightDeclaration;
+		resourceWeightDeclaration = newResourceWeightDeclaration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION, oldResourceWeightDeclaration, resourceWeightDeclaration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -149,6 +191,8 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 				return getTemplate();
 			case UppaallitePackage.UPPAAL_DIAGRAM__DECLARATION:
 				return getDeclaration();
+			case UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION:
+				return getResourceWeightDeclaration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,6 +213,9 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 			case UppaallitePackage.UPPAAL_DIAGRAM__DECLARATION:
 				setDeclaration((String)newValue);
 				return;
+			case UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION:
+				setResourceWeightDeclaration((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -187,6 +234,9 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 			case UppaallitePackage.UPPAAL_DIAGRAM__DECLARATION:
 				setDeclaration(DECLARATION_EDEFAULT);
 				return;
+			case UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION:
+				setResourceWeightDeclaration(RESOURCE_WEIGHT_DECLARATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,6 +253,8 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 				return template != null && !template.isEmpty();
 			case UppaallitePackage.UPPAAL_DIAGRAM__DECLARATION:
 				return DECLARATION_EDEFAULT == null ? declaration != null : !DECLARATION_EDEFAULT.equals(declaration);
+			case UppaallitePackage.UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION:
+				return RESOURCE_WEIGHT_DECLARATION_EDEFAULT == null ? resourceWeightDeclaration != null : !RESOURCE_WEIGHT_DECLARATION_EDEFAULT.equals(resourceWeightDeclaration);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -219,6 +271,8 @@ public class UppaalDiagramImpl extends EObjectImpl implements UppaalDiagram {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (declaration: ");
 		result.append(declaration);
+		result.append(", resourceWeightDeclaration: ");
+		result.append(resourceWeightDeclaration);
 		result.append(')');
 		return result.toString();
 	}

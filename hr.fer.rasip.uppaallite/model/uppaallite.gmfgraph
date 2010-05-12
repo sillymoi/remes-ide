@@ -30,6 +30,9 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="TransitionTypeFigure"
           targetDecoration="//@figures.0/@descriptors.1/@actualFigure/@children.0">
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="darkGreen"/>
         <children
             xsi:type="gmfgraph:PolylineDecoration"
             name="TransitionTypeArrow">
@@ -47,31 +50,56 @@
         name="LocationNameFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="LocationNameFigure"/>
+          name="LocationNameFigure">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            style="BOLD"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="LocationInvariantFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="LocationInvariantFigure"/>
+          name="LocationInvariantFigure">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            style="BOLD"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="TransitionAssignmentFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="TransitionAssignmentFigure"/>
+          name="TransitionAssignmentFigure">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            height="7"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="TransitionGuardFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="TransitionGuardFigure"/>
+          name="TransitionGuardFigure">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            height="7"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="TransitionSyncFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="TransitionSyncFigure"/>
+          name="TransitionSyncFigure">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName=""
+            height="7"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="LocationTypeCommitedFigure">
@@ -198,17 +226,22 @@
       figure="TransitionTypeFigure"/>
   <labels
       name="LocationName"
-      figure="LocationNameFigure"/>
+      figure="LocationNameFigure"
+      elementIcon="false"/>
   <labels
       name="LocationInvariant"
-      figure="LocationInvariantFigure"/>
+      figure="LocationInvariantFigure"
+      elementIcon="false"/>
   <labels
       name="TransitionAssignment"
-      figure="TransitionAssignmentFigure"/>
+      figure="TransitionAssignmentFigure"
+      elementIcon="false"/>
   <labels
       name="TransitionGuard"
-      figure="TransitionGuardFigure"/>
+      figure="TransitionGuardFigure"
+      elementIcon="false"/>
   <labels
       name="TransitionSync"
-      figure="TransitionSyncFigure"/>
+      figure="TransitionSyncFigure"
+      elementIcon="false"/>
 </gmfgraph:Canvas>

@@ -148,6 +148,15 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUppaalDiagram_ResourceWeightDeclaration() {
+		return (EAttribute)uppaalDiagramEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTemplateType() {
 		return templateTypeEClass;
 	}
@@ -220,7 +229,7 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLocationType_Commited() {
+	public EAttribute getLocationType_Committed() {
 		return (EAttribute)locationTypeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -258,6 +267,15 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 	 */
 	public EReference getLocationType_Container() {
 		return (EReference)locationTypeEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocationType_Cost() {
+		return (EAttribute)locationTypeEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -328,6 +346,15 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTransitionType_Cost() {
+		return (EAttribute)transitionTypeEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UppaalliteFactory getUppaalliteFactory() {
 		return (UppaalliteFactory)getEFactoryInstance();
 	}
@@ -354,6 +381,7 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		uppaalDiagramEClass = createEClass(UPPAAL_DIAGRAM);
 		createEReference(uppaalDiagramEClass, UPPAAL_DIAGRAM__TEMPLATE);
 		createEAttribute(uppaalDiagramEClass, UPPAAL_DIAGRAM__DECLARATION);
+		createEAttribute(uppaalDiagramEClass, UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION);
 
 		templateTypeEClass = createEClass(TEMPLATE_TYPE);
 		createEAttribute(templateTypeEClass, TEMPLATE_TYPE__NAME);
@@ -364,11 +392,12 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		locationTypeEClass = createEClass(LOCATION_TYPE);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__NAME);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__URGENT);
-		createEAttribute(locationTypeEClass, LOCATION_TYPE__COMMITED);
+		createEAttribute(locationTypeEClass, LOCATION_TYPE__COMMITTED);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__INITIAL);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__ID);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__INVARIANT);
 		createEReference(locationTypeEClass, LOCATION_TYPE__CONTAINER);
+		createEAttribute(locationTypeEClass, LOCATION_TYPE__COST);
 
 		transitionTypeEClass = createEClass(TRANSITION_TYPE);
 		createEAttribute(transitionTypeEClass, TRANSITION_TYPE__SYNC);
@@ -377,6 +406,7 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		createEReference(transitionTypeEClass, TRANSITION_TYPE__SOURCE);
 		createEReference(transitionTypeEClass, TRANSITION_TYPE__TARGET);
 		createEReference(transitionTypeEClass, TRANSITION_TYPE__CONTAINER);
+		createEAttribute(transitionTypeEClass, TRANSITION_TYPE__COST);
 	}
 
 	/**
@@ -412,6 +442,7 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		initEClass(uppaalDiagramEClass, UppaalDiagram.class, "UppaalDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUppaalDiagram_Template(), this.getTemplateType(), null, "Template", null, 0, -1, UppaalDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUppaalDiagram_Declaration(), ecorePackage.getEString(), "declaration", null, 0, 1, UppaalDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUppaalDiagram_ResourceWeightDeclaration(), ecorePackage.getEString(), "resourceWeightDeclaration", null, 0, 1, UppaalDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(templateTypeEClass, TemplateType.class, "TemplateType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTemplateType_Name(), ecorePackage.getEString(), "name", null, 0, 1, TemplateType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -422,11 +453,12 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		initEClass(locationTypeEClass, LocationType.class, "LocationType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocationType_Name(), ecorePackage.getEString(), "name", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationType_Urgent(), ecorePackage.getEBoolean(), "urgent", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLocationType_Commited(), ecorePackage.getEBoolean(), "commited", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocationType_Committed(), ecorePackage.getEBoolean(), "committed", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationType_Initial(), ecorePackage.getEBoolean(), "initial", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLocationType_Id(), ecorePackage.getEString(), "id", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocationType_Id(), ecorePackage.getEString(), "id", "", 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationType_Invariant(), ecorePackage.getEString(), "invariant", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocationType_Container(), this.getTemplateType(), this.getTemplateType_Location(), "container", null, 1, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocationType_Cost(), ecorePackage.getEString(), "cost", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransitionType_Sync(), ecorePackage.getEString(), "sync", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -435,6 +467,7 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		initEReference(getTransitionType_Source(), this.getLocationType(), null, "source", null, 1, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransitionType_Target(), this.getLocationType(), null, "target", null, 1, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransitionType_Container(), this.getTemplateType(), this.getTemplateType_Transition(), "container", null, 1, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransitionType_Cost(), ecorePackage.getEString(), "cost", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

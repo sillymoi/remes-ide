@@ -88,13 +88,22 @@ public interface UppaallitePackage extends EPackage {
 	int UPPAAL_DIAGRAM__DECLARATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Resource Weight Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Uppaal Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UPPAAL_DIAGRAM_FEATURE_COUNT = 2;
+	int UPPAAL_DIAGRAM_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.uppaallite.impl.TemplateTypeImpl <em>Template Type</em>}' class.
@@ -180,13 +189,13 @@ public interface UppaallitePackage extends EPackage {
 	int LOCATION_TYPE__URGENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Commited</b></em>' attribute.
+	 * The feature id for the '<em><b>Committed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCATION_TYPE__COMMITED = 2;
+	int LOCATION_TYPE__COMMITTED = 2;
 
 	/**
 	 * The feature id for the '<em><b>Initial</b></em>' attribute.
@@ -225,13 +234,22 @@ public interface UppaallitePackage extends EPackage {
 	int LOCATION_TYPE__CONTAINER = 6;
 
 	/**
+	 * The feature id for the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATION_TYPE__COST = 7;
+
+	/**
 	 * The number of structural features of the '<em>Location Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCATION_TYPE_FEATURE_COUNT = 7;
+	int LOCATION_TYPE_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
@@ -298,13 +316,22 @@ public interface UppaallitePackage extends EPackage {
 	int TRANSITION_TYPE__CONTAINER = 5;
 
 	/**
+	 * The feature id for the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_TYPE__COST = 6;
+
+	/**
 	 * The number of structural features of the '<em>Transition Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_TYPE_FEATURE_COUNT = 6;
+	int TRANSITION_TYPE_FEATURE_COUNT = 7;
 
 
 	/**
@@ -338,6 +365,17 @@ public interface UppaallitePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUppaalDiagram_Declaration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.UppaalDiagram#getResourceWeightDeclaration <em>Resource Weight Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resource Weight Declaration</em>'.
+	 * @see hr.fer.rasip.uppaallite.UppaalDiagram#getResourceWeightDeclaration()
+	 * @see #getUppaalDiagram()
+	 * @generated
+	 */
+	EAttribute getUppaalDiagram_ResourceWeightDeclaration();
 
 	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.uppaallite.TemplateType <em>Template Type</em>}'.
@@ -426,15 +464,15 @@ public interface UppaallitePackage extends EPackage {
 	EAttribute getLocationType_Urgent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#isCommited <em>Commited</em>}'.
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#isCommitted <em>Committed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Commited</em>'.
-	 * @see hr.fer.rasip.uppaallite.LocationType#isCommited()
+	 * @return the meta object for the attribute '<em>Committed</em>'.
+	 * @see hr.fer.rasip.uppaallite.LocationType#isCommitted()
 	 * @see #getLocationType()
 	 * @generated
 	 */
-	EAttribute getLocationType_Commited();
+	EAttribute getLocationType_Committed();
 
 	/**
 	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#isInitial <em>Initial</em>}'.
@@ -479,6 +517,17 @@ public interface UppaallitePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLocationType_Container();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#getCost <em>Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cost</em>'.
+	 * @see hr.fer.rasip.uppaallite.LocationType#getCost()
+	 * @see #getLocationType()
+	 * @generated
+	 */
+	EAttribute getLocationType_Cost();
 
 	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.uppaallite.TransitionType <em>Transition Type</em>}'.
@@ -557,6 +606,17 @@ public interface UppaallitePackage extends EPackage {
 	EReference getTransitionType_Container();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.TransitionType#getCost <em>Cost</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cost</em>'.
+	 * @see hr.fer.rasip.uppaallite.TransitionType#getCost()
+	 * @see #getTransitionType()
+	 * @generated
+	 */
+	EAttribute getTransitionType_Cost();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -603,6 +663,14 @@ public interface UppaallitePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UPPAAL_DIAGRAM__DECLARATION = eINSTANCE.getUppaalDiagram_Declaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Weight Declaration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UPPAAL_DIAGRAM__RESOURCE_WEIGHT_DECLARATION = eINSTANCE.getUppaalDiagram_ResourceWeightDeclaration();
 
 		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.uppaallite.impl.TemplateTypeImpl <em>Template Type</em>}' class.
@@ -673,12 +741,12 @@ public interface UppaallitePackage extends EPackage {
 		EAttribute LOCATION_TYPE__URGENT = eINSTANCE.getLocationType_Urgent();
 
 		/**
-		 * The meta object literal for the '<em><b>Commited</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Committed</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LOCATION_TYPE__COMMITED = eINSTANCE.getLocationType_Commited();
+		EAttribute LOCATION_TYPE__COMMITTED = eINSTANCE.getLocationType_Committed();
 
 		/**
 		 * The meta object literal for the '<em><b>Initial</b></em>' attribute feature.
@@ -711,6 +779,14 @@ public interface UppaallitePackage extends EPackage {
 		 * @generated
 		 */
 		EReference LOCATION_TYPE__CONTAINER = eINSTANCE.getLocationType_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Cost</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCATION_TYPE__COST = eINSTANCE.getLocationType_Cost();
 
 		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
@@ -769,6 +845,14 @@ public interface UppaallitePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION_TYPE__CONTAINER = eINSTANCE.getTransitionType_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Cost</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION_TYPE__COST = eINSTANCE.getTransitionType_Cost();
 
 	}
 

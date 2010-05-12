@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getSource <em>Source</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getTarget <em>Target</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getContainer <em>Container</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.TransitionType#getCost <em>Cost</em>}</li>
  * </ul>
  * </p>
  *
@@ -187,5 +188,31 @@ public interface TransitionType extends EObject {
 	 * @generated
 	 */
 	void setContainer(TemplateType value);
+
+	/**
+	 * Returns the value of the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cost</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cost</em>' attribute.
+	 * @see #setCost(String)
+	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getTransitionType_Cost()
+	 * @model
+	 * @generated
+	 */
+	String getCost();
+
+	/**
+	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.TransitionType#getCost <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cost</em>' attribute.
+	 * @see #getCost()
+	 * @generated
+	 */
+	void setCost(String value);
 
 } // TransitionType

@@ -29,11 +29,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#isUrgent <em>Urgent</em>}</li>
- *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#isCommited <em>Commited</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#isCommitted <em>Committed</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#isInitial <em>Initial</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getCost <em>Cost</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,24 +82,24 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	protected boolean urgent = URGENT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isCommited() <em>Commited</em>}' attribute.
+	 * The default value of the '{@link #isCommitted() <em>Committed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCommited()
+	 * @see #isCommitted()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean COMMITED_EDEFAULT = false;
+	protected static final boolean COMMITTED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isCommited() <em>Commited</em>}' attribute.
+	 * The cached value of the '{@link #isCommitted() <em>Committed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCommited()
+	 * @see #isCommitted()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean commited = COMMITED_EDEFAULT;
+	protected boolean committed = COMMITTED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isInitial() <em>Initial</em>}' attribute.
@@ -128,7 +129,7 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -159,6 +160,26 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * @ordered
 	 */
 	protected String invariant = INVARIANT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cost = COST_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,8 +247,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isCommited() {
-		return commited;
+	public boolean isCommitted() {
+		return committed;
 	}
 
 	/**
@@ -235,11 +256,11 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommited(boolean newCommited) {
-		boolean oldCommited = commited;
-		commited = newCommited;
+	public void setCommitted(boolean newCommitted) {
+		boolean oldCommitted = committed;
+		committed = newCommitted;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__COMMITED, oldCommited, commited));
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__COMMITTED, oldCommitted, committed));
 	}
 
 	/**
@@ -351,6 +372,27 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCost() {
+		return cost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCost(String newCost) {
+		String oldCost = cost;
+		cost = newCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__COST, oldCost, cost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -402,8 +444,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return getName();
 			case UppaallitePackage.LOCATION_TYPE__URGENT:
 				return isUrgent();
-			case UppaallitePackage.LOCATION_TYPE__COMMITED:
-				return isCommited();
+			case UppaallitePackage.LOCATION_TYPE__COMMITTED:
+				return isCommitted();
 			case UppaallitePackage.LOCATION_TYPE__INITIAL:
 				return isInitial();
 			case UppaallitePackage.LOCATION_TYPE__ID:
@@ -412,6 +454,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return getInvariant();
 			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
 				return getContainer();
+			case UppaallitePackage.LOCATION_TYPE__COST:
+				return getCost();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -430,8 +474,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 			case UppaallitePackage.LOCATION_TYPE__URGENT:
 				setUrgent((Boolean)newValue);
 				return;
-			case UppaallitePackage.LOCATION_TYPE__COMMITED:
-				setCommited((Boolean)newValue);
+			case UppaallitePackage.LOCATION_TYPE__COMMITTED:
+				setCommitted((Boolean)newValue);
 				return;
 			case UppaallitePackage.LOCATION_TYPE__INITIAL:
 				setInitial((Boolean)newValue);
@@ -444,6 +488,9 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return;
 			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
 				setContainer((TemplateType)newValue);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__COST:
+				setCost((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -463,8 +510,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 			case UppaallitePackage.LOCATION_TYPE__URGENT:
 				setUrgent(URGENT_EDEFAULT);
 				return;
-			case UppaallitePackage.LOCATION_TYPE__COMMITED:
-				setCommited(COMMITED_EDEFAULT);
+			case UppaallitePackage.LOCATION_TYPE__COMMITTED:
+				setCommitted(COMMITTED_EDEFAULT);
 				return;
 			case UppaallitePackage.LOCATION_TYPE__INITIAL:
 				setInitial(INITIAL_EDEFAULT);
@@ -477,6 +524,9 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return;
 			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
 				setContainer((TemplateType)null);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__COST:
+				setCost(COST_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -494,8 +544,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case UppaallitePackage.LOCATION_TYPE__URGENT:
 				return urgent != URGENT_EDEFAULT;
-			case UppaallitePackage.LOCATION_TYPE__COMMITED:
-				return commited != COMMITED_EDEFAULT;
+			case UppaallitePackage.LOCATION_TYPE__COMMITTED:
+				return committed != COMMITTED_EDEFAULT;
 			case UppaallitePackage.LOCATION_TYPE__INITIAL:
 				return initial != INITIAL_EDEFAULT;
 			case UppaallitePackage.LOCATION_TYPE__ID:
@@ -504,6 +554,8 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return INVARIANT_EDEFAULT == null ? invariant != null : !INVARIANT_EDEFAULT.equals(invariant);
 			case UppaallitePackage.LOCATION_TYPE__CONTAINER:
 				return getContainer() != null;
+			case UppaallitePackage.LOCATION_TYPE__COST:
+				return COST_EDEFAULT == null ? cost != null : !COST_EDEFAULT.equals(cost);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -522,14 +574,16 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 		result.append(name);
 		result.append(", urgent: ");
 		result.append(urgent);
-		result.append(", commited: ");
-		result.append(commited);
+		result.append(", committed: ");
+		result.append(committed);
 		result.append(", initial: ");
 		result.append(initial);
 		result.append(", id: ");
 		result.append(id);
 		result.append(", invariant: ");
 		result.append(invariant);
+		result.append(", cost: ");
+		result.append(cost);
 		result.append(')');
 		return result.toString();
 	}

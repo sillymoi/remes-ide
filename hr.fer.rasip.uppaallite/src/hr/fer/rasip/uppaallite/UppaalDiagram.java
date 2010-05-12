@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link hr.fer.rasip.uppaallite.UppaalDiagram#getTemplate <em>Template</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.UppaalDiagram#getDeclaration <em>Declaration</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.UppaalDiagram#getResourceWeightDeclaration <em>Resource Weight Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,5 +70,31 @@ public interface UppaalDiagram extends EObject {
 	 * @generated
 	 */
 	void setDeclaration(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource Weight Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resource Weight Declaration</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resource Weight Declaration</em>' attribute.
+	 * @see #setResourceWeightDeclaration(String)
+	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getUppaalDiagram_ResourceWeightDeclaration()
+	 * @model
+	 * @generated
+	 */
+	String getResourceWeightDeclaration();
+
+	/**
+	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.UppaalDiagram#getResourceWeightDeclaration <em>Resource Weight Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resource Weight Declaration</em>' attribute.
+	 * @see #getResourceWeightDeclaration()
+	 * @generated
+	 */
+	void setResourceWeightDeclaration(String value);
 
 } // UppaalDiagram

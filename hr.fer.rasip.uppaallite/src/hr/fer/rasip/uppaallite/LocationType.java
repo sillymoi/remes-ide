@@ -18,11 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#getName <em>Name</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#isUrgent <em>Urgent</em>}</li>
- *   <li>{@link hr.fer.rasip.uppaallite.LocationType#isCommited <em>Commited</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.LocationType#isCommitted <em>Committed</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#isInitial <em>Initial</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#getId <em>Id</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.LocationType#getContainer <em>Container</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.LocationType#getCost <em>Cost</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,30 +85,30 @@ public interface LocationType extends EObject {
 	void setUrgent(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Commited</b></em>' attribute.
+	 * Returns the value of the '<em><b>Committed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Commited</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Committed</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commited</em>' attribute.
-	 * @see #setCommited(boolean)
-	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getLocationType_Commited()
+	 * @return the value of the '<em>Committed</em>' attribute.
+	 * @see #setCommitted(boolean)
+	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getLocationType_Committed()
 	 * @model
 	 * @generated
 	 */
-	boolean isCommited();
+	boolean isCommitted();
 
 	/**
-	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.LocationType#isCommited <em>Commited</em>}' attribute.
+	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.LocationType#isCommitted <em>Committed</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Commited</em>' attribute.
-	 * @see #isCommited()
+	 * @param value the new value of the '<em>Committed</em>' attribute.
+	 * @see #isCommitted()
 	 * @generated
 	 */
-	void setCommited(boolean value);
+	void setCommitted(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Initial</b></em>' attribute.
@@ -137,6 +138,7 @@ public interface LocationType extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
@@ -146,7 +148,7 @@ public interface LocationType extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getLocationType_Id()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getId();
@@ -214,5 +216,31 @@ public interface LocationType extends EObject {
 	 * @generated
 	 */
 	void setContainer(TemplateType value);
+
+	/**
+	 * Returns the value of the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cost</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cost</em>' attribute.
+	 * @see #setCost(String)
+	 * @see hr.fer.rasip.uppaallite.UppaallitePackage#getLocationType_Cost()
+	 * @model
+	 * @generated
+	 */
+	String getCost();
+
+	/**
+	 * Sets the value of the '{@link hr.fer.rasip.uppaallite.LocationType#getCost <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cost</em>' attribute.
+	 * @see #getCost()
+	 * @generated
+	 */
+	void setCost(String value);
 
 } // LocationType

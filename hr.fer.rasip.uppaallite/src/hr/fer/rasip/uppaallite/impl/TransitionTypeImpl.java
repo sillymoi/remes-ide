@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getSource <em>Source</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl#getCost <em>Cost</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,6 +120,26 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 	 * @ordered
 	 */
 	protected LocationType target;
+
+	/**
+	 * The default value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cost = COST_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,6 +345,27 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCost() {
+		return cost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCost(String newCost) {
+		String oldCost = cost;
+		cost = newCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.TRANSITION_TYPE__COST, oldCost, cost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -385,6 +427,8 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 				return basicGetTarget();
 			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
 				return getContainer();
+			case UppaallitePackage.TRANSITION_TYPE__COST:
+				return getCost();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -414,6 +458,9 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 				return;
 			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
 				setContainer((TemplateType)newValue);
+				return;
+			case UppaallitePackage.TRANSITION_TYPE__COST:
+				setCost((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -445,6 +492,9 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
 				setContainer((TemplateType)null);
 				return;
+			case UppaallitePackage.TRANSITION_TYPE__COST:
+				setCost(COST_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -469,6 +519,8 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 				return target != null;
 			case UppaallitePackage.TRANSITION_TYPE__CONTAINER:
 				return getContainer() != null;
+			case UppaallitePackage.TRANSITION_TYPE__COST:
+				return COST_EDEFAULT == null ? cost != null : !COST_EDEFAULT.equals(cost);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -489,6 +541,8 @@ public class TransitionTypeImpl extends EObjectImpl implements TransitionType {
 		result.append(assignment);
 		result.append(", guard: ");
 		result.append(guard);
+		result.append(", cost: ");
+		result.append(cost);
 		result.append(')');
 		return result.toString();
 	}

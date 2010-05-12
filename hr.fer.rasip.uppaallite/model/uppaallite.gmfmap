@@ -12,7 +12,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = self.urgent and self.initial = false"/>
+          body="self.committed = self.urgent and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -41,7 +41,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = true and self.urgent = false and self.initial = false"/>
+          body="self.committed = true and self.urgent = false and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -67,7 +67,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = false and self.urgent = true and self.initial = false"/>
+          body="self.committed = false and self.urgent = true and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -93,7 +93,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = self.urgent and self.initial = true"/>
+          body="self.committed = self.urgent and self.initial = true"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -119,7 +119,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = false and self.urgent = true and self.initial = true"/>
+          body="self.committed = false and self.urgent = true and self.initial = true"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -145,7 +145,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.commited = true and self.urgent = false and self.initial = true"/>
+          body="self.committed = true and self.urgent = false and self.initial = true"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -235,7 +235,7 @@
         id="loc1"
         message="Location can't be urgent and commited in the same time">
       <rule
-          body="not (self.commited = true and self.urgent = true)"/>
+          body="not (self.committed = true and self.urgent = true)"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element
@@ -243,12 +243,25 @@
       </target>
     </audits>
     <audits
-        name="locId1"
+        name="locIdUnique"
         description="Location must have uniqe id"
-        id="locId1"
+        id="locIdUnique"
         message="Location must have uniqe id">
       <rule
           body="self.container.location->select(p | p.id = self.id)->size()=1"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="uppaallite.ecore#//LocationType"/>
+      </target>
+    </audits>
+    <audits
+        name="locIdDefined"
+        description="Location must have an id atribute defined"
+        id="locIdDefined"
+        message="Location must have an id atribute defined">
+      <rule
+          body="self.id &lt;> '' and not self.id.oclIsUndefined()"/>
       <target
           xsi:type="gmfmap:DomainElementTarget">
         <element

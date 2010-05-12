@@ -13,18 +13,18 @@
           title="LocationType"
           description="Create new LocationType">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="/icons/locationCreationToolIcon.jpeg"
+            bundle="hr.fer.rasip.uppaallite.subdiagram"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
           title="TransitionType"
           description="Create new TransitionType">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="/icons/transitionCreationToolIcon.JPG"
+            bundle="hr.fer.rasip.uppaallite.subdiagram"/>
       </tools>
     </tools>
   </palette>

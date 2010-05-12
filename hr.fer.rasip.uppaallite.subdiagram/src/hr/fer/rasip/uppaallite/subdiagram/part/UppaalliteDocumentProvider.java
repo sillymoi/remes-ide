@@ -582,7 +582,7 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
-		
+
 		//validation
 		ValidateAction.runValidation((View) document.getContent());
 		ResourceSetInfo info = getResourceSetInfo(element);

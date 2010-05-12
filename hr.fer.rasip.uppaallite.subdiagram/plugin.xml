@@ -530,19 +530,29 @@
             name="locUrgentCommited"
             mode="Batch"
             severity="ERROR" statusCode="200">
-            <![CDATA[not (self.commited = true and self.urgent = true)]]>
+            <![CDATA[not (self.committed = true and self.urgent = true)]]>
             <description><![CDATA[Location can't be urgent and commited in the same time]]></description>
             <message><![CDATA[Location can't be urgent and commited in the same time]]></message>
             <target class="uppaallite.LocationType"/>
          </constraint>
-                  <constraint id="locId1"
+                  <constraint id="locIdUnique"
             lang="OCL"
-            name="locId1"
+            name="locIdUnique"
             mode="Batch"
             severity="ERROR" statusCode="200">
             <![CDATA[self.container.location->select(p | p.id = self.id)->size()=1]]>
             <description><![CDATA[Location must have uniqe id]]></description>
             <message><![CDATA[Location must have uniqe id]]></message>
+            <target class="uppaallite.LocationType"/>
+         </constraint>
+                  <constraint id="locIdDefined"
+            lang="OCL"
+            name="locIdDefined"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            <![CDATA[self.id <> '' and not self.id.oclIsUndefined()]]>
+            <description><![CDATA[Location must have an id atribute defined]]></description>
+            <message><![CDATA[Location must have an id atribute defined]]></message>
             <target class="uppaallite.LocationType"/>
          </constraint>
                   </constraints>
@@ -557,7 +567,8 @@
       <binding context="hr.fer.rasip.uppaallite.subdiagramDefaultCtx">
                   <constraint ref="hr.fer.rasip.uppaallite.subdiagram.oneInitialState"/>
                   <constraint ref="hr.fer.rasip.uppaallite.subdiagram.loc1"/>
-                  <constraint ref="hr.fer.rasip.uppaallite.subdiagram.locId1"/>
+                  <constraint ref="hr.fer.rasip.uppaallite.subdiagram.locIdUnique"/>
+                  <constraint ref="hr.fer.rasip.uppaallite.subdiagram.locIdDefined"/>
                </binding>
 
    </extension>

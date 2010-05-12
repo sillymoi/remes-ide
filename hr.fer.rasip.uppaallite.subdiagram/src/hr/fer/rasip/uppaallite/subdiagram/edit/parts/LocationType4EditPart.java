@@ -398,7 +398,7 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	protected void handleNotificationEvent(Notification notification) {
 		int type = notification.getEventType();
 		Object feature = notification.getFeature();
-		if ((UppaallitePackage.eINSTANCE.getLocationType_Commited().equals(
+		if ((UppaallitePackage.eINSTANCE.getLocationType_Committed().equals(
 				feature)
 				|| UppaallitePackage.eINSTANCE.getLocationType_Urgent().equals(
 						feature) || UppaallitePackage.eINSTANCE

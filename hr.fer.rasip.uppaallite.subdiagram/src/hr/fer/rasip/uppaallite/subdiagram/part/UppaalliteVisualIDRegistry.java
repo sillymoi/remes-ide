@@ -343,7 +343,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2001_Constraint == null) { // lazy initialization
 			LocationType_2001_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = self.urgent and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = self.urgent and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2001_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -356,7 +356,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2002_Constraint == null) { // lazy initialization
 			LocationType_2002_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = true and self.urgent = false and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = true and self.urgent = false and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2002_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -369,7 +369,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2003_Constraint == null) { // lazy initialization
 			LocationType_2003_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = false and self.urgent = true and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = false and self.urgent = true and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2003_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -382,7 +382,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2004_Constraint == null) { // lazy initialization
 			LocationType_2004_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = self.urgent and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = self.urgent and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2004_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -395,7 +395,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2005_Constraint == null) { // lazy initialization
 			LocationType_2005_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = false and self.urgent = true and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = false and self.urgent = true and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2005_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -408,7 +408,7 @@ public class UppaalliteVisualIDRegistry {
 		if (LocationType_2006_Constraint == null) { // lazy initialization
 			LocationType_2006_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.commited = true and self.urgent = false and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = true and self.urgent = false and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
 		Object result = LocationType_2006_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();

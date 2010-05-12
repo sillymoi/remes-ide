@@ -48,8 +48,9 @@ public class UppaallitePaletteFactory {
 				Messages.LocationType1CreationTool_title,
 				Messages.LocationType1CreationTool_desc, types);
 		entry.setId("createLocationType1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(UppaalliteElementTypes
-				.getImageDescriptor(UppaalliteElementTypes.LocationType_2001));
+		entry
+				.setSmallIcon(UppaalliteDiagramEditorPlugin
+						.findImageDescriptor("/hr.fer.rasip.uppaallite.subdiagram/icons/locationCreationToolIcon.jpeg")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -65,8 +66,8 @@ public class UppaallitePaletteFactory {
 				Messages.TransitionType2CreationTool_desc, types);
 		entry.setId("createTransitionType2CreationTool"); //$NON-NLS-1$
 		entry
-				.setSmallIcon(UppaalliteElementTypes
-						.getImageDescriptor(UppaalliteElementTypes.TransitionType_4001));
+				.setSmallIcon(UppaalliteDiagramEditorPlugin
+						.findImageDescriptor("/hr.fer.rasip.uppaallite.subdiagram/icons/transitionCreationToolIcon.JPG")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

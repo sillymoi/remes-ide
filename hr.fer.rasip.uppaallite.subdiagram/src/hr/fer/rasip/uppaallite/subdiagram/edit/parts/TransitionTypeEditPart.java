@@ -2,6 +2,7 @@ package hr.fer.rasip.uppaallite.subdiagram.edit.parts;
 
 import hr.fer.rasip.uppaallite.subdiagram.edit.policies.TransitionTypeItemSemanticEditPolicy;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
@@ -12,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.graphics.Color;
 
 /**
  * @generated
@@ -104,6 +106,7 @@ public class TransitionTypeEditPart extends ConnectionNodeEditPart implements
 		 */
 		public TransitionTypeFigure() {
 			this.setLineWidth(1);
+			this.setForegroundColor(ColorConstants.darkGreen);
 
 			setTargetDecoration(createTargetDecoration());
 		}

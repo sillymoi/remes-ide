@@ -45,8 +45,10 @@ import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * @generated
@@ -204,11 +206,7 @@ public class TransitionTypeSyncEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return UppaalliteElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -534,7 +532,7 @@ public class TransitionTypeSyncEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
-		return getPrimaryView();
+		return (View) getModel();
 	}
 
 	/**
@@ -593,7 +591,31 @@ public class TransitionTypeSyncEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new WrappingLabel();
+		return new TransitionSyncFigure();
 	}
+
+	/**
+	 * @generated
+	 */
+	public class TransitionSyncFigure extends WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		public TransitionSyncFigure() {
+			this.setText("");
+
+			this.setFont(THIS_FONT);
+
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	static final Font THIS_FONT = new Font(Display.getCurrent(), Display
+			.getDefault().getSystemFont().getFontData()[0].getName(), 7,
+			SWT.NORMAL);
 
 }

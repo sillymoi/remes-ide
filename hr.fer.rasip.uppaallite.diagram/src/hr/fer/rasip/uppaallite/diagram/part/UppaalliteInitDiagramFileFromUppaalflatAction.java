@@ -54,6 +54,7 @@ public class UppaalliteInitDiagramFileFromUppaalflatAction implements IObjectAct
 				IFile uppaalliteFile = UppaalConverter.transformFlatToLite((IFile)iterator.next());
 				initDiagram(uppaalliteFile);
 			} catch (Exception e) {
+				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
 		}

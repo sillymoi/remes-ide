@@ -1,0 +1,10 @@
+library uLite2uFlatCoraCostLib;
+
+helper context ULITE!UppaalDiagram def: ntaResourceWeightDeclaration(): String = 
+	self.resourceWeightDeclaration; 
+
+helper context ULITE!LocationType def: locCost() : String = 
+	self.cost; 
+
+helper context ULITE!TransitionType def: transCost() : String = 
+	self.cost; 

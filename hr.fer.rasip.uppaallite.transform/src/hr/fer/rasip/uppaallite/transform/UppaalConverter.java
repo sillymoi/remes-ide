@@ -41,12 +41,16 @@ public class UppaalConverter {
 
 	private static URL flatToLiteAsmURL;
 	private static URL liteToFlatAsmURL;
+	private static URL liteToFlatLibURL;
+	private static URL liteToFlatCoraLibURL;
 	
 	static {
 		// ATL remes2pta transformation
 		Bundle bundle = Platform.getBundle("hr.fer.rasip.uppaallite.transform"); //$NON-NLS-1$
 		flatToLiteAsmURL = bundle.getEntry("transformations/uFlat2uLite.asm"); //$NON-NLS-1$
 		liteToFlatAsmURL = bundle.getEntry("transformations/uLite2uFlat.asm"); //$NON-NLS-1$
+		liteToFlatLibURL = bundle.getEntry("transformations/uLite2uFlatCostLib.asm"); //$NON-NLS-1$
+		liteToFlatCoraLibURL = bundle.getEntry("transformations/uLite2uFlatCoraCostLib.asm"); //$NON-NLS-1$
 		
 		try {
 			injector = (EMFInjector) CoreService.getInjector("EMF"); //$NON-NLS-1$
@@ -103,45 +107,15 @@ public class UppaalConverter {
 		return getIFileFromURI(uppaalliteURI);
 	}
 	
-
-	public static void transformLiteToFlat(Resource uppaalliteModelResource) throws Exception{
-		ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
-		
-		// Getting launcher
-		ILauncher launcher = null;
-		launcher = CoreService.getLauncher("EMF-specific VM"); //$NON-NLS-1$
-		launcher.initialize(Collections.<String, Object> emptyMap());
-
-		// Creating models
-		IModel uppaalflatModel = factory.newModel(uppaalflatMetamodel);
-		IModel uppaalliteModel = factory.newModel(uppaalliteMetamodel);
-
-		// Loading existing model
-		injector.inject(uppaalliteModel, uppaalliteModelResource);
-
-		// Launching
-		launcher.addInOutModel(uppaalliteModel, "IN", "ULITE"); //$NON-NLS-1$ //$NON-NLS-2$
-		launcher.addInOutModel(uppaalflatModel, "OUT", "UFLAT"); //$NON-NLS-1$ //$NON-NLS-2$
-
-		try {
-			launcher.launch(ILauncher.RUN_MODE, new NullProgressMonitor(), Collections
-					.<String, Object> emptyMap(), liteToFlatAsmURL.openStream());
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
-		// Saving model
-		String uppaalflatPath = uppaalliteModelResource.getURI().trimFileExtension().appendFileExtension("uppaalflat11").toString().replaceAll("platform:/resource", "");
-		try {
-			extractor.extract(uppaalflatModel, uppaalflatPath);
-		} catch (ATLCoreException e) {
-			e.printStackTrace();
-		}
-		
-		// Refresh workspace
-		refreshWorkspace();
-	}
 	public static void transformLiteToFlat(IFile file) throws Exception{
+		transformLiteToFlat(file, liteToFlatLibURL);
+	}
+	
+	public static void transformLiteToFlatCora(IFile file) throws Exception{
+		transformLiteToFlat(file, liteToFlatCoraLibURL);
+	}
+	
+	private static void transformLiteToFlat(IFile file, URL libURL) throws Exception{
 		
 		ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
 		
@@ -158,6 +132,7 @@ public class UppaalConverter {
 		injector.inject(uppaalliteModel, file.getFullPath().toString());
 
 		// Launching
+		launcher.addLibrary("LIB", libURL);
 		launcher.addInOutModel(uppaalliteModel, "IN", "ULITE"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.addInOutModel(uppaalflatModel, "OUT", "UFLAT"); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -165,7 +140,7 @@ public class UppaalConverter {
 				.<String, Object> emptyMap(), liteToFlatAsmURL.openStream());
 
 		// Saving model
-		String uppaalflatPath = file.getFullPath().removeFileExtension().addFileExtension("uppaalflat11").toString();
+		String uppaalflatPath = file.getFullPath().removeFileExtension().addFileExtension("uppaal").toString();
 		try {
 			extractor.extract(uppaalliteModel, uppaalflatPath);
 		} catch (ATLCoreException e) {

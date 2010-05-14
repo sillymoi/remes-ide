@@ -1,6 +1,8 @@
 module uLite2uFlat;
 create OUT : UFLAT from IN : ULITE;
 
+uses LIB;
+
 -------------------
 -----HELPERS----
 ------------------
@@ -9,13 +11,60 @@ helper context ULITE!TemplateType def: initId(): String =
 	then self.location->first()
 	else self.location->select(i | i.initial = true)->first().id
 	endif;
-
---helper context ULITE!LocationType def: invariant(): String = 
 	
+helper context ULITE!UppaalDiagram def: ntaDeclaration(): String = 
+	if self.declaration.oclIsUndefined()
+	then 
+		if self.ntaResourceWeightDeclaration().oclIsUndefined()
+		then OclUndefined
+		else self.ntaResourceWeightDeclaration() 
+		endif
+	else 
+		if self.ntaResourceWeightDeclaration().oclIsUndefined()
+		then self.declaration
+		else 
+			if self.declaration.trim() = '' or self.ntaResourceWeightDeclaration().trim() = ''
+			then self.declaration + self.ntaResourceWeightDeclaration()
+			else self.declaration +', '+ self.ntaResourceWeightDeclaration()
+			endif
+		endif
+	endif;
 
+helper context ULITE!LocationType def: locInvariant() : String = 
+	if self.invariant.oclIsUndefined()
+	then 
+		if self.locCost().oclIsUndefined()
+		then OclUndefined
+		else self.locCost() 
+		endif
+	else 
+		if self.locCost().oclIsUndefined()
+		then self.invariant
+		else 
+			if self.invariant.trim() = '' or self.locCost().trim() = ''
+			then self.invariant + self.locCost()
+			else self.invariant +', '+ self.locCost()
+			endif
+		endif
+	endif;
 
-
-
+helper context ULITE!TransitionType def: transAssignment() : String = 
+	if self.assignment.oclIsUndefined()
+	then 
+		if self.transCost().oclIsUndefined()
+		then OclUndefined
+		else self.transCost() 
+		endif
+	else 
+		if self.transCost().oclIsUndefined()
+		then self.assignment
+		else 
+			if self.assignment.trim() = '' or self.transCost().trim() = ''
+			then self.assignment + self.transCost()
+			else self.assignment +', '+ self.transCost()
+			endif
+		endif
+	endif;
 
 -------------------
 ------RULES----
@@ -30,7 +79,7 @@ rule Diagram2Root {
 	     	nta <- nta_type
 		),
 		nta_type: UFLAT!NtaType(
-	    	declaration <- diag.declaration,
+	    	declaration <- diag.ntaDeclaration(),
 			template <- diag.Template
 		)
 }
@@ -57,7 +106,7 @@ abstract rule Location2Location{
 			id <- loc1.id,
 			x<-'16',
 			y<-'-40',
-			label <- thisModule.Label_type('15', '78', 'invariant' , loc1.invariant)
+			label <- thisModule.Label_type('15', '78', 'invariant' , loc1.locInvariant())
 		)
 	
 }
@@ -95,7 +144,7 @@ rule Transition2Transition{
 			source <- thisModule.Source_type(tt1.source.id),
 			target <- thisModule.Target_type(tt1.target.id),
 			label <- Sequence{thisModule.Label_type('3', '5', 'guard', tt1.guard),
-				thisModule.Label_type('3', '4', 'assignment', tt1.assignment),
+				thisModule.Label_type('3', '4', 'assignment', tt1.transAssignment()),
 				thisModule.Label_type('3', '4', 'synchronisation', tt1.sync)
 			}
 		) 

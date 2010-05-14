@@ -578,7 +578,7 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
@@ -624,8 +624,8 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 											.getLocalizedMessage(), null));
 						}
 					}
-					/* run transformation */
-					UppaalConverter.transformLiteToFlat(nextResource);
+					/* run transformation - removed */
+					//UppaalConverter.transformLiteToFlat(nextResource);
 					monitor.worked(1);
 				}
 				monitor.done();

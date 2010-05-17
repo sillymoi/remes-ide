@@ -132,7 +132,7 @@ public class UppaalConverter {
 		injector.inject(uppaalliteModel, file.getFullPath().toString());
 
 		// Launching
-		launcher.addLibrary("LIB", libURL);
+		launcher.addLibrary("LIB", libURL.openStream());
 		launcher.addInOutModel(uppaalliteModel, "IN", "ULITE"); //$NON-NLS-1$ //$NON-NLS-2$
 		launcher.addInOutModel(uppaalflatModel, "OUT", "UFLAT"); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -140,9 +140,11 @@ public class UppaalConverter {
 				.<String, Object> emptyMap(), liteToFlatAsmURL.openStream());
 
 		// Saving model
-		String uppaalflatPath = file.getFullPath().removeFileExtension().addFileExtension("uppaal").toString();
+		IPath ufPath = file.getLocation().removeFileExtension().addFileExtension("uppaal");
+		URI uppaalflatURI = URIUtil.toURI(ufPath.makeAbsolute());
+		String uppaalflatPath =  uppaalflatURI.toString();
 		try {
-			extractor.extract(uppaalliteModel, uppaalflatPath);
+			extractor.extract(uppaalflatModel, uppaalflatPath);
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}

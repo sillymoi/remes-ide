@@ -21,6 +21,30 @@ helper context UFLAT!LocationType def: invariant() : String =
 		endif
 	endif;
 
+helper context UFLAT!LocationType def: invariantWithutCost() : String = 
+	if self.invariant().oclIsUndefined()
+	then OclUndefined
+	else self.invariant().split('&&')->select(i | not i.trim().startsWith('cost\'=='))
+			->iterate(e; res:String = ''| 
+			if res.trim() = ''
+			then e.trim()
+			else res+' && '+e.trim()
+			endif)
+	endif;
+	
+helper context UFLAT!LocationType def: cost() : String = 
+	if self.invariant().oclIsUndefined()
+	then OclUndefined
+	else 
+		self.invariant().split('&&')->select(i | i.trim().startsWith('cost\'=='))
+		->iterate(e; res:String = ''| 
+			if res.trim() = ''
+			then e.trim()
+			else res+' && '+e.trim()
+			endif)
+		
+	endif;
+	
 helper context UFLAT!LocationType def: initial() : Boolean = 
 	 if self.template().init.ref = self.id
 	 then true
@@ -77,6 +101,31 @@ helper context UFLAT!TransitionType def: assignment() : String =
 		endif
 	endif;
 
+helper context UFLAT!TransitionType def: assignmentWithutCost() : String = 
+	if self.assignment().oclIsUndefined()
+	then OclUndefined
+	else 
+		self.assignment().split(',')->select(i | not i.trim().startsWith('cost+=') and not i.trim().startsWith('cost =') and not i.trim().startsWith('cost='))
+		->iterate(e; res:String = ''| 
+			if res.trim() = ''
+			then e
+			else res+', '+e
+			endif)
+	endif;
+	
+helper context UFLAT!TransitionType def: cost() : String = 
+	if self.assignment().oclIsUndefined()
+	then OclUndefined
+	else 
+		self.assignment().split(',')->select(i | i.trim().startsWith('cost+=') or i.trim().startsWith('cost =') or i.trim().startsWith('cost='))
+		->iterate(e; res:String = ''| 
+			if res.trim() = ''
+			then e
+			else res+', '+e
+			endif)
+	endif; 
+
+
 helper context UFLAT!TransitionType def: guard() : String = 
 	if self.label->select(i | i.kind='guard')->last().oclIsUndefined()
 
@@ -124,7 +173,8 @@ rule Location2Location{
 		loc2: ULITE!LocationType(
 			name <- loc1.name.toSimpleString(),
 			id <- loc1.id,
-			invariant <- loc1.invariant(),
+			invariant <- loc1.invariantWithutCost(),
+			cost <- loc1.cost(),
 			initial <- loc1.initial(),
 			committed <- loc1.committed(),
 			urgent <- loc1.urgent()
@@ -139,8 +189,9 @@ rule Transition2Transition{
 			source <- tt1.source(),
 			target <- tt1.target(),
 			sync <- tt1.sync(),
-			assignment <- tt1.assignment(),
-			guard <- tt1.guard()
+			assignment <- tt1.assignmentWithutCost(),
+			guard <- tt1.guard(), 
+			cost <- tt1.cost()
 		)
 	
 }

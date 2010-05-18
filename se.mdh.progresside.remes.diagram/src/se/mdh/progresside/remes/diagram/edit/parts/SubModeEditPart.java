@@ -193,10 +193,10 @@ public class SubModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof SubModeInvariantEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeIsUrgentEditPart) {
+		if (childEditPart instanceof SubModeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof SubModeNameEditPart) {
+		if (childEditPart instanceof SubModeIsUrgentEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPointEditPart) {

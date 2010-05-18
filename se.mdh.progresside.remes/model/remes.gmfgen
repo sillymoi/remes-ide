@@ -9,6 +9,7 @@
       itemSemanticEditPolicyClassName="RemesDiagramItemSemanticEditPolicy"
       canonicalEditPolicyClassName="RemesDiagramCanonicalEditPolicy"
       iconProviderPriority="Low"
+      creationWizardCategoryID="se.mdh.progresside.remes.Wizard.category.ID"
       validationProviderPriority="Low">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
@@ -1570,7 +1571,10 @@
           kind="RulersAndGrid"/>
     </preferencePages>
   </diagram>
-  <plugin>
+  <plugin
+      name="Remes Diagram Editor"
+      provider="Mälardalen University"
+      version="1.2.0.0">
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
     <requiredPlugins>org.eclipse.gmf.runtime.draw2d.ui</requiredPlugins>
   </plugin>

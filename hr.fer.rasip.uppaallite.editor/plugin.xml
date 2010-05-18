@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="se.mdh.progresside.remes.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
             id="hr.fer.rasip.uppaallite.presentation.UppaalliteModelWizardID"

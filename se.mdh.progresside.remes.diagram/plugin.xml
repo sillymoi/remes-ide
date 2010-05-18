@@ -41,6 +41,9 @@
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="true"?>
+      <category
+            id="se.mdh.progresside.remes.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RemesDiagramFile.gif"
@@ -616,10 +619,13 @@
             id="se.mdh.progresside.remes.diagram.InitDiagram"
             nameFilter="*.remes"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+         	<separator name="diagramTools"/> 
+         </menu>
          <action
                label="%initDiagramActionLabel"
                class="se.mdh.progresside.remes.diagram.part.RemesInitDiagramFileAction"
-               menubarPath="additions"
+               menubarPath="hr.fer.rasip.remes.tools/diagramTools"
                enablesFor="1"
                id="se.mdh.progresside.remes.diagram.InitDiagramAction">
          </action>

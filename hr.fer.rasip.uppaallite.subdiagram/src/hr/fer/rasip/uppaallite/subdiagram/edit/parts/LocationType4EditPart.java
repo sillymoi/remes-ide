@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -414,4 +417,53 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 		super.handleNotificationEvent(notification);
 	}
 
+	/**
+	 * Replaces default ConnectionAnchor with EllipseAnchor
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+	 * @see org.eclipse.draw2d.EllipseAnchor
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connEditPart) {
+		return new EllipseAnchor(getFigure());
+	}
+
+	/**
+	 * Replaces default ConnectionAnchor with EllipseAnchor
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
+	 * @see org.eclipse.draw2d.EllipseAnchor
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
+		return new EllipseAnchor(getFigure());
+	}
+
+	/**
+	 * Replaces default ConnectionAnchor with EllipseAnchor
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+	 * @see org.eclipse.draw2d.EllipseAnchor
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connEditPart) {
+		return new EllipseAnchor(getFigure());
+	}
+
+	/**
+	 * Replaces default ConnectionAnchor with EllipseAnchor
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
+	 * @see org.eclipse.draw2d.EllipseAnchor
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
+		return new EllipseAnchor(getFigure());
+	}
 }

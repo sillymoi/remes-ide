@@ -31,7 +31,7 @@ public class UppaalliteFactoryImpl extends EFactoryImpl implements UppaalliteFac
 	 */
 	public static UppaalliteFactory init() {
 		try {
-			UppaalliteFactory theUppaalliteFactory = (UppaalliteFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.fer.hr/rasip/uppaallite/upallite.hr"); 
+			UppaalliteFactory theUppaalliteFactory = (UppaalliteFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore"); 
 			if (theUppaalliteFactory != null) {
 				return theUppaalliteFactory;
 			}

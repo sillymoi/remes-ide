@@ -41,7 +41,7 @@ public interface UppaallitePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.fer.hr/rasip/uppaallite/upallite.hr";
+	String eNS_URI = "http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore";
 
 	/**
 	 * The package namespace name.

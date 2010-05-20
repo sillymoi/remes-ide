@@ -3,7 +3,6 @@ package hr.fer.rasip.uppaallite.transform;
 import hr.fer.rasip.uppaal.UppaalPackage;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.util.Collections;
@@ -18,7 +17,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.filesystem.URIUtil;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
 import org.eclipse.m2m.atl.core.IModel;
@@ -61,14 +59,15 @@ public class UppaalConverter {
 			uppaalflatMetamodel = factory.newReferenceModel();
 			uppaalliteMetamodel = factory.newReferenceModel();
 			
-			injector.inject(uppaalflatMetamodel, uppaalflatURI);
 			injector.inject(uppaalliteMetamodel, uppaalliteURI);
+			injector.inject(uppaalflatMetamodel, uppaalflatURI);
+			
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static IFile transformFlatToLite(IFile file) throws Exception{
+	public static void transformFlatToLite(IFile uFlatFile, IFile uLiteFile) throws Exception{
 		
 		ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
 		
@@ -82,7 +81,7 @@ public class UppaalConverter {
 		IModel uppaalliteModel = factory.newModel(uppaalliteMetamodel);
 
 		// Loading existing model
-		injector.inject(uppaalflatModel, file.getLocationURI().toString());
+		injector.inject(uppaalflatModel, uFlatFile.getLocationURI().toString());
 
 		// Launching
 		launcher.addInOutModel(uppaalflatModel, "IN", "UFLAT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -92,30 +91,25 @@ public class UppaalConverter {
 				.<String, Object> emptyMap(), flatToLiteAsmURL.openStream());
 
 		// Saving model
-		IPath ulPath = file.getLocation().removeFileExtension().addFileExtension("uppaallite");
-		URI uppaalliteURI = URIUtil.toURI(ulPath.makeAbsolute());
-		String uppaallitePath =  uppaalliteURI.toString();
 		try {
-			extractor.extract(uppaalliteModel, uppaallitePath);
+			extractor.extract(uppaalliteModel, uLiteFile.getLocationURI().toString());
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}
 		
 		// Refresh workspace
 		refreshWorkspace();
-		
-		return getIFileFromURI(uppaalliteURI);
 	}
 	
-	public static void transformLiteToFlat(IFile file) throws Exception{
-		transformLiteToFlat(file, liteToFlatLibURL);
+	public static void transformLiteToFlat(IFile uLiteFile, IFile uFlatFile) throws Exception{
+		transformLiteToFlat(uLiteFile, uFlatFile, liteToFlatLibURL);
 	}
 	
-	public static void transformLiteToFlatCora(IFile file) throws Exception{
-		transformLiteToFlat(file, liteToFlatCoraLibURL);
+	public static void transformLiteToFlatCora(IFile uLiteFile, IFile uFlatFile) throws Exception{
+		transformLiteToFlat(uLiteFile, uFlatFile, liteToFlatCoraLibURL);
 	}
 	
-	private static void transformLiteToFlat(IFile file, URL libURL) throws Exception{
+	private static void transformLiteToFlat(IFile uLiteFile, IFile uFlatFile, URL libURL) throws Exception{
 		
 		ModelFactory factory = CoreService.createModelFactory("EMF"); //$NON-NLS-1$
 		
@@ -129,7 +123,7 @@ public class UppaalConverter {
 		IModel uppaalliteModel = factory.newModel(uppaalliteMetamodel);
 
 		// Loading existing model
-		injector.inject(uppaalliteModel, file.getFullPath().toString());
+		injector.inject(uppaalliteModel, uLiteFile.getFullPath().toString());
 
 		// Launching
 		launcher.addLibrary("LIB", libURL.openStream());
@@ -140,11 +134,8 @@ public class UppaalConverter {
 				.<String, Object> emptyMap(), liteToFlatAsmURL.openStream());
 
 		// Saving model
-		IPath ufPath = file.getLocation().removeFileExtension().addFileExtension("uppaal");
-		URI uppaalflatURI = URIUtil.toURI(ufPath.makeAbsolute());
-		String uppaalflatPath =  uppaalflatURI.toString();
 		try {
-			extractor.extract(uppaalflatModel, uppaalflatPath);
+			extractor.extract(uppaalflatModel, uFlatFile.getLocationURI().toString());
 		} catch (ATLCoreException e) {
 			e.printStackTrace();
 		}
@@ -152,14 +143,6 @@ public class UppaalConverter {
 		// Refresh workspace
 		refreshWorkspace();
 	}
-	
-	private static IFile getIFileFromURI(java.net.URI uri){ 
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot(); 
-		java.net.URI rootUri = root.getLocationURI(); 
-		uri = rootUri.relativize(uri); 
-		IPath path = new Path(uri.getPath()); 
-		return root.getFile(path); 
-	} 
 	
 	public static void refreshWorkspace() throws CoreException{
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();

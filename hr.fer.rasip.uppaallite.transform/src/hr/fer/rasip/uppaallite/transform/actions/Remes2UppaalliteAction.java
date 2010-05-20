@@ -1,6 +1,6 @@
 package hr.fer.rasip.uppaallite.transform.actions;
 
-import hr.fer.rasip.uppaallite.transform.ui.NewUppaalliteFileFromUflatCreationWizard;
+import hr.fer.rasip.uppaallite.transform.ui.NewUppaalliteFileFromRemesCreationWizard;
 
 import java.util.Iterator;
 
@@ -14,16 +14,16 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-public class UFlat2ULiteAction  implements IObjectActionDelegate {
+public class Remes2UppaalliteAction implements IObjectActionDelegate {
 	
 	private IWorkbenchPart targetPart;
 
 	private ISelection currentSelection;
 
 	/**
-	 * Constructor for UFlat2ULiteAction.
+	 * Constructor for Remes2UppaalliteAction.
 	 */
-	public UFlat2ULiteAction() {
+	public Remes2UppaalliteAction() {
 		super();
 	}
 
@@ -34,25 +34,20 @@ public class UFlat2ULiteAction  implements IObjectActionDelegate {
 	public void run(IAction action) {
 		// Getting files from selection
 		IStructuredSelection iss = (IStructuredSelection)currentSelection;
-		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
-			try {
-				Wizard wizard = new NewUppaalliteFileFromUflatCreationWizard((IFile)iterator.next());
+		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();){
+			Wizard wizard = new NewUppaalliteFileFromRemesCreationWizard((IFile)iterator.next());
 				WizardDialog dialog = new WizardDialog(getShell(), wizard);
 				dialog.create();
 				dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
 						500);
 				dialog.open();
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
 		}
 	}
 
 	private Shell getShell() {
 		return targetPart.getSite().getShell();
 	}
-
+	
 	public void selectionChanged(IAction action, ISelection selection) {
 		this.currentSelection = selection;
 	}

@@ -582,9 +582,6 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 	 */
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
-
-		//validation
-		ValidateAction.runValidation((View) document.getContent());
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {
@@ -624,8 +621,6 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 											.getLocalizedMessage(), null));
 						}
 					}
-					/* run transformation - removed */
-					//UppaalConverter.transformLiteToFlat(nextResource);
 					monitor.worked(1);
 				}
 				monitor.done();
@@ -633,8 +628,6 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 			} catch (RuntimeException x) {
 				fireElementStateChangeFailed(element);
 				throw x;
-			} catch (Exception e) {
-				e.printStackTrace();
 			} finally {
 				info.startResourceListening();
 			}

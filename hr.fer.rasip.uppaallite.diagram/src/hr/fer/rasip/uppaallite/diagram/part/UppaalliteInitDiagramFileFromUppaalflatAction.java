@@ -51,8 +51,8 @@ public class UppaalliteInitDiagramFileFromUppaalflatAction implements IObjectAct
 		IStructuredSelection iss = (IStructuredSelection)currentSelection;
 		for (Iterator<?> iterator = iss.iterator(); iterator.hasNext();) {
 			try {
-				IFile uppaalliteFile = UppaalConverter.transformFlatToLite((IFile)iterator.next());
-				initDiagram(uppaalliteFile);
+				//IFile uppaalliteFile = UppaalConverter.transformFlatToLite((IFile)iterator.next());
+				//initDiagram(uppaalliteFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);

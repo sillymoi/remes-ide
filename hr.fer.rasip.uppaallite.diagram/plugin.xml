@@ -282,7 +282,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://www.fer.hr/rasip/uppaallite/upallite.hr">
+      <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <metamodelType
                id="hr.fer.rasip.uppaallite.diagram.UppaalDiagram_1000"
                name="%metatype.name.UppaalDiagram_1000"
@@ -292,7 +292,7 @@
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://www.fer.hr/rasip/uppaallite/upallite.hr">
+      <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <metamodelType
                id="hr.fer.rasip.uppaallite.diagram.TemplateType_2001"
                name="%metatype.name.TemplateType_2001"

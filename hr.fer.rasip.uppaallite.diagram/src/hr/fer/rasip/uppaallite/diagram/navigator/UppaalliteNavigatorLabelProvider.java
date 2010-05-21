@@ -88,10 +88,10 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 		switch (UppaalliteVisualIDRegistry.getVisualID(view)) {
 		case UppaalDiagramEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://www.fer.hr/rasip/uppaallite/upallite.hr?UppaalDiagram", UppaalliteElementTypes.UppaalDiagram_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?UppaalDiagram", UppaalliteElementTypes.UppaalDiagram_1000); //$NON-NLS-1$
 		case TemplateTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?TemplateType", UppaalliteElementTypes.TemplateType_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TemplateType", UppaalliteElementTypes.TemplateType_2001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

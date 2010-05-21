@@ -100,28 +100,28 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 		switch (UppaalliteVisualIDRegistry.getVisualID(view)) {
 		case TemplateTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://www.fer.hr/rasip/uppaallite/upallite.hr?TemplateType", UppaalliteElementTypes.TemplateType_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TemplateType", UppaalliteElementTypes.TemplateType_1000); //$NON-NLS-1$
 		case LocationTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2001); //$NON-NLS-1$
 		case LocationType2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2002); //$NON-NLS-1$
 		case LocationType3EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2003); //$NON-NLS-1$
 		case LocationType4EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2004); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2004); //$NON-NLS-1$
 		case LocationType5EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2005); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2005); //$NON-NLS-1$
 		case LocationType6EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.fer.hr/rasip/uppaallite/upallite.hr?LocationType", UppaalliteElementTypes.LocationType_2006); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2006); //$NON-NLS-1$
 		case TransitionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://www.fer.hr/rasip/uppaallite/upallite.hr?TransitionType", UppaalliteElementTypes.TransitionType_4001); //$NON-NLS-1$
+					"Navigator?Link?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TransitionType", UppaalliteElementTypes.TransitionType_4001); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

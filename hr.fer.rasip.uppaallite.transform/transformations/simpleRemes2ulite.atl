@@ -578,6 +578,9 @@ helper context REMES!Referable def: ULITEType() : String =
 --- SYSTEM DECLARATION -------
 ----------------------------
 
+helper def: diagramDeclaration() : String = 
+	'chan t;';
+
 helper context REMES!RemesDiagram  def: resourceWeightDeclaration() : String =
 	self.getAllResources()->iterate(e; res : String = '' |
 		 res + 'const int w_' + e.name + ' = ' + 
@@ -629,8 +632,9 @@ from
     rd : REMES!RemesDiagram
 to
     doc: ULITE!UppaalDiagram (
+    	declaration <- thisModule.diagramDeclaration(),
 		resourceWeightDeclaration <- rd.resourceWeightDeclaration(),
-		Template <- rd.modes
+		Template <- Sequence{rd.modes, thisModule.initTemplate()}
 	)
 }
 
@@ -649,13 +653,24 @@ rule Template_type{
 			},
 			transition <- Sequence{
 				thisModule.initTransition(tp.location->select(i | i.id = 'idStart')->first(), cMode), 
-				thisModule.transition(cMode.compositeExitPoint, cMode.compositeEntryPoint),
-	--			thisModule.transition(tp.location->select(i | i.name.println() = cMode.compositeExitPoint.__xmiID__.toString())->first(), tp.location->select(i | i.id = cMode.compositeEntryPoint.__xmiID__)->first(), cMode.outputSync()), 
+				thisModule.transition(cMode.compositeExitPoint, cMode.compositeEntryPoint, OclUndefined), 
 				cMode.entryEdges(), 
 				cMode.allInternalEdges(), 
 				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
 			}
 		)	
+}
+
+rule initTemplate(){	
+	to
+		tp: ULITE!TemplateType (
+			name <- 'InitTemplate',
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyExitLocation()},
+			transition <- Sequence{thisModule.transition(tp.location->first(), tp.location->last(), 't!')}
+		)
+	do{
+		tp;
+	}
 }
 
 rule subMode2Template{
@@ -670,10 +685,10 @@ rule subMode2Template{
 				thisModule.location_Type(sm), 
 				thisModule.emptyExitLocation()},
 			transition <- Sequence{
-				thisModule.transition(tp.location->select(i | i.id = 'idStart')->first(), tp.location->select(i | i.id = 'idEntry')->first()), 
-				thisModule.transition(tp.location->select(i | i.id = sm.__xmiID__)->first(), tp.location->select(i | i.id = 'idExit')->first()), 
-				thisModule.transition(tp.location->select(i | i.id = 'idExit')->first(), tp.location->select(i | i.id = 'idEntry')->first()), 
-				thisModule.transition(tp.location->select(i | i.id = 'idEntry')->first(), tp.location->select(i | i.id = sm.__xmiID__)->first())}
+				thisModule.transition(tp.location->select(i | i.id = 'idStart')->first(), tp.location->select(i | i.id = 'idEntry')->first(), 't?'), 
+				thisModule.transition(tp.location->select(i | i.id = sm.__xmiID__)->first(), tp.location->select(i | i.id = 'idExit')->first(), OclUndefined), 
+				thisModule.transition(tp.location->select(i | i.id = 'idExit')->first(), tp.location->select(i | i.id = 'idEntry')->first(), OclUndefined), 
+				thisModule.transition(tp.location->select(i | i.id = 'idEntry')->first(), tp.location->select(i | i.id = sm.__xmiID__)->first(), OclUndefined)}
 		)	
 }
 ----------------
@@ -769,6 +784,7 @@ rule initTransition(startLoc : ULITE!LocationType, cMode: REMES!CompositeMode){
 		tt:ULITE!TransitionType(
 			source <- startLoc,
 			target <- cMode.initTransitionTarget(),
+			sync<- 't?',
 			assignment <- thisModule.initializationToAssigment(cMode.initPoint.initEdge),
 			cost <- cMode.initPoint.initEdge.toCost()
 		)
@@ -810,11 +826,10 @@ rule transition(src: ULITE!Location, tgt: ULITE!Location, sync: String){
 	to 
 		tt:ULITE!TransitionType(
 		source <- src,
-		target <- tgt
+		target <- tgt,
+		sync <- sync
 		) 
 	do{
 		tt;
 	}
 }
-
-

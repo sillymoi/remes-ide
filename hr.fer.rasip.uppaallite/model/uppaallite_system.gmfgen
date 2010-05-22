@@ -9,6 +9,7 @@
       itemSemanticEditPolicyClassName="UppaalDiagramItemSemanticEditPolicy"
       canonicalEditPolicyClassName="UppaalDiagramCanonicalEditPolicy"
       iconProviderPriority="Low"
+      creationWizardCategoryID="se.mdh.progresside.remes.Wizard.category.ID"
       validationProviderPriority="Low"
       validationEnabled="true"
       validationDecorators="true">

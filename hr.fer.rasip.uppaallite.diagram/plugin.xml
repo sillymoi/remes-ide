@@ -44,7 +44,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/UppaalliteDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="se.mdh.progresside.remes.Wizard.category.ID"
   	     class="hr.fer.rasip.uppaallite.diagram.part.UppaalliteCreationWizard"
   	     id="hr.fer.rasip.uppaallite.diagram.part.UppaalliteCreationWizardID">
   	  	 <description>%newWizardDesc</description>  

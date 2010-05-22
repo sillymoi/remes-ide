@@ -8,11 +8,15 @@
             id="hr.fer.rasip.uppaallite.transform.flat2liteOC"
             nameFilter="*.uppaal"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.UFlat2ULiteAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.flat2liteAction"
-               label="Transform to Uppaallite">
+               label="Transform to UppaalLite"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
@@ -23,11 +27,15 @@
             id="hr.fer.rasip.uppaallite.transform.lite2flat"
             nameFilter="*.uppaallite"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.ULite2UFlatAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.lite2flatAction"
-               label="Transform to UPPAAL">
+               label="Transform to UPPAAL"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
@@ -38,11 +46,15 @@
             id="hr.fer.rasip.uppaallite.transform.lite2flatCoraOC"
             nameFilter="*.uppaallite"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.ULite2UFlatCoraAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.lite2flatCoraAction"
-               label="Transform to UPPAAL Cora">
+               label="Transform to UPPAAL Cora"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
@@ -53,11 +65,15 @@
             id="hr.fer.rasip.uppaallite.transform.lite2flatOCD"
             nameFilter="*.uppaallite_diagram"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.ULite2UFlatAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.lite2flatActionD"
-               label="Transform to UPPAAL">
+               label="Transform to UPPAAL"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
@@ -68,11 +84,15 @@
             id="hr.fer.rasip.uppaallite.transform.lite2flatCoraOCD"
             nameFilter="*.uppaallite_diagram"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.ULite2UFlatCoraAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.lite2flatCoraActionD"
-               label="Transform to UPPAAL Cora">
+               label="Transform to UPPAAL Cora"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
@@ -83,13 +103,16 @@
             id="hr.fer.rasip.uppaallite.transform.sRemes2uLiteOC"
             nameFilter="*.remes"
             objectClass="org.eclipse.core.resources.IFile">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+          	<separator name="generatorTools"/> 
+         </menu>
          <action
                class="hr.fer.rasip.uppaallite.transform.actions.Remes2UppaalliteAction"
                enablesFor="*"
                id="hr.fer.rasip.uppaallite.transform.simpleRemes2uLiteAction"
-               label="Transform to Uppaallite">
+               label="Transform to UppaalLite"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
          </action>
       </objectContribution>
    </extension>
-
 </plugin>

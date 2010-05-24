@@ -3,6 +3,7 @@ package hr.fer.rasip.remes.launcher;
 import java.io.IOException;
 import java.util.UUID;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -24,18 +25,22 @@ import se.mdh.progresside.proComMetamodel.util.ProComComponentResourceFactory;
 import se.mdh.progresside.remes.RemesDiagram;
 
 public class RemesModelManager {
-	private IArchModel archModel;
+/*	private IArchModel archModel;
 	
 	public RemesModelManager(IArchModel model) {
 		this.archModel = model;
-	}
+	}*/
 	
-	public void createCompositeRemesModel(){
+	public static void createCompositeRemesModel(IFile remesFile, IArchModel archModel){
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource modelResource = resourceSet.getResource(ProComComponentResourceFactory.getEmfResource(archModel.getCorrespondingResource()).getURI(), true);
-		
-		Resource resultResource = resourceSet.createResource(modelResource.getURI().trimSegments(4).appendSegments(new String[]{"system Models", "res.remes"}));
-
+		Resource resultResource = null;
+		if(remesFile == null){
+			resultResource = resourceSet.createResource(modelResource.getURI().trimSegments(4).appendSegments(new String[]{"system Models", "res.remes"}));
+		}
+		else{
+			resultResource= resourceSet.createResource(URI.createPlatformResourceURI(remesFile.getFullPath().toString(), true));
+		}
 		for (Object element : modelResource.getContents()) {
 			if (element instanceof ComponentImpl) {
 				Component c = (Component) element;
@@ -68,7 +73,7 @@ public class RemesModelManager {
 		}
 	}
 	
-	public void mergeRemesModels(IBehaviourModel componentBehModel, Resource resultResource){
+	public static void mergeRemesModels(IBehaviourModel componentBehModel, Resource resultResource){
 			if(resultResource != null){
 
 				ResourceSet resourceSet = new ResourceSetImpl();
@@ -85,7 +90,7 @@ public class RemesModelManager {
 			}	
 	}
 	
-	private IComponent getComponentResource(Component c) {
+	private static IComponent getComponentResource(Component c) {
 		// Find the enclosing project for that component
 		IProComModelManager mgr = ComponentsPlugin.getDefault().getProComModelManager();
 		for(IProject project: mgr.getAllProjects(true)) {

@@ -1,0 +1,591 @@
+library r2u;
+
+-------------------
+------HELPERS-------
+-------------------
+
+----------------------
+------INIT EDGE -------
+----------------------
+
+helper context REMES!SubMode def: isUrgent() : Boolean = self.isUrgent;
+
+helper context REMES!InitEdge def: compMode() : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.initPoint.initEdge=self)
+	->first();
+
+helper context REMES!InitEdge def: connectsToSubMode() : Boolean = 
+	self.compMode().subModes->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!InitEdge def: connectsToConditional() : Boolean = 
+	self.compMode().conditionalConnectors->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!Edge def: destination() : String = self.connectTo.__xmiID__;
+
+helper context REMES!InitEdge def: destCondConn() : REMES!ConditionalConnector =
+	self.compMode().subModes->iterate(e; res : REMES!ConditionalConnector = '' |
+			if e.entryPoint = self.connectTo
+			then e
+			else res
+			endif);
+	
+	
+------------------------------------------
+-----CONDITIONAL CONNECTOR TO EDGES---------
+-------------------------------------------
+helper context REMES!ConditionalConnector def: toEdges() : Sequence(Sequence(REMES!Edge)) = 
+	self.entryPoint.entryEdges->iterate(e; res : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+		res.union(
+			self.exitPoint.exitEdges->iterate(ex; resx : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+				resx.append(Sequence{e, ex})
+			)
+		)	
+	);
+
+helper def: mergeActionGuard(e1 : REMES!Edge, e2:REMES!Edge) : String = 
+	if e1.actionGuard.oclIsUndefined()
+	then 
+		if e2.actionGuard.oclIsUndefined()
+		then ''
+		else e2.actionGuard.trim()
+		endif
+	else 
+		if e2.actionGuard.oclIsUndefined()
+		then e1.actionGuard.trim()
+		else 
+			if e1.actionGuard.trim() = '' or e2.actionGuard.trim() = ''
+			then e1.actionGuard.concat(e2.actionGuard)
+			else e1.actionGuard.concat(' and ').concat(e2.actionGuard)
+			endif
+		endif
+	endif;
+
+helper def: mergeActionBody(e1:REMES!Edge, e2:REMES!Edge) : String=
+	if e1.actionBody.oclIsUndefined()
+	then 
+		if e2.actionBody.oclIsUndefined()
+		then ''
+		else e2.actionBodyToAssigment()
+		endif
+	else 
+		if e2.actionBody.oclIsUndefined()
+		then e1.actionBodyToAssigment()
+		else 
+			if e1.actionBody.trim() = '' or e2.actionBody.trim() = ''
+			then e1.actionBodyToAssigment().concat(e2.actionBodyToAssigment())
+			else e1.actionBodyToAssigment().concat(', ').concat(e2.actionBodyToAssigment())
+			endif
+		endif
+	endif;
+
+helper context REMES!Edge def: connectsToConditional(): Boolean = 
+	REMES!ConditionalConnector.allInstances()->select(i | i.entryPoint = self.connectTo)->notEmpty();
+
+helper context REMES!CompositeMode def: allInternalEdges() : Sequence(REMES!Edge) = 
+	self.subModes->collect(e | e.exitPoint.exitEdges->select(i | not i.connectsToConditional()));
+
+helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
+	self.compositeEntryPoint.exitEdges->select(e | not e.connectsToConditional());
+
+--helper context REMES!Edge def: compositeMode() : REMES!CompositeMode =
+--	REMES!CompositeMode.allInstances()->select(i | i.allInternalEdges()->includes(self))->first();
+
+---------------------------
+--SUB MODE LOCATION TYPE---
+----------------------------
+
+-- TEMPLATE TYPE
+helper context REMES!SubMode def: isTopLevelMode() : Boolean =
+	if self.parent.oclIsUndefined()
+	then true
+	else false
+	endif;
+
+--CONDITIONAL
+
+helper context REMES!SubMode def: connectedFromConditional() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = false|
+	if REMES!ConditionalConnector.allInstances()->collect(i | i.exitPoint)->includes(e.connectFrom)	
+	then true
+	else res
+	endif);
+
+---CLOCKS
+
+helper context REMES!SubMode def: noClocksOnTransitions() : Boolean = 
+	self.noClocksOnEntry() and self.noClocksOnExit();
+
+
+helper context REMES!SubMode def: noClocksOnEntry() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+
+helper context REMES!SubMode def: noClocksOnExit() : Boolean = 
+	self.exitPoint.exitEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+	
+helper context REMES!Edge def: hasClocks() : Boolean = 
+	if self.parsedActionGuard.oclIsUndefined()
+	then false
+	else self.parsedActionGuard.expression.containsClock()
+	endif;
+	
+helper context REMES!Expression def: containsClock() : Boolean = 
+	if self.oclIsTypeOf(REMES!BinaryExpression) 
+	then self.param1.containsClock() or self.param2.containsClock()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.param1.containsClock()
+		else
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.param1.containsClock() or self.param2.containsClock() or self.param3.containsClock()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then 
+					if self.resolved.type.toString() = 'clock'
+					then true
+					else false
+					endif
+				else false
+				endif
+			endif
+		endif
+	endif;
+
+
+--(NON) URGENT
+
+helper context REMES!SubMode def : connectedWithNonUrgentMode() : Boolean = 
+	if self.connectedToNonUrgentMode() or self.connectedFromNonUrgentMode()
+	then true
+	else false
+	endif;
+
+helper context REMES!SubMode def : connectedToNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false|
+	if self.exitPoint.exitEdges->select(j | j.connectedTo(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+helper context REMES!SubMode def : connectedFromNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false| 
+	if self.entryPoint.entryEdges->select(j | j.connectedFrom(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+--------------------------------------
+--- EDGE SOURCE ADN DESTINATION-------
+---------------------------------------
+
+
+helper context REMES!Edge def: connectedFrom(sm : REMES!SubMode) : Boolean =
+	if self.connectFrom = sm.exitPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectedTo(sm : REMES!SubMode) : Boolean =
+	if self.connectTo = sm.entryPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectsTo() : String = 
+	if REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->notEmpty()
+	then REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->first().__xmiID__
+	else self.connectTo.__xmiID__
+	endif;
+
+helper context REMES!InitEdge def: connectsTo() : String = 
+	if REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->notEmpty()
+	then REMES!SubMode.allInstances()->select(e | e.entryPoint = self.connectTo)->first().__xmiID__
+	else self.connectTo.__xmiID__
+	endif;
+
+helper def: initEdgeConnectsTo(edge : REMES!InitEdge) : String =
+	if edge.oclIsUndefined()
+	then ''
+	else 
+		if REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->notEmpty()
+		then REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->first().__xmiID__
+		else edge.connectTo.__xmiID__
+		endif
+	endif;
+
+--helper context REMES!Edge def: connectsFrom() : String = 
+--	if REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->notEmpty()
+--	then REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->first().__xmiID__
+--	else self.connectFrom.__xmiID__
+--	endif;
+
+helper context REMES!Edge def: connectsFrom() : String = 
+	if self.connectFrom.container.oclIsUndefined()
+	then self.connectFrom.__xmiID__
+	else self.connectFrom.container.__xmiID__
+	endif;
+
+-----------------------------
+--- SUBMODES - GUARDS--------
+-----------------------------
+
+helper context REMES!SubMode def: toInvariant() : String =
+	if self.parsedInvariant.oclIsUndefined()
+	then self.toCost()
+	else 
+		if self.toCost() = ''
+		then self.invariant
+		else self.invariant+'&&'+self.toCost()
+		endif
+	endif;
+	
+	
+helper context REMES!SubMode def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then ''
+	else self.cost()->iterate(e; res: String = 'cost\'== ' | res + e)
+	endif;
+
+helper context	REMES!SubMode def: cost() : Sequence(String) =
+	self.resources->iterate(e; res : Sequence(String) =Sequence{} |
+		if not e.parsedExpression.oclIsUndefined()
+		then res.append('w_'+ e.parsedExpression.expression.param1.name+'*'+e.parsedExpression.expression.param2.value)
+		else res
+		endif);
+----------------------------------------------
+--- EDGEs - PARSE ACTION BODY AND GUARD--------
+-------------------------------------------
+
+helper context REMES!Edge def: actionBodyToAssigment() : String = 
+	if self.parsedActionBody.oclIsUndefined()
+--	then self.parsedActionBody
+	then ''
+	else self.parsedActionBody.toAssigment()
+	endif;
+	
+--helper context REMES!InitEdge def: initializationToAssigment() : String = 
+--	if self.parsedInitialization.oclIsUndefined()
+--	then self.parsedInitialization
+--	else self.parsedInitialization.toAssigment()
+--	endif;	
+	
+helper def: initializationToAssigment(e : REMES!InitEdge) : String = 
+	if e.oclIsUndefined()
+	then ''
+	else
+		if e.parsedInitialization.oclIsUndefined()
+		then e.parsedInitialization
+		else e.parsedInitialization.toAssigment()
+		endif
+	endif;	
+	
+	
+helper context REMES!ActionRoot def: toAssigment() : String =	
+	if self.toCost().trim() = ''
+	then self.assigmentWithoutCost()
+	else 
+		if self.assigmentWithoutCost().trim() = ''
+		then self.toCost() 
+		else self.toCost() + ', ' + self.assigmentWithoutCost()
+		endif
+	endif;
+
+helper context REMES!ActionRoot def: assigmentWithoutCost() : String =
+	self.expressions->iterate(e; res : String ='' |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then res
+		else
+			if res = ''
+			then e.expressionToString()
+			else res+', '+e.expressionToString()
+			endif
+		endif);
+	
+	
+
+helper context REMES!Expression def: expressionToString() : String =
+	if self.oclIsTypeOf(REMES!BinaryExpression)
+	then self.binaryExpToString()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.unaryExpToString()
+		else 
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.ternaryExpToString()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then self.name
+				else 
+					if self.oclIsTypeOf(REMES!Constant)
+					then self.value
+					else ''
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+helper context REMES!Expression def: ternaryExpToString() : String =
+	'(' + self.param1.expressionToString() + '?' + self.param2.expressionToString() + ':' + self.param3.expressionToString()+')';
+
+helper context REMES!Expression def: binaryExpToString() : String = 
+	if self.type.toString() = 'ADD'
+	then self.param1.expressionToString() + ' + ' + self.param2.expressionToString()
+	else 
+		if self.type.toString() = 'SUB'
+		then self.param1.expressionToString() + ' - ' + self.param2.expressionToString()
+		else
+			if self.type.toString() = 'MUL'
+			then self.param1.expressionToString() + ' * ' + self.param2.expressionToString()
+			else 
+				if self.type.toString() = 'DIV'
+				then self.param1.expressionToString() + ' / ' + self.param2.expressionToString()
+				else 
+					if self.type.toString() = 'MOD'
+					then self.param1.expressionToString() + ' % ' + self.param2.expressionToString()
+					else
+						if self.type.toString() = 'LT'
+						then self.param1.expressionToString() + ' < ' + self.param2.expressionToString()
+						else
+							if self.type.toString() = 'LE'
+							then self.param1.expressionToString() + ' <= ' + self.param2.expressionToString()
+							else
+								if self.type.toString() = 'EQ'
+								then self.param1.expressionToString() + ' == ' + self.param2.expressionToString()
+								else
+									if self.type.toString() = 'GE'
+									then self.param1.expressionToString() + ' >= ' + self.param2.expressionToString()
+									else
+										if self.type.toString() = 'GT'
+										then self.param1.expressionToString() + ' > ' + self.param2.expressionToString()
+										else
+											if self.type.toString() = 'NE'
+											then self.param1.expressionToString() + ' != ' + self.param2.expressionToString()
+											else
+												if self.type.toString() = 'AND'
+												then self.param1.expressionToString() + ' and ' + self.param2.expressionToString()
+												else
+													if self.type.toString() = 'OR'
+													then self.param1.expressionToString() + ' or ' + self.param2.expressionToString()
+													else
+														if self.type.toString() = 'ASSIGN'
+														then self.param1.expressionToString() + ' := ' + self.param2.expressionToString()
+														else
+															if self.type.toString() = 'ASSIGN_ADD'
+															then self.param1.expressionToString() + ' += ' + self.param2.expressionToString()
+															else 
+																if self.type.toString() = 'ASSIGN_SUB'
+																then self.param1.expressionToString() + ' -= ' + self.param2.expressionToString()
+																else 
+																	if self.type.toString() = 'ASSIGN_MUL'
+																	then self.param1.expressionToString() + ' *= ' + self.param2.expressionToString()
+																	else
+																		if self.type.toString() = 'ASSIGN_DIV'
+																		then self.param1.expressionToString() + ' /= ' + self.param2.expressionToString()
+																		else 
+																			if self.type.toString() = 'ASSIGN_MOD'
+																			then self.param1.expressionToString() + ' %= ' + self.param2.expressionToString()
+																			else 
+																				if self.type.toString() = 'DIFF'
+																				then self.param1.expressionToString() + ' \'== ' + self.param2.expressionToString()
+																				else ''
+																				endif
+																			endif
+																		endif
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif;
+			
+
+helper context REMES!Expression def: unaryExpToString() : String = 
+	if self.type.toString() = 'PLUS'
+	then self.param1.name + '++ '
+	else 
+		if self.type.toString() = 'MINUS'
+		then self.param1.name + '--'
+		else 
+			if self.type.toString() = 'NOT'
+			then 'not ' + self.param1.name
+			else ''
+			endif
+		endif
+	endif;
+	
+helper context REMES!ActionRoot def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then ''
+	else self.cost()->iterate(e; res: String = 'cost = ' | res + e)
+	endif;
+
+helper context	REMES!ActionRoot def: cost() : Sequence(String) =
+	self.expressions->iterate(e; res : Sequence(String) =Sequence{} |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then
+			if e.type.toString() = 'ASSIGN_ADD'
+			then 
+				if res->isEmpty()
+				then res.append('w_'+ e.param1.resolved.name+'*'+e.param2.value)
+				else res.append('+w_'+ e.param1.resolved.name+'*'+e.param2.value)
+				endif
+			else res.append('-w_'+ e.param1.resolved.name+'*'+e.param2.value)
+			endif
+		else res
+		endif);
+
+
+--------------------------------------
+--- COMPOSITE MODE DECLARATION--------
+---------------------------------------
+
+helper context REMES!Mode def : toDeclaration() : String = 
+	self.variablesToDeclaration()+self.constantsToDeclaration();
+
+
+helper context REMES!Mode def : variablesToDeclaration() : String = 
+	self.variables->iterate(e; res : String = ''| 
+		if e.value.oclIsUndefined()
+		then res + e.uppaalType() + ' ' + e.name + '; '
+		else 
+			if e.value.trim() =''
+			then res + e.uppaalType() + ' ' + e.name + '; '
+			else res + e.uppaalType() + ' ' + e.name + ' = ' + e.value + '; '
+			endif
+		endif
+	);
+
+helper context REMES!Mode def : constantsToDeclaration() : String = 
+	self.constants->iterate(e; res : String = ''| 
+		 res + 'const '+ e.uppaalType() + ' ' + e.name + ' = ' + e.value + '; '
+	);
+
+helper context REMES!Referable def: uppaalType() : String = 
+	if self.type.oclIsUndefined()
+	then ''
+	else 
+		if self.type.toString() = 'integer'
+		then 'int'
+		else 
+			if self.type.toString() = 'boolean'
+			then 'bool'
+			else self.type.toString()
+			endif
+		endif
+	endif;
+
+----------------------------
+--- TRIGGERS TO SYNC -------
+----------------------------
+
+helper context REMES!Mode def: hasProSaveInputTrigger() : Boolean =
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : Boolean = false |
+		if self.name = e.destSubcomponent.implComponent.name
+		then true
+		else res
+		endif
+	);
+
+helper context REMES!Mode def: hasProSaveOutputTrigger() : Boolean =
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort) or i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : Boolean = false |
+		if self.name = e.sourceSubcomponent.implComponent.name 
+		then true
+		else res
+		endif
+	);
+
+helper context REMES!Edge def: hasInputSync() : Boolean = 
+	if self.formCompositeEntryPoint() and not self.toCompositeExitPoint()
+	then self.connectTo.container.parent.hasProSaveInputTrigger()
+	else false
+	endif;
+
+helper context REMES!Mode def: hasInputSync() : Boolean = 
+	self.hasProSaveInputTrigger();
+
+helper context REMES!Mode def: hasOutputSync() : Boolean = 
+	self.hasProSaveOutputTrigger();
+		
+
+helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
+	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
+
+helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
+	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
+
+--helper context REMES!Mode def: inputSync() : String = 
+--	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+--	->iterate(e; res : String = '' |
+--		if self.name = e.implComponent.name
+--		then e.implComponent.service->first().inputPortGroup.trigger.name.concat('?')
+--		else res
+--		endif
+--	);
+
+helper context REMES!Mode def: inputSync() : String = 
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : String = '' |
+		if  self.name = e.destSubcomponent.implComponent.name
+		then 'Syn_'.concat(e.__xmiID__).concat('?').regexReplaceAll('-', '_')
+		else res
+		endif
+	);
+
+helper context REMES!Mode def: outputSync() : String = 
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))
+	->iterate(e; res : String = '' |
+		if  self.name = e.sourceSubcomponent.implComponent.name
+		then 'Syn_'.concat(e.__xmiID__).concat('!').regexReplaceAll('-', '_')
+		else res
+		endif
+	);
+
+
+
+----------------------------
+--- NTA DECLARATION -------
+----------------------------
+
+helper def: ntaDeclaration() : String = 
+	PROCOM!Component.allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!TriggerPort))	
+	->iterate(e; res : String = 'chan t; ' | res + 'chan Syn_'+e.__xmiID__.regexReplaceAll('-', '_')+'; ');
+
+
+

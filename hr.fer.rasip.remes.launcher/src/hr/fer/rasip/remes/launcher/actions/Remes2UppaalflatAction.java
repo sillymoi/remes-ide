@@ -1,91 +1,52 @@
 package hr.fer.rasip.remes.launcher.actions;
 
-import hr.fer.rasip.remes.launcher.Remes2PtaConverter;
-import hr.fer.rasip.remes.launcher.RemesModelManager;
+import hr.fer.rasip.remes.launcher.ui.NewUppaalflatFileFromRemesCreationWizard;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Collections;
+
+//import java.io.IOException;
+//import java.util.Collections;
 import java.util.Iterator;
 
-import org.eclipse.core.resources.IFile;
+//import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+//import org.eclipse.emf.common.util.EList;
+//import org.eclipse.emf.ecore.EObject;
+//import org.eclipse.emf.ecore.resource.Resource;
+//import org.eclipse.emf.ecore.resource.ResourceSet;
+//import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.m2m.atl.core.ATLCoreException;
-import org.eclipse.m2m.atl.core.IExtractor;
-import org.eclipse.m2m.atl.core.IInjector;
-import org.eclipse.m2m.atl.core.IModel;
-import org.eclipse.m2m.atl.core.IReferenceModel;
-import org.eclipse.m2m.atl.core.ModelFactory;
-import org.eclipse.m2m.atl.core.launch.ILauncher;
-import org.eclipse.m2m.atl.core.service.CoreService;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-import org.osgi.framework.Bundle;
 
-import se.mdh.progresside.proComMetamodel.proSave.Component;
-import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
-import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
+//import se.mdh.progresside.proComMetamodel.proSave.Component;
+//import se.mdh.progresside.proComMetamodel.proSave.CompositeComponent;
+//import se.mdh.progresside.proComMetamodel.proSave.SubcomponentInstance;
 
-import se.mdh.progresside.behaviours.core.IBehaviourModel;
-import se.mdh.progresside.behaviours.internal.core.BehaviourModel;
 import se.mdh.progresside.components.core.IArchModel;
 import se.mdh.progresside.components.core.IComponent;
 import se.mdh.progresside.components.internal.core.ArchModel;
 
 
-public class Remes2PtaAction implements IObjectActionDelegate {
-/*
-	private static IInjector injector;
-	private static IExtractor extractor;
-
-	private static IReferenceModel remesMetamodel;
-	private static IReferenceModel uppaalMetamodel;
-
-	private static URL asmURL;
-*/	
+public class Remes2UppaalflatAction implements IObjectActionDelegate {
+	
 	public static final String BUNDLE_NAME = "hr.fer.rasip.remes.launcher"; //$NON-NLS-1$
 
 	private ISelection currentSelection;
+	private IWorkbenchPart targetPart;
 	
-/*
-	static {
-		// ATL remes2pta transformation
-		Bundle bundle = Platform.getBundle(BUNDLE_NAME); //$NON-NLS-1$
-		asmURL = bundle.getEntry("resources/remes2pta.asm"); //$NON-NLS-1$
-		try {
-			injector = CoreService.getInjector("EMF"); //$NON-NLS-1$
-			extractor = CoreService.getExtractor("EMF"); //$NON-NLS-1$			
-		} catch (ATLCoreException e) {
-			e.printStackTrace();
-		}
-	}
-*/	
-	public Remes2PtaAction() {
+	public Remes2UppaalflatAction() {
 		super();
 	}
 	
 	@Override
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		
+		this.targetPart = targetPart;
 	}
 
 	/**
@@ -103,11 +64,8 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 				Object element = iterator.next();
 				if (element instanceof IComponent) {
 					IArchModel archModel = ArchModel.getForComponent((IComponent) element);
-					RemesModelManager remesManager = new RemesModelManager(archModel);
-					Remes2PtaConverter converter = new Remes2PtaConverter(archModel);
-					remesManager.createCompositeRemesModel();
-					converter.doConvertArchitecture();
-
+					Wizard wizard = new NewUppaalflatFileFromRemesCreationWizard(archModel);
+					runWizard(wizard);
 					try {
 						archModel.getProject().refreshLocal(IProject.DEPTH_INFINITE, null);
 					} catch (CoreException e) {
@@ -116,15 +74,24 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 				}
 				else{
 				}
-				//IFile xmlFile = uppaalflat2xml(file);
-	//			runUppaalCora(xmlFile, "C:\\uppaal-cora-060910");
 			}
 		}
 	}
 	
-	private void testLoadComponents(IFile file) {
+	private void runWizard(Wizard wizard){
+		WizardDialog dialog = new WizardDialog(getShell(), wizard);
+		dialog.create();
+		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
+				500);
+		dialog.open();
+	}
+
+	private Shell getShell() {
+		return targetPart.getSite().getShell();
+	}
+	
+/*	private void testLoadComponents(IFile file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
-		//Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
 		try {
 			Resource resource = resourceSet.createResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()));
 			resource.load(Collections.EMPTY_MAP);
@@ -140,7 +107,6 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 					System.out.println(otherResource.getContents());
 					Component comp= (Component)otherResource.getContents().get(0);
 				}
-				//System.out.println(comp.getName());
 			}
 		}
 		catch(IOException ioe) {
@@ -148,21 +114,21 @@ public class Remes2PtaAction implements IObjectActionDelegate {
 		}
 	}
 
-	private void echoSubCompNames(IFile file) {
+	private void echoSubCompNames(IFile file){
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(file.getFullPath().toString()), true);
-		CompositeComponent component = (CompositeComponent) resource.getContents().get(0).eContents().get(1);
-		EList<SubcomponentInstance> subComponents = component.getSubcomponentInst();
-		for (SubcomponentInstance subComponent : subComponents) {
-			EObject eObject = (EObject) subComponent.eCrossReferences().get(0);
+		CompositeComponent component = (CompositeComponent)resource.getContents().get(0).eContents().get(1);
+		EList<SubcomponentInstance>  subComponents = component.getSubcomponentInst();
+		for(SubcomponentInstance subComponent: subComponents){
+			EObject eObject = (EObject)subComponent.eCrossReferences().get(0);
 			System.out.println(eObject);
 			Resource otherResource = eObject.eResource();
 			System.out.println(subComponent.getImplComponent().getName());
-			if (otherResource != null) {
+			if(otherResource != null){
 				System.out.println(otherResource.getContents());
-				Component comp = (Component) otherResource.getContents().get(0);
+				Component comp= (Component)otherResource.getContents().get(0);
 			}
-			// System.out.println(comp.getName());
+			//System.out.println(comp.getName());
 		}
 	}
 	/*

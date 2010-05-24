@@ -7,10 +7,10 @@
 	            nameFilter="*.prosave"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal">
 	            <action
-	               class="hr.fer.rasip.remes.launcher.actions.Remes2PtaAction"
+	               class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalflatAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction"
-	               label="Transform to PTA - echo">
+	               label="Transform to Uppaalflat">
 	         </action>
 	      </objectContribution>  
    </extension>
@@ -19,11 +19,24 @@
 	            objectClass="se.mdh.progresside.components.core.IComponent"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal2">
 	            <action
-	               class="hr.fer.rasip.remes.launcher.actions.Remes2PtaAction"
+	               class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalflatAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction2"
-	               label="Transform to PTA - echo">
+	               label="Transform to Uppaalflat">
 	         </action>
 	      </objectContribution>  
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="hr.fer.rasip.remes.launcher.remes2uppaallite"
+            objectClass="se.mdh.progresside.components.core.IComponent">
+         <action
+               class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalLiteAction"
+               enablesFor="*"
+               id="hr.fer.rasip.remes.launcher.remes2uliteAction"
+               label="Transform to Uppaallite">
+         </action>
+      </objectContribution>
    </extension>
 </plugin>

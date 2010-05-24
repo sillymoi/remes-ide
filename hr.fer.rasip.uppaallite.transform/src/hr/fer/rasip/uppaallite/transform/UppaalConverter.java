@@ -3,7 +3,6 @@ package hr.fer.rasip.uppaallite.transform;
 import hr.fer.rasip.uppaal.UppaalPackage;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 
-import java.net.URI;
 import java.net.URL;
 import java.util.Collections;
 
@@ -12,11 +11,8 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
 import org.eclipse.m2m.atl.core.IModel;

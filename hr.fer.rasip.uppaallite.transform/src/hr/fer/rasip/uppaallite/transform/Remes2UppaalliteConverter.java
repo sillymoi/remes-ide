@@ -4,11 +4,9 @@ package hr.fer.rasip.uppaallite.transform;
 import hr.fer.rasip.uppaallite.UppaallitePackage;
 import se.mdh.progresside.remes.RemesPackage;
 
-import java.net.URI;
 import java.net.URL;
 import java.util.Collections;
 
-import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -16,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IExtractor;
 import org.eclipse.m2m.atl.core.IModel;
@@ -27,7 +24,7 @@ import org.eclipse.m2m.atl.core.launch.ILauncher;
 import org.eclipse.m2m.atl.core.service.CoreService;
 import org.osgi.framework.Bundle;
 
-public class Remes2UpaalliteConverter{
+public class Remes2UppaalliteConverter{
 	private static EMFInjector injector;
 	private static IExtractor extractor;
 	

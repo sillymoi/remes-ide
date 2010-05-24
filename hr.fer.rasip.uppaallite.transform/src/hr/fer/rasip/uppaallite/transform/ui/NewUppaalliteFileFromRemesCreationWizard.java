@@ -1,7 +1,7 @@
 package hr.fer.rasip.uppaallite.transform.ui;
 
 
-import hr.fer.rasip.uppaallite.transform.Remes2UpaalliteConverter;
+import hr.fer.rasip.uppaallite.transform.Remes2UppaalliteConverter;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -69,7 +69,7 @@ public class NewUppaalliteFileFromRemesCreationWizard extends Wizard{
 		IFile targetFile = myFileCreationPage.createNewFile();
 		
 		try {
-			Remes2UpaalliteConverter.transformRemes2Uppaallite(mySourceFile, targetFile);
+			Remes2UppaalliteConverter.transformRemes2Uppaallite(mySourceFile, targetFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

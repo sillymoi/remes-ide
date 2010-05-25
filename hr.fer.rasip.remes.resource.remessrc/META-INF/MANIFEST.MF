@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.ui.views,
  se.mdh.progresside.remes
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: hr.fer.rasip.remes.resource.remessrc,
   hr.fer.rasip.remes.resource.remessrc.mopp,
   hr.fer.rasip.remes.resource.remessrc.ui,

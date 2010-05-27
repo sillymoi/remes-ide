@@ -6,37 +6,60 @@
 	            objectClass="org.eclipse.core.resources.IFile"
 	            nameFilter="*.prosave"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal">
+	     		<menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+               		<separator name="generatorTools"/> 
+         		</menu>
 	            <action
 	               class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalflatAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction"
-	               label="Transform to Uppaalflat">
+	               label="Transform to Uppaalflat"
+	               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
 	         </action>
-	      </objectContribution>  
-   </extension>
-   <extension point="org.eclipse.ui.popupMenus">
+       </objectContribution>
 	   <objectContribution
 	            objectClass="se.mdh.progresside.components.core.IComponent"
 	            id="hr.fer.rasip.remes.launcher.remes2uppaal2">
+	            <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+               		<separator name="generatorTools"/> 
+         		</menu>
 	            <action
 	               class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalflatAction"
 	               enablesFor="*"
 	               id="hr.fer.rasip.remes.launcher.remes2uppaalAction2"
-	               label="Transform to Uppaalflat">
-	         </action>
-	      </objectContribution>  
-   </extension>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
+	               label="Transform to Uppaalflat"
+	               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
+	         	</action>
+	   </objectContribution>
+	   <objectContribution
             id="hr.fer.rasip.remes.launcher.remes2uppaallite"
             objectClass="se.mdh.progresside.components.core.IComponent">
-         <action
+            <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+               		<separator name="generatorTools"/> 
+         		</menu>
+         	<action
                class="hr.fer.rasip.remes.launcher.actions.Remes2UppaalLiteAction"
                enablesFor="*"
                id="hr.fer.rasip.remes.launcher.remes2uliteAction"
-               label="Transform to Uppaallite">
-         </action>
-      </objectContribution>
+               label="Transform to Uppaallite"
+               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
+         	</action>
+       </objectContribution>
+	   <objectContribution
+	            objectClass="org.eclipse.core.resources.IFile"
+	            nameFilter="*.remes"
+	            id="hr.fer.rasip.remes.launcher.remes2java">
+	            <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+               		<separator name="generatorTools"/> 
+         		</menu>
+	            <action
+	               class="hr.fer.rasip.remes.launcher.actions.Remes2JavaAction"
+	               enablesFor="*"
+               	   enabled="false"
+	               id="hr.fer.rasip.remes.launcher.Remes2JavaAction"
+	               label="Generate simulator classes (launcher)"
+	               menubarPath="hr.fer.rasip.remes.tools/generatorTools">
+	         </action>
+	   </objectContribution>  
    </extension>
 </plugin>

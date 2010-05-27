@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit;bundle-version="2.5.0",
  hr.fer.rasip.uppaallite;bundle-version="1.0.0",
  hr.fer.rasip.uppaal;bundle-version="1.0.0",
- org.eclipse.ui.ide;bundle-version="3.5.1"
+ org.eclipse.ui.ide;bundle-version="3.5.1",
+ hr.fer.rasip.remes.simulator.remes2java;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: hr.fer.rasip.remes.launcher
-
+Bundle-Activator: hr.fer.rasip.remes.launcher.Activator

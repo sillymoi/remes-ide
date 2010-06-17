@@ -93,6 +93,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompar
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 
 /**
@@ -196,6 +198,7 @@ public class RemesViewProvider extends AbstractProvider implements
 				case CompositeEntryPointEditPart.VISUAL_ID:
 				case CompositeExitPointEditPart.VISUAL_ID:
 				case InitPointEditPart.VISUAL_ID:
+				case WritePointEditPart.VISUAL_ID:
 				case SubMode2EditPart.VISUAL_ID:
 				case Variable2EditPart.VISUAL_ID:
 				case Resource2EditPart.VISUAL_ID:
@@ -244,7 +247,8 @@ public class RemesViewProvider extends AbstractProvider implements
 				|| CompositeExitPointEditPart.VISUAL_ID == visualID
 				|| InitPointEditPart.VISUAL_ID == visualID
 				|| Resource3EditPart.VISUAL_ID == visualID
-				|| Constant3EditPart.VISUAL_ID == visualID;
+				|| Constant3EditPart.VISUAL_ID == visualID
+				|| WritePointEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -373,6 +377,9 @@ public class RemesViewProvider extends AbstractProvider implements
 		case Constant3EditPart.VISUAL_ID:
 			return createConstant_3043(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case WritePointEditPart.VISUAL_ID:
+			return createWritePoint_3044(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -392,6 +399,9 @@ public class RemesViewProvider extends AbstractProvider implements
 					containerView, index, persisted, preferencesHint);
 		case InitEdgeEditPart.VISUAL_ID:
 			return createInitEdge_4029(getSemanticElement(semanticAdapter),
+					containerView, index, persisted, preferencesHint);
+		case WriteEdgeEditPart.VISUAL_ID:
+			return createWriteEdge_4030(getSemanticElement(semanticAdapter),
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -1224,6 +1234,48 @@ public class RemesViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	public Node createWritePoint_3044(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(RemesVisualIDRegistry
+				.getType(WritePointEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Edge createEdge_4028(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1330,6 +1382,57 @@ public class RemesViewProvider extends AbstractProvider implements
 		Location location6029 = (Location) label6029.getLayoutConstraint();
 		location6029.setX(0);
 		location6029.setY(40);
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createWriteEdge_4030(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList points = new ArrayList(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge
+				.setType(RemesVisualIDRegistry
+						.getType(WriteEdgeEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+					.getRoutingStyle_Routing(), routing);
+		}
 		return edge;
 	}
 

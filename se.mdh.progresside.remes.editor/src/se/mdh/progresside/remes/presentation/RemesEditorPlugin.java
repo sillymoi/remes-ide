@@ -6,6 +6,7 @@
  */
 package se.mdh.progresside.remes.presentation;
 
+import hr.fer.rasip.remes.grammars.expressions.ast.provider.ExpressionsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -44,6 +45,7 @@ public final class RemesEditorPlugin extends EMFPlugin {
 	public RemesEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				ExpressionsEditPlugin.INSTANCE,
 			});
 	}
 

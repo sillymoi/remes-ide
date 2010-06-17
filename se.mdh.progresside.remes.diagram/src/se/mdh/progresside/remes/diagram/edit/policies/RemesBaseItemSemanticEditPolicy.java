@@ -37,6 +37,7 @@ import se.mdh.progresside.remes.EntryPoint;
 import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.RemesPackage;
+import se.mdh.progresside.remes.WritePoint;
 import se.mdh.progresside.remes.diagram.edit.helpers.RemesBaseEditHelper;
 import se.mdh.progresside.remes.diagram.expressions.RemesAbstractExpression;
 import se.mdh.progresside.remes.diagram.expressions.RemesOCLFactory;
@@ -326,6 +327,11 @@ public class RemesBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
+		private static RemesAbstractExpression WriteEdge_4030_TargetExpression;
+
+		/**
+		 * @generated
+		 */
 		public static boolean canCreateEdge_4028(ExitPoint container,
 				ExitPoint source, EntryPoint target) {
 			return canExistEdge_4028(container, source, target);
@@ -342,6 +348,14 @@ public class RemesBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				}
 			}
 			return canExistInitEdge_4029(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateWriteEdge_4030(WritePoint container,
+				ExitPoint source, WritePoint target) {
+			return canExistWriteEdge_4030(container, source, target);
 		}
 
 		/**
@@ -391,6 +405,37 @@ public class RemesBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 									"(self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container) or\r\n(self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container)", RemesPackage.eINSTANCE.getEntryPoint(), env); //$NON-NLS-1$
 				}
 				Object targetVal = InitEdge_4029_TargetExpression.evaluate(
+						target, Collections.singletonMap(OPPOSITE_END_VAR,
+								source));
+				if (false == targetVal instanceof Boolean
+						|| !((Boolean) targetVal).booleanValue()) {
+					return false;
+				} // else fall-through
+				return true;
+			} catch (Exception e) {
+				RemesDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistWriteEdge_4030(WritePoint container,
+				ExitPoint source, WritePoint target) {
+			try {
+				if (target == null) {
+					return true;
+				}
+				if (WriteEdge_4030_TargetExpression == null) {
+					Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+							RemesPackage.eINSTANCE.getExitPoint());
+					WriteEdge_4030_TargetExpression = RemesOCLFactory
+							.getExpression(
+									"(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent = self.container) or\r\n(oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and oppositeEnd.container.oclAsType(ConditionalConnector).parent = self.container)", RemesPackage.eINSTANCE.getWritePoint(), env); //$NON-NLS-1$
+				}
+				Object targetVal = WriteEdge_4030_TargetExpression.evaluate(
 						target, Collections.singletonMap(OPPOSITE_END_VAR,
 								source));
 				if (false == targetVal instanceof Boolean

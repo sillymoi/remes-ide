@@ -141,6 +141,9 @@
   <childNodeTraces
       visualID="3043"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Constant') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Mode') and _containmentMF_.name = 'constants')"/>
+  <childNodeTraces
+      visualID="3044"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'WritePoint') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'CompositeMode') and _containmentMF_.name = 'writePoint')"/>
   <linkTraces
       visualID="4028"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'Edge')">
@@ -155,4 +158,7 @@
         visualID="6029"
         queryText="true"/>
   </linkTraces>
+  <linkTraces
+      visualID="4030"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore' and _eClass_.name = 'WriteEdge')"/>
 </trace:TraceModel>

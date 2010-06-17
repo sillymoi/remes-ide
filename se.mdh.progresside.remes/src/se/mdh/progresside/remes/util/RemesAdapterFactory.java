@@ -159,6 +159,14 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 				return createConstantAdapter();
 			}
 			@Override
+			public Adapter caseWriteEdge(WriteEdge object) {
+				return createWriteEdgeAdapter();
+			}
+			@Override
+			public Adapter caseWritePoint(WritePoint object) {
+				return createWritePointAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -427,6 +435,34 @@ public class RemesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.WriteEdge <em>Write Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see se.mdh.progresside.remes.WriteEdge
+	 * @generated
+	 */
+	public Adapter createWriteEdgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link se.mdh.progresside.remes.WritePoint <em>Write Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see se.mdh.progresside.remes.WritePoint
+	 * @generated
+	 */
+	public Adapter createWritePointAdapter() {
 		return null;
 	}
 

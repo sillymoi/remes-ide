@@ -605,6 +605,16 @@
               href="remes.gmfgraph#ConstantLabel"/>
         </ownedChild>
       </children>
+      <children>
+        <containmentFeature
+            href="remes.ecore#//CompositeMode/writePoint"/>
+        <ownedChild>
+          <domainMetaElement
+              href="remes.ecore#//WritePoint"/>
+          <diagramNode
+              href="remes.gmfgraph#WritePoint"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.1/@ownedChild/@children.9">
         <compartment
@@ -681,6 +691,27 @@
     <creationConstraints>
       <targetEnd
           body="(self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container) or&#xD;&#xA;(self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container)"/>
+    </creationConstraints>
+  </links>
+  <links>
+    <domainMetaElement
+        href="remes.ecore#//WriteEdge"/>
+    <containmentFeature
+        href="remes.ecore#//WritePoint/writeEdges"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="remes.gmftool#//@palette/@tools.4/@tools.2"/>
+    <diagramLink
+        href="remes.gmfgraph#WriteEdge"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="remes.ecore#//WriteEdge/connectFrom"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="remes.ecore#//WriteEdge/connectTo"/>
+    <creationConstraints>
+      <targetEnd
+          body="(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent = self.container) or&#xD;&#xA;(oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and oppositeEnd.container.oclAsType(ConditionalConnector).parent = self.container)"/>
     </creationConstraints>
   </links>
   <diagram>

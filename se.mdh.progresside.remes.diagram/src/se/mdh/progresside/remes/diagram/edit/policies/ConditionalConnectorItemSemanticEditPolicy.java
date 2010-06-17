@@ -19,6 +19,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
@@ -108,6 +109,14 @@ public class ConditionalConnectorItemSemanticEditPolicy extends
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == EdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == WriteEdgeEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));

@@ -75,6 +75,8 @@ public class RemesFactoryImpl extends EFactoryImpl implements RemesFactory {
 			case RemesPackage.VARIABLE: return createVariable();
 			case RemesPackage.RESOURCE: return createResource();
 			case RemesPackage.CONSTANT: return createConstant();
+			case RemesPackage.WRITE_EDGE: return createWriteEdge();
+			case RemesPackage.WRITE_POINT: return createWritePoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -252,6 +254,26 @@ public class RemesFactoryImpl extends EFactoryImpl implements RemesFactory {
 	public Constant createConstant() {
 		ConstantImpl constant = new ConstantImpl();
 		return constant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WriteEdge createWriteEdge() {
+		WriteEdgeImpl writeEdge = new WriteEdgeImpl();
+		return writeEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WritePoint createWritePoint() {
+		WritePointImpl writePoint = new WritePointImpl();
+		return writePoint;
 	}
 
 	/**

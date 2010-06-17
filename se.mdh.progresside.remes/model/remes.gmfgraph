@@ -191,6 +191,17 @@
       <layout
           xsi:type="gmfgraph:StackLayout"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="WritePoint"
+        lineWidth="2">
+      <foregroundColor
+          xsi:type="gmfgraph:ConstantColor"
+          value="blue"/>
+      <backgroundColor
+          xsi:type="gmfgraph:ConstantColor"
+          value="blue"/>
+    </figures>
     <descriptors
         name="CompositeModeFigure">
       <actualFigure
@@ -475,6 +486,26 @@
           name="ConstantFigure"
           text="Constants"/>
     </descriptors>
+    <descriptors
+        name="WriteEdgeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="WriteEdgeFigure"
+          targetDecoration="//@figures.0/@figures.7"/>
+    </descriptors>
+    <descriptors
+        name="WritePointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Ellipse"
+          name="WritePointFigure">
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="blue"/>
+        <preferredSize
+            dx="10"
+            dy="10"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="CompositeMode"
@@ -505,12 +536,19 @@
       name="InitPoint"
       figure="InitPointFigure"
       affixedParentSide="WEST"/>
+  <nodes
+      name="WritePoint"
+      figure="WritePointFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="Edge"
       figure="EdgeFigure"/>
   <connections
       name="InitEdge"
       figure="InitEdgeFigure"/>
+  <connections
+      name="WriteEdge"
+      figure="WriteEdgeFigure"/>
   <compartments
       name="CompositeModeCompartment"
       figure="CompositeModeFigure"

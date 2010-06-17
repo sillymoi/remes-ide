@@ -1009,6 +1009,43 @@
             href="remes.genmodel#//remes/Constant/value"/>
       </labelModelFacet>
     </childNodes>
+    <childNodes
+        xsi:type="gmfgen:GenChildSideAffixedNode"
+        visualID="3044"
+        editPartClassName="WritePointEditPart"
+        itemSemanticEditPolicyClassName="WritePointItemSemanticEditPolicy"
+        notationViewFactoryClassName="WritePointViewFactory"
+        canonicalEditPolicyClassName="WritePointCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="WritePointGraphicalNodeEditPolicy"
+        createCommandClassName="WritePointCreateCommand"
+        containers="//@diagram/@topLevelNodes.1"
+        preferredSideName="EAST">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="WritePointEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="WritePointFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WritePointFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WritePointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(1);&#xA;&#x9;this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.blue);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedBackground="true"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="10"
+            height="10"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="remes.genmodel#//remes/WritePoint"/>
+        <containmentMetaFeature
+            href="remes.genmodel#//remes/CompositeMode/writePoint"/>
+        <childMetaFeature
+            href="remes.genmodel#//remes/CompositeMode/writePoint"/>
+      </modelFacet>
+    </childNodes>
     <topLevelNodes
         visualID="2007"
         editPartClassName="SubModeEditPart"
@@ -1132,7 +1169,7 @@
         itemSemanticEditPolicyClassName="CompositeModeItemSemanticEditPolicy"
         notationViewFactoryClassName="CompositeModeViewFactory"
         canonicalEditPolicyClassName="CompositeModeCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19"
+        childNodes="//@diagram/@childNodes.15 //@diagram/@childNodes.16 //@diagram/@childNodes.17 //@diagram/@childNodes.18 //@diagram/@childNodes.19 //@diagram/@childNodes.22"
         compartments="//@diagram/@compartments.3 //@diagram/@compartments.4 //@diagram/@compartments.5 //@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="CompositeModeGraphicalNodeEditPolicy"
         createCommandClassName="CompositeModeCreateCommand">
@@ -1308,6 +1345,38 @@
       </labels>
       <creationConstraints
           targetEnd="//@expressionProviders/@providers.0/@expressions.3"/>
+    </links>
+    <links
+        visualID="4030"
+        editPartClassName="WriteEdgeEditPart"
+        itemSemanticEditPolicyClassName="WriteEdgeItemSemanticEditPolicy"
+        notationViewFactoryClassName="WriteEdgeViewFactory"
+        createCommandClassName="WriteEdgeCreateCommand"
+        reorientCommandClassName="WriteEdgeReorientCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="WriteEdgeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="WriteEdgeFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WriteEdgeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WriteEdgeFigure() {&#xA;&#x9;&#x9;this.setLineWidth(1);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(2);&#xA;&#x9;df.setForegroundColor(org.eclipse.draw2d.ColorConstants.blue);&#xA;&#x9;df.setBackgroundColor(org.eclipse.draw2d.ColorConstants.blue);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="remes.genmodel#//remes/WriteEdge"/>
+        <containmentMetaFeature
+            href="remes.genmodel#//remes/WritePoint/writeEdges"/>
+        <childMetaFeature
+            href="remes.genmodel#//remes/WritePoint/writeEdges"/>
+        <sourceMetaFeature
+            href="remes.genmodel#//remes/WriteEdge/connectFrom"/>
+        <targetMetaFeature
+            href="remes.genmodel#//remes/WriteEdge/connectTo"/>
+      </modelFacet>
+      <creationConstraints
+          targetEnd="//@expressionProviders/@providers.0/@expressions.4"/>
     </links>
     <compartments
         visualID="7019"
@@ -1543,6 +1612,12 @@
             description="Create new Init Edge"
             smallIconPath="/se.mdh.progresside.remes.diagram/icons/initEdge.gif"
             genLinks="//@diagram/@links.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Write Edge"
+            description="Create new Write Edge"
+            smallIconPath="/se.mdh.progresside.remes.diagram/icons/writeEdge.png"
+            genLinks="//@diagram/@links.2"/>
       </groups>
     </palette>
     <preferencePages
@@ -1616,6 +1691,9 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="(self.container.oclIsTypeOf(SubMode) and self.container.oclAsType(SubMode).parent = oppositeEnd.container) or&#xD;&#xA;(self.container.oclIsTypeOf(ConditionalConnector) and self.container.oclAsType(ConditionalConnector).parent = oppositeEnd.container)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="(oppositeEnd.container.oclIsTypeOf(SubMode) and oppositeEnd.container.oclAsType(SubMode).parent = self.container) or&#xD;&#xA;(oppositeEnd.container.oclIsTypeOf(ConditionalConnector) and oppositeEnd.container.oclAsType(ConditionalConnector).parent = self.container)"/>
     </providers>
   </expressionProviders>
   <labelParsers

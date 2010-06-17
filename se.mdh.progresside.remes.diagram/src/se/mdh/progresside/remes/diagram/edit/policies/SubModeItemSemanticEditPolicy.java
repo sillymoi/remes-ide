@@ -26,6 +26,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeConstantsCompar
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeResourcesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompartmentEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
@@ -115,6 +116,14 @@ public class SubModeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == EdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == WriteEdgeEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));

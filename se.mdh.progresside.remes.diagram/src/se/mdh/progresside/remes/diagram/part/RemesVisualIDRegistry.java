@@ -62,6 +62,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompar
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.expressions.RemesAbstractExpression;
 import se.mdh.progresside.remes.diagram.expressions.RemesOCLFactory;
 
@@ -213,6 +215,10 @@ public class RemesVisualIDRegistry {
 			if (RemesPackage.eINSTANCE.getInitPoint().isSuperTypeOf(
 					domainElement.eClass())) {
 				return InitPointEditPart.VISUAL_ID;
+			}
+			if (RemesPackage.eINSTANCE.getWritePoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return WritePointEditPart.VISUAL_ID;
 			}
 			break;
 		case SubMode2EditPart.VISUAL_ID:
@@ -395,6 +401,9 @@ public class RemesVisualIDRegistry {
 			if (InitPointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (WritePointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case SubMode2EditPart.VISUAL_ID:
 			if (SubModeName2EditPart.VISUAL_ID == nodeVisualID) {
@@ -523,6 +532,10 @@ public class RemesVisualIDRegistry {
 		if (RemesPackage.eINSTANCE.getInitEdge().isSuperTypeOf(
 				domainElement.eClass())) {
 			return InitEdgeEditPart.VISUAL_ID;
+		}
+		if (RemesPackage.eINSTANCE.getWriteEdge().isSuperTypeOf(
+				domainElement.eClass())) {
+			return WriteEdgeEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

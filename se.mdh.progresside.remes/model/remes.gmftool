@@ -73,6 +73,15 @@
             path="icons/initEdge.gif"
             bundle="se.mdh.progresside.remes.diagram"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Write Edge"
+          description="Create new Write Edge">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/writeEdge.png"
+            bundle="se.mdh.progresside.remes.diagram"/>
+      </tools>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

@@ -210,6 +210,7 @@ public class ExitPoint2EditPart extends AbstractBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		types.add(RemesElementTypes.Edge_4028);
+		types.add(RemesElementTypes.WriteEdge_4030);
 		return types;
 	}
 
@@ -234,6 +235,9 @@ public class ExitPoint2EditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof CompositeExitPointEditPart) {
 			types.add(RemesElementTypes.Edge_4028);
 		}
+		if (targetEditPart instanceof WritePointEditPart) {
+			types.add(RemesElementTypes.WriteEdge_4030);
+		}
 		return types;
 	}
 
@@ -257,6 +261,9 @@ public class ExitPoint2EditPart extends AbstractBorderItemEditPart {
 		}
 		if (relationshipType == RemesElementTypes.Edge_4028) {
 			types.add(RemesElementTypes.CompositeExitPoint_3038);
+		}
+		if (relationshipType == RemesElementTypes.WriteEdge_4030) {
+			types.add(RemesElementTypes.WritePoint_3044);
 		}
 		return types;
 	}

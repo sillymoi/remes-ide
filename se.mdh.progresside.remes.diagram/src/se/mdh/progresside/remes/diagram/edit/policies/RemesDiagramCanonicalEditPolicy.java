@@ -44,6 +44,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramUpdater;
 import se.mdh.progresside.remes.diagram.part.RemesLinkDescriptor;
 import se.mdh.progresside.remes.diagram.part.RemesNodeDescriptor;
@@ -401,6 +403,17 @@ public class RemesDiagramCanonicalEditPolicy extends
 			}
 			break;
 		}
+		case WritePointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RemesDiagramUpdater
+						.getWritePoint_3044ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
 		case EdgeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
@@ -416,6 +429,17 @@ public class RemesDiagramCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(RemesDiagramUpdater
 						.getInitEdge_4029ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case WriteEdgeEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(RemesDiagramUpdater
+						.getWriteEdge_4030ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

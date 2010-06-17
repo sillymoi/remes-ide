@@ -131,6 +131,7 @@ public class CompositeModeItemProvider
 			childrenFeatures.add(RemesPackage.Literals.COMPOSITE_MODE__INIT_POINT);
 			childrenFeatures.add(RemesPackage.Literals.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT);
 			childrenFeatures.add(RemesPackage.Literals.COMPOSITE_MODE__COMPOSITE_EXIT_POINT);
+			childrenFeatures.add(RemesPackage.Literals.COMPOSITE_MODE__WRITE_POINT);
 		}
 		return childrenFeatures;
 	}
@@ -190,6 +191,7 @@ public class CompositeModeItemProvider
 			case RemesPackage.COMPOSITE_MODE__INIT_POINT:
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_ENTRY_POINT:
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

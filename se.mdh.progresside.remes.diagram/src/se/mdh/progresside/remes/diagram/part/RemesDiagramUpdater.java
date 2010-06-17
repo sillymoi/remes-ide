@@ -28,6 +28,8 @@ import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.SubMode;
 import se.mdh.progresside.remes.Variable;
+import se.mdh.progresside.remes.WriteEdge;
+import se.mdh.progresside.remes.WritePoint;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
@@ -64,6 +66,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeSubModeVariablesCompar
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
 /**
@@ -184,6 +188,14 @@ public class RemesDiagramUpdater {
 			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == InitPointEditPart.VISUAL_ID) {
+				result.add(new RemesNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			WritePoint childElement = modelElement.getWritePoint();
+			int visualID = RemesVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WritePointEditPart.VISUAL_ID) {
 				result.add(new RemesNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -581,10 +593,14 @@ public class RemesDiagramUpdater {
 			return getResource_3040ContainedLinks(view);
 		case Constant3EditPart.VISUAL_ID:
 			return getConstant_3043ContainedLinks(view);
+		case WritePointEditPart.VISUAL_ID:
+			return getWritePoint_3044ContainedLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028ContainedLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
 			return getInitEdge_4029ContainedLinks(view);
+		case WriteEdgeEditPart.VISUAL_ID:
+			return getWriteEdge_4030ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -642,10 +658,14 @@ public class RemesDiagramUpdater {
 			return getResource_3040IncomingLinks(view);
 		case Constant3EditPart.VISUAL_ID:
 			return getConstant_3043IncomingLinks(view);
+		case WritePointEditPart.VISUAL_ID:
+			return getWritePoint_3044IncomingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028IncomingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
 			return getInitEdge_4029IncomingLinks(view);
+		case WriteEdgeEditPart.VISUAL_ID:
+			return getWriteEdge_4030IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -703,10 +723,14 @@ public class RemesDiagramUpdater {
 			return getResource_3040OutgoingLinks(view);
 		case Constant3EditPart.VISUAL_ID:
 			return getConstant_3043OutgoingLinks(view);
+		case WritePointEditPart.VISUAL_ID:
+			return getWritePoint_3044OutgoingLinks(view);
 		case EdgeEditPart.VISUAL_ID:
 			return getEdge_4028OutgoingLinks(view);
 		case InitEdgeEditPart.VISUAL_ID:
 			return getInitEdge_4029OutgoingLinks(view);
+		case WriteEdgeEditPart.VISUAL_ID:
+			return getWriteEdge_4030OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -909,6 +933,17 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getWritePoint_3044ContainedLinks(View view) {
+		WritePoint modelElement = (WritePoint) view.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_WriteEdge_4030(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -917,6 +952,13 @@ public class RemesDiagramUpdater {
 	 * @generated
 	 */
 	public static List getInitEdge_4029ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getWriteEdge_4030ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1132,6 +1174,19 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getWritePoint_3044IncomingLinks(View view) {
+		WritePoint modelElement = (WritePoint) view.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result.addAll(getIncomingTypeModelFacetLinks_WriteEdge_4030(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1140,6 +1195,13 @@ public class RemesDiagramUpdater {
 	 * @generated
 	 */
 	public static List getInitEdge_4029IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getWriteEdge_4030IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1185,6 +1247,8 @@ public class RemesDiagramUpdater {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_WriteEdge_4030(modelElement));
 		return result;
 	}
 
@@ -1230,6 +1294,8 @@ public class RemesDiagramUpdater {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_WriteEdge_4030(modelElement));
 		return result;
 	}
 
@@ -1261,6 +1327,8 @@ public class RemesDiagramUpdater {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_WriteEdge_4030(modelElement));
 		return result;
 	}
 
@@ -1285,6 +1353,8 @@ public class RemesDiagramUpdater {
 		ExitPoint modelElement = (ExitPoint) view.getElement();
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_WriteEdge_4030(modelElement));
 		return result;
 	}
 
@@ -1296,6 +1366,8 @@ public class RemesDiagramUpdater {
 				.getElement();
 		List result = new LinkedList();
 		result.addAll(getOutgoingTypeModelFacetLinks_Edge_4028(modelElement));
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_WriteEdge_4030(modelElement));
 		return result;
 	}
 
@@ -1334,6 +1406,13 @@ public class RemesDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getWritePoint_3044OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getEdge_4028OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1342,6 +1421,13 @@ public class RemesDiagramUpdater {
 	 * @generated
 	 */
 	public static List getInitEdge_4029OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getWriteEdge_4030OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1385,6 +1471,32 @@ public class RemesDiagramUpdater {
 		InitPoint src = link.getConnectFrom();
 		result.add(new RemesLinkDescriptor(src, dst, link,
 				RemesElementTypes.InitEdge_4029, InitEdgeEditPart.VISUAL_ID));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getContainedTypeModelFacetLinks_WriteEdge_4030(
+			WritePoint container) {
+		Collection result = new LinkedList();
+		for (Iterator links = container.getWriteEdges().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof WriteEdge) {
+				continue;
+			}
+			WriteEdge link = (WriteEdge) linkObject;
+			if (WriteEdgeEditPart.VISUAL_ID != RemesVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			WritePoint dst = link.getConnectTo();
+			ExitPoint src = link.getConnectFrom();
+			result.add(new RemesLinkDescriptor(src, dst, link,
+					RemesElementTypes.WriteEdge_4030,
+					WriteEdgeEditPart.VISUAL_ID));
+		}
 		return result;
 	}
 
@@ -1440,6 +1552,34 @@ public class RemesDiagramUpdater {
 					.add(new RemesLinkDescriptor(src, target, link,
 							RemesElementTypes.InitEdge_4029,
 							InitEdgeEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getIncomingTypeModelFacetLinks_WriteEdge_4030(
+			WritePoint target, Map crossReferences) {
+		Collection result = new LinkedList();
+		Collection settings = (Collection) crossReferences.get(target);
+		for (Iterator it = settings.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
+			if (setting.getEStructuralFeature() != RemesPackage.eINSTANCE
+					.getWriteEdge_ConnectTo()
+					|| false == setting.getEObject() instanceof WriteEdge) {
+				continue;
+			}
+			WriteEdge link = (WriteEdge) setting.getEObject();
+			if (WriteEdgeEditPart.VISUAL_ID != RemesVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			ExitPoint src = link.getConnectFrom();
+			result.add(new RemesLinkDescriptor(src, target, link,
+					RemesElementTypes.WriteEdge_4030,
+					WriteEdgeEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1516,6 +1656,48 @@ public class RemesDiagramUpdater {
 		}
 		result.add(new RemesLinkDescriptor(src, dst, link,
 				RemesElementTypes.InitEdge_4029, InitEdgeEditPart.VISUAL_ID));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getOutgoingTypeModelFacetLinks_WriteEdge_4030(
+			ExitPoint source) {
+		WritePoint container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof WritePoint) {
+				container = (WritePoint) element;
+			}
+		}
+		if (container == null) {
+			return Collections.EMPTY_LIST;
+		}
+		Collection result = new LinkedList();
+		for (Iterator links = container.getWriteEdges().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof WriteEdge) {
+				continue;
+			}
+			WriteEdge link = (WriteEdge) linkObject;
+			if (WriteEdgeEditPart.VISUAL_ID != RemesVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			WritePoint dst = link.getConnectTo();
+			ExitPoint src = link.getConnectFrom();
+			if (src != source) {
+				continue;
+			}
+			result.add(new RemesLinkDescriptor(src, dst, link,
+					RemesElementTypes.WriteEdge_4030,
+					WriteEdgeEditPart.VISUAL_ID));
+		}
 		return result;
 	}
 

@@ -20,6 +20,7 @@ import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.RemesDiagram;
 import se.mdh.progresside.remes.RemesFactory;
+import se.mdh.progresside.remes.WritePoint;
 
 /**
  * @generated
@@ -63,6 +64,9 @@ public class CompositeModeCreateCommand extends EditElementCommand {
 
 		InitPoint init = RemesFactory.eINSTANCE.createInitPoint();
 		mode.setInitPoint(init);
+
+		WritePoint write = RemesFactory.eINSTANCE.createWritePoint();
+		mode.setWritePoint(write);
 
 		EntryPoint entry = RemesFactory.eINSTANCE.createEntryPoint();
 		mode.setEntryPoint(entry);

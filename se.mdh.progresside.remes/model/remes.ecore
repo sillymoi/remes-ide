@@ -45,6 +45,8 @@
         eType="#//CompositeEntryPoint" containment="true" eOpposite="#//CompositeEntryPoint/composite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compositeExitPoint" lowerBound="1"
         eType="#//CompositeExitPoint" containment="true" eOpposite="#//CompositeExitPoint/composite"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writePoint" lowerBound="1"
+        eType="#//WritePoint" containment="true" eOpposite="#//WritePoint/container"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubMode" eSuperTypes="#//Mode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -161,5 +163,17 @@
     <eLiterals name="bandwidth" value="2"/>
     <eLiterals name="power" value="3"/>
     <eLiterals name="port" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WriteEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectTo" lowerBound="1"
+        eType="#//WritePoint" eOpposite="#//WritePoint/writeEdges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectFrom" lowerBound="1"
+        eType="#//ExitPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WritePoint" eSuperTypes="#//Point">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+        eType="#//CompositeMode" eOpposite="#//CompositeMode/writePoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writeEdges" upperBound="-1"
+        eType="#//WriteEdge" containment="true" eOpposite="#//WriteEdge/connectTo"/>
   </eClassifiers>
 </ecore:EPackage>

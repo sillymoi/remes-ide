@@ -137,6 +137,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 			case Constant3EditPart.VISUAL_ID:
 				return new Constant3EditPart(view);
 
+			case WritePointEditPart.VISUAL_ID:
+				return new WritePointEditPart(view);
+
 			case SubModeSubModeConstantsCompartmentEditPart.VISUAL_ID:
 				return new SubModeSubModeConstantsCompartmentEditPart(view);
 
@@ -181,6 +184,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 
 			case InitEdgeInitializationEditPart.VISUAL_ID:
 				return new InitEdgeInitializationEditPart(view);
+
+			case WriteEdgeEditPart.VISUAL_ID:
+				return new WriteEdgeEditPart(view);
 
 			}
 		}

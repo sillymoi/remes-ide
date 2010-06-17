@@ -39,6 +39,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.RemesDiagramEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.Messages;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramEditorPlugin;
 
@@ -63,12 +64,13 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof CompositeModeEditPart) {
-			ArrayList types = new ArrayList(8);
+			ArrayList types = new ArrayList(9);
 			types.add(RemesElementTypes.EntryPoint_3035);
 			types.add(RemesElementTypes.ExitPoint_3036);
 			types.add(RemesElementTypes.CompositeEntryPoint_3037);
 			types.add(RemesElementTypes.CompositeExitPoint_3038);
 			types.add(RemesElementTypes.InitPoint_3039);
+			types.add(RemesElementTypes.WritePoint_3044);
 			types.add(RemesElementTypes.Constant_3043);
 			types.add(RemesElementTypes.Variable_3034);
 			types.add(RemesElementTypes.Resource_3040);
@@ -161,6 +163,10 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((CompositeExitPointEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof WritePointEditPart) {
+			return ((WritePointEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -225,6 +231,10 @@ public class RemesModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof CompositeExitPointEditPart) {
 			return ((CompositeExitPointEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof WritePointEditPart) {
+			return ((WritePointEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

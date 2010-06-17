@@ -9,11 +9,13 @@ import se.mdh.progresside.remes.ExitPoint;
 import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.RemesFactory;
 import se.mdh.progresside.remes.SubMode;
+import se.mdh.progresside.remes.WritePoint;
 
 /**
  * Creates default, initialized Remes elements.
  * 
  * @author Marin Orlic <marin.orlic@fer.hr>
+ * @author Dinko Ivanov <dinko.ivanov@gmail.com>
  */
 public class RemesDefaultElementFactory {
 	public RemesDefaultElementFactory() {
@@ -43,7 +45,12 @@ public class RemesDefaultElementFactory {
 			InitPoint init = RemesFactory.eINSTANCE.createInitPoint();
 			mode.setInitPoint(init);
 		}
-		
+
+		if(mode.getWritePoint() == null) {
+			WritePoint write = RemesFactory.eINSTANCE.createWritePoint();
+			mode.setWritePoint(write);
+		}
+
 		if(mode.getEntryPoint() == null) {
 			EntryPoint entry = RemesFactory.eINSTANCE.createEntryPoint();
 			mode.setEntryPoint(entry);

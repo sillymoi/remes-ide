@@ -43,6 +43,8 @@ import se.mdh.progresside.remes.Resource;
 import se.mdh.progresside.remes.ResourceTypes;
 import se.mdh.progresside.remes.SubMode;
 import se.mdh.progresside.remes.Variable;
+import se.mdh.progresside.remes.WriteEdge;
+import se.mdh.progresside.remes.WritePoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,6 +184,20 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass writeEdgeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass writePointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum primitiveTypesEEnum = null;
 
 	/**
@@ -237,19 +253,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		AstPackageImpl theAstPackage = (AstPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) instanceof AstPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AstPackage.eNS_URI) : AstPackage.eINSTANCE);
-		TypePackageImpl theTypePackage = (TypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) instanceof TypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypePackage.eNS_URI) : TypePackage.eINSTANCE);
+		// Initialize simple dependencies
+		AstPackage.eINSTANCE.eClass();
+		TypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theRemesPackage.createPackageContents();
-		theAstPackage.createPackageContents();
-		theTypePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theRemesPackage.initializePackageContents();
-		theAstPackage.initializePackageContents();
-		theTypePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theRemesPackage.freeze();
@@ -312,6 +324,15 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 */
 	public EReference getCompositeMode_CompositeExitPoint() {
 		return (EReference)compositeModeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompositeMode_WritePoint() {
+		return (EReference)compositeModeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -895,6 +916,60 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getWriteEdge() {
+		return writeEdgeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWriteEdge_ConnectTo() {
+		return (EReference)writeEdgeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWriteEdge_ConnectFrom() {
+		return (EReference)writeEdgeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWritePoint() {
+		return writePointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWritePoint_Container() {
+		return (EReference)writePointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWritePoint_WriteEdges() {
+		return (EReference)writePointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPrimitiveTypes() {
 		return primitiveTypesEEnum;
 	}
@@ -956,6 +1031,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEReference(compositeModeEClass, COMPOSITE_MODE__INIT_POINT);
 		createEReference(compositeModeEClass, COMPOSITE_MODE__COMPOSITE_ENTRY_POINT);
 		createEReference(compositeModeEClass, COMPOSITE_MODE__COMPOSITE_EXIT_POINT);
+		createEReference(compositeModeEClass, COMPOSITE_MODE__WRITE_POINT);
 
 		subModeEClass = createEClass(SUB_MODE);
 		createEAttribute(subModeEClass, SUB_MODE__INVARIANT);
@@ -1024,6 +1100,14 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		createEAttribute(constantEClass, CONSTANT__GLOBAL);
 		createEReference(constantEClass, CONSTANT__SCOPE);
 
+		writeEdgeEClass = createEClass(WRITE_EDGE);
+		createEReference(writeEdgeEClass, WRITE_EDGE__CONNECT_TO);
+		createEReference(writeEdgeEClass, WRITE_EDGE__CONNECT_FROM);
+
+		writePointEClass = createEClass(WRITE_POINT);
+		createEReference(writePointEClass, WRITE_POINT__CONTAINER);
+		createEReference(writePointEClass, WRITE_POINT__WRITE_EDGES);
+
 		// Create enums
 		primitiveTypesEEnum = createEEnum(PRIMITIVE_TYPES);
 		resourceTypesEEnum = createEEnum(RESOURCE_TYPES);
@@ -1072,6 +1156,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		variableEClass.getESuperTypes().add(this.getReferable());
 		resourceEClass.getESuperTypes().add(this.getReferable());
 		constantEClass.getESuperTypes().add(this.getReferable());
+		writePointEClass.getESuperTypes().add(this.getPoint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(remesDiagramEClass, RemesDiagram.class, "RemesDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1103,6 +1188,7 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEReference(getCompositeMode_InitPoint(), this.getInitPoint(), this.getInitPoint_Container(), "initPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompositeMode_CompositeEntryPoint(), this.getCompositeEntryPoint(), this.getCompositeEntryPoint_Composite(), "compositeEntryPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompositeMode_CompositeExitPoint(), this.getCompositeExitPoint(), this.getCompositeExitPoint_Composite(), "compositeExitPoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeMode_WritePoint(), this.getWritePoint(), this.getWritePoint_Container(), "writePoint", null, 1, 1, CompositeMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subModeEClass, SubMode.class, "SubMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSubMode_Invariant(), ecorePackage.getEString(), "invariant", null, 0, 1, SubMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1170,6 +1256,14 @@ public class RemesPackageImpl extends EPackageImpl implements RemesPackage {
 		initEAttribute(getConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConstant_Global(), ecorePackage.getEBoolean(), "global", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConstant_Scope(), this.getMode(), this.getMode_Constants(), "scope", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(writeEdgeEClass, WriteEdge.class, "WriteEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWriteEdge_ConnectTo(), this.getWritePoint(), this.getWritePoint_WriteEdges(), "connectTo", null, 1, 1, WriteEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWriteEdge_ConnectFrom(), this.getExitPoint(), null, "connectFrom", null, 1, 1, WriteEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(writePointEClass, WritePoint.class, "WritePoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWritePoint_Container(), this.getCompositeMode(), this.getCompositeMode_WritePoint(), "container", null, 1, 1, WritePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWritePoint_WriteEdges(), this.getWriteEdge(), this.getWriteEdge_ConnectTo(), "writeEdges", null, 0, -1, WritePoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(primitiveTypesEEnum, PrimitiveTypes.class, "PrimitiveTypes");

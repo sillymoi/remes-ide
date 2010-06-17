@@ -28,6 +28,7 @@ import se.mdh.progresside.remes.ConditionalConnector;
 import se.mdh.progresside.remes.InitPoint;
 import se.mdh.progresside.remes.RemesPackage;
 import se.mdh.progresside.remes.SubMode;
+import se.mdh.progresside.remes.WritePoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +42,7 @@ import se.mdh.progresside.remes.SubMode;
  *   <li>{@link se.mdh.progresside.remes.impl.CompositeModeImpl#getInitPoint <em>Init Point</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.CompositeModeImpl#getCompositeEntryPoint <em>Composite Entry Point</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.impl.CompositeModeImpl#getCompositeExitPoint <em>Composite Exit Point</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.impl.CompositeModeImpl#getWritePoint <em>Write Point</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +98,16 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 	 * @ordered
 	 */
 	protected CompositeExitPoint compositeExitPoint;
+
+	/**
+	 * The cached value of the '{@link #getWritePoint() <em>Write Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWritePoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected WritePoint writePoint;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,6 +286,49 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public WritePoint getWritePoint() {
+		return writePoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWritePoint(WritePoint newWritePoint, NotificationChain msgs) {
+		WritePoint oldWritePoint = writePoint;
+		writePoint = newWritePoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RemesPackage.COMPOSITE_MODE__WRITE_POINT, oldWritePoint, newWritePoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWritePoint(WritePoint newWritePoint) {
+		if (newWritePoint != writePoint) {
+			NotificationChain msgs = null;
+			if (writePoint != null)
+				msgs = ((InternalEObject)writePoint).eInverseRemove(this, RemesPackage.WRITE_POINT__CONTAINER, WritePoint.class, msgs);
+			if (newWritePoint != null)
+				msgs = ((InternalEObject)newWritePoint).eInverseAdd(this, RemesPackage.WRITE_POINT__CONTAINER, WritePoint.class, msgs);
+			msgs = basicSetWritePoint(newWritePoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RemesPackage.COMPOSITE_MODE__WRITE_POINT, newWritePoint, newWritePoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -294,6 +349,10 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 				if (compositeExitPoint != null)
 					msgs = ((InternalEObject)compositeExitPoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT, null, msgs);
 				return basicSetCompositeExitPoint((CompositeExitPoint)otherEnd, msgs);
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				if (writePoint != null)
+					msgs = ((InternalEObject)writePoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RemesPackage.COMPOSITE_MODE__WRITE_POINT, null, msgs);
+				return basicSetWritePoint((WritePoint)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -316,6 +375,8 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 				return basicSetCompositeEntryPoint(null, msgs);
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
 				return basicSetCompositeExitPoint(null, msgs);
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				return basicSetWritePoint(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -338,6 +399,8 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 				return getCompositeEntryPoint();
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
 				return getCompositeExitPoint();
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				return getWritePoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,6 +431,9 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
 				setCompositeExitPoint((CompositeExitPoint)newValue);
 				return;
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				setWritePoint((WritePoint)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -395,6 +461,9 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
 				setCompositeExitPoint((CompositeExitPoint)null);
 				return;
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				setWritePoint((WritePoint)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -417,6 +486,8 @@ public class CompositeModeImpl extends ModeImpl implements CompositeMode {
 				return compositeEntryPoint != null;
 			case RemesPackage.COMPOSITE_MODE__COMPOSITE_EXIT_POINT:
 				return compositeExitPoint != null;
+			case RemesPackage.COMPOSITE_MODE__WRITE_POINT:
+				return writePoint != null;
 		}
 		return super.eIsSet(featureID);
 	}

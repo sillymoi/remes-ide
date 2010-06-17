@@ -343,6 +343,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String WriteEdge3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String WriteEdge3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String SubModeSubModeConstantsCompartmentEditPart_title;
 
 	/**

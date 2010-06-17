@@ -44,6 +44,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.SubModeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.VariableEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramEditorPlugin;
 
 /**
@@ -199,12 +201,22 @@ public class RemesElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType WritePoint_3044 = getElementType("se.mdh.progresside.remes.diagram.WritePoint_3044"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Edge_4028 = getElementType("se.mdh.progresside.remes.diagram.Edge_4028"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static final IElementType InitEdge_4029 = getElementType("se.mdh.progresside.remes.diagram.InitEdge_4029"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WriteEdge_4030 = getElementType("se.mdh.progresside.remes.diagram.WriteEdge_4030"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -376,9 +388,14 @@ public class RemesElementTypes extends ElementInitializers {
 
 			elements.put(Constant_3043, RemesPackage.eINSTANCE.getConstant());
 
+			elements.put(WritePoint_3044, RemesPackage.eINSTANCE
+					.getWritePoint());
+
 			elements.put(Edge_4028, RemesPackage.eINSTANCE.getEdge());
 
 			elements.put(InitEdge_4029, RemesPackage.eINSTANCE.getInitEdge());
+
+			elements.put(WriteEdge_4030, RemesPackage.eINSTANCE.getWriteEdge());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -421,8 +438,10 @@ public class RemesElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(InitPoint_3039);
 			KNOWN_ELEMENT_TYPES.add(Resource_3040);
 			KNOWN_ELEMENT_TYPES.add(Constant_3043);
+			KNOWN_ELEMENT_TYPES.add(WritePoint_3044);
 			KNOWN_ELEMENT_TYPES.add(Edge_4028);
 			KNOWN_ELEMENT_TYPES.add(InitEdge_4029);
+			KNOWN_ELEMENT_TYPES.add(WriteEdge_4030);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -482,10 +501,14 @@ public class RemesElementTypes extends ElementInitializers {
 			return Resource_3040;
 		case Constant3EditPart.VISUAL_ID:
 			return Constant_3043;
+		case WritePointEditPart.VISUAL_ID:
+			return WritePoint_3044;
 		case EdgeEditPart.VISUAL_ID:
 			return Edge_4028;
 		case InitEdgeEditPart.VISUAL_ID:
 			return InitEdge_4029;
+		case WriteEdgeEditPart.VISUAL_ID:
+			return WriteEdge_4030;
 		}
 		return null;
 	}

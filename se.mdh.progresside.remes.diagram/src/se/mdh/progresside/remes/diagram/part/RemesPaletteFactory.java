@@ -67,6 +67,7 @@ public class RemesPaletteFactory {
 		paletteContainer.setId("createEdges3Group"); //$NON-NLS-1$
 		paletteContainer.add(createEdge1CreationTool());
 		paletteContainer.add(createInitEdge2CreationTool());
+		paletteContainer.add(createWriteEdge3CreationTool());
 		return paletteContainer;
 	}
 
@@ -206,6 +207,23 @@ public class RemesPaletteFactory {
 		entry
 				.setSmallIcon(RemesDiagramEditorPlugin
 						.findImageDescriptor("/se.mdh.progresside.remes.diagram/icons/initEdge.gif")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createWriteEdge3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(RemesElementTypes.WriteEdge_4030);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.WriteEdge3CreationTool_title,
+				Messages.WriteEdge3CreationTool_desc, types);
+		entry.setId("createWriteEdge3CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(RemesDiagramEditorPlugin
+						.findImageDescriptor("/se.mdh.progresside.remes.diagram/icons/writeEdge.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

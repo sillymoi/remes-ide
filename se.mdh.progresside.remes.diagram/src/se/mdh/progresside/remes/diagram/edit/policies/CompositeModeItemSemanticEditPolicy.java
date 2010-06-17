@@ -23,6 +23,7 @@ import se.mdh.progresside.remes.diagram.edit.commands.ExitPoint2CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.ExitPoint3CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.ExitPoint4CreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.InitPointCreateCommand;
+import se.mdh.progresside.remes.diagram.edit.commands.WritePointCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeEntryPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeExitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.CompositeModeCompositeModeCompartmentEditPart;
@@ -43,6 +44,8 @@ import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.SubMode2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Variable3EditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
@@ -77,6 +80,9 @@ public class CompositeModeItemSemanticEditPolicy extends
 		}
 		if (RemesElementTypes.InitPoint_3039 == req.getElementType()) {
 			return getGEFWrapper(new InitPointCreateCommand(req));
+		}
+		if (RemesElementTypes.WritePoint_3044 == req.getElementType()) {
+			return getGEFWrapper(new WritePointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -148,6 +154,14 @@ public class CompositeModeItemSemanticEditPolicy extends
 								outgoingLink));
 						continue;
 					}
+					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == WriteEdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
 				}
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
@@ -159,6 +173,14 @@ public class CompositeModeItemSemanticEditPolicy extends
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == EdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (RemesVisualIDRegistry.getVisualID(outgoingLink) == WriteEdgeEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));
@@ -208,6 +230,24 @@ public class CompositeModeItemSemanticEditPolicy extends
 						cmd.add(new DestroyElementCommand(r));
 						cmd.add(new DeleteCommand(getEditingDomain(),
 								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case WritePointEditPart.VISUAL_ID:
+				for (Iterator it = node.getTargetEdges().iterator(); it
+						.hasNext();) {
+					Edge incomingLink = (Edge) it.next();
+					if (RemesVisualIDRegistry.getVisualID(incomingLink) == WriteEdgeEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
 						continue;
 					}
 				}

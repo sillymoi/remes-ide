@@ -15,7 +15,10 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 import se.mdh.progresside.remes.diagram.edit.commands.EdgeCreateCommand;
 import se.mdh.progresside.remes.diagram.edit.commands.EdgeReorientCommand;
+import se.mdh.progresside.remes.diagram.edit.commands.WriteEdgeCreateCommand;
+import se.mdh.progresside.remes.diagram.edit.commands.WriteEdgeReorientCommand;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WriteEdgeEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
 import se.mdh.progresside.remes.diagram.providers.RemesElementTypes;
 
@@ -58,6 +61,10 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 			return getGEFWrapper(new EdgeCreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
+		if (RemesElementTypes.WriteEdge_4030 == req.getElementType()) {
+			return getGEFWrapper(new WriteEdgeCreateCommand(req, req
+					.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -67,6 +74,9 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
 		if (RemesElementTypes.Edge_4028 == req.getElementType()) {
+			return null;
+		}
+		if (RemesElementTypes.WriteEdge_4030 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -83,6 +93,8 @@ public class CompositeEntryPointItemSemanticEditPolicy extends
 		switch (getVisualID(req)) {
 		case EdgeEditPart.VISUAL_ID:
 			return getGEFWrapper(new EdgeReorientCommand(req));
+		case WriteEdgeEditPart.VISUAL_ID:
+			return getGEFWrapper(new WriteEdgeReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

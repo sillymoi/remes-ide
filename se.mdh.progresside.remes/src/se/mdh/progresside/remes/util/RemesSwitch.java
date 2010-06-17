@@ -228,6 +228,19 @@ public class RemesSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RemesPackage.WRITE_EDGE: {
+				WriteEdge writeEdge = (WriteEdge)theEObject;
+				T result = caseWriteEdge(writeEdge);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RemesPackage.WRITE_POINT: {
+				WritePoint writePoint = (WritePoint)theEObject;
+				T result = caseWritePoint(writePoint);
+				if (result == null) result = casePoint(writePoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -499,6 +512,36 @@ public class RemesSwitch<T> {
 	 * @generated
 	 */
 	public T caseConstant(Constant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Write Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Write Edge</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWriteEdge(WriteEdge object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Write Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Write Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWritePoint(WritePoint object) {
 		return null;
 	}
 

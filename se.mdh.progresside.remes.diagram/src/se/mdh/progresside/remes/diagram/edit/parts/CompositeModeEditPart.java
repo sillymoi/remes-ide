@@ -89,7 +89,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * Overriden to disable movement of the entry/exit/init points on the border
+	 * Overriden to disable movement of the entry/exit/init/write points on the border
 	 * @generated NOT
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -103,6 +103,7 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 				case CompositeEntryPointEditPart.VISUAL_ID:
 				case CompositeExitPointEditPart.VISUAL_ID:
 				case InitPointEditPart.VISUAL_ID:
+				case WritePointEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy() {
 						protected Command getMoveCommand(
 								org.eclipse.gef.requests.ChangeBoundsRequest request) {
@@ -206,6 +207,15 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 					((InitPointEditPart) childEditPart).getFigure(), locator);
 			return true;
 		}
+		if (childEditPart instanceof WritePointEditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(5, 5)); // custom
+			getBorderedFigure().getBorderItemContainer().add(
+					((WritePointEditPart) childEditPart).getFigure(), locator);
+			return true;
+		}
+
 		return false;
 	}
 
@@ -213,10 +223,10 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompositeModeInitializationEditPart) {
+		if (childEditPart instanceof CompositeModeNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CompositeModeNameEditPart) {
+		if (childEditPart instanceof CompositeModeInitializationEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EntryPoint4EditPart) {
@@ -242,6 +252,11 @@ public class CompositeModeEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof InitPointEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((InitPointEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof WritePointEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((WritePointEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;

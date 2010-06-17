@@ -37,5 +37,6 @@ Require-Bundle: org.eclipse.core.runtime,
  se.mdh.progresside.remes.edit;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
  hr.fer.rasip.remes.grammars.expressions.ast.edit;bundle-version="1.0.0",
- org.eclipse.ocl.ecore;visibility:=reexport
+ org.eclipse.ocl.ecore;visibility:=reexport,
+ hr.fer.rasip.remes.grammars.expressions.ast;visibility:=reexport
 Eclipse-LazyStart: true

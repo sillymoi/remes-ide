@@ -398,6 +398,52 @@ public class RemesItemProviderAdapterFactory extends RemesAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link se.mdh.progresside.remes.WriteEdge} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WriteEdgeItemProvider writeEdgeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link se.mdh.progresside.remes.WriteEdge}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWriteEdgeAdapter() {
+		if (writeEdgeItemProvider == null) {
+			writeEdgeItemProvider = new WriteEdgeItemProvider(this);
+		}
+
+		return writeEdgeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link se.mdh.progresside.remes.WritePoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WritePointItemProvider writePointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link se.mdh.progresside.remes.WritePoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWritePointAdapter() {
+		if (writePointItemProvider == null) {
+			writePointItemProvider = new WritePointItemProvider(this);
+		}
+
+		return writePointItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +556,8 @@ public class RemesItemProviderAdapterFactory extends RemesAdapterFactory impleme
 		if (variableItemProvider != null) variableItemProvider.dispose();
 		if (resourceItemProvider != null) resourceItemProvider.dispose();
 		if (constantItemProvider != null) constantItemProvider.dispose();
+		if (writeEdgeItemProvider != null) writeEdgeItemProvider.dispose();
+		if (writePointItemProvider != null) writePointItemProvider.dispose();
 	}
 
 }

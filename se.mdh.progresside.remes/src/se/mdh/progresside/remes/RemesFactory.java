@@ -152,6 +152,24 @@ public interface RemesFactory extends EFactory {
 	Constant createConstant();
 
 	/**
+	 * Returns a new object of class '<em>Write Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Write Edge</em>'.
+	 * @generated
+	 */
+	WriteEdge createWriteEdge();
+
+	/**
+	 * Returns a new object of class '<em>Write Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Write Point</em>'.
+	 * @generated
+	 */
+	WritePoint createWritePoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

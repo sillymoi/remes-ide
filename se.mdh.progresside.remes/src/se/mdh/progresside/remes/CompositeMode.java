@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link se.mdh.progresside.remes.CompositeMode#getInitPoint <em>Init Point</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.CompositeMode#getCompositeEntryPoint <em>Composite Entry Point</em>}</li>
  *   <li>{@link se.mdh.progresside.remes.CompositeMode#getCompositeExitPoint <em>Composite Exit Point</em>}</li>
+ *   <li>{@link se.mdh.progresside.remes.CompositeMode#getWritePoint <em>Write Point</em>}</li>
  * </ul>
  * </p>
  *
@@ -148,5 +149,33 @@ public interface CompositeMode extends Mode {
 	 * @generated
 	 */
 	void setCompositeExitPoint(CompositeExitPoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Write Point</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link se.mdh.progresside.remes.WritePoint#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Write Point</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Write Point</em>' containment reference.
+	 * @see #setWritePoint(WritePoint)
+	 * @see se.mdh.progresside.remes.RemesPackage#getCompositeMode_WritePoint()
+	 * @see se.mdh.progresside.remes.WritePoint#getContainer
+	 * @model opposite="container" containment="true" required="true"
+	 * @generated
+	 */
+	WritePoint getWritePoint();
+
+	/**
+	 * Sets the value of the '{@link se.mdh.progresside.remes.CompositeMode#getWritePoint <em>Write Point</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Write Point</em>' containment reference.
+	 * @see #getWritePoint()
+	 * @generated
+	 */
+	void setWritePoint(WritePoint value);
 
 } // CompositeMode

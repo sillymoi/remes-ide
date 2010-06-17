@@ -435,13 +435,22 @@ public interface RemesPackage extends EPackage {
 	int COMPOSITE_MODE__COMPOSITE_EXIT_POINT = MODE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Write Point</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_MODE__WRITE_POINT = MODE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Composite Mode</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 5;
+	int COMPOSITE_MODE_FEATURE_COUNT = MODE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Entry Point</b></em>' containment reference.
@@ -1114,6 +1123,80 @@ public interface RemesPackage extends EPackage {
 	int CONSTANT_FEATURE_COUNT = REFERABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.WriteEdgeImpl <em>Write Edge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.WriteEdgeImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getWriteEdge()
+	 * @generated
+	 */
+	int WRITE_EDGE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Connect To</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_EDGE__CONNECT_TO = 0;
+
+	/**
+	 * The feature id for the '<em><b>Connect From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_EDGE__CONNECT_FROM = 1;
+
+	/**
+	 * The number of structural features of the '<em>Write Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_EDGE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link se.mdh.progresside.remes.impl.WritePointImpl <em>Write Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see se.mdh.progresside.remes.impl.WritePointImpl
+	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getWritePoint()
+	 * @generated
+	 */
+	int WRITE_POINT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_POINT__CONTAINER = POINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Write Edges</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_POINT__WRITE_EDGES = POINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Write Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_POINT_FEATURE_COUNT = POINT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1121,7 +1204,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getPrimitiveTypes()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPES = 18;
+	int PRIMITIVE_TYPES = 20;
 
 	/**
 	 * The meta object id for the '{@link se.mdh.progresside.remes.ResourceTypes <em>Resource Types</em>}' enum.
@@ -1131,7 +1214,7 @@ public interface RemesPackage extends EPackage {
 	 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getResourceTypes()
 	 * @generated
 	 */
-	int RESOURCE_TYPES = 19;
+	int RESOURCE_TYPES = 21;
 
 
 	/**
@@ -1198,6 +1281,17 @@ public interface RemesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompositeMode_CompositeExitPoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link se.mdh.progresside.remes.CompositeMode#getWritePoint <em>Write Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Write Point</em>'.
+	 * @see se.mdh.progresside.remes.CompositeMode#getWritePoint()
+	 * @see #getCompositeMode()
+	 * @generated
+	 */
+	EReference getCompositeMode_WritePoint();
 
 	/**
 	 * Returns the meta object for class '{@link se.mdh.progresside.remes.ConditionalConnector <em>Conditional Connector</em>}'.
@@ -1887,6 +1981,70 @@ public interface RemesPackage extends EPackage {
 	EReference getConstant_Scope();
 
 	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.WriteEdge <em>Write Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Write Edge</em>'.
+	 * @see se.mdh.progresside.remes.WriteEdge
+	 * @generated
+	 */
+	EClass getWriteEdge();
+
+	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.WriteEdge#getConnectTo <em>Connect To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Connect To</em>'.
+	 * @see se.mdh.progresside.remes.WriteEdge#getConnectTo()
+	 * @see #getWriteEdge()
+	 * @generated
+	 */
+	EReference getWriteEdge_ConnectTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link se.mdh.progresside.remes.WriteEdge#getConnectFrom <em>Connect From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connect From</em>'.
+	 * @see se.mdh.progresside.remes.WriteEdge#getConnectFrom()
+	 * @see #getWriteEdge()
+	 * @generated
+	 */
+	EReference getWriteEdge_ConnectFrom();
+
+	/**
+	 * Returns the meta object for class '{@link se.mdh.progresside.remes.WritePoint <em>Write Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Write Point</em>'.
+	 * @see se.mdh.progresside.remes.WritePoint
+	 * @generated
+	 */
+	EClass getWritePoint();
+
+	/**
+	 * Returns the meta object for the container reference '{@link se.mdh.progresside.remes.WritePoint#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see se.mdh.progresside.remes.WritePoint#getContainer()
+	 * @see #getWritePoint()
+	 * @generated
+	 */
+	EReference getWritePoint_Container();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link se.mdh.progresside.remes.WritePoint#getWriteEdges <em>Write Edges</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Write Edges</em>'.
+	 * @see se.mdh.progresside.remes.WritePoint#getWriteEdges()
+	 * @see #getWritePoint()
+	 * @generated
+	 */
+	EReference getWritePoint_WriteEdges();
+
+	/**
 	 * Returns the meta object for enum '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1977,6 +2135,14 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPOSITE_MODE__COMPOSITE_EXIT_POINT = eINSTANCE.getCompositeMode_CompositeExitPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Write Point</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_MODE__WRITE_POINT = eINSTANCE.getCompositeMode_WritePoint();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.ConditionalConnectorImpl <em>Conditional Connector</em>}' class.
@@ -2523,6 +2689,58 @@ public interface RemesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONSTANT__SCOPE = eINSTANCE.getConstant_Scope();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.WriteEdgeImpl <em>Write Edge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.WriteEdgeImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getWriteEdge()
+		 * @generated
+		 */
+		EClass WRITE_EDGE = eINSTANCE.getWriteEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect To</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_EDGE__CONNECT_TO = eINSTANCE.getWriteEdge_ConnectTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_EDGE__CONNECT_FROM = eINSTANCE.getWriteEdge_ConnectFrom();
+
+		/**
+		 * The meta object literal for the '{@link se.mdh.progresside.remes.impl.WritePointImpl <em>Write Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see se.mdh.progresside.remes.impl.WritePointImpl
+		 * @see se.mdh.progresside.remes.impl.RemesPackageImpl#getWritePoint()
+		 * @generated
+		 */
+		EClass WRITE_POINT = eINSTANCE.getWritePoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_POINT__CONTAINER = eINSTANCE.getWritePoint_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Write Edges</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_POINT__WRITE_EDGES = eINSTANCE.getWritePoint_WriteEdges();
 
 		/**
 		 * The meta object literal for the '{@link se.mdh.progresside.remes.PrimitiveTypes <em>Primitive Types</em>}' enum.

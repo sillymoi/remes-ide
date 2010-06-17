@@ -20,6 +20,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ExitPoint4EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitPointEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.WritePointEditPart;
 import se.mdh.progresside.remes.diagram.part.RemesDiagramUpdater;
 import se.mdh.progresside.remes.diagram.part.RemesNodeDescriptor;
 import se.mdh.progresside.remes.diagram.part.RemesVisualIDRegistry;
@@ -59,6 +60,7 @@ public class CompositeModeCanonicalEditPolicy extends CanonicalEditPolicy {
 		case CompositeEntryPointEditPart.VISUAL_ID:
 		case CompositeExitPointEditPart.VISUAL_ID:
 		case InitPointEditPart.VISUAL_ID:
+		case WritePointEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -89,6 +91,8 @@ public class CompositeModeCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getCompositeMode_CompositeExitPoint());
 			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
 					.getCompositeMode_InitPoint());
+			myFeaturesToSynchronize.add(RemesPackage.eINSTANCE
+					.getCompositeMode_WritePoint());
 		}
 		return myFeaturesToSynchronize;
 	}

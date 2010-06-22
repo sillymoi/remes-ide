@@ -123,6 +123,12 @@ helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
 --SUB MODE LOCATION TYPE---
 ----------------------------
 
+helper context REMES!Mode def: name() : Boolean = 
+	if self.name.oclIsUndefined()
+	then OclUndefined
+	else self.name.regexReplaceAll(' ', '_')
+	endif;
+
 -- TEMPLATE TYPE
 helper context REMES!SubMode def: isTopLevelMode() : Boolean =
 	if self.parent.oclIsUndefined()
@@ -717,13 +723,13 @@ to
 	)
 }
 
-rule Template_type{
+rule CompositeMode2Template{
 	from
 		cMode : REMES!CompositeMode		
 	to
 		tp: ULITE!TemplateType (
 			declaration <- cMode.toDeclaration(),
-			name <- cMode.name.regexReplaceAll(' ', '_'),
+			name <- cMode.name(),
 			location <-Sequence{
 				thisModule.startLocation(), 
 				cMode.compositeEntryPoint, 
@@ -759,7 +765,7 @@ rule subMode2Template{
 	to
 		tp: ULITE!TemplateType (
 			declaration <- sm.toDeclaration(),
-			name <- sm.name.regexReplaceAll(' ', '_'),
+			name <- sm.name(),
 			location <-Sequence{thisModule.startLocation(), 
 				thisModule.emptyEntryLocation(), 
 				thisModule.location_Type(sm), 
@@ -834,7 +840,7 @@ rule SubMode2Location{
 	from sm: REMES!SubMode( not sm.isTopLevelMode() )
 	to tpl:ULITE!LocationType(
 			id <- sm.__xmiID__,
-			name <- sm.name.regexReplaceAll(' ', '_'),
+			name <- sm.name(),
 			invariant <- sm.invariant,
 			cost <- sm.toCost(),
 			committed <- sm.subModeIsCommittedLocation(),
@@ -849,7 +855,7 @@ rule location_Type(sm : REMES!SubMode){
 			invariant <- sm.invariant,
 			cost <- sm.toCost(),
 			id <- sm.__xmiID__,
-			name <- sm.name.regexReplaceAll(' ', '_')
+			name <- sm.name()
 		)
 	do{
 		tpl;

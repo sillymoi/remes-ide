@@ -243,8 +243,14 @@ helper context REMES!Edge def: connectsFrom() : String =
 	else self.connectFrom.container.__xmiID__
 	endif;
 
+helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
+	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
+
+helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
+	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
+
 -----------------------------
---- SUBMODES - GUARDS--------
+--- SUBMODES - INVARIANT--------
 -----------------------------
 
 helper context REMES!SubMode def: toInvariant() : String =
@@ -541,11 +547,7 @@ helper context REMES!Mode def: hasOutputSync() : Boolean =
 	self.hasProSaveOutputTrigger();
 		
 
-helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
-	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
 
-helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
-	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
 
 --helper context REMES!Mode def: inputSync() : String = 
 --	PROCOM!Component.allInstances()->first().realization.subcomponentInst
@@ -606,7 +608,7 @@ to
 	)
 }
 
-rule Template_type{
+rule CompositeMode2Template{
 	from
 		cMode : REMES!CompositeMode		
 	to

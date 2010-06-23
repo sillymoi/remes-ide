@@ -333,6 +333,12 @@ helper context	REMES!SubMode def: cost() : Sequence(String) =
 --- EDGEs - PARSE ACTION BODY AND GUARD--------
 -------------------------------------------
 
+helper context REMES!CompositeMode def: initEdgeToCost() : String = 
+	if self.initPoint.initEdge.oclIsUndefined()
+	then OclUndefined
+	else self.initPoint.initEdge.toCost()
+	endif;
+
 helper context REMES!Edge def: actionBodyToAssigment() : String = 
 	if self.parsedActionBody.oclIsUndefined()
 --	then self.parsedActionBody
@@ -872,7 +878,7 @@ rule initTransition(startLoc : ULITE!LocationType, cMode: REMES!CompositeMode){
 			target <- cMode.initTransitionTarget(),
 			sync<- 't?',
 			assignment <- thisModule.initializationToAssigment(cMode.initPoint.initEdge),
-			cost <- cMode.initPoint.initEdge.toCost()
+			cost <- cMode.initEdgeToCost()
 		)
 		do{
 			tt;

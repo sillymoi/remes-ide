@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.fer.hr/rasip/uppaallite/upallite.hr"
+            uri="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore"
             class="hr.fer.rasip.uppaallite.provider.UppaalliteItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

@@ -11,5 +11,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: hr.fer.rasip.uppaallite,
- hr.fer.rasip.uppaallite.util
+Export-Package: hr.fer.rasip.uppaallite;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+ hr.fer.rasip.uppaallite.util;
+  uses:="hr.fer.rasip.uppaallite,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.notify.impl,
+   org.eclipse.emf.common.notify"

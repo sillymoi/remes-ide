@@ -12,10 +12,8 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="Ns URI	http://www.fer.hr/rasip/uppaallite/upallite.hr"
             class="hr.fer.rasip.uppaallite.UppaallitePackage"
-            genModel="model/uppaallite.genmodel"/>
+            genModel="model/uppaallite.genmodel"
+            uri="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore"/>
    </extension>
-
-
 </plugin>

@@ -222,7 +222,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void refreshSemantic() {
 		List createdViews = new LinkedList();
@@ -240,6 +240,11 @@ public class TemplateTypeCanonicalEditPolicy extends
 
 		createdViews.addAll(createdConnectionViews);
 		makeViewsImmutable(createdViews);
+
+		// update layout if new views were created in the process (emp dsl book, p.88/89
+		if (createdViews.size() > 0) {
+			layout();
+		}
 	}
 
 	/**
@@ -316,7 +321,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationTypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2001ContainedLinks(view));
+						.getLocationType_2007ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -327,7 +332,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationType2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2002ContainedLinks(view));
+						.getLocationType_2008ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -338,7 +343,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationType3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2003ContainedLinks(view));
+						.getLocationType_2009ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -349,7 +354,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationType4EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2004ContainedLinks(view));
+						.getLocationType_2010ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -360,7 +365,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationType5EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2005ContainedLinks(view));
+						.getLocationType_2011ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -371,7 +376,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case LocationType6EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getLocationType_2006ContainedLinks(view));
+						.getLocationType_2012ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -382,7 +387,7 @@ public class TemplateTypeCanonicalEditPolicy extends
 		case TransitionTypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(UppaalliteDiagramUpdater
-						.getTransitionType_4001ContainedLinks(view));
+						.getTransitionType_4002ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -421,7 +426,8 @@ public class TemplateTypeCanonicalEditPolicy extends
 				continue;
 			}
 			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
-					nextLinkDescriptor.getSemanticAdapter(), null,
+					nextLinkDescriptor.getSemanticAdapter(), String
+							.valueOf(nextLinkDescriptor.getVisualID()),
 					ViewUtil.APPEND, false, ((IGraphicalEditPart) getHost())
 							.getDiagramPreferencesHint());
 			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(
@@ -456,6 +462,10 @@ public class TemplateTypeCanonicalEditPolicy extends
 		return null;
 	}
 
+	/**
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+	 * @generated NOT
+	 */
 	protected void handleNotificationEvent(Notification notification) {
 		int type = notification.getEventType();
 		Object feature = notification.getFeature();
@@ -470,6 +480,9 @@ public class TemplateTypeCanonicalEditPolicy extends
 		super.handleNotificationEvent(notification);
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	public void layout() {
 		TransactionalEditingDomain ted = TransactionUtil
 				.getEditingDomain(getDiagram());
@@ -488,8 +501,8 @@ public class TemplateTypeCanonicalEditPolicy extends
 				try {
 					operation.execute(new NullProgressMonitor(), null);
 				} catch (ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					UppaalliteDiagramEditorPlugin.getInstance().logError(
+							"Error while running layout", e); //$NON-NLS-1$
 				}
 			}
 		});

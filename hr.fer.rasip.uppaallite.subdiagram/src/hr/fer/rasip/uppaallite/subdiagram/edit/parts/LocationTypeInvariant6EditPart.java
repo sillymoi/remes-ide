@@ -58,7 +58,7 @@ public class LocationTypeInvariant6EditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5024;
 
 	/**
 	 * @generated
@@ -331,7 +331,7 @@ public class LocationTypeInvariant6EditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = UppaalliteParserProvider
 					.getParser(
-							UppaalliteElementTypes.LocationType_2006,
+							UppaalliteElementTypes.LocationType_2012,
 							getParserElement(),
 							UppaalliteVisualIDRegistry
 									.getType(hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationTypeInvariant6EditPart.VISUAL_ID));

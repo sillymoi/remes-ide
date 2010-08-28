@@ -32,22 +32,22 @@ public class TemplateTypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (UppaalliteElementTypes.LocationType_2001 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2007 == req.getElementType()) {
 			return getGEFWrapper(new LocationTypeCreateCommand(req));
 		}
-		if (UppaalliteElementTypes.LocationType_2002 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2008 == req.getElementType()) {
 			return getGEFWrapper(new LocationType2CreateCommand(req));
 		}
-		if (UppaalliteElementTypes.LocationType_2003 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2009 == req.getElementType()) {
 			return getGEFWrapper(new LocationType3CreateCommand(req));
 		}
-		if (UppaalliteElementTypes.LocationType_2004 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2010 == req.getElementType()) {
 			return getGEFWrapper(new LocationType4CreateCommand(req));
 		}
-		if (UppaalliteElementTypes.LocationType_2005 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2011 == req.getElementType()) {
 			return getGEFWrapper(new LocationType5CreateCommand(req));
 		}
-		if (UppaalliteElementTypes.LocationType_2006 == req.getElementType()) {
+		if (UppaalliteElementTypes.LocationType_2012 == req.getElementType()) {
 			return getGEFWrapper(new LocationType6CreateCommand(req));
 		}
 		return super.getCreateCommand(req);

@@ -45,12 +45,12 @@ public class UppaalliteModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof TemplateTypeEditPart) {
 			ArrayList types = new ArrayList(6);
-			types.add(UppaalliteElementTypes.LocationType_2001);
-			types.add(UppaalliteElementTypes.LocationType_2002);
-			types.add(UppaalliteElementTypes.LocationType_2003);
-			types.add(UppaalliteElementTypes.LocationType_2004);
-			types.add(UppaalliteElementTypes.LocationType_2005);
-			types.add(UppaalliteElementTypes.LocationType_2006);
+			types.add(UppaalliteElementTypes.LocationType_2007);
+			types.add(UppaalliteElementTypes.LocationType_2008);
+			types.add(UppaalliteElementTypes.LocationType_2009);
+			types.add(UppaalliteElementTypes.LocationType_2010);
+			types.add(UppaalliteElementTypes.LocationType_2011);
+			types.add(UppaalliteElementTypes.LocationType_2012);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

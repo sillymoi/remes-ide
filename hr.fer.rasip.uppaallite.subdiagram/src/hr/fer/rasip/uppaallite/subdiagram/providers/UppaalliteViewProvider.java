@@ -241,22 +241,22 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case LocationTypeEditPart.VISUAL_ID:
-			return createLocationType_2001(domainElement, containerView, index,
+			return createLocationType_2007(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case LocationType2EditPart.VISUAL_ID:
-			return createLocationType_2002(domainElement, containerView, index,
+			return createLocationType_2008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case LocationType3EditPart.VISUAL_ID:
-			return createLocationType_2003(domainElement, containerView, index,
+			return createLocationType_2009(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case LocationType4EditPart.VISUAL_ID:
-			return createLocationType_2004(domainElement, containerView, index,
+			return createLocationType_2010(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case LocationType5EditPart.VISUAL_ID:
-			return createLocationType_2005(domainElement, containerView, index,
+			return createLocationType_2011(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case LocationType6EditPart.VISUAL_ID:
-			return createLocationType_2006(domainElement, containerView, index,
+			return createLocationType_2012(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -273,7 +273,7 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (UppaalliteVisualIDRegistry.getVisualID(elementTypeHint)) {
 		case TransitionTypeEditPart.VISUAL_ID:
-			return createTransitionType_4001(
+			return createTransitionType_4002(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
@@ -284,14 +284,13 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2001(EObject domainElement,
+	public Node createLocationType_2007(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationTypeEditPart.VISUAL_ID));
@@ -301,12 +300,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -321,34 +314,33 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label5001 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5013 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeNameEditPart.VISUAL_ID));
-		label5001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5013.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5001 = (Location) label5001.getLayoutConstraint();
-		location5001.setX(0);
-		location5001.setY(5);
-		Node label5002 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5013 = (Location) label5013.getLayoutConstraint();
+		location5013.setX(0);
+		location5013.setY(5);
+		Node label5014 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariantEditPart.VISUAL_ID));
-		label5002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5014.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5002 = (Location) label5002.getLayoutConstraint();
-		location5002.setX(0);
-		location5002.setY(5);
+		Location location5014 = (Location) label5014.getLayoutConstraint();
+		location5014.setX(0);
+		location5014.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2002(EObject domainElement,
+	public Node createLocationType_2008(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationType2EditPart.VISUAL_ID));
@@ -358,12 +350,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -378,30 +364,33 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Node label5003 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5015 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeName2EditPart.VISUAL_ID));
-		label5003.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5015.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5003 = (Location) label5003.getLayoutConstraint();
-		location5003.setX(0);
-		location5003.setY(5);
-		Node label5004 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5015 = (Location) label5015.getLayoutConstraint();
+		location5015.setX(0);
+		location5015.setY(5);
+		Node label5016 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariant2EditPart.VISUAL_ID));
-		label5004.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5016.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5004 = (Location) label5004.getLayoutConstraint();
-		location5004.setX(0);
-		location5004.setY(5);
+		Location location5016 = (Location) label5016.getLayoutConstraint();
+		location5016.setX(0);
+		location5016.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2003(EObject domainElement,
+	public Node createLocationType_2009(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationType3EditPart.VISUAL_ID));
@@ -411,12 +400,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -431,35 +414,33 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getFillStyle_FillColor(), FigureUtilities
-				.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5017 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeName3EditPart.VISUAL_ID));
-		label5005.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5017.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5005 = (Location) label5005.getLayoutConstraint();
-		location5005.setX(0);
-		location5005.setY(5);
-		Node label5006 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5017 = (Location) label5017.getLayoutConstraint();
+		location5017.setX(0);
+		location5017.setY(5);
+		Node label5018 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariant3EditPart.VISUAL_ID));
-		label5006.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5018.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5006 = (Location) label5006.getLayoutConstraint();
-		location5006.setX(0);
-		location5006.setY(5);
+		Location location5018 = (Location) label5018.getLayoutConstraint();
+		location5018.setX(0);
+		location5018.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2004(EObject domainElement,
+	public Node createLocationType_2010(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationType4EditPart.VISUAL_ID));
@@ -469,12 +450,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -489,35 +464,33 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getFillStyle_FillColor(), FigureUtilities
-				.RGBToInteger(fillRGB));
-		Node label5007 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5019 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeName4EditPart.VISUAL_ID));
-		label5007.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5019.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5007 = (Location) label5007.getLayoutConstraint();
-		location5007.setX(0);
-		location5007.setY(5);
-		Node label5008 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5019 = (Location) label5019.getLayoutConstraint();
+		location5019.setX(0);
+		location5019.setY(5);
+		Node label5020 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariant4EditPart.VISUAL_ID));
-		label5008.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5020.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5008 = (Location) label5008.getLayoutConstraint();
-		location5008.setX(0);
-		location5008.setY(5);
+		Location location5020 = (Location) label5020.getLayoutConstraint();
+		location5020.setX(0);
+		location5020.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2005(EObject domainElement,
+	public Node createLocationType_2011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationType5EditPart.VISUAL_ID));
@@ -527,12 +500,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -547,35 +514,33 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getFillStyle_FillColor(), FigureUtilities
-				.RGBToInteger(fillRGB));
-		Node label5009 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5021 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeName5EditPart.VISUAL_ID));
-		label5009.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5021.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5009 = (Location) label5009.getLayoutConstraint();
-		location5009.setX(0);
-		location5009.setY(5);
-		Node label5010 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5021 = (Location) label5021.getLayoutConstraint();
+		location5021.setX(0);
+		location5021.setY(5);
+		Node label5022 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariant5EditPart.VISUAL_ID));
-		label5010.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5022.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5010 = (Location) label5010.getLayoutConstraint();
-		location5010.setX(0);
-		location5010.setY(5);
+		Location location5022 = (Location) label5022.getLayoutConstraint();
+		location5022.setX(0);
+		location5022.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createLocationType_2006(EObject domainElement,
+	public Node createLocationType_2012(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(UppaalliteVisualIDRegistry
 				.getType(LocationType6EditPart.VISUAL_ID));
@@ -585,12 +550,6 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
 		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
 		if (nodeFontStyle != null) {
@@ -605,32 +564,27 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getFillStyle_FillColor(), FigureUtilities
-				.RGBToInteger(fillRGB));
-		Node label5011 = createLabel(node, UppaalliteVisualIDRegistry
+		Node label5023 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeName6EditPart.VISUAL_ID));
-		label5011.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5023.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5011 = (Location) label5011.getLayoutConstraint();
-		location5011.setX(0);
-		location5011.setY(5);
-		Node label5012 = createLabel(node, UppaalliteVisualIDRegistry
+		Location location5023 = (Location) label5023.getLayoutConstraint();
+		location5023.setX(0);
+		location5023.setY(5);
+		Node label5024 = createLabel(node, UppaalliteVisualIDRegistry
 				.getType(LocationTypeInvariant6EditPart.VISUAL_ID));
-		label5012.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5024.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location5012 = (Location) label5012.getLayoutConstraint();
-		location5012.setX(0);
-		location5012.setY(5);
+		Location location5024 = (Location) label5024.getLayoutConstraint();
+		location5024.setX(0);
+		location5024.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Edge createTransitionType_4001(EObject domainElement,
+	public Edge createTransitionType_4002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
@@ -670,27 +624,27 @@ public class UppaalliteViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label6001 = createLabel(edge, UppaalliteVisualIDRegistry
+		Node label6004 = createLabel(edge, UppaalliteVisualIDRegistry
 				.getType(TransitionTypeAssignmentEditPart.VISUAL_ID));
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6004.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
-		Node label6002 = createLabel(edge, UppaalliteVisualIDRegistry
+		Location location6004 = (Location) label6004.getLayoutConstraint();
+		location6004.setX(0);
+		location6004.setY(40);
+		Node label6005 = createLabel(edge, UppaalliteVisualIDRegistry
 				.getType(TransitionTypeGuardEditPart.VISUAL_ID));
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6005.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(60);
-		Node label6003 = createLabel(edge, UppaalliteVisualIDRegistry
+		Location location6005 = (Location) label6005.getLayoutConstraint();
+		location6005.setX(0);
+		location6005.setY(60);
+		Node label6006 = createLabel(edge, UppaalliteVisualIDRegistry
 				.getType(TransitionTypeSyncEditPart.VISUAL_ID));
-		label6003.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6006.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6003 = (Location) label6003.getLayoutConstraint();
-		location6003.setX(0);
-		location6003.setY(80);
+		Location location6006 = (Location) label6006.getLayoutConstraint();
+		location6006.setX(0);
+		location6006.setY(80);
 		return edge;
 	}
 

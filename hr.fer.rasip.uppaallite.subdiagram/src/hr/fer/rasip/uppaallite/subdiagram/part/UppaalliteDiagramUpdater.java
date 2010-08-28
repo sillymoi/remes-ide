@@ -103,19 +103,19 @@ public class UppaalliteDiagramUpdater {
 		case TemplateTypeEditPart.VISUAL_ID:
 			return getTemplateType_1000ContainedLinks(view);
 		case LocationTypeEditPart.VISUAL_ID:
-			return getLocationType_2001ContainedLinks(view);
+			return getLocationType_2007ContainedLinks(view);
 		case LocationType2EditPart.VISUAL_ID:
-			return getLocationType_2002ContainedLinks(view);
+			return getLocationType_2008ContainedLinks(view);
 		case LocationType3EditPart.VISUAL_ID:
-			return getLocationType_2003ContainedLinks(view);
+			return getLocationType_2009ContainedLinks(view);
 		case LocationType4EditPart.VISUAL_ID:
-			return getLocationType_2004ContainedLinks(view);
+			return getLocationType_2010ContainedLinks(view);
 		case LocationType5EditPart.VISUAL_ID:
-			return getLocationType_2005ContainedLinks(view);
+			return getLocationType_2011ContainedLinks(view);
 		case LocationType6EditPart.VISUAL_ID:
-			return getLocationType_2006ContainedLinks(view);
+			return getLocationType_2012ContainedLinks(view);
 		case TransitionTypeEditPart.VISUAL_ID:
-			return getTransitionType_4001ContainedLinks(view);
+			return getTransitionType_4002ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -126,19 +126,19 @@ public class UppaalliteDiagramUpdater {
 	public static List getIncomingLinks(View view) {
 		switch (UppaalliteVisualIDRegistry.getVisualID(view)) {
 		case LocationTypeEditPart.VISUAL_ID:
-			return getLocationType_2001IncomingLinks(view);
+			return getLocationType_2007IncomingLinks(view);
 		case LocationType2EditPart.VISUAL_ID:
-			return getLocationType_2002IncomingLinks(view);
+			return getLocationType_2008IncomingLinks(view);
 		case LocationType3EditPart.VISUAL_ID:
-			return getLocationType_2003IncomingLinks(view);
+			return getLocationType_2009IncomingLinks(view);
 		case LocationType4EditPart.VISUAL_ID:
-			return getLocationType_2004IncomingLinks(view);
+			return getLocationType_2010IncomingLinks(view);
 		case LocationType5EditPart.VISUAL_ID:
-			return getLocationType_2005IncomingLinks(view);
+			return getLocationType_2011IncomingLinks(view);
 		case LocationType6EditPart.VISUAL_ID:
-			return getLocationType_2006IncomingLinks(view);
+			return getLocationType_2012IncomingLinks(view);
 		case TransitionTypeEditPart.VISUAL_ID:
-			return getTransitionType_4001IncomingLinks(view);
+			return getTransitionType_4002IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -149,19 +149,19 @@ public class UppaalliteDiagramUpdater {
 	public static List getOutgoingLinks(View view) {
 		switch (UppaalliteVisualIDRegistry.getVisualID(view)) {
 		case LocationTypeEditPart.VISUAL_ID:
-			return getLocationType_2001OutgoingLinks(view);
+			return getLocationType_2007OutgoingLinks(view);
 		case LocationType2EditPart.VISUAL_ID:
-			return getLocationType_2002OutgoingLinks(view);
+			return getLocationType_2008OutgoingLinks(view);
 		case LocationType3EditPart.VISUAL_ID:
-			return getLocationType_2003OutgoingLinks(view);
+			return getLocationType_2009OutgoingLinks(view);
 		case LocationType4EditPart.VISUAL_ID:
-			return getLocationType_2004OutgoingLinks(view);
+			return getLocationType_2010OutgoingLinks(view);
 		case LocationType5EditPart.VISUAL_ID:
-			return getLocationType_2005OutgoingLinks(view);
+			return getLocationType_2011OutgoingLinks(view);
 		case LocationType6EditPart.VISUAL_ID:
-			return getLocationType_2006OutgoingLinks(view);
+			return getLocationType_2012OutgoingLinks(view);
 		case TransitionTypeEditPart.VISUAL_ID:
-			return getTransitionType_4001OutgoingLinks(view);
+			return getTransitionType_4002OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -173,68 +173,68 @@ public class UppaalliteDiagramUpdater {
 		TemplateType modelElement = (TemplateType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getContainedTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getContainedTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2001ContainedLinks(View view) {
+	public static List getLocationType_2007ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2002ContainedLinks(View view) {
+	public static List getLocationType_2008ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2003ContainedLinks(View view) {
+	public static List getLocationType_2009ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2004ContainedLinks(View view) {
+	public static List getLocationType_2010ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2005ContainedLinks(View view) {
+	public static List getLocationType_2011ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2006ContainedLinks(View view) {
+	public static List getLocationType_2012ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTransitionType_4001ContainedLinks(View view) {
+	public static List getTransitionType_4002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2001IncomingLinks(View view) {
+	public static List getLocationType_2007IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -242,12 +242,12 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2002IncomingLinks(View view) {
+	public static List getLocationType_2008IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -255,12 +255,12 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2003IncomingLinks(View view) {
+	public static List getLocationType_2009IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -268,12 +268,12 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2004IncomingLinks(View view) {
+	public static List getLocationType_2010IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -281,12 +281,12 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2005IncomingLinks(View view) {
+	public static List getLocationType_2011IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -294,12 +294,12 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2006IncomingLinks(View view) {
+	public static List getLocationType_2012IncomingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_TransitionType_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -307,87 +307,87 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getTransitionType_4001IncomingLinks(View view) {
+	public static List getTransitionType_4002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2001OutgoingLinks(View view) {
+	public static List getLocationType_2007OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2002OutgoingLinks(View view) {
+	public static List getLocationType_2008OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2003OutgoingLinks(View view) {
+	public static List getLocationType_2009OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2004OutgoingLinks(View view) {
+	public static List getLocationType_2010OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2005OutgoingLinks(View view) {
+	public static List getLocationType_2011OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getLocationType_2006OutgoingLinks(View view) {
+	public static List getLocationType_2012OutgoingLinks(View view) {
 		LocationType modelElement = (LocationType) view.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4001(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_TransitionType_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTransitionType_4001OutgoingLinks(View view) {
+	public static List getTransitionType_4002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_TransitionType_4001(
+	private static Collection getContainedTypeModelFacetLinks_TransitionType_4002(
 			TemplateType container) {
 		Collection result = new LinkedList();
 		for (Iterator links = container.getTransition().iterator(); links
@@ -404,7 +404,7 @@ public class UppaalliteDiagramUpdater {
 			LocationType dst = link.getTarget();
 			LocationType src = link.getSource();
 			result.add(new UppaalliteLinkDescriptor(src, dst, link,
-					UppaalliteElementTypes.TransitionType_4001,
+					UppaalliteElementTypes.TransitionType_4002,
 					TransitionTypeEditPart.VISUAL_ID));
 		}
 		return result;
@@ -413,7 +413,7 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_TransitionType_4001(
+	private static Collection getIncomingTypeModelFacetLinks_TransitionType_4002(
 			LocationType target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -432,7 +432,7 @@ public class UppaalliteDiagramUpdater {
 			}
 			LocationType src = link.getSource();
 			result.add(new UppaalliteLinkDescriptor(src, target, link,
-					UppaalliteElementTypes.TransitionType_4001,
+					UppaalliteElementTypes.TransitionType_4002,
 					TransitionTypeEditPart.VISUAL_ID));
 		}
 		return result;
@@ -441,7 +441,7 @@ public class UppaalliteDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_TransitionType_4001(
+	private static Collection getOutgoingTypeModelFacetLinks_TransitionType_4002(
 			LocationType source) {
 		TemplateType container = null;
 		// Find container element for the link.
@@ -474,7 +474,7 @@ public class UppaalliteDiagramUpdater {
 				continue;
 			}
 			result.add(new UppaalliteLinkDescriptor(src, dst, link,
-					UppaalliteElementTypes.TransitionType_4001,
+					UppaalliteElementTypes.TransitionType_4002,
 					TransitionTypeEditPart.VISUAL_ID));
 		}
 		return result;

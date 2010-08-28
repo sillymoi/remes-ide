@@ -60,7 +60,7 @@ public class TransitionTypeAssignmentEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6001;
+	public static final int VISUAL_ID = 6004;
 
 	/**
 	 * @generated
@@ -321,7 +321,7 @@ public class TransitionTypeAssignmentEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = UppaalliteParserProvider
 					.getParser(
-							UppaalliteElementTypes.TransitionType_4001,
+							UppaalliteElementTypes.TransitionType_4002,
 							getParserElement(),
 							UppaalliteVisualIDRegistry
 									.getType(hr.fer.rasip.uppaallite.subdiagram.edit.parts.TransitionTypeAssignmentEditPart.VISUAL_ID));

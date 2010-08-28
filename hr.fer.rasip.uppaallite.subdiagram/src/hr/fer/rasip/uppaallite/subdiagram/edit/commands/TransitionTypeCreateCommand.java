@@ -70,7 +70,7 @@ public class TransitionTypeCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return UppaalliteBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateTransitionType_4001(getContainer(), getSource(),
+				.canCreateTransitionType_4002(getContainer(), getSource(),
 						getTarget());
 	}
 

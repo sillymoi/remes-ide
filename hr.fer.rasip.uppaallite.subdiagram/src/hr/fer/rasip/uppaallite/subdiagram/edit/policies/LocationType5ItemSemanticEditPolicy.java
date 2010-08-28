@@ -29,7 +29,7 @@ public class LocationType5ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public LocationType5ItemSemanticEditPolicy() {
-		super(UppaalliteElementTypes.LocationType_2005);
+		super(UppaalliteElementTypes.LocationType_2011);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class LocationType5ItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (UppaalliteElementTypes.TransitionType_4001 == req.getElementType()) {
+		if (UppaalliteElementTypes.TransitionType_4002 == req.getElementType()) {
 			return getGEFWrapper(new TransitionTypeCreateCommand(req, req
 					.getSource(), req.getTarget()));
 		}
@@ -99,7 +99,7 @@ public class LocationType5ItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (UppaalliteElementTypes.TransitionType_4001 == req.getElementType()) {
+		if (UppaalliteElementTypes.TransitionType_4002 == req.getElementType()) {
 			return getGEFWrapper(new TransitionTypeCreateCommand(req, req
 					.getSource(), req.getTarget()));
 		}

@@ -237,8 +237,8 @@
       <viewProvider class="hr.fer.rasip.uppaallite.subdiagram.providers.UppaalliteViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Uppaallite_template"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2007,2008,2009,2010,2011,2012"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002"/>
       </viewProvider>
    </extension>
 
@@ -250,13 +250,13 @@
             <method name="getType()" value="Uppaallite_template"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,2003,2004,2005,2006"/>
+            <method name="getType()" value="2007,2008,2009,2010,2011,2012"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001"/>
+            <method name="getType()" value="4002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003,5004,5005,5006,5007,5008,5009,5010,5011,5012"/>
+            <method name="getType()" value="5013,5014,5015,5016,5017,5018,5019,5020,5021,5022,5023,5024"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value=""/>
@@ -270,13 +270,13 @@
       <modelingAssistantProvider class="hr.fer.rasip.uppaallite.subdiagram.providers.UppaalliteModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.TemplateTypeEditPart" id="TemplateType_1000"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationTypeEditPart" id="LocationType_2001"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType2EditPart" id="LocationType_2002"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType3EditPart" id="LocationType_2003"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType4EditPart" id="LocationType_2004"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType5EditPart" id="LocationType_2005"/>
-         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType6EditPart" id="LocationType_2006"/>
-         <context elements="TemplateType_1000,LocationType_2001,LocationType_2002,LocationType_2003,LocationType_2004,LocationType_2005,LocationType_2006"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationTypeEditPart" id="LocationType_2007"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType2EditPart" id="LocationType_2008"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType3EditPart" id="LocationType_2009"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType4EditPart" id="LocationType_2010"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType5EditPart" id="LocationType_2011"/>
+         <object class="hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType6EditPart" id="LocationType_2012"/>
+         <context elements="TemplateType_1000,LocationType_2007,LocationType_2008,LocationType_2009,LocationType_2010,LocationType_2011,LocationType_2012"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -308,67 +308,67 @@
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <metamodelType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"
-               name="%metatype.name.LocationType_2001"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"
+               name="%metatype.name.LocationType_2007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="LocationType"
                edithelper="hr.fer.rasip.uppaallite.subdiagram.edit.helpers.LocationTypeEditHelper">
-            <param name="semanticHint" value="2001"/>
+            <param name="semanticHint" value="2007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <specializationType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2002"
-               name="%metatype.name.LocationType_2002"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2008"
+               name="%metatype.name.LocationType_2008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-            <param name="semanticHint" value="2002"/>
+            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+            <param name="semanticHint" value="2008"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <specializationType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2003"
-               name="%metatype.name.LocationType_2003"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2009"
+               name="%metatype.name.LocationType_2009"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-            <param name="semanticHint" value="2003"/>
+            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+            <param name="semanticHint" value="2009"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <specializationType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2004"
-               name="%metatype.name.LocationType_2004"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2010"
+               name="%metatype.name.LocationType_2010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-            <param name="semanticHint" value="2004"/>
+            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+            <param name="semanticHint" value="2010"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <specializationType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2005"
-               name="%metatype.name.LocationType_2005"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2011"
+               name="%metatype.name.LocationType_2011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-            <param name="semanticHint" value="2005"/>
+            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+            <param name="semanticHint" value="2011"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <specializationType
-               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2006"
-               name="%metatype.name.LocationType_2006"
+               id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2012"
+               name="%metatype.name.LocationType_2012"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-            <param name="semanticHint" value="2006"/>
+            <specializes id="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+            <param name="semanticHint" value="2012"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore">
          <metamodelType
-               id="hr.fer.rasip.uppaallite.subdiagram.TransitionType_4001"
-               name="%metatype.name.TransitionType_4001"
+               id="hr.fer.rasip.uppaallite.subdiagram.TransitionType_4002"
+               name="%metatype.name.TransitionType_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="TransitionType"
                edithelper="hr.fer.rasip.uppaallite.subdiagram.edit.helpers.TransitionTypeEditHelper">
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -384,13 +384,13 @@
       </clientContext> 
       <binding context="hr.fer.rasip.uppaallite.subdiagram.TypeContext">
          <elementType ref="hr.fer.rasip.uppaallite.subdiagram.TemplateType_1000"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2002"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2003"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2004"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2005"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2006"/>
-         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.TransitionType_4001"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2008"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2009"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2010"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2011"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.LocationType_2012"/>
+         <elementType ref="hr.fer.rasip.uppaallite.subdiagram.TransitionType_4002"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -521,18 +521,18 @@
             mode="Batch"
             severity="ERROR" statusCode="200">
             <![CDATA[self.location->select(p  | p.initial = true)->size() = 1]]>
-            <description><![CDATA[There must be one and only one initial state (atribute "Initial" set to true )]]></description>
-            <message><![CDATA[There must be one and only one initial state (atribute "Initial" set to true )]]></message>
+            <description><![CDATA[There must be one and only one initial state (attribute "Initial" set to true )]]></description>
+            <message><![CDATA[There must be one and only one initial state (attribute "Initial" set to true )]]></message>
             <target class="uppaallite.TemplateType"/>
          </constraint>
                   <constraint id="loc1"
             lang="OCL"
             name="locUrgentCommited"
-            mode="Batch"
+            mode="Live"
             severity="ERROR" statusCode="200">
             <![CDATA[not (self.committed = true and self.urgent = true)]]>
-            <description><![CDATA[Location can't be urgent and commited in the same time]]></description>
-            <message><![CDATA[Location can't be urgent and commited in the same time]]></message>
+            <description><![CDATA[Location can't be urgent and committed at the same time]]></description>
+            <message><![CDATA[Location can't be urgent and committed at the same time]]></message>
             <target class="uppaallite.LocationType"/>
          </constraint>
                   <constraint id="locIdUnique"
@@ -541,8 +541,8 @@
             mode="Batch"
             severity="ERROR" statusCode="200">
             <![CDATA[self.container.location->select(p | p.id = self.id)->size()=1]]>
-            <description><![CDATA[Location must have uniqe id]]></description>
-            <message><![CDATA[Location must have uniqe id]]></message>
+            <description><![CDATA[Location must have an unique id]]></description>
+            <message><![CDATA[Location must have an unique id]]></message>
             <target class="uppaallite.LocationType"/>
          </constraint>
                   <constraint id="locIdDefined"
@@ -551,8 +551,8 @@
             mode="Batch"
             severity="ERROR" statusCode="200">
             <![CDATA[self.id <> '' and not self.id.oclIsUndefined()]]>
-            <description><![CDATA[Location must have an id atribute defined]]></description>
-            <message><![CDATA[Location must have an id atribute defined]]></message>
+            <description><![CDATA[Location must define an id attribute]]></description>
+            <message><![CDATA[Location must define an id attribute]]></message>
             <target class="uppaallite.LocationType"/>
          </constraint>
                   </constraints>

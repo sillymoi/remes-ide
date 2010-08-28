@@ -43,7 +43,7 @@ public class UppaallitePaletteFactory {
 	 */
 	private ToolEntry createLocationType1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(UppaalliteElementTypes.LocationType_2001);
+		types.add(UppaalliteElementTypes.LocationType_2007);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LocationType1CreationTool_title,
 				Messages.LocationType1CreationTool_desc, types);
@@ -60,7 +60,7 @@ public class UppaallitePaletteFactory {
 	 */
 	private ToolEntry createTransitionType2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(UppaalliteElementTypes.TransitionType_4001);
+		types.add(UppaalliteElementTypes.TransitionType_4002);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.TransitionType2CreationTool_title,
 				Messages.TransitionType2CreationTool_desc, types);

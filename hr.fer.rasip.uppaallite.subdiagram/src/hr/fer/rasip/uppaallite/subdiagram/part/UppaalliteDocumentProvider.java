@@ -891,6 +891,7 @@ public class UppaalliteDocumentProvider extends AbstractDocumentProvider
 				Resource resource = (Resource) it.next();
 				resource.unload();
 			}
+			getEditingDomain().dispose();
 		}
 
 		/**

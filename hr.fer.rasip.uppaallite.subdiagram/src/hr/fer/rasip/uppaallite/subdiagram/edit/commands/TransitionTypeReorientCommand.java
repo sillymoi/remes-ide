@@ -72,7 +72,7 @@ public class TransitionTypeReorientCommand extends EditElementCommand {
 		}
 		TemplateType container = (TemplateType) getLink().eContainer();
 		return UppaalliteBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistTransitionType_4001(container, getNewSource(), target);
+				.canExistTransitionType_4002(container, getNewSource(), target);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class TransitionTypeReorientCommand extends EditElementCommand {
 		}
 		TemplateType container = (TemplateType) getLink().eContainer();
 		return UppaalliteBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistTransitionType_4001(container, source, getNewTarget());
+				.canExistTransitionType_4002(container, source, getNewTarget());
 	}
 
 	/**

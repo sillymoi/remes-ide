@@ -60,31 +60,37 @@ public class UppaalliteElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2001 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2001"); //$NON-NLS-1$
+	public static final IElementType LocationType_2007 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2007"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2002 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2002"); //$NON-NLS-1$
+	public static final IElementType LocationType_2008 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2008"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2003 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2003"); //$NON-NLS-1$
+	public static final IElementType LocationType_2009 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2009"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2004 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2004"); //$NON-NLS-1$
+	public static final IElementType LocationType_2010 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2010"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2005 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2005"); //$NON-NLS-1$
+	public static final IElementType LocationType_2011 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2011"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType LocationType_2006 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2006"); //$NON-NLS-1$
+	public static final IElementType LocationType_2012 = getElementType("hr.fer.rasip.uppaallite.subdiagram.LocationType_2012"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType TransitionType_4001 = getElementType("hr.fer.rasip.uppaallite.subdiagram.TransitionType_4001"); //$NON-NLS-1$
+	public static final IElementType TransitionType_4002 = getElementType("hr.fer.rasip.uppaallite.subdiagram.TransitionType_4002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -200,25 +206,25 @@ public class UppaalliteElementTypes extends ElementInitializers {
 			elements.put(TemplateType_1000, UppaallitePackage.eINSTANCE
 					.getTemplateType());
 
-			elements.put(LocationType_2001, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2007, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(LocationType_2002, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2008, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(LocationType_2003, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2009, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(LocationType_2004, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2010, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(LocationType_2005, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2011, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(LocationType_2006, UppaallitePackage.eINSTANCE
+			elements.put(LocationType_2012, UppaallitePackage.eINSTANCE
 					.getLocationType());
 
-			elements.put(TransitionType_4001, UppaallitePackage.eINSTANCE
+			elements.put(TransitionType_4002, UppaallitePackage.eINSTANCE
 					.getTransitionType());
 		}
 		return (ENamedElement) elements.get(type);
@@ -238,13 +244,13 @@ public class UppaalliteElementTypes extends ElementInitializers {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(TemplateType_1000);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2001);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2002);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2003);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2004);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2005);
-			KNOWN_ELEMENT_TYPES.add(LocationType_2006);
-			KNOWN_ELEMENT_TYPES.add(TransitionType_4001);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2007);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2008);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2009);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2010);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2011);
+			KNOWN_ELEMENT_TYPES.add(LocationType_2012);
+			KNOWN_ELEMENT_TYPES.add(TransitionType_4002);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -257,19 +263,19 @@ public class UppaalliteElementTypes extends ElementInitializers {
 		case TemplateTypeEditPart.VISUAL_ID:
 			return TemplateType_1000;
 		case LocationTypeEditPart.VISUAL_ID:
-			return LocationType_2001;
+			return LocationType_2007;
 		case LocationType2EditPart.VISUAL_ID:
-			return LocationType_2002;
+			return LocationType_2008;
 		case LocationType3EditPart.VISUAL_ID:
-			return LocationType_2003;
+			return LocationType_2009;
 		case LocationType4EditPart.VISUAL_ID:
-			return LocationType_2004;
+			return LocationType_2010;
 		case LocationType5EditPart.VISUAL_ID:
-			return LocationType_2005;
+			return LocationType_2011;
 		case LocationType6EditPart.VISUAL_ID:
-			return LocationType_2006;
+			return LocationType_2012;
 		case TransitionTypeEditPart.VISUAL_ID:
-			return TransitionType_4001;
+			return TransitionType_4002;
 		}
 		return null;
 	}

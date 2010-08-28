@@ -270,10 +270,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2001_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2007_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2001_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2007_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -297,10 +297,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationType2EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2002_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2008_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2002_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2008_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -324,10 +324,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationType3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2003_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2009_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2003_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2009_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -351,10 +351,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationType4EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2004_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2010_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2004_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2010_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -378,10 +378,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationType5EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2005_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2011_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2005_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -405,10 +405,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case LocationType6EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup incominglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2006_incominglinks,
+					Messages.NavigatorGroupName_LocationType_2012_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup outgoinglinks = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_LocationType_2006_outgoinglinks,
+					Messages.NavigatorGroupName_LocationType_2012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry
@@ -432,10 +432,10 @@ public class UppaalliteNavigatorContentProvider implements
 		case TransitionTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			UppaalliteNavigatorGroup target = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_TransitionType_4001_target,
+					Messages.NavigatorGroupName_TransitionType_4002_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			UppaalliteNavigatorGroup source = new UppaalliteNavigatorGroup(
-					Messages.NavigatorGroupName_TransitionType_4001_source,
+					Messages.NavigatorGroupName_TransitionType_4002_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(Collections
 					.singleton(view), UppaalliteVisualIDRegistry

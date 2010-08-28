@@ -16,7 +16,7 @@ public class TransitionTypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public TransitionTypeItemSemanticEditPolicy() {
-		super(UppaalliteElementTypes.TransitionType_4001);
+		super(UppaalliteElementTypes.TransitionType_4002);
 	}
 
 	/**

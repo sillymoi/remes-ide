@@ -58,7 +58,7 @@ public class LocationTypeNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	 * @generated
@@ -331,7 +331,7 @@ public class LocationTypeNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = UppaalliteParserProvider
 					.getParser(
-							UppaalliteElementTypes.LocationType_2001,
+							UppaalliteElementTypes.LocationType_2007,
 							getParserElement(),
 							UppaalliteVisualIDRegistry
 									.getType(hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationTypeNameEditPart.VISUAL_ID));

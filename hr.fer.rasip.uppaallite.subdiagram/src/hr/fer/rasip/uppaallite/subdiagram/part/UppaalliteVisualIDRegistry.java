@@ -52,32 +52,32 @@ public class UppaalliteVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2001_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2007_Constraint;
 
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2002_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2008_Constraint;
 
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2003_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2009_Constraint;
 
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2004_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2010_Constraint;
 
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2005_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2011_Constraint;
 
 	/**
 	 * @generated
 	 */
-	private static UppaalliteAbstractExpression LocationType_2006_Constraint;
+	private static UppaalliteAbstractExpression LocationType_2012_Constraint;
 
 	/**
 	 * @generated
@@ -175,32 +175,32 @@ public class UppaalliteVisualIDRegistry {
 		case TemplateTypeEditPart.VISUAL_ID:
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2001((LocationType) domainElement)) {
+					&& isLocationType_2007((LocationType) domainElement)) {
 				return LocationTypeEditPart.VISUAL_ID;
 			}
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2002((LocationType) domainElement)) {
+					&& isLocationType_2008((LocationType) domainElement)) {
 				return LocationType2EditPart.VISUAL_ID;
 			}
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2003((LocationType) domainElement)) {
+					&& isLocationType_2009((LocationType) domainElement)) {
 				return LocationType3EditPart.VISUAL_ID;
 			}
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2004((LocationType) domainElement)) {
+					&& isLocationType_2010((LocationType) domainElement)) {
 				return LocationType4EditPart.VISUAL_ID;
 			}
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2005((LocationType) domainElement)) {
+					&& isLocationType_2011((LocationType) domainElement)) {
 				return LocationType5EditPart.VISUAL_ID;
 			}
 			if (UppaallitePackage.eINSTANCE.getLocationType().isSuperTypeOf(
 					domainElement.eClass())
-					&& isLocationType_2006((LocationType) domainElement)) {
+					&& isLocationType_2012((LocationType) domainElement)) {
 				return LocationType6EditPart.VISUAL_ID;
 			}
 			break;
@@ -339,78 +339,78 @@ public class UppaalliteVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2001(LocationType domainElement) {
-		if (LocationType_2001_Constraint == null) { // lazy initialization
-			LocationType_2001_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2007(LocationType domainElement) {
+		if (LocationType_2007_Constraint == null) { // lazy initialization
+			LocationType_2007_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.committed = self.urgent and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = false and self.urgent = false and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2001_Constraint.evaluate(domainElement);
+		Object result = LocationType_2007_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2002(LocationType domainElement) {
-		if (LocationType_2002_Constraint == null) { // lazy initialization
-			LocationType_2002_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2008(LocationType domainElement) {
+		if (LocationType_2008_Constraint == null) { // lazy initialization
+			LocationType_2008_Constraint = UppaalliteOCLFactory
 					.getExpression(
 							"self.committed = true and self.urgent = false and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2002_Constraint.evaluate(domainElement);
+		Object result = LocationType_2008_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2003(LocationType domainElement) {
-		if (LocationType_2003_Constraint == null) { // lazy initialization
-			LocationType_2003_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2009(LocationType domainElement) {
+		if (LocationType_2009_Constraint == null) { // lazy initialization
+			LocationType_2009_Constraint = UppaalliteOCLFactory
 					.getExpression(
 							"self.committed = false and self.urgent = true and self.initial = false", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2003_Constraint.evaluate(domainElement);
+		Object result = LocationType_2009_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2004(LocationType domainElement) {
-		if (LocationType_2004_Constraint == null) { // lazy initialization
-			LocationType_2004_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2010(LocationType domainElement) {
+		if (LocationType_2010_Constraint == null) { // lazy initialization
+			LocationType_2010_Constraint = UppaalliteOCLFactory
 					.getExpression(
-							"self.committed = self.urgent and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
+							"self.committed = false and self.urgent = false and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2004_Constraint.evaluate(domainElement);
+		Object result = LocationType_2010_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2005(LocationType domainElement) {
-		if (LocationType_2005_Constraint == null) { // lazy initialization
-			LocationType_2005_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2011(LocationType domainElement) {
+		if (LocationType_2011_Constraint == null) { // lazy initialization
+			LocationType_2011_Constraint = UppaalliteOCLFactory
 					.getExpression(
 							"self.committed = false and self.urgent = true and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2005_Constraint.evaluate(domainElement);
+		Object result = LocationType_2011_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean isLocationType_2006(LocationType domainElement) {
-		if (LocationType_2006_Constraint == null) { // lazy initialization
-			LocationType_2006_Constraint = UppaalliteOCLFactory
+	private static boolean isLocationType_2012(LocationType domainElement) {
+		if (LocationType_2012_Constraint == null) { // lazy initialization
+			LocationType_2012_Constraint = UppaalliteOCLFactory
 					.getExpression(
 							"self.committed = true and self.urgent = false and self.initial = true", UppaallitePackage.eINSTANCE.getLocationType()); //$NON-NLS-1$
 		}
-		Object result = LocationType_2006_Constraint.evaluate(domainElement);
+		Object result = LocationType_2012_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 

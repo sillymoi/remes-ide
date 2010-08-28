@@ -278,72 +278,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2001_incominglinks;
+	public static String NavigatorGroupName_LocationType_2007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2001_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2007_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2002_incominglinks;
+	public static String NavigatorGroupName_LocationType_2008_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2002_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2008_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2003_incominglinks;
+	public static String NavigatorGroupName_LocationType_2009_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2003_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2009_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2004_incominglinks;
+	public static String NavigatorGroupName_LocationType_2010_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2004_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2010_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2005_incominglinks;
+	public static String NavigatorGroupName_LocationType_2011_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2005_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2011_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2006_incominglinks;
+	public static String NavigatorGroupName_LocationType_2012_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LocationType_2006_outgoinglinks;
+	public static String NavigatorGroupName_LocationType_2012_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TransitionType_4001_target;
+	public static String NavigatorGroupName_TransitionType_4002_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_TransitionType_4001_source;
+	public static String NavigatorGroupName_TransitionType_4002_source;
 
 	/**
 	 * @generated

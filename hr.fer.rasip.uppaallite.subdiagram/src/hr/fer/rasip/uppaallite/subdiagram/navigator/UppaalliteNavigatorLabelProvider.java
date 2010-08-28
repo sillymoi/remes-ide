@@ -103,25 +103,25 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Diagram?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TemplateType", UppaalliteElementTypes.TemplateType_1000); //$NON-NLS-1$
 		case LocationTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2007); //$NON-NLS-1$
 		case LocationType2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2008); //$NON-NLS-1$
 		case LocationType3EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2009); //$NON-NLS-1$
 		case LocationType4EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2004); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2010); //$NON-NLS-1$
 		case LocationType5EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2005); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2011); //$NON-NLS-1$
 		case LocationType6EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2006); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?LocationType", UppaalliteElementTypes.LocationType_2012); //$NON-NLS-1$
 		case TransitionTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TransitionType", UppaalliteElementTypes.TransitionType_4001); //$NON-NLS-1$
+					"Navigator?Link?http://www.rasip.fer.hr/remes/1.2.0/uppaallite.ecore?TransitionType", UppaalliteElementTypes.TransitionType_4002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -177,19 +177,19 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 		case TemplateTypeEditPart.VISUAL_ID:
 			return getTemplateType_1000Text(view);
 		case LocationTypeEditPart.VISUAL_ID:
-			return getLocationType_2001Text(view);
+			return getLocationType_2007Text(view);
 		case LocationType2EditPart.VISUAL_ID:
-			return getLocationType_2002Text(view);
+			return getLocationType_2008Text(view);
 		case LocationType3EditPart.VISUAL_ID:
-			return getLocationType_2003Text(view);
+			return getLocationType_2009Text(view);
 		case LocationType4EditPart.VISUAL_ID:
-			return getLocationType_2004Text(view);
+			return getLocationType_2010Text(view);
 		case LocationType5EditPart.VISUAL_ID:
-			return getLocationType_2005Text(view);
+			return getLocationType_2011Text(view);
 		case LocationType6EditPart.VISUAL_ID:
-			return getLocationType_2006Text(view);
+			return getLocationType_2012Text(view);
 		case TransitionTypeEditPart.VISUAL_ID:
-			return getTransitionType_4001Text(view);
+			return getTransitionType_4002Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -211,9 +211,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2001Text(View view) {
+	private String getLocationType_2007Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2001,
+				UppaalliteElementTypes.LocationType_2007,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeNameEditPart.VISUAL_ID));
@@ -223,7 +223,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
+					"Parser was not found for label " + 5013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -231,9 +231,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2002Text(View view) {
+	private String getLocationType_2008Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2002,
+				UppaalliteElementTypes.LocationType_2008,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeName2EditPart.VISUAL_ID));
@@ -243,7 +243,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5003); //$NON-NLS-1$
+					"Parser was not found for label " + 5015); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -251,9 +251,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2003Text(View view) {
+	private String getLocationType_2009Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2003,
+				UppaalliteElementTypes.LocationType_2009,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeName3EditPart.VISUAL_ID));
@@ -263,7 +263,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5005); //$NON-NLS-1$
+					"Parser was not found for label " + 5017); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -271,9 +271,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2004Text(View view) {
+	private String getLocationType_2010Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2004,
+				UppaalliteElementTypes.LocationType_2010,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeName4EditPart.VISUAL_ID));
@@ -283,7 +283,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5007); //$NON-NLS-1$
+					"Parser was not found for label " + 5019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -291,9 +291,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2005Text(View view) {
+	private String getLocationType_2011Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2005,
+				UppaalliteElementTypes.LocationType_2011,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeName5EditPart.VISUAL_ID));
@@ -303,7 +303,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5009); //$NON-NLS-1$
+					"Parser was not found for label " + 5021); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -311,9 +311,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getLocationType_2006Text(View view) {
+	private String getLocationType_2012Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.LocationType_2006,
+				UppaalliteElementTypes.LocationType_2012,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(LocationTypeName6EditPart.VISUAL_ID));
@@ -323,7 +323,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5011); //$NON-NLS-1$
+					"Parser was not found for label " + 5023); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -331,9 +331,9 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getTransitionType_4001Text(View view) {
+	private String getTransitionType_4002Text(View view) {
 		IParser parser = UppaalliteParserProvider.getParser(
-				UppaalliteElementTypes.TransitionType_4001,
+				UppaalliteElementTypes.TransitionType_4002,
 				view.getElement() != null ? view.getElement() : view,
 				UppaalliteVisualIDRegistry
 						.getType(TransitionTypeAssignmentEditPart.VISUAL_ID));
@@ -343,7 +343,7 @@ public class UppaalliteNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			UppaalliteDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 6001); //$NON-NLS-1$
+					"Parser was not found for label " + 6004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

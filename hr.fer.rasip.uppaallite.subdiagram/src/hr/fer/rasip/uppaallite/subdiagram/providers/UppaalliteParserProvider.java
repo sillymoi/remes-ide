@@ -41,271 +41,271 @@ public class UppaalliteParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5001Parser;
+	private IParser locationTypeName_5013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5001Parser() {
-		if (locationTypeName_5001Parser == null) {
+	private IParser getLocationTypeName_5013Parser() {
+		if (locationTypeName_5013Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5001Parser = parser;
+			locationTypeName_5013Parser = parser;
 		}
-		return locationTypeName_5001Parser;
+		return locationTypeName_5013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5002Parser;
+	private IParser locationTypeInvariant_5014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5002Parser() {
-		if (locationTypeInvariant_5002Parser == null) {
+	private IParser getLocationTypeInvariant_5014Parser() {
+		if (locationTypeInvariant_5014Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5002Parser = parser;
+			locationTypeInvariant_5014Parser = parser;
 		}
-		return locationTypeInvariant_5002Parser;
+		return locationTypeInvariant_5014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5003Parser;
+	private IParser locationTypeName_5015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5003Parser() {
-		if (locationTypeName_5003Parser == null) {
+	private IParser getLocationTypeName_5015Parser() {
+		if (locationTypeName_5015Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5003Parser = parser;
+			locationTypeName_5015Parser = parser;
 		}
-		return locationTypeName_5003Parser;
+		return locationTypeName_5015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5004Parser;
+	private IParser locationTypeInvariant_5016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5004Parser() {
-		if (locationTypeInvariant_5004Parser == null) {
+	private IParser getLocationTypeInvariant_5016Parser() {
+		if (locationTypeInvariant_5016Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5004Parser = parser;
+			locationTypeInvariant_5016Parser = parser;
 		}
-		return locationTypeInvariant_5004Parser;
+		return locationTypeInvariant_5016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5005Parser;
+	private IParser locationTypeName_5017Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5005Parser() {
-		if (locationTypeName_5005Parser == null) {
+	private IParser getLocationTypeName_5017Parser() {
+		if (locationTypeName_5017Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5005Parser = parser;
+			locationTypeName_5017Parser = parser;
 		}
-		return locationTypeName_5005Parser;
+		return locationTypeName_5017Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5006Parser;
+	private IParser locationTypeInvariant_5018Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5006Parser() {
-		if (locationTypeInvariant_5006Parser == null) {
+	private IParser getLocationTypeInvariant_5018Parser() {
+		if (locationTypeInvariant_5018Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5006Parser = parser;
+			locationTypeInvariant_5018Parser = parser;
 		}
-		return locationTypeInvariant_5006Parser;
+		return locationTypeInvariant_5018Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5007Parser;
+	private IParser locationTypeName_5019Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5007Parser() {
-		if (locationTypeName_5007Parser == null) {
+	private IParser getLocationTypeName_5019Parser() {
+		if (locationTypeName_5019Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5007Parser = parser;
+			locationTypeName_5019Parser = parser;
 		}
-		return locationTypeName_5007Parser;
+		return locationTypeName_5019Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5008Parser;
+	private IParser locationTypeInvariant_5020Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5008Parser() {
-		if (locationTypeInvariant_5008Parser == null) {
+	private IParser getLocationTypeInvariant_5020Parser() {
+		if (locationTypeInvariant_5020Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5008Parser = parser;
+			locationTypeInvariant_5020Parser = parser;
 		}
-		return locationTypeInvariant_5008Parser;
+		return locationTypeInvariant_5020Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5009Parser;
+	private IParser locationTypeName_5021Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5009Parser() {
-		if (locationTypeName_5009Parser == null) {
+	private IParser getLocationTypeName_5021Parser() {
+		if (locationTypeName_5021Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5009Parser = parser;
+			locationTypeName_5021Parser = parser;
 		}
-		return locationTypeName_5009Parser;
+		return locationTypeName_5021Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5010Parser;
+	private IParser locationTypeInvariant_5022Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5010Parser() {
-		if (locationTypeInvariant_5010Parser == null) {
+	private IParser getLocationTypeInvariant_5022Parser() {
+		if (locationTypeInvariant_5022Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5010Parser = parser;
+			locationTypeInvariant_5022Parser = parser;
 		}
-		return locationTypeInvariant_5010Parser;
+		return locationTypeInvariant_5022Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeName_5011Parser;
+	private IParser locationTypeName_5023Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeName_5011Parser() {
-		if (locationTypeName_5011Parser == null) {
+	private IParser getLocationTypeName_5023Parser() {
+		if (locationTypeName_5023Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeName_5011Parser = parser;
+			locationTypeName_5023Parser = parser;
 		}
-		return locationTypeName_5011Parser;
+		return locationTypeName_5023Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser locationTypeInvariant_5012Parser;
+	private IParser locationTypeInvariant_5024Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLocationTypeInvariant_5012Parser() {
-		if (locationTypeInvariant_5012Parser == null) {
+	private IParser getLocationTypeInvariant_5024Parser() {
+		if (locationTypeInvariant_5024Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getLocationType_Invariant() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			locationTypeInvariant_5012Parser = parser;
+			locationTypeInvariant_5024Parser = parser;
 		}
-		return locationTypeInvariant_5012Parser;
+		return locationTypeInvariant_5024Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser transitionTypeAssignment_6001Parser;
+	private IParser transitionTypeAssignment_6004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTransitionTypeAssignment_6001Parser() {
-		if (transitionTypeAssignment_6001Parser == null) {
+	private IParser getTransitionTypeAssignment_6004Parser() {
+		if (transitionTypeAssignment_6004Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getTransitionType_Assignment() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			transitionTypeAssignment_6001Parser = parser;
+			transitionTypeAssignment_6004Parser = parser;
 		}
-		return transitionTypeAssignment_6001Parser;
+		return transitionTypeAssignment_6004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser transitionTypeGuard_6002Parser;
+	private IParser transitionTypeGuard_6005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTransitionTypeGuard_6002Parser() {
-		if (transitionTypeGuard_6002Parser == null) {
+	private IParser getTransitionTypeGuard_6005Parser() {
+		if (transitionTypeGuard_6005Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getTransitionType_Guard() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			transitionTypeGuard_6002Parser = parser;
+			transitionTypeGuard_6005Parser = parser;
 		}
-		return transitionTypeGuard_6002Parser;
+		return transitionTypeGuard_6005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser transitionTypeSync_6003Parser;
+	private IParser transitionTypeSync_6006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTransitionTypeSync_6003Parser() {
-		if (transitionTypeSync_6003Parser == null) {
+	private IParser getTransitionTypeSync_6006Parser() {
+		if (transitionTypeSync_6006Parser == null) {
 			EAttribute[] features = new EAttribute[] { UppaallitePackage.eINSTANCE
 					.getTransitionType_Sync() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			transitionTypeSync_6003Parser = parser;
+			transitionTypeSync_6006Parser = parser;
 		}
-		return transitionTypeSync_6003Parser;
+		return transitionTypeSync_6006Parser;
 	}
 
 	/**
@@ -314,35 +314,35 @@ public class UppaalliteParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case LocationTypeNameEditPart.VISUAL_ID:
-			return getLocationTypeName_5001Parser();
+			return getLocationTypeName_5013Parser();
 		case LocationTypeInvariantEditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5002Parser();
+			return getLocationTypeInvariant_5014Parser();
 		case LocationTypeName2EditPart.VISUAL_ID:
-			return getLocationTypeName_5003Parser();
+			return getLocationTypeName_5015Parser();
 		case LocationTypeInvariant2EditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5004Parser();
+			return getLocationTypeInvariant_5016Parser();
 		case LocationTypeName3EditPart.VISUAL_ID:
-			return getLocationTypeName_5005Parser();
+			return getLocationTypeName_5017Parser();
 		case LocationTypeInvariant3EditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5006Parser();
+			return getLocationTypeInvariant_5018Parser();
 		case LocationTypeName4EditPart.VISUAL_ID:
-			return getLocationTypeName_5007Parser();
+			return getLocationTypeName_5019Parser();
 		case LocationTypeInvariant4EditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5008Parser();
+			return getLocationTypeInvariant_5020Parser();
 		case LocationTypeName5EditPart.VISUAL_ID:
-			return getLocationTypeName_5009Parser();
+			return getLocationTypeName_5021Parser();
 		case LocationTypeInvariant5EditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5010Parser();
+			return getLocationTypeInvariant_5022Parser();
 		case LocationTypeName6EditPart.VISUAL_ID:
-			return getLocationTypeName_5011Parser();
+			return getLocationTypeName_5023Parser();
 		case LocationTypeInvariant6EditPart.VISUAL_ID:
-			return getLocationTypeInvariant_5012Parser();
+			return getLocationTypeInvariant_5024Parser();
 		case TransitionTypeAssignmentEditPart.VISUAL_ID:
-			return getTransitionTypeAssignment_6001Parser();
+			return getTransitionTypeAssignment_6004Parser();
 		case TransitionTypeGuardEditPart.VISUAL_ID:
-			return getTransitionTypeGuard_6002Parser();
+			return getTransitionTypeGuard_6005Parser();
 		case TransitionTypeSyncEditPart.VISUAL_ID:
-			return getTransitionTypeSync_6003Parser();
+			return getTransitionTypeSync_6006Parser();
 		}
 		return null;
 	}

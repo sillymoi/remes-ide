@@ -312,15 +312,15 @@ public class UppaalliteBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateTransitionType_4001(
+		public static boolean canCreateTransitionType_4002(
 				TemplateType container, LocationType source, LocationType target) {
-			return canExistTransitionType_4001(container, source, target);
+			return canExistTransitionType_4002(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistTransitionType_4001(
+		public static boolean canExistTransitionType_4002(
 				TemplateType container, LocationType source, LocationType target) {
 			return true;
 		}

@@ -10,13 +10,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
@@ -51,7 +54,7 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2004;
+	public static final int VISUAL_ID = 2010;
 
 	/**
 	 * @generated
@@ -259,7 +262,7 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types.add(UppaalliteElementTypes.TransitionType_4001);
+		types.add(UppaalliteElementTypes.TransitionType_4002);
 		return types;
 	}
 
@@ -270,22 +273,22 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		if (targetEditPart instanceof LocationTypeEditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		if (targetEditPart instanceof LocationType2EditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		if (targetEditPart instanceof LocationType3EditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		if (targetEditPart instanceof hr.fer.rasip.uppaallite.subdiagram.edit.parts.LocationType4EditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		if (targetEditPart instanceof LocationType5EditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		if (targetEditPart instanceof LocationType6EditPart) {
-			types.add(UppaalliteElementTypes.TransitionType_4001);
+			types.add(UppaalliteElementTypes.TransitionType_4002);
 		}
 		return types;
 	}
@@ -296,23 +299,23 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2001);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2007);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2002);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2008);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2003);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2009);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2004);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2010);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2005);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2011);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2006);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2012);
 		}
 		return types;
 	}
@@ -322,7 +325,7 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types.add(UppaalliteElementTypes.TransitionType_4001);
+		types.add(UppaalliteElementTypes.TransitionType_4002);
 		return types;
 	}
 
@@ -332,23 +335,23 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2001);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2007);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2002);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2008);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2003);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2009);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2004);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2010);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2005);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2011);
 		}
-		if (relationshipType == UppaalliteElementTypes.TransitionType_4001) {
-			types.add(UppaalliteElementTypes.LocationType_2006);
+		if (relationshipType == UppaalliteElementTypes.TransitionType_4002) {
+			types.add(UppaalliteElementTypes.LocationType_2012);
 		}
 		return types;
 	}
@@ -356,22 +359,34 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public class LocationTypeInitFigure extends SVGFigure {
+	public class LocationTypeInitFigure extends Ellipse {
 
 		/**
 		 * @generated
 		 */
 		public LocationTypeInitFigure() {
-			this
-					.setURI("platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitImage.svg");
-			this.setSpecifyCanvasWidth(false);
-			this.setSpecifyCanvasHeight(false);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(32),
-					getMapMode().DPtoLP(32)));
-			this.setMaximumSize(new Dimension(getMapMode().DPtoLP(32),
-					getMapMode().DPtoLP(32)));
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(32),
-					getMapMode().DPtoLP(32)));
+			this.setLineWidth(2);
+			this.setForegroundColor(ColorConstants.black);
+			this.setBackgroundColor(THIS_BACK);
+			this.setSize(getMapMode().DPtoLP(32), getMapMode().DPtoLP(32));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			Ellipse elli0 = new Ellipse();
+			elli0.setLineWidth(0);
+			elli0.setForegroundColor(ColorConstants.black);
+			elli0.setBackgroundColor(ColorConstants.black);
+			elli0.setLocation(new Point(getMapMode().DPtoLP(11), getMapMode()
+					.DPtoLP(12)));
+			elli0.setSize(getMapMode().DPtoLP(10), getMapMode().DPtoLP(10));
+
+			this.add(elli0);
+
 		}
 
 		/**
@@ -394,6 +409,11 @@ public class LocationType4EditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
+
+	/**
+	 * @generated
+	 */
+	static final Color THIS_BACK = new Color(null, 32, 150, 255);
 
 	/**
 	 * @generated NOT

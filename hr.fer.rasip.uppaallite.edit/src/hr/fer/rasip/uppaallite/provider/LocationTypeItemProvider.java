@@ -71,6 +71,8 @@ public class LocationTypeItemProvider
 			addIdPropertyDescriptor(object);
 			addInvariantPropertyDescriptor(object);
 			addCostPropertyDescriptor(object);
+			addXPropertyDescriptor(object);
+			addYPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,7 +89,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_name_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_name_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__NAME,
 				 true,
 				 false,
@@ -109,7 +111,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_urgent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_urgent_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_urgent_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__URGENT,
 				 true,
 				 false,
@@ -131,7 +133,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_committed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_committed_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_committed_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__COMMITTED,
 				 true,
 				 false,
@@ -153,7 +155,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_initial_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_initial_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_initial_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__INITIAL,
 				 true,
 				 false,
@@ -175,7 +177,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_id_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_id_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__ID,
 				 true,
 				 false,
@@ -197,7 +199,7 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_invariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_invariant_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_invariant_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__INVARIANT,
 				 true,
 				 false,
@@ -219,12 +221,56 @@ public class LocationTypeItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_LocationType_cost_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_cost_feature", "_UI_LocationType_type"),
+				 getString("_UI_LocationType_cost_description"),
 				 UppaallitePackage.Literals.LOCATION_TYPE__COST,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the X feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationType_x_feature"),
+				 getString("_UI_LocationType_x_description"),
+				 UppaallitePackage.Literals.LOCATION_TYPE__X,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Y feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationType_y_feature"),
+				 getString("_UI_LocationType_y_description"),
+				 UppaallitePackage.Literals.LOCATION_TYPE__Y,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -273,6 +319,8 @@ public class LocationTypeItemProvider
 			case UppaallitePackage.LOCATION_TYPE__ID:
 			case UppaallitePackage.LOCATION_TYPE__INVARIANT:
 			case UppaallitePackage.LOCATION_TYPE__COST:
+			case UppaallitePackage.LOCATION_TYPE__X:
+			case UppaallitePackage.LOCATION_TYPE__Y:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

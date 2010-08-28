@@ -283,6 +283,24 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLocationType_X() {
+		return (EAttribute)locationTypeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLocationType_Y() {
+		return (EAttribute)locationTypeEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTransitionType() {
 		return transitionTypeEClass;
 	}
@@ -398,6 +416,8 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__INVARIANT);
 		createEReference(locationTypeEClass, LOCATION_TYPE__CONTAINER);
 		createEAttribute(locationTypeEClass, LOCATION_TYPE__COST);
+		createEAttribute(locationTypeEClass, LOCATION_TYPE__X);
+		createEAttribute(locationTypeEClass, LOCATION_TYPE__Y);
 
 		transitionTypeEClass = createEClass(TRANSITION_TYPE);
 		createEAttribute(transitionTypeEClass, TRANSITION_TYPE__SYNC);
@@ -459,6 +479,8 @@ public class UppaallitePackageImpl extends EPackageImpl implements UppaallitePac
 		initEAttribute(getLocationType_Invariant(), ecorePackage.getEString(), "invariant", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocationType_Container(), this.getTemplateType(), this.getTemplateType_Location(), "container", null, 1, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationType_Cost(), ecorePackage.getEString(), "cost", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocationType_X(), ecorePackage.getEInt(), "x", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLocationType_Y(), ecorePackage.getEInt(), "y", null, 0, 1, LocationType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionTypeEClass, TransitionType.class, "TransitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTransitionType_Sync(), ecorePackage.getEString(), "sync", null, 0, 1, TransitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

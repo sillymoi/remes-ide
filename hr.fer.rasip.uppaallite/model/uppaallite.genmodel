@@ -19,14 +19,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uppaallite.ecore#//TemplateType/transition"/>
     </genClasses>
     <genClasses ecoreClass="uppaallite.ecore#//LocationType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/urgent"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/committed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/initial"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/invariant"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference uppaallite.ecore#//LocationType/container"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/cost"/>
+      <genFeatures createChild="false" propertyDescription="Name of the location"
+          ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/name"/>
+      <genFeatures createChild="false" propertyDescription="Is location urgent?" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/urgent"/>
+      <genFeatures createChild="false" propertyDescription="Is location committed?"
+          ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/committed"/>
+      <genFeatures createChild="false" propertyDescription="Is location initial (for the template)?"
+          ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/initial"/>
+      <genFeatures createChild="false" propertyDescription="Location unique ID" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/id"/>
+      <genFeatures createChild="false" propertyDescription="Location invariant" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/invariant"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyDescription="Parent template"
+          ecoreFeature="ecore:EReference uppaallite.ecore#//LocationType/container"/>
+      <genFeatures createChild="false" propertyDescription="Cost of the location"
+          ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/cost"/>
+      <genFeatures createChild="false" propertyDescription="X coordinate" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/x"/>
+      <genFeatures createChild="false" propertyDescription="Y coordinate" ecoreFeature="ecore:EAttribute uppaallite.ecore#//LocationType/y"/>
     </genClasses>
     <genClasses ecoreClass="uppaallite.ecore#//TransitionType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uppaallite.ecore#//TransitionType/sync"/>

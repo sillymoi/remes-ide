@@ -243,13 +243,31 @@ public interface UppaallitePackage extends EPackage {
 	int LOCATION_TYPE__COST = 7;
 
 	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATION_TYPE__X = 8;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCATION_TYPE__Y = 9;
+
+	/**
 	 * The number of structural features of the '<em>Location Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCATION_TYPE_FEATURE_COUNT = 8;
+	int LOCATION_TYPE_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.
@@ -530,6 +548,28 @@ public interface UppaallitePackage extends EPackage {
 	EAttribute getLocationType_Cost();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see hr.fer.rasip.uppaallite.LocationType#getX()
+	 * @see #getLocationType()
+	 * @generated
+	 */
+	EAttribute getLocationType_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hr.fer.rasip.uppaallite.LocationType#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see hr.fer.rasip.uppaallite.LocationType#getY()
+	 * @see #getLocationType()
+	 * @generated
+	 */
+	EAttribute getLocationType_Y();
+
+	/**
 	 * Returns the meta object for class '{@link hr.fer.rasip.uppaallite.TransitionType <em>Transition Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -787,6 +827,22 @@ public interface UppaallitePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOCATION_TYPE__COST = eINSTANCE.getLocationType_Cost();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCATION_TYPE__X = eINSTANCE.getLocationType_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCATION_TYPE__Y = eINSTANCE.getLocationType_Y();
 
 		/**
 		 * The meta object literal for the '{@link hr.fer.rasip.uppaallite.impl.TransitionTypeImpl <em>Transition Type</em>}' class.

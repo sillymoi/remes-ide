@@ -8,20 +8,24 @@
     <descriptors
         name="LocationTypeFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
       </actualFigure>
     </descriptors>
     <descriptors
@@ -104,96 +108,220 @@
     <descriptors
         name="LocationTypeCommitedFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeCommitedFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeCommitedImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name=""
+            text="C">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="22"/>
+          <location
+              y="1"/>
+          <size
+              x="32"
+              y="32"/>
+        </children>
       </actualFigure>
     </descriptors>
     <descriptors
         name="LocationTypeUrgentFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeUrgentFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeUrgentImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name=""
+            text="U">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="22"/>
+          <location
+              y="1"/>
+          <size
+              x="32"
+              y="32"/>
+        </children>
       </actualFigure>
     </descriptors>
     <descriptors
         name="LocationTypeInitFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeInitFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            lineWidth="0">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <location
+              x="11"
+              y="12"/>
+          <size
+              x="10"
+              y="10"/>
+        </children>
       </actualFigure>
     </descriptors>
     <descriptors
         name="LocationTypeInitUrgentFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeInitUrgentFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitUrgentImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name=""
+            text="U">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="22"/>
+          <location
+              y="1"/>
+          <size
+              x="32"
+              y="32"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            lineWidth="0">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <location
+              x="11"
+              y="12"/>
+          <size
+              x="10"
+              y="10"/>
+        </children>
       </actualFigure>
     </descriptors>
     <descriptors
         name="LocationTypeInitCommitedFigure">
       <actualFigure
-          xsi:type="gmfgraph:SVGFigure"
+          xsi:type="gmfgraph:Ellipse"
           name="LocationTypeInitCommitedFigure"
-          documentURI="platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitCommitedImage.svg"
-          noCanvasWidth="true"
-          noCanvasHeight="true">
-        <maximumSize
-            dx="32"
-            dy="32"/>
-        <minimumSize
-            dx="32"
-            dy="32"/>
-        <preferredSize
-            dx="32"
-            dy="32"/>
+          lineWidth="2">
+        <layoutData
+            xsi:type="gmfgraph:GridLayoutData"
+            grabExcessHorizontalSpace="true"
+            grabExcessVerticalSpace="true"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="32"
+            green="150"
+            blue="255"/>
+        <size
+            x="32"
+            y="32"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name=""
+            text="C">
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="22"/>
+          <location
+              y="1"/>
+          <size
+              x="32"
+              y="32"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            lineWidth="0">
+          <foregroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <backgroundColor
+              xsi:type="gmfgraph:ConstantColor"
+              value="black"/>
+          <location
+              x="11"
+              y="12"/>
+          <size
+              x="10"
+              y="10"/>
+        </children>
       </actualFigure>
     </descriptors>
   </figures>
@@ -243,5 +371,6 @@
   <labels
       name="TransitionSync"
       figure="TransitionSyncFigure"
+      affixedParentSide="NORTH"
       elementIcon="false"/>
 </gmfgraph:Canvas>

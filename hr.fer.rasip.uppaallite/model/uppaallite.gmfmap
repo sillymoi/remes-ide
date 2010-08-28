@@ -12,7 +12,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.committed = self.urgent and self.initial = false"/>
+          body="self.committed = false and self.urgent = false and self.initial = false"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -93,7 +93,7 @@
       <domainMetaElement
           href="uppaallite.ecore#//LocationType"/>
       <domainSpecialization
-          body="self.committed = self.urgent and self.initial = true"/>
+          body="self.committed = false and self.urgent = false and self.initial = true"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
@@ -218,9 +218,9 @@
       description="templateTypeAuditC">
     <audits
         name="oneInitialState"
-        description="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )"
+        description="There must be one and only one initial state (attribute &quot;Initial&quot; set to true )"
         id="oneInitialState"
-        message="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )">
+        message="There must be one and only one initial state (attribute &quot;Initial&quot; set to true )">
       <rule
           body="self.location->select(p  | p.initial = true)->size() = 1"/>
       <target
@@ -231,9 +231,10 @@
     </audits>
     <audits
         name="locUrgentCommited"
-        description="Location can't be urgent and commited in the same time"
+        description="Location can't be urgent and committed at the same time"
         id="loc1"
-        message="Location can't be urgent and commited in the same time">
+        useInLiveMode="true"
+        message="Location can't be urgent and committed at the same time">
       <rule
           body="not (self.committed = true and self.urgent = true)"/>
       <target
@@ -244,9 +245,9 @@
     </audits>
     <audits
         name="locIdUnique"
-        description="Location must have uniqe id"
+        description="Location must have an unique id"
         id="locIdUnique"
-        message="Location must have uniqe id">
+        message="Location must have an unique id">
       <rule
           body="self.container.location->select(p | p.id = self.id)->size()=1"/>
       <target
@@ -257,9 +258,9 @@
     </audits>
     <audits
         name="locIdDefined"
-        description="Location must have an id atribute defined"
+        description="Location must define an id attribute"
         id="locIdDefined"
-        message="Location must have an id atribute defined">
+        message="Location must define an id attribute">
       <rule
           body="self.id &lt;> '' and not self.id.oclIsUndefined()"/>
       <target

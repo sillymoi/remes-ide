@@ -14,10 +14,10 @@
         audits="//@audits/@rules.0 //@audits/@rules.1 //@audits/@rules.2 //@audits/@rules.3"/>
     <rules
         name="oneInitialState"
-        description="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )"
+        description="There must be one and only one initial state (attribute &quot;Initial&quot; set to true )"
         id="oneInitialState"
         rule="//@expressionProviders/@providers.0/@expressions.6"
-        message="There must be one and only one initial state (atribute &quot;Initial&quot; set to true )"
+        message="There must be one and only one initial state (attribute &quot;Initial&quot; set to true )"
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -28,10 +28,11 @@
     </rules>
     <rules
         name="locUrgentCommited"
-        description="Location can't be urgent and commited in the same time"
+        description="Location can't be urgent and committed at the same time"
         id="loc1"
         rule="//@expressionProviders/@providers.0/@expressions.7"
-        message="Location can't be urgent and commited in the same time"
+        message="Location can't be urgent and committed at the same time"
+        useInLiveMode="true"
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -42,10 +43,10 @@
     </rules>
     <rules
         name="locIdUnique"
-        description="Location must have uniqe id"
+        description="Location must have an unique id"
         id="locIdUnique"
         rule="//@expressionProviders/@providers.0/@expressions.8"
-        message="Location must have uniqe id"
+        message="Location must have an unique id"
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -56,10 +57,10 @@
     </rules>
     <rules
         name="locIdDefined"
-        description="Location must have an id atribute defined"
+        description="Location must define an id attribute"
         id="locIdDefined"
         rule="//@expressionProviders/@providers.0/@expressions.9"
-        message="Location must have an id atribute defined"
+        message="Location must define an id attribute"
         category="//@audits/@categories.0">
       <target
           xsi:type="gmfgen:GenDomainElementTarget"
@@ -93,7 +94,7 @@
     <domainDiagramElement
         href="uppaallite.genmodel#//uppaallite/TemplateType"/>
     <topLevelNodes
-        visualID="2001"
+        visualID="2007"
         editPartClassName="LocationTypeEditPart"
         itemSemanticEditPolicyClassName="LocationTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -108,16 +109,17 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             width="32"
             height="32"/>
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedBackground="true"/>
       </viewmap>
       <modelFacet
           modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
@@ -130,7 +132,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5001"
+          visualID="5013"
           editPartClassName="LocationTypeNameEditPart"
           itemSemanticEditPolicyClassName="LocationTypeNameItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -153,7 +155,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5002"
+          visualID="5014"
           editPartClassName="LocationTypeInvariantEditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariantItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -176,7 +178,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
+        visualID="2008"
         editPartClassName="LocationType2EditPart"
         itemSemanticEditPolicyClassName="LocationType2ItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -191,16 +193,17 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeCommitedFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeCommitedFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeCommitedFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeCommitedImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeCommitedFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeCommitedFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;C&quot;);&#xA;&#xA;l0.setFont(L0_FONT);&#xA;&#xA;&#xA;l0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(1)&#xA;));&#xA;l0.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font L0_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 22, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
             xsi:type="gmfgen:DefaultSizeAttributes"
             width="32"
             height="32"/>
-        <attributes
-            xsi:type="gmfgen:StyleAttributes"
-            fixedBackground="true"/>
       </viewmap>
       <modelFacet
           modelElementSelector="//@expressionProviders/@providers.0/@expressions.1">
@@ -213,7 +216,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5003"
+          visualID="5015"
           editPartClassName="LocationTypeName2EditPart"
           itemSemanticEditPolicyClassName="LocationTypeName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -236,7 +239,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5004"
+          visualID="5016"
           editPartClassName="LocationTypeInvariant2EditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariant2ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -259,7 +262,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="2009"
         editPartClassName="LocationType3EditPart"
         itemSemanticEditPolicyClassName="LocationType3ItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -274,7 +277,11 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeUrgentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeUrgentFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeUrgentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeUrgentImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeUrgentFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeUrgentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;U&quot;);&#xA;&#xA;l0.setFont(L0_FONT);&#xA;&#xA;&#xA;l0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(1)&#xA;));&#xA;l0.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font L0_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 22, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
@@ -293,7 +300,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5005"
+          visualID="5017"
           editPartClassName="LocationTypeName3EditPart"
           itemSemanticEditPolicyClassName="LocationTypeName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -316,7 +323,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5006"
+          visualID="5018"
           editPartClassName="LocationTypeInvariant3EditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariant3ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -339,7 +346,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2004"
+        visualID="2010"
         editPartClassName="LocationType4EditPart"
         itemSemanticEditPolicyClassName="LocationType4ItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -354,7 +361,11 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeInitFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse elli0 = new org.eclipse.draw2d.Ellipse();&#xA;elli0.setLineWidth(0);&#xA;&#x9;elli0.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;elli0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;elli0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;elli0.setSize(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;);&#xA;&#xA;this.add(elli0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
@@ -373,7 +384,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5007"
+          visualID="5019"
           editPartClassName="LocationTypeName4EditPart"
           itemSemanticEditPolicyClassName="LocationTypeName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -396,7 +407,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5008"
+          visualID="5020"
           editPartClassName="LocationTypeInvariant4EditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariant4ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -419,7 +430,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2005"
+        visualID="2011"
         editPartClassName="LocationType5EditPart"
         itemSemanticEditPolicyClassName="LocationType5ItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -434,7 +445,11 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeInitUrgentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitUrgentFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitUrgentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitUrgentImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitUrgentFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitUrgentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;U&quot;);&#xA;&#xA;l0.setFont(L0_FONT);&#xA;&#xA;&#xA;l0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(1)&#xA;));&#xA;l0.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse elli0 = new org.eclipse.draw2d.Ellipse();&#xA;elli0.setLineWidth(0);&#xA;&#x9;elli0.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;elli0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;elli0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;elli0.setSize(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;);&#xA;&#xA;this.add(elli0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font L0_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 22, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
@@ -453,7 +468,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5009"
+          visualID="5021"
           editPartClassName="LocationTypeName5EditPart"
           itemSemanticEditPolicyClassName="LocationTypeName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -476,7 +491,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5010"
+          visualID="5022"
           editPartClassName="LocationTypeInvariant5EditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariant5ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -499,7 +514,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2006"
+        visualID="2012"
         editPartClassName="LocationType6EditPart"
         itemSemanticEditPolicyClassName="LocationType6ItemSemanticEditPolicy"
         notationViewFactoryClassName="LocationTypeViewFactory"
@@ -514,7 +529,11 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="LocationTypeInitCommitedFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitCommitedFigure extends org.eclipse.gmf.runtime.lite.svg.SVGFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitCommitedFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setURI(&quot;platform:/plugin/hr.fer.rasip.uppaallite.subdiagram/icons/LocationTypeInitCommitedImage.svg&quot;);&#xA;this.setSpecifyCanvasWidth(false);&#xA;this.setSpecifyCanvasHeight(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMaximumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocationTypeInitCommitedFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocationTypeInitCommitedFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel l0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;l0.setText(&quot;C&quot;);&#xA;&#xA;l0.setFont(L0_FONT);&#xA;&#xA;&#xA;l0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(1)&#xA;));&#xA;l0.setSize(getMapMode().DPtoLP(32)&#xA;, getMapMode().DPtoLP(32)&#xA;);&#xA;&#xA;this.add(l0);&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.Ellipse elli0 = new org.eclipse.draw2d.Ellipse();&#xA;elli0.setLineWidth(0);&#xA;&#x9;elli0.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;elli0.setBackgroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;elli0.setLocation(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;elli0.setSize(getMapMode().DPtoLP(10)&#xA;, getMapMode().DPtoLP(10)&#xA;);&#xA;&#xA;this.add(elli0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 32, 150, 255);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font L0_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 22, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"
+            fixedBackground="true"/>
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
         <attributes
@@ -533,7 +552,7 @@
       </modelFacet>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5011"
+          visualID="5023"
           editPartClassName="LocationTypeName6EditPart"
           itemSemanticEditPolicyClassName="LocationTypeName6ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeNameViewFactory">
@@ -556,7 +575,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="5012"
+          visualID="5024"
           editPartClassName="LocationTypeInvariant6EditPart"
           itemSemanticEditPolicyClassName="LocationTypeInvariant6ItemSemanticEditPolicy"
           notationViewFactoryClassName="LocationTypeInvariantViewFactory">
@@ -579,7 +598,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="4002"
         editPartClassName="TransitionTypeEditPart"
         itemSemanticEditPolicyClassName="TransitionTypeItemSemanticEditPolicy"
         notationViewFactoryClassName="TransitionTypeViewFactory"
@@ -612,7 +631,7 @@
             href="uppaallite.genmodel#//uppaallite/TransitionType/target"/>
       </modelFacet>
       <labels
-          visualID="6001"
+          visualID="6004"
           editPartClassName="TransitionTypeAssignmentEditPart"
           itemSemanticEditPolicyClassName="TransitionTypeAssignmentItemSemanticEditPolicy"
           notationViewFactoryClassName="TransitionTypeAssignmentViewFactory">
@@ -637,7 +656,7 @@
         </modelFacet>
       </labels>
       <labels
-          visualID="6002"
+          visualID="6005"
           editPartClassName="TransitionTypeGuardEditPart"
           itemSemanticEditPolicyClassName="TransitionTypeGuardItemSemanticEditPolicy"
           notationViewFactoryClassName="TransitionTypeGuardViewFactory">
@@ -662,7 +681,7 @@
         </modelFacet>
       </labels>
       <labels
-          visualID="6003"
+          visualID="6006"
           editPartClassName="TransitionTypeSyncEditPart"
           itemSemanticEditPolicyClassName="TransitionTypeSyncItemSemanticEditPolicy"
           notationViewFactoryClassName="TransitionTypeSyncViewFactory">
@@ -935,7 +954,7 @@
         xsi:type="gmfgen:GenExpressionInterpreter">
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="self.committed = self.urgent and self.initial = false"/>
+          body="self.committed = false and self.urgent = false and self.initial = false"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.committed = true and self.urgent = false and self.initial = false"/>
@@ -944,7 +963,7 @@
           body="self.committed = false and self.urgent = true and self.initial = false"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="self.committed = self.urgent and self.initial = true"/>
+          body="self.committed = false and self.urgent = false and self.initial = true"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self.committed = false and self.urgent = true and self.initial = true"/>

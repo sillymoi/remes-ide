@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getCost <em>Cost</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getX <em>X</em>}</li>
+ *   <li>{@link hr.fer.rasip.uppaallite.impl.LocationTypeImpl#getY <em>Y</em>}</li>
  * </ul>
  * </p>
  *
@@ -180,6 +182,46 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * @ordered
 	 */
 	protected String cost = COST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getX()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int X_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getX()
+	 * @generated
+	 * @ordered
+	 */
+	protected int x = X_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int Y_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected int y = Y_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -393,6 +435,48 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getX() {
+		return x;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__X, oldX, x));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UppaallitePackage.LOCATION_TYPE__Y, oldY, y));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -456,6 +540,10 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return getContainer();
 			case UppaallitePackage.LOCATION_TYPE__COST:
 				return getCost();
+			case UppaallitePackage.LOCATION_TYPE__X:
+				return getX();
+			case UppaallitePackage.LOCATION_TYPE__Y:
+				return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -491,6 +579,12 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return;
 			case UppaallitePackage.LOCATION_TYPE__COST:
 				setCost((String)newValue);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__X:
+				setX((Integer)newValue);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__Y:
+				setY((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -528,6 +622,12 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 			case UppaallitePackage.LOCATION_TYPE__COST:
 				setCost(COST_EDEFAULT);
 				return;
+			case UppaallitePackage.LOCATION_TYPE__X:
+				setX(X_EDEFAULT);
+				return;
+			case UppaallitePackage.LOCATION_TYPE__Y:
+				setY(Y_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -556,6 +656,10 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 				return getContainer() != null;
 			case UppaallitePackage.LOCATION_TYPE__COST:
 				return COST_EDEFAULT == null ? cost != null : !COST_EDEFAULT.equals(cost);
+			case UppaallitePackage.LOCATION_TYPE__X:
+				return x != X_EDEFAULT;
+			case UppaallitePackage.LOCATION_TYPE__Y:
+				return y != Y_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -584,6 +688,10 @@ public class LocationTypeImpl extends EObjectImpl implements LocationType {
 		result.append(invariant);
 		result.append(", cost: ");
 		result.append(cost);
+		result.append(", x: ");
+		result.append(x);
+		result.append(", y: ");
+		result.append(y);
 		result.append(')');
 		return result.toString();
 	}

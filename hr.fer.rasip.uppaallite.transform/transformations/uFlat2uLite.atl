@@ -177,7 +177,9 @@ rule Location2Location{
 			cost <- loc1.cost(),
 			initial <- loc1.initial(),
 			committed <- loc1.committed(),
-			urgent <- loc1.urgent()
+			urgent <- loc1.urgent(),
+			x <- loc1.x,
+			y <- loc1.y
 		)
 }
 

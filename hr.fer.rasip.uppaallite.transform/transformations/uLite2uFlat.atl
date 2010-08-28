@@ -104,8 +104,8 @@ abstract rule Location2Location{
 		loc2: UFLAT!LocationType(
 			name <- thisModule.Name_type('5', '10', loc1.name),	
 			id <- loc1.id,
-			x<-'16',
-			y<-'-40',
+			x<-loc1.x,
+			y<-loc1.y,
 			label <- thisModule.Label_type('15', '78', 'invariant' , loc1.locInvariant())
 		)
 	

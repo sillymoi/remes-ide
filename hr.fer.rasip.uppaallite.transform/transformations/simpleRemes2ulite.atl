@@ -116,6 +116,11 @@ helper context REMES!CompositeMode def: allInternalEdges() : Sequence(REMES!Edge
 helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
 	self.compositeEntryPoint.exitEdges->select(e | not e.connectsToConditional());
 
+------ MO -- Write edge support ----
+helper context REMES!CompositeMode def: writeEdges() : Sequence(REMES!Edge) =
+	self.writePoint.writeEdges->collect();
+------
+
 --helper context REMES!Edge def: compositeMode() : REMES!CompositeMode =
 --	REMES!CompositeMode.allInstances()->select(i | i.allInternalEdges()->includes(self))->first();
 
@@ -303,6 +308,20 @@ helper context REMES!Edge def: connectsFrom() : OclAny =
 	else self.connectFrom.container
 	endif;
 
+----- MO - WriteEdge support -----
+----------------------------------
+helper context REMES!WriteEdge def: connectsTo() : OclAny =
+-- Always connects to CompositeMode WritePoint
+	self.connectTo;
+
+helper context REMES!WriteEdge def: connectsFrom() : OclAny = 
+	if self.connectFrom.container.oclIsUndefined()
+	then self.connectFrom
+	else self.connectFrom.container
+	endif;
+
+----------------------------------
+
 -----------------------------
 --- SUBMODES - GUARDS--------
 -----------------------------
@@ -345,7 +364,7 @@ helper def: initializationToAssigment(e : REMES!InitEdge) : String =
 	then ''
 	else
 		if e.parsedInitialization.oclIsUndefined()
-		then OclUndefined
+		then ''
 		else e.parsedInitialization.toAssigment()
 		endif
 	endif;	
@@ -498,6 +517,11 @@ helper context REMES!Expression def: unaryExpToString() : String =
 		endif
 	endif;
 
+--------------------------------------
+------ MO --- WriteEdge support ------
+helper context REMES!WriteEdge def: toCost() : String = '';
+------
+
 helper context REMES!Edge def: toCost() : String = 
 	if self.parsedActionBody.oclIsUndefined()
 	then ''
@@ -509,7 +533,7 @@ helper context REMES!InitEdge def: toCost() : String =
 	then ''
 	else
 		if self.parsedInitialization.oclIsUndefined()
-		then self.parsedInitialization
+		then '' -- MO -- changed from self.parsedInitialization
 		else self.parsedInitialization.toCost()
 		endif
 	endif;
@@ -517,20 +541,20 @@ helper context REMES!InitEdge def: toCost() : String =
 helper context REMES!ActionRoot def: toCost() : String = 
 	if self.cost()->isEmpty() 
 	then ''
-	else self.cost()->iterate(e; res: String = 'cost+ = ' | res + e)
+	else self.cost()->iterate(e; res: String = 'cost += ' | res + e)
 	endif;
 
 helper context	REMES!ActionRoot def: cost() : Sequence(String) =
 	self.expressions->iterate(e; res : Sequence(String) =Sequence{} |
 		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
 		then
-			if e.type.toString() = 'ASSIGN_ADD'
+			if e.operation.toString() = 'ASSIGN_ADD'
 			then 
 				if res->isEmpty()
-				then res.append('w_'+ e.param1.resolved.type+'*'+e.param2.value)
-				else res.append('+w_'+ e.param1.resolved.type+'*'+e.param2.value)
+				then res.append('w_').append(e.param1.resolved.type.toString()).append('*').append(e.param2.value.toString())
+				else res.append('+w_').append(e.param1.resolved.type.toString()).append('*').append(e.param2.value.toString())
 				endif
-			else res.append('-w_'+ e.param1.resolved.type+'*'+e.param2.value)
+			else res.append('-w_').append(e.param1.resolved.type.toString()).append('*').append(e.param2.value.toString())
 			endif
 		else res
 		endif);
@@ -583,16 +607,16 @@ helper def: diagramDeclaration() : String =
 
 helper context REMES!RemesDiagram  def: resourceWeightDeclaration() : String =
 	self.getAllResources()->iterate(e; res : String = '' |
-		 res + 'const int w_' + e.name + ' = ' + 
-		 if e.name = 'cpu'
+		 res + 'const int w_' + e.toString() + ' = ' + 
+		 if e = 'cpu'
 		 then '6'
-		 else if e.name = 'memory'
+		 else if e = 'memory'
 		 	then '5'
-			else if e.name = 'bandwidth'
+			else if e = 'bandwidth'
 				then '4'
-				else if e.name ='power'
+				else if e ='power'
 					then '3'
-					else if e.name ='port'
+					else if e ='port'
 						then '2'
 						else '1'
 						endif
@@ -648,16 +672,26 @@ rule Template_type{
 			location <-Sequence{
 				thisModule.startLocation(), 
 				cMode.compositeEntryPoint, 
-				cMode.compositeExitPoint, 
+				cMode.compositeExitPoint,
+				cMode.writePoint,
 				cMode.subModes
 			},
 			transition <- Sequence{
 				thisModule.initTransition(tp.location->select(i | i.id = 'idStart')->first(), cMode), 
+			
 				thisModule.transition(cMode.compositeExitPoint, cMode.compositeEntryPoint, OclUndefined), 
 				cMode.entryEdges(), 
-				cMode.allInternalEdges(), 
+				cMode.allInternalEdges(),
+--				cMode.writePoint.writeEdges(),
+				cMode.writePoint.writeEdges,
+				thisModule.transition(cMode.writePoint, cMode.compositeEntryPoint, OclUndefined), 				
 				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
 			}
+--			.append(
+--				if not cMode.initPoint.initEdge.oclIsUndefined() 
+--				then Sequence{thisModule.initTransition(tp.location->select(i | i.id = 'idStart')->first(), cMode)} 
+--				else Sequence{}
+--				endif )
 		)	
 }
 
@@ -750,6 +784,16 @@ rule exitPoint2Location{
 		)
 }
 
+rule localExitPoint2Location{
+	from
+		point: REMES!WritePoint
+	to
+		loc: ULITE!LocationType(
+			id <- point.__xmiID__,
+			name <- 'LocalExit'
+		)
+}
+
 rule SubMode2Location{
 	from sm: REMES!SubMode( not sm.isTopLevelMode() )
 	to tpl:ULITE!LocationType(
@@ -783,10 +827,10 @@ rule initTransition(startLoc : ULITE!LocationType, cMode: REMES!CompositeMode){
 	to 
 		tt:ULITE!TransitionType(
 			source <- startLoc,
-			target <- cMode.initTransitionTarget(),
 			sync<- 't?',
 			assignment <- thisModule.initializationToAssigment(cMode.initPoint.initEdge),
-			cost <- cMode.initPoint.initEdge.toCost()
+			target <- cMode.initTransitionTarget(),
+			cost<- if cMode.initPoint.initEdge.oclIsUndefined() then '' else cMode.initPoint.initEdge.toCost() endif -- MO - added if to handle OclAny errors when undefined 
 		)
 		do{
 			tt;
@@ -804,6 +848,20 @@ rule internalEdge2Transition{
 			assignment <- e.actionBodyToAssigment(),
 			cost <- e.toCost(), 
 			guard <- e.actionGuard
+	)
+}
+
+rule writeEdge2Transition{
+	from
+		e:REMES!WriteEdge --(not e.connectedWithConditional())
+
+	to 
+		tt:ULITE!TransitionType(
+			source <- e.connectsFrom(),
+			target <- e.connectsTo() --,
+--			assignment <- e.actionBodyToAssigment(),
+--			cost <- e.toCost(), 
+--			guard <- e.actionGuard
 	)
 }
 

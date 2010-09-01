@@ -251,7 +251,7 @@ helper context REMES!SubMode def : subModeIsUrgentLocation() : Boolean =
 --- EDGE SOURCE ADN DESTINATION-------
 ---------------------------------------
 
-helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
+helper context REMES!Edge def: fromCompositeEntryPoint() : Boolean = 
 	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
 
 helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
@@ -559,6 +559,8 @@ helper context	REMES!ActionRoot def: cost() : Sequence(String) =
 		else res
 		endif);
 
+helper context REMES!CompositeMode def: copyEntryEdgesToWritePoint(wp : ULITE!LocationType) : Sequence(REMES!Edge) =
+	self.compositeEntryPoint.exitEdges->select(e | not e.connectsToConditional())->collect(e | e.copyToWriteTransition(wp));
 
 --------------------------------------
 --- COMPOSITE MODE DECLARATION--------
@@ -685,9 +687,10 @@ rule Template_type{
 --				cMode.writePoint.writeEdges(),
 				cMode.writePoint.writeEdges,
 --				thisModule.transition(cMode.writePoint, cMode.compositeEntryPoint, OclUndefined), 				
-				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
+				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdges2Transition(e.at(1), e.at(2)))),
+				cMode.copyEntryEdgesToWritePoint(cMode.writePoint),
+				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdges2TransitionFromWritePoint(e.at(1), e.at(2),cMode.writePoint)))
 			}
-			->append(tp.transition->select( t | t.source = cMode.compositeEntryPoint )->iterate( et ; res : Sequence(ULITE!TransitionType) = Sequence{} | res.append( et.copyEntryToWriteTransition() ) ) )
 --			.append(
 --				if not cMode.initPoint.initEdge.oclIsUndefined() 
 --				then Sequence{thisModule.initTransition(tp.location->select(i | i.id = 'idStart')->first(), cMode)} 
@@ -866,7 +869,7 @@ rule writeEdge2Transition{
 	)
 }
 
-rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
+rule twoEdges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
 	to 
 	tt:ULITE!TransitionType(
 		source <- edge1.connectsFrom(),
@@ -881,7 +884,7 @@ rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
 	
 }
 
-rule transition(src: ULITE!Location, tgt: ULITE!Location, sync: String){
+rule transition(src: ULITE!LocationType, tgt: ULITE!LocationType, sync: String){
 	to 
 		tt:ULITE!TransitionType(
 		source <- src,
@@ -893,14 +896,17 @@ rule transition(src: ULITE!Location, tgt: ULITE!Location, sync: String){
 	}
 }
 
-rule copyEntryToWriteTransition(src: ULITE!TransitionType) {
-	to
-		tt:ULITE!TransitionType(
-			source <- src.source,
-			target <- src.target,
-			sync <- ''
-		) 
+rule twoEdges2TransitionFromWritePoint(edge1:REMES!Edge, edge2:REMES!Edge, wp:ULITE!LocationType){
+	to 
+	tt:ULITE!TransitionType(
+		source <- wp,
+		target <- edge2.connectsTo(),
+		guard <- thisModule.mergeActionGuard(edge1, edge2),
+		assignment<-thisModule.mergeActionBody(edge1, edge2),
+		cost <- thisModule.mergeCost(edge1, edge2)
+	) 
 	do{
 		tt;
 	}
+	
 }

@@ -684,10 +684,10 @@ rule Template_type{
 				thisModule.transition(cMode.compositeExitPoint, cMode.compositeEntryPoint, OclUndefined), 
 				cMode.entryEdges(), 
 				cMode.allInternalEdges(),
---				cMode.writePoint.writeEdges(),
-				cMode.writePoint.writeEdges,
---				thisModule.transition(cMode.writePoint, cMode.compositeEntryPoint, OclUndefined), 				
 				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdges2Transition(e.at(1), e.at(2)))),
+								
+				-- WritePoint (LocalExit)
+				cMode.writePoint.writeEdges,
 				cMode.copyEntryEdgesToWritePoint(cMode.writePoint),
 				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdges2TransitionFromWritePoint(e.at(1), e.at(2),cMode.writePoint)))
 			}

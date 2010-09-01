@@ -15,7 +15,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 public class Remes2JavaAction implements IObjectActionDelegate {
 	
-	public static final String XFORM_BUNDLE_NAME = "hr.fer.rasip.simulator.remes2java"; //$NON-NLS-1$
+	public static final String XFORM_BUNDLE_NAME = "hr.fer.rasip.remes.simulator.remes2java"; //$NON-NLS-1$
 
 	private ISelection currentSelection;
 		

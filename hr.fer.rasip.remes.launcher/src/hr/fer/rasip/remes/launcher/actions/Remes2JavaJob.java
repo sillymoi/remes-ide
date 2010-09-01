@@ -7,13 +7,11 @@ import hr.fer.rasip.remes.grammars.expressions.ast.AstPackage;
 import hr.fer.rasip.remes.launcher.Activator;
 import hr.fer.rasip.remes.simulator.remes2java.files.GenerateModes;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -61,7 +59,6 @@ public class Remes2JavaJob extends Job {
 			
 	        GenerateModes generator = new GenerateModes(modelURI, target.getLocation().toFile(), new ArrayList());
 	        generator.doGenerate(new BasicMonitor.EclipseSubProgress(monitor, 1000));
-	        file.getProject().refreshLocal(IProject.DEPTH_INFINITE, monitor);
 		}
 		catch (Throwable t) {
 			IStatus status = new Status(Status.ERROR, Activator.PLUGIN_ID, t.getMessage(), t);

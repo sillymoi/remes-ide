@@ -684,9 +684,10 @@ rule Template_type{
 				cMode.allInternalEdges(),
 --				cMode.writePoint.writeEdges(),
 				cMode.writePoint.writeEdges,
-				thisModule.transition(cMode.writePoint, cMode.compositeEntryPoint, OclUndefined), 				
+--				thisModule.transition(cMode.writePoint, cMode.compositeEntryPoint, OclUndefined), 				
 				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
 			}
+			->append(tp.transition->select( t | t.source = cMode.compositeEntryPoint )->iterate( et ; res : Sequence(ULITE!TransitionType) = Sequence{} | res.append( et.copyEntryToWriteTransition() ) ) )
 --			.append(
 --				if not cMode.initPoint.initEdge.oclIsUndefined() 
 --				then Sequence{thisModule.initTransition(tp.location->select(i | i.id = 'idStart')->first(), cMode)} 
@@ -886,6 +887,18 @@ rule transition(src: ULITE!Location, tgt: ULITE!Location, sync: String){
 		source <- src,
 		target <- tgt,
 		sync <- sync
+		) 
+	do{
+		tt;
+	}
+}
+
+rule copyEntryToWriteTransition(src: ULITE!TransitionType) {
+	to
+		tt:ULITE!TransitionType(
+			source <- src.source,
+			target <- src.target,
+			sync <- ''
 		) 
 	do{
 		tt;

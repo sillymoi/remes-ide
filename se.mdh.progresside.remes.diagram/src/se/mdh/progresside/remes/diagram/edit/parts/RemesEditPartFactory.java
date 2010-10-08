@@ -179,6 +179,9 @@ public class RemesEditPartFactory implements EditPartFactory {
 			case EdgeActionGuardEditPart.VISUAL_ID:
 				return new EdgeActionGuardEditPart(view);
 
+			case EdgeActionBodyEditPart.VISUAL_ID:
+				return new EdgeActionBodyEditPart(view);
+
 			case InitEdgeEditPart.VISUAL_ID:
 				return new InitEdgeEditPart(view);
 

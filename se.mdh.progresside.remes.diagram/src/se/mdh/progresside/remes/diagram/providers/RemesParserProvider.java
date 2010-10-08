@@ -20,6 +20,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditP
 import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionBodyEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.InitEdgeInitializationEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Resource2EditPart;
@@ -531,6 +532,24 @@ public class RemesParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser edgeActionBody_6030Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEdgeActionBody_6030Parser() {
+		if (edgeActionBody_6030Parser == null) {
+			EAttribute[] features = new EAttribute[] { RemesPackage.eINSTANCE
+					.getEdge_ActionBody() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			edgeActionBody_6030Parser = parser;
+		}
+		return edgeActionBody_6030Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser initEdgeInitialization_6029Parser;
 
 	/**
@@ -593,6 +612,8 @@ public class RemesParserProvider extends AbstractProvider implements
 			return getConstant_3043Parser();
 		case EdgeActionGuardEditPart.VISUAL_ID:
 			return getEdgeActionGuard_6028Parser();
+		case EdgeActionBodyEditPart.VISUAL_ID:
+			return getEdgeActionBody_6030Parser();
 		case InitEdgeInitializationEditPart.VISUAL_ID:
 			return getInitEdgeInitialization_6029Parser();
 		}

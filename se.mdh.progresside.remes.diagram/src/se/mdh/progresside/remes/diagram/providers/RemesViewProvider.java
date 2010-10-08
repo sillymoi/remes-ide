@@ -57,6 +57,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditP
 import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionBodyEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
@@ -1326,6 +1327,13 @@ public class RemesViewProvider extends AbstractProvider implements
 		Location location6028 = (Location) label6028.getLayoutConstraint();
 		location6028.setX(0);
 		location6028.setY(40);
+		Node label6030 = createLabel(edge, RemesVisualIDRegistry
+				.getType(EdgeActionBodyEditPart.VISUAL_ID));
+		label6030.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6030 = (Location) label6030.getLayoutConstraint();
+		location6030.setX(0);
+		location6030.setY(60);
 		return edge;
 	}
 

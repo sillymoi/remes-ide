@@ -26,6 +26,7 @@ import se.mdh.progresside.remes.diagram.edit.parts.ConditionalConnectorNameEditP
 import se.mdh.progresside.remes.diagram.edit.parts.Constant2EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.Constant3EditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.ConstantEditPart;
+import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionBodyEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeActionGuardEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EdgeEditPart;
 import se.mdh.progresside.remes.diagram.edit.parts.EntryPoint2EditPart;
@@ -506,6 +507,9 @@ public class RemesVisualIDRegistry {
 			break;
 		case EdgeEditPart.VISUAL_ID:
 			if (EdgeActionGuardEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EdgeActionBodyEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

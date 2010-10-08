@@ -51,6 +51,11 @@ public class EdgeEditPart extends ConnectionNodeEditPart implements
 							.getFigureEdgeActionGuardFigure());
 			return true;
 		}
+		if (childEditPart instanceof EdgeActionBodyEditPart) {
+			((EdgeActionBodyEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureEdgeActionBodyFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -69,6 +74,9 @@ public class EdgeEditPart extends ConnectionNodeEditPart implements
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof EdgeActionGuardEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof EdgeActionBodyEditPart) {
 			return true;
 		}
 		return false;
@@ -117,6 +125,11 @@ public class EdgeEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureEdgeActionBodyFigure;
+
+		/**
+		 * @generated
+		 */
 		public EdgeFigure() {
 			this.setLineWidth(1);
 
@@ -133,6 +146,11 @@ public class EdgeEditPart extends ConnectionNodeEditPart implements
 			fFigureEdgeActionGuardFigure.setText("<...>");
 
 			this.add(fFigureEdgeActionGuardFigure);
+
+			fFigureEdgeActionBodyFigure = new WrappingLabel();
+			fFigureEdgeActionBodyFigure.setText("[...]");
+
+			this.add(fFigureEdgeActionBodyFigure);
 
 		}
 
@@ -152,6 +170,13 @@ public class EdgeEditPart extends ConnectionNodeEditPart implements
 		 */
 		public WrappingLabel getFigureEdgeActionGuardFigure() {
 			return fFigureEdgeActionGuardFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureEdgeActionBodyFigure() {
+			return fFigureEdgeActionBodyFigure;
 		}
 
 	}

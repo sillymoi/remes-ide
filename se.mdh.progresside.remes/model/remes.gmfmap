@@ -647,6 +647,13 @@
       <features
           href="remes.ecore#//Edge/actionGuard"/>
     </labelMappings>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping">
+      <diagramLabel
+          href="remes.gmfgraph#EdgeActionBody"/>
+      <features
+          href="remes.ecore#//Edge/actionBody"/>
+    </labelMappings>
     <containmentFeature
         href="remes.ecore#//ExitPoint/exitEdges"/>
     <tool

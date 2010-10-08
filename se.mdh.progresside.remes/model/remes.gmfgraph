@@ -323,9 +323,16 @@
             xsi:type="gmfgraph:Label"
             name="EdgeActionGuardFigure"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EdgeActionBodyFigure"
+            text="[...]"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureEdgeActionBodyFigure"
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SubModeFigure">
@@ -652,4 +659,9 @@
       figure="InitEdgeFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels
+      name="EdgeActionBody"
+      figure="EdgeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.6/@accessors.1"/>
 </gmfgraph:Canvas>

@@ -81,7 +81,10 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 		
 		this.launch = launch;
 		this.process = launch.getProcesses()[0]; // There should be just one process for JVM
-		this.threads = new IThread[] { };
+		this.threads = new IThread[] { 
+				new SimulatorThread(this),
+				new SimulatorThread(this)
+		};
 		
 		this.eventDispatch = new EventDispatchJob();
 		this.eventDispatch.schedule();

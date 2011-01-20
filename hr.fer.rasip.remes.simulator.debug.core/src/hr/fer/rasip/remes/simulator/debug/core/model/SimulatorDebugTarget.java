@@ -3,13 +3,27 @@
  */
 package hr.fer.rasip.remes.simulator.debug.core.model;
 
+import hr.fer.rasip.remes.simulator.debug.core.Activator;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IMarkerDelta;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.ListenerList;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.debug.core.DebugEvent;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IBreakpoint;
@@ -22,7 +36,7 @@ import org.eclipse.debug.core.model.IThread;
  * @author Marin Orlic <marin.orlic@fer.hr>
  *
  */
-public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebugTarget {
+public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebugTarget, ISimulatorEventListener {
 
 	// associated system process (VM)
 	private IProcess process;
@@ -30,15 +44,26 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	// containing launch object
 	private ILaunch launch;
 	
+	// sockets & readers communicating with simulator
+	private Socket requestSocket;
+	private PrintWriter requestWriter;
+	private BufferedReader requestReader;
+	private Socket eventSocket;
+	private BufferedReader eventReader;
+	
 	// terminated state
 	private boolean terminated = false;
 	
+	// suspended state
+	private boolean suspended = false;
+	
 	// threads
-	private IThread[] threads;
+	private IThread[] threads = null;
 //	private SimulatorThread fThread;
 	
 	// event dispatch job
 	private EventDispatchJob eventDispatch;
+	
 	// event listeners
 	private ListenerList eventListeners = new ListenerList();
 	
@@ -49,43 +74,95 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	class EventDispatchJob extends Job {
 		
 		public EventDispatchJob() {
-			super("PDA Event Dispatch");
+			super("Simulator Event Dispatch");
 			setSystem(true);
 		}
 
-		/* (non-Javadoc)
+		/**
+		 * Event dispatch job, reads input from the simulator socket, creates a
+		 * corresponding event and dispatches it.
+		 * 
 		 * @see org.eclipse.core.runtime.jobs.Job#run(org.eclipse.core.runtime.IProgressMonitor)
 		 */
 		protected IStatus run(IProgressMonitor monitor) {
-			String event = "";
-			while (!isTerminated() && event != null) {
-//				try {
-//					event = fEventReader.readLine();
-//					if (event != null) {
-//						Object[] listeners = fEventListeners.toArray();
-//						for (int i = 0; i < listeners.length; i++) {
-//							((IPDAEventListener)listeners[i]).handleEvent(event);	
-//						}
-//					}
-//				} catch (IOException e) {
-//					terminated();
-//				}
+			SimulatorDebugEvent event = null;
+			String eventSrc = "";
+			while (!isTerminated() && eventSrc != null) {
+				try {
+					eventSrc = eventReader.readLine();
+					event = SimulatorDebugEvent.createEvent(SimulatorDebugTarget.this, eventSrc);
+System.out.println("ECLIPSE EVT: " + eventSrc + ": " + event);
+					if (event != null) {
+						Object[] listeners = eventListeners.getListeners();
+						for (int i = 0; i < listeners.length; i++) {
+							((ISimulatorEventListener)listeners[i]).handleEvent(event);	
+						}
+					}
+				} catch (IOException e) {
+					terminated();
+				}
 			}
 			return Status.OK_STATUS;
 		}
 		
 	}
 	
-	public SimulatorDebugTarget(ILaunch launch) throws CoreException {
+	/**
+	 * Registers the given event listener. The listener will be notified of
+	 * events in the program being interpreted. Has no effect if the listener
+	 * is already registered.
+	 *  
+	 * @param listener event listener
+	 */
+	public void addEventListener(ISimulatorEventListener listener) {
+		eventListeners.add(listener);
+	}
+	
+	/**
+	 * De-registers the given event listener. Has no effect if the listener is
+	 * not currently registered.
+	 *  
+	 * @param listener event listener
+	 */
+	public void removeEventListener(ISimulatorEventListener listener) {
+		eventListeners.remove(listener);
+	}
+	
+	/**
+	 * Constructs this debug target. Opens the sockets used to commnunicate with
+	 * the simulator and starts the event notification job.
+	 * 
+	 * @param launch launch object related to this target
+	 * @throws CoreException if unable to connect to host
+	 */
+	public SimulatorDebugTarget(ILaunch launch, String simulatorHost, int requestPort, int eventPort) throws CoreException {
 		super(null);
 		
 		this.launch = launch;
 		this.process = launch.getProcesses()[0]; // There should be just one process for JVM
-		this.threads = new IThread[] { 
-				new SimulatorThread(this),
-				new SimulatorThread(this)
-		};
+		this.threads = null;
 		
+		// Connect with the simulator
+		try {
+			// Give some time for JVM to launch
+			try {
+				Thread.sleep(250);
+			} catch(InterruptedException e) {
+			}
+			this.requestSocket = new Socket(simulatorHost, requestPort);
+			this.requestWriter = new PrintWriter(this.requestSocket.getOutputStream());
+			this.requestReader = new BufferedReader(new InputStreamReader(this.requestSocket.getInputStream()));
+			
+			this.eventSocket = new Socket(simulatorHost, eventPort);
+			this.eventReader = new BufferedReader(new InputStreamReader(this.eventSocket.getInputStream()));
+		} catch (UnknownHostException e) {
+			requestFailed("Unable to connect to simulator VM", e);
+		} catch (IOException e) {
+			requestFailed("Unable to connect to simulator VM", e);
+		} 
+		
+		// Handle incoming events
+		addEventListener(this);
 		this.eventDispatch = new EventDispatchJob();
 		this.eventDispatch.schedule();
 	}
@@ -123,6 +200,19 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	 */
 	@Override
 	public IThread[] getThreads() throws DebugException {
+		if(this.threads == null) { // Threads do not change
+			SimulatorDebugRequestThreads req = (SimulatorDebugRequestThreads) sendRequest(new SimulatorDebugRequestThreads());
+			String[] threadData = req.getThreads();
+			if (threadData != null) {
+				IThread[] threads = new IThread[threadData.length];
+				for (int i = 0; i < threadData.length; i++) {
+					String data = threadData[i];
+					
+					threads[i] = new SimulatorThread(this, data);
+				}
+				this.threads = threads;
+			}
+		}
 		return this.threads;
 	}
 
@@ -132,15 +222,39 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	 */
 	@Override
 	public boolean hasThreads() throws DebugException {
-		return true;
+		return true; // There's always at least one thread
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * {@inheritDoc}
 	 * @see org.eclipse.debug.core.model.IDebugTarget#supportsBreakpoint(org.eclipse.debug.core.model.IBreakpoint)
 	 */
 	@Override
 	public boolean supportsBreakpoint(IBreakpoint breakpoint) {
-		// TODO Auto-generated method stub
+		if (!isTerminated() && breakpoint.getModelIdentifier().equals(getModelIdentifier())) {
+			try {
+				String program = getLaunch().getLaunchConfiguration().getAttribute("hr.fer.rasip.remes.launcher.RemesFileName"/*ISimulatorLaunchConstants.REMES_FILE_NAME_ATTR*/, (String) null);
+
+				if (program != null) {
+					IResource resource = null;
+/*					if (breakpoint instanceof PDARunToLineBreakpoint) {
+						PDARunToLineBreakpoint rtl = (PDARunToLineBreakpoint) breakpoint;
+						resource = rtl.getSourceFile();
+					} else*/ {
+						IMarker marker = breakpoint.getMarker();
+						if (marker != null) {
+							resource = marker.getResource();
+						}
+					}
+					if (resource != null) {
+						IPath p = new Path(program);
+						return resource.getFullPath().equals(p);
+					}
+				}
+			} catch (CoreException e) {
+				Activator.log(IStatus.ERROR, "Error validating breakpoints", e);
+			}			
+		}
 		return false;
 	}
 
@@ -159,16 +273,16 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	 */
 	@Override
 	public boolean isTerminated() {
-		return getProcess().isTerminated();
+		return this.terminated || getProcess().isTerminated();
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * {@inheritDoc}
 	 * @see org.eclipse.debug.core.model.ITerminate#terminate()
 	 */
 	@Override
 	public void terminate() throws DebugException {
-		// Should change to getThread()
-		getProcess().terminate();
+		sendRequest(new SimulatorDebugRequestTerminate());
 	}
 
 	/**
@@ -195,16 +309,19 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	 */
 	@Override
 	public boolean isSuspended() {
-		return !isTerminated() && false; // NEVER SUSPEND - what to do with Threads?
+		return !isTerminated() && this.suspended;
 	}
 
+	protected void setSuspended(boolean susp) {
+		this.suspended = susp;
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.core.model.ISuspendResume#resume()
 	 */
 	@Override
 	public void resume() throws DebugException {
-		// TODO Auto-generated method stub
-
+		sendRequest(new SimulatorDebugRequestResume());
 	}
 
 	/* (non-Javadoc)
@@ -212,8 +329,7 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 	 */
 	@Override
 	public void suspend() throws DebugException {
-		// TODO Auto-generated method stub
-
+		sendRequest(new SimulatorDebugRequestSuspend());
 	}
 
 	/* (non-Javadoc)
@@ -289,4 +405,85 @@ public class SimulatorDebugTarget extends SimulatorDebugElement implements IDebu
 		return false;
 	}
 
+	/**
+	 * Notification we have connected to the VM and it has started.
+	 * Resume the VM.
+	 */
+	private void started() {
+		fireCreationEvent();
+//		installDeferredBreakpoints();
+		try {
+			resume();
+		} catch (DebugException e) {
+		}
+	}
+	
+	/**
+	 * Called when this debug target terminates.
+	 */
+	private synchronized void terminated() {
+		this.terminated = true;
+		threads = new IThread[0];
+
+//		IBreakpointManager breakpointManager = getBreakpointManager();
+//        breakpointManager.removeBreakpointListener(this);
+//		breakpointManager.removeBreakpointManagerListener(this);
+		
+		fireTerminateEvent();
+		removeEventListener(this);
+	}
+
+	private void suspended(int detail) {
+		setSuspended(true);
+		fireSuspendEvent(detail);		
+	}
+
+	private void resumed(int detail) {
+		setSuspended(false);
+		fireResumeEvent(detail);		
+	}
+	
+	/**
+	 * Sends a request to the simulator.
+	 * 
+	 * @param request request message
+	 */
+	public SimulatorDebugRequest sendRequest(SimulatorDebugRequest request) throws DebugException {
+		System.err.println("Sending debug request: " + request);
+		synchronized (requestSocket) {
+			requestWriter.println(request.getMessage());
+			requestWriter.flush();
+			try {
+				// wait for reply
+				String resp = requestReader.readLine();
+System.err.println("Got response: " + resp);
+				
+				request.parseResponse(resp);
+			} catch (IOException e) {
+				requestFailed("Request failed: " + request, e);
+			}
+		}
+		return request;
+	}  
+	
+	@Override
+	public void handleEvent(SimulatorDebugEvent event) {
+		if (event.getKind() == SimulatorDebugEvent.STARTED) {
+			started();
+		} else if (event.getKind() == SimulatorDebugEvent.TERMINATED) {
+			terminated();
+		} else if (event.getKind() == SimulatorDebugEvent.SUSPENDED) {
+			if(event.getDetail() == SimulatorDebugEvent.DETAIL_CLIENT) {
+				suspended(DebugEvent.CLIENT_REQUEST);
+			} else if(event.getDetail() == SimulatorDebugEvent.DETAIL_STEP) {
+				suspended(DebugEvent.STEP_END);
+			}
+		} else if (event.getKind() == SimulatorDebugEvent.RESUMED) {
+			if(event.getDetail() == SimulatorDebugEvent.DETAIL_CLIENT) {
+				resumed(DebugEvent.CLIENT_REQUEST);
+			} else if(event.getDetail() == SimulatorDebugEvent.DETAIL_STEP) {
+				resumed(DebugEvent.STEP_OVER);
+			}
+		}
+	}
 }

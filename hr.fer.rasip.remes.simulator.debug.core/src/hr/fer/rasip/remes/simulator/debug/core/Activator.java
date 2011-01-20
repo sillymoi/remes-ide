@@ -1,6 +1,8 @@
 package hr.fer.rasip.remes.simulator.debug.core;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -49,4 +51,29 @@ public class Activator extends Plugin {
 		return plugin;
 	}
 
+	/**
+	 * @param level 
+	 * @param message
+	 */
+	public static void log(int level, String message) {
+		Activator.getDefault().getLog().log(new Status(level, Activator.PLUGIN_ID, message)); 
+	}
+
+	/**
+	 * @param level 
+	 * @param message
+	 * @param t
+	 */
+	public static void log(int level, String message, Throwable t) {
+		Activator.getDefault().getLog().log(new Status(level, Activator.PLUGIN_ID, message, t)); 
+	}
+	
+	/**
+	 * @param level 
+	 * @param message
+	 */
+	public static void log(IStatus status) {
+		Activator.getDefault().getLog().log(status); 
+	}
+	
 }

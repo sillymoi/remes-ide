@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.sourceLocators">
+      <sourceLocator
+            class="hr.fer.rasip.remes.simulator.debug.core.sourcelookup.SimulatorSourceLookupDirector"
+            id="hr.fer.rasip.remes.simulator.debug.core.sourceLocator"
+            name="REMES Simulator Source Locator">
+      </sourceLocator>
+   </extension>
+
+   <extension
+         point="org.eclipse.debug.core.sourcePathComputers">
+      <sourcePathComputer
+            class="hr.fer.rasip.remes.simulator.debug.core.sourcelookup.SimulatorSourcePathComputerDelegate"
+            id="hr.fer.rasip.remes.simulator.debug.core.sourcePathComputer"/>
+   </extension>
+
+</plugin>

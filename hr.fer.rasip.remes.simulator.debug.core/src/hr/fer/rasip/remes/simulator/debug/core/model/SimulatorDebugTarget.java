@@ -193,6 +193,15 @@ System.out.println("ECLIPSE EVT: " + eventSrc + ": " + event);
 	public IProcess getProcess() {
 		return this.process;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @see hr.fer.rasip.remes.simulator.debug.core.model.SimulatorDebugElement#getDebugTarget()
+	 */
+	@Override
+	public IDebugTarget getDebugTarget() {
+		return this;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -448,7 +457,7 @@ System.out.println("ECLIPSE EVT: " + eventSrc + ": " + event);
 	 * 
 	 * @param request request message
 	 */
-	public SimulatorDebugRequest sendRequest(SimulatorDebugRequest request) throws DebugException {
+	public synchronized SimulatorDebugRequest sendRequest(SimulatorDebugRequest request) throws DebugException {
 		System.err.println("Sending debug request: " + request);
 		synchronized (requestSocket) {
 			requestWriter.println(request.getMessage());

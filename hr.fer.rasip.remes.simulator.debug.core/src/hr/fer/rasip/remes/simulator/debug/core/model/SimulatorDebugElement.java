@@ -98,4 +98,13 @@ public class SimulatorDebugElement extends DebugElement {
 	public SimulatorDebugRequest sendRequest(SimulatorDebugRequest request) throws DebugException {
 		return getSimulatorDebugTarget().sendRequest(request);
 	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.core.model.DebugElement#getDebugTarget()
+	 */
+	@Override
+	public IDebugTarget getDebugTarget() {
+		// TODO Auto-generated method stub
+		return super.getDebugTarget();
+	}
 }

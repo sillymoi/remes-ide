@@ -14,6 +14,9 @@ import org.eclipse.debug.core.sourcelookup.AbstractSourceLookupParticipant;
  */
 public class SimulatorSourceLookupParticipant extends AbstractSourceLookupParticipant {
 
+	private static final String REMES_FILE_EXTENSION = ".remes";
+	private static final String REMES_DIAGRAM_FILE_EXTENSION = ".remes_diagram";
+
 	/**
 	 * Returns the source file name obtained from the SimulatorStackFrame
 	 * 
@@ -23,9 +26,15 @@ public class SimulatorSourceLookupParticipant extends AbstractSourceLookupPartic
 	public String getSourceName(Object object) throws CoreException {
 		if (object instanceof SimulatorStackFrame) {
 			System.out.println("SSLP: getSourceName");
-			return ((SimulatorStackFrame)object).getSourceName();
+			
+			String sourceName = ((SimulatorStackFrame)object).getSourceName();
+			if(sourceName.endsWith(REMES_FILE_EXTENSION)) {
+				String fileName = sourceName.substring(0, sourceName.length() - REMES_FILE_EXTENSION.length());
+				return fileName + REMES_DIAGRAM_FILE_EXTENSION;
+			} else {
+				return sourceName;
+			}
 		}
 		return null;
 	}
-
 }

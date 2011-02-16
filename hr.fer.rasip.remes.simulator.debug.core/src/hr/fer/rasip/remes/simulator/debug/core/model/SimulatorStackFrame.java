@@ -21,6 +21,7 @@ public class SimulatorStackFrame extends SimulatorDebugElement implements IStack
 	private String name = "Active behavior mode";
 	private String fullName = "";
 	private boolean topFrame = false;
+	private String fileName = "";
 	
 	public SimulatorStackFrame(SimulatorThread thread, String data, boolean isTopFrame) {
 		super(thread.getSimulatorDebugTarget());
@@ -39,6 +40,7 @@ public class SimulatorStackFrame extends SimulatorDebugElement implements IStack
 		this.name = strings[0]; // Name
 //		this.id = strings[1]; // Hash code
 		this.id = strings[2]; // Use XMI ID
+		this.fileName = strings[3]; // Source file name
 	}
 
 	/**
@@ -48,7 +50,7 @@ public class SimulatorStackFrame extends SimulatorDebugElement implements IStack
 	 */
 	public String getSourceName() {
 		System.out.println("GET SOURCE NAME");
-		return "Test.remes_diagram";
+		return this.fileName;
 	}
 	
 	/* (non-Javadoc)

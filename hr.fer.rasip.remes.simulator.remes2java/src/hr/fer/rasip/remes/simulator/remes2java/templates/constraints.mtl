@@ -1,0 +1,8 @@
+[comment encoding = UTF-8 /]
+[module constraints('http://www.rasip.fer.hr/remes/1.2.0/profile/profile.ecore')/]
+
+[import common /]
+
+[query public toConstraintsPackageName(pkg : String) : String = pkg.trim().concat('.constraints') /]
+              
+[query public toConstraintsClassName (name : String, r : Resource) : String = name.toClassName().concat('Resource').concat(r.name.toString().toClassName()).concat('Constraints') /]

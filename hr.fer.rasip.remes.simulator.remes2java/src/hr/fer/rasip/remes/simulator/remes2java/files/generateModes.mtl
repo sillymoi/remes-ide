@@ -1,0 +1,23 @@
+[module generateModes('http://www.mdh.se/progresside/remes/1.2.0/remes.ecore')/]
+[import common /]
+[import mode /]
+
+[template public generateMode(d : RemesDiagram)]
+[file ('genre/TestX.java', false)]
+[for (m : Mode | d.modes)]
+	 [m.createClass() /]
+[/for]
+[/file]
+[/template]
+
+[template public generateMode(m : Mode, pkg : String)]
+[comment @main /]
+[file (pkg.toModePackageName().asPath().concat('/').concat(m.name.toClassName()).concat('.java'), false)]
+[_commentFileBlock()/]
+[m.packageBlock(pkg)/]
+[m.importBlock()/]
+	
+[_commentClassBlock()/]
+[m.createClass()/]
+[/file]
+[/template] 

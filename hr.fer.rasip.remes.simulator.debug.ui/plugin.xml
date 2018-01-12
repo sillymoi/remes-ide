@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.debugModelPresentations">
+      <debugModelPresentation
+            class="hr.fer.rasip.remes.simulator.debug.ui.presentation.SimulatorDebugModelPresentation"
+            id="hr.fer.rasip.remes.simulator.debug.core.model">
+      </debugModelPresentation>
+   </extension>
+
+   <extension
+         id="hr.fer.rasip.remes.simulator.debug.ui.decorator.provider.ReviewDecoratorProvider"
+         name="DebugStackFrameDecoratorProvider"
+         point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <decoratorProvider
+            class="hr.fer.rasip.remes.simulator.debug.ui.decorator.ReviewDecoratorProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+         <object
+               class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)"
+               id="NODE">
+         </object>
+         <context
+               decoratorTargets="NODE">
+         </context>
+      </decoratorProvider>
+   </extension>
+
+</plugin>

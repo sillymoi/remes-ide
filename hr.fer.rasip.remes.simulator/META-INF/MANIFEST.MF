@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: REMES Simulator
+Bundle-SymbolicName: hr.fer.rasip.remes.simulator;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: hr.fer.rasip.remes.simulator.Activator
+Bundle-Vendor: University of Zagreb Faculty of Electrical Engineering and Computing, RASIP
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.jdt.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Classpath: .,lib-ext/google-collect-1.0/google-collect-1.0.jar
+Export-Package: hr.fer.rasip.remes.simulator.core,
+ hr.fer.rasip.remes.simulator.core.datatypes,
+ hr.fer.rasip.remes.simulator.core.impl

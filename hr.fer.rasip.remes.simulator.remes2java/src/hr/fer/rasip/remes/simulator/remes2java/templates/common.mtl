@@ -1,0 +1,82 @@
+[module common('http://www.mdh.se/progresside/remes/1.2.0/remes.ecore')/]
+
+[template public _commentFileBlock()]
+/*
+ * Created with MTL REMES2Java template
+ */
+[/template]
+
+[template public _commentClassBlock()]
+/**
+ * @author MTL
+ * @generated
+ */
+[/template]
+
+[template public _objectIdBlock(o : OclAny)]
+/**
+ * ID of this object in the source model 
+ * @generated
+ */
+public static final String __objectID = "[getXmiId(o) /]";
+
+/**
+ * @generated
+ */
+@Override 
+public String getObjectId() {
+	return __objectID;
+}
+[/template]
+
+[template public _objectIdBlockNoOverride(o : OclAny)]
+/**
+ * ID of this object in the source model 
+ * @generated
+ */
+public static final String __objectID = "[getXmiId(o) /]";
+
+/**
+ * @generated
+ */
+public String getObjectId() {
+	return __objectID;
+}
+[/template]
+
+[template public _sourceNameBlock(o : OclAny)]
+/**
+ * Source file name for this object 
+ * @generated
+ */
+public static final String __sourceName = "[getSourceName(o) /]";
+
+/**
+ * @generated
+ */
+@Override 
+public String getSourceName() {
+	return __sourceName;
+}
+[/template]
+
+[query public asPath(s : String) : String = 
+	s.substituteAll('.', '/') 
+/]
+
+[query public toPackageName(pkg : String) : String = pkg.trim() /]
+
+[query public toMainClassName(name : String) : String = name.toClassName() /]
+
+[query public toClassName(s : String) : String = 
+	s.trim().toUpperFirst().substituteAll('.', '_').substituteAll(' ', '_').substituteAll('-', '_').substituteAll('/', '_')
+/]
+
+[query public getXmiId(o : OclAny) : String =
+	invoke('hr.fer.rasip.remes.simulator.remes2java.util.Util', 'getXmiId(org.eclipse.emf.ecore.EObject)', Sequence{o}) 
+/]
+
+[query public getSourceName(o : OclAny) : String =
+	invoke('hr.fer.rasip.remes.simulator.remes2java.util.Util', 'getSourceName(org.eclipse.emf.ecore.EObject)', Sequence{o}) 
+/]
+

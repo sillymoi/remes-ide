@@ -1,0 +1,68 @@
+[comment encoding = UTF-8 /]
+[module generateConstraints('http://www.rasip.fer.hr/remes/1.2.0/profile/profile.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import common /]
+[import expressions /]
+[import constraints/]
+
+[template public generateConstraints(p : PlatformProfile, pkg : String)]
+[comment @main /]
+[for (r : Resource | p.resources)]
+[file (pkg.toConstraintsPackageName().asPath().concat('/').concat(p.name.toConstraintsClassName(r)).concat('.java'), false, 'UTF-8')]
+[_commentFileBlock()/]
+
+package [ pkg.toConstraintsPackageName() /];
+
+import java.util.Observer;
+import java.util.Observable;
+import java.util.ArrayList;
+
+import hr.fer.rasip.remes.simulator.core.*;
+import hr.fer.rasip.remes.simulator.core.impl.*;
+import hr.fer.rasip.remes.simulator.core.constraints.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.Type.TYPE_CODE;
+
+[_commentClassBlock()/]
+public class [ p.name.toConstraintsClassName(r) /] extends ResourceConstraintObserver {
+	private ArrayList<ResourceConstraintCheck> checks = new ArrayList<ResourceConstraintCheck>();
+
+	/**
+	 * Constructor
+	 * @generated
+	 */
+	public [ p.name.toConstraintsClassName(r) /](Simulator simulator) {
+		super(simulator);
+
+		[for (c : Constraint | p.constraints->select( x : Constraint | x.references = r))]
+		/**
+		 * Check for constraint: [ c.type /]([ c.references.name /][if c.isDerivation ]'[/if]) [ c.operation /] [ c.bound /]
+		 * @generated
+		 */
+		addConstraint(new Resource[ c.type.toString().toUpperFirst() /][if c.isDerivation ]Derived[/if]Constraint(
+			"[ c.references.name /]", // Resource name
+			ResourceConstraint.Operation.[c.operation.toConstraintOp()/], // Comparison operation
+			[c.bound /] // Bound
+		)); 
+		[/for]
+	}
+}
+[/file]
+[/for]	
+[/template]
+
+[query public toConstraintOp (op : ConstraintOperation) : String = 
+ let o : String = op.toString() in
+ if o = '<' then 'LessThan'
+  else if o = '<=' then 'LessOrEqual'
+   else if o = '=' then 'Equal'
+    else if o = '>' then 'GreaterThan'
+     else if o = '>=' then 'GreaterOrEqual'
+      else 'Unknown'
+     endif
+    endif
+   endif
+  endif
+ endif 
+/]
+

@@ -1,0 +1,82 @@
+[module expressions('http://www.rasip.fer.hr/remes/1.1.0/expressions/ast.ecore', 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore')/]
+
+[template public traverseExpression(l : ast::LogicalRoot)]
+[if (not l.expression.oclIsUndefined())][l.expression.walk() /][/if]
+[/template]
+
+[template public traverseExpression(a : ast::ActionRoot)]
+[for (e : Expression | a.expressions)]
+[e.walk() /];
+[/for]
+[/template]
+
+[template public walk (e : ast::Expression) ]
+[if (e.oclIsKindOf(TernaryExpression))][e.oclAsType(TernaryExpression).walkTernary() /]
+[elseif (e.oclIsKindOf(BinaryExpression))][e.oclAsType(BinaryExpression).walkBinary() /]
+[elseif (e.oclIsKindOf(UnaryExpression))][e.oclAsType(UnaryExpression).walkUnary() /]
+[elseif (e.oclIsKindOf(ast::Constant))][e.oclAsType(ast::Constant).text /]
+[elseif (e.oclIsKindOf(Literal))][e.oclAsType(Literal).value /]
+[elseif (e.oclIsKindOf(VariableReference))]
+  [if (e.oclAsType(VariableReference).resolved.oclIsKindOf(remes::Constant))]
+    [e.oclAsType(VariableReference).resolved.oclAsType(remes::Constant).scope.name /].[e.oclAsType(VariableReference).resolved.oclAsType(remes::Constant).name /]
+  [elseif (not e.oclAsType(VariableReference).arrayIndex.oclIsUndefined())]
+    getVariable("[e.oclAsType(VariableReference).name /]").valueAt([e.oclAsType(VariableReference).arrayIndex.walk() /])
+  [else]
+    getVariable("[e.oclAsType(VariableReference).name /]").value()
+  [/if]
+[/if]
+[/template]
+
+[template public walkTernary (e : ast::TernaryExpression) ]
+((Boolean) [e.param1.walk() /].getValue() ) ? ( [e.param2.walk() /] ) : ( [e.param3.walk() /] )
+[/template]
+
+[template public walkBinary (e : ast::BinaryExpression) ]
+[comment Try to make best use of constants /]
+[if (e.param1.oclIsKindOf(VariableReference) and e.param2.oclIsKindOf(VariableReference))]
+ [let ref1 : VariableReference = e.param1.oclAsType(VariableReference)]
+ [let ref2 : VariableReference = e.param2.oclAsType(VariableReference)]
+ [if (ref1.resolved.oclIsKindOf(remes::Constant) and ref2.resolved.oclIsKindOf(remes::Constant))]
+  [e.param1.walk() /][e.operation.toShorthandOperator() /][e.param2.walk() /]
+ [elseif (ref1.resolved.oclIsKindOf(remes::Constant))]
+  [e.param2.walk() /][e.operation.toReverseOperator() /][e.param1.walk() /])
+  [if (ref2.resolved.oclIsKindOf(remes::Variable))]
+  [if (ref2.resolved.oclAsType(remes::Variable).type.toString() = 'clock')]
+   .sub([e.param2.walk() /])
+  [/if]
+  [/if]
+ [elseif (ref2.resolved.oclIsKindOf(remes::Constant))]
+  [e.param1.walk() /].[e.operation.toOperator() /]([e.param2.walk() /]) [comment Same as usual /]
+  [if (ref1.resolved.oclIsKindOf(remes::Variable))]
+  [if (ref1.resolved.oclAsType(remes::Variable).type.toString() = 'clock')]
+   .sub([e.param1.walk() /])
+  [/if]
+  [/if]
+ [elseif (true)][e.param1.walk() /].[e.operation.toOperator() /]([e.param2.walk() /])
+ [/if]
+ [/let]
+ [/let]
+[else][e.param1.walk() /].[e.operation.toOperator() /]([e.param2.walk() /])
+[/if]
+[/template]
+
+[template public walkUnary (e : ast::UnaryExpression) ]
+[e.param1.walk() /][e.operation.toOperator() /]
+[/template]
+
+[template public toOperator (op : ast::BinaryOperation) ]
+[if (op.toString() = 'ASSIGN_ADD')]assignAdd[elseif (op.toString() = 'ASSIGN_SUB')]assignSub[elseif (op.toString() = 'ASSIGN_MUL')]assignMul[elseif (op.toString() = 'ASSIGN_DIV')]assignDiv[elseif (op.toString() = 'ASSIGN_MOD')]assignMod[else][op.toString().toLower() /][/if]
+[/template]
+
+[template public toShorthandOperator (op : ast::BinaryOperation) ]
+[if (op.toString() = 'ADD')] + [elseif (op.toString() = 'SUB')] - [elseif (op.toString() = 'AND')] && [elseif (op.toString() = 'OR')] || [elseif (op.toString() = 'DIV')] / [elseif (op.toString() = 'MUL')] * [elseif (op.toString() = 'MOD')] % [elseif (op.toString() = 'GE')] >= [elseif (op.toString() = 'GT')] > [elseif (op.toString() = 'EQ')] == [elseif (op.toString() = 'NE')] != [elseif (op.toString() = 'LE')] <= [elseif (op.toString() = 'LT')] < [elseif (op.toString() = 'ASSIGN_ADD')] += [elseif (op.toString() = 'ASSIGN_SUB')] -= [elseif (op.toString() = 'ASSIGN_MUL')] *= [elseif (op.toString() = 'ASSIGN_DIV')] /= [elseif (op.toString() = 'ASSIGN_MOD')] %= [/if]
+[/template]
+
+[template public toReverseOperator (op : ast::BinaryOperation) ]
+[if (op.toString() = 'ADD')]add[elseif (op.toString() = 'SUB')]rsub[elseif (op.toString() = 'AND')]and[elseif (op.toString() = 'OR')]or[elseif (op.toString() = 'DIV')]rdiv[elseif (op.toString() = 'MUL')]mul[elseif (op.toString() = 'MOD')]rmod[elseif (op.toString() = 'GE')]le[elseif (op.toString() = 'GT')]lt[elseif (op.toString() = 'EQ')]eq[elseif (op.toString() = 'NE')]ne[elseif (op.toString() = 'LE')]ge[elseif (op.toString() = 'LT')]gt[else]ERROR unknown operation: [op.toString()/][/if]
+[/template]
+
+[template public toOperator (op : ast::UnaryOperation) ]
+[if (op.toString() = 'MINUS')].neg()[elseif (op.toString() = 'PLUS')][elseif (op.toString() = 'NOT')].not()[/if]
+[/template]
+

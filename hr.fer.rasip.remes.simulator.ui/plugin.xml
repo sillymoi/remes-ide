@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="hr.fer.rasip.remes.simulator.ui.wizards.SimulatorClasspathContainerPage"
+            id="hr.fer.rasip.remes.simulator"
+            name="REMES Simulator">
+      </classpathContainerPage>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="REMES Simulator"
+            id="hr.fer.rasip.remes.simulator.ui">
+      </category>
+      <view
+            allowMultiple="true"
+            category="hr.fer.rasip.remes.simulator.ui"
+            class="hr.fer.rasip.remes.simulator.ui.views.TraceDisplayView"
+            icon="icons/sample.gif"
+            id="hr.fer.rasip.remes.simulator.ui.views.TraceDisplayView"
+            name="Trace display"
+            restorable="false">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="hr.fer.rasip.remes.simulator.ui.views.TraceDisplayView"
+               ratio="0.2"
+               relationship="left"
+               relative="org.eclipse.ui.views.TaskList"
+               showTitle="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.adapters">
+      <factory 
+            class="hr.fer.rasip.remes.simulator.ui.navigator.core.providers.SimulatorElementAdapterFactory" 
+            adaptableType="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+         <adapter type="org.eclipse.ui.views.properties.IPropertySource"/>
+      </factory>
+      <factory 
+            class="hr.fer.rasip.remes.simulator.ui.navigator.core.providers.SimulatorElementAdapterFactory" 
+            adaptableType="hr.fer.rasip.remes.simulator.traces.SimulatorRun">
+         <adapter type="org.eclipse.ui.views.properties.IPropertySource"/>
+      </factory>
+   </extension>
+
+   <!-- Common Navigator -->
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension
+                  isRoot="false"
+                  pattern="hr.fer.rasip.remes.simulator.ui.simulatorTracesContent"/>
+         </includes>
+      </viewerContentBinding>
+      <!-- viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding -->
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            id="hr.fer.rasip.remes.simulator.ui.simulatorTracesContent"
+            name="Simulator traces"
+            contentProvider="hr.fer.rasip.remes.simulator.ui.navigator.core.providers.SimulatorDataStoreContentProvider"
+            labelProvider="hr.fer.rasip.remes.simulator.ui.navigator.core.providers.SimulatorDataStoreLabelProvider"
+            activeByDefault="true"
+            priority="normal">
+         <triggerPoints>
+            <or>
+               <!-- adapt type="org.eclipse.core.resources.IProject" >
+                  <test property="org.eclipse.core.resources.projectNature" value="hr.fer.rasip.remes.RemesNature"/>
+               </adapt -->
+               <instanceof value="org.eclipse.core.resources.IProject"/>
+               <instanceof value="org.eclipse.jdt.core.IJavaProject"/>
+               <!-- instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore"/>
+               <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorTraceData"/ -->               
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+               <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore"/>
+            </or>
+         </possibleChildren>
+         <!-- Override the resource action providers --> 
+         <!-- actionProvider
+               class="hr.fer.rasip.remes.simulator.ui.navigator.core.providers.SimulatorDataStoreContentProvider"
+               id="se.mdh.progresside.components.ui.navigator.actions.EditActions"
+               overrides="org.eclipse.ui.navigator.resources.actions.EditActions"> 
+            <enablement>
+               <or>   
+                  <and>
+                     <instanceof value="org.eclipse.core.resources.IProject"/>
+                     <test property="org.eclipse.core.resources.projectNature" value="se.mdh.progresside.components.project.ProComNature"/>
+                  </and>
+                  <instanceof value="org.eclipse.core.resources.IResource"/>
+                  <instanceof value="se.mdh.progresside.components.core.IProComElement"/>
+                  <adapt type="java.util.Collection"> 
+                     <count value="0" />
+                  </adapt>
+               </or>
+            </enablement>
+         </actionProvider> 
+         <actionProvider
+               class="se.mdh.progresside.components.ui.internal.navigator.ProComElementNavigatorRefactorActionProvider"
+               id="se.mdh.progresside.components.ui.navigator.actions.RefactorActions"
+               overrides="org.eclipse.ui.navigator.resources.actions.RefactorActions"> 
+            <enablement>
+               <or>   
+                  <and>
+                     <instanceof value="org.eclipse.core.resources.IProject"/>
+                     <test property="org.eclipse.core.resources.projectNature" value="se.mdh.progresside.components.project.ProComNature"/>
+                  </and>
+                  <instanceof value="org.eclipse.core.resources.IResource"/>
+                  <instanceof value="se.mdh.progresside.components.core.IProComElement"/>
+                  <adapt type="java.util.Collection"> 
+                     <count value="0" />
+                  </adapt>
+               </or>
+            </enablement>
+         </actionProvider -->
+         <!-- Override the resource content extension, by intercepting and modifying its content -->
+         <!-- override
+               policy="InvokeAlwaysRegardlessOfSuppressedExt"
+               suppressedExtensionId="org.eclipse.ui.navigator.resourceContent"/>
+         <commonSorter
+               class="se.mdh.progresside.components.ui.internal.ProComElementSorter"
+               id="se.mdh.progresside.components.ui.proComElementSorter"/>
+         <dropAssistant
+               class="se.mdh.progresside.components.ui.internal.navigator.ProComElementDropAdapterAssistant"
+               id="se.mdh.progresside.components.ui.dropAssistant">
+            <possibleDropTargets>
+               <or>
+                  <instanceof value="org.eclipse.core.resources.IResource"/>
+                  <instanceof value="se.mdh.progresside.components.core.IProComElement"/>
+               </or>
+            </possibleDropTargets>
+         </dropAssistant -->
+      </navigatorContent>
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="hr.fer.rasip.remes.simulator.ui.navigator.decorator.SimulatorDataStoreRunningDecorator"
+            id="hr.fer.rasip.remes.simulator.ui.ServerRunningDecorator"
+            label="Data store online"
+            lightweight="true"
+            location="BOTTOM_RIGHT"
+            quadrant="BOTTOM_RIGHT"
+            state="true">
+		 <description>
+		    Flags data stores that have a running server instance
+		 </description>
+		 <enablement>
+		<!-- and --><!-- or -->
+		   <objectClass
+		         name="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+		   </objectClass>
+		   <!-- objectState
+		         name="serverRunning"
+		         value="true">
+		   </objectState -->
+		<!-- /and --><!-- /or -->
+     </enablement>
+      </decorator> 
+   </extension>
+   
+   <extension
+     point="org.eclipse.ui.commands">
+      <command
+            categoryId="hr.fer.rasip.remes.simulator.ui.commandCategory"
+            description="Starts the server for this data store"
+            id="hr.fer.rasip.remes.simulator.ui.startServerCommand"
+            name="Start Data Store Server">
+      </command>
+      <command
+            categoryId="hr.fer.rasip.remes.simulator.ui.commandCategory"
+            description="Stops the server for this data store"
+            id="hr.fer.rasip.remes.simulator.ui.stopServerCommand"
+            name="Stop Data Store Server">
+      </command>
+      <command
+            categoryId="hr.fer.rasip.remes.simulator.ui.commandCategory"
+            description="Displays detailed information about this trace, such as variable changes"
+            id="hr.fer.rasip.remes.simulator.ui.displayTraceCommand"
+            name="Display Trace">
+      </command>
+      <category
+            id="hr.fer.rasip.remes.simulator.ui.commandCategory"
+            name="Simulator Data">
+      </category>
+      <command
+            categoryId="hr.fer.rasip.remes.simulator.ui.commandCategory"
+            description="Loads the model file to this project&apos;s data store"
+            id="hr.fer.rasip.remes.simulator.ui.loadToDataStoreCommand"
+            name="Load to Data Store">
+      </command>
+   </extension>  
+   
+    <!-- extension
+          point="org.eclipse.ui.commands">
+       <command
+             categoryId="org.eclipse.ui.category.file"
+             description="Refresh the selected items"
+             id="org.eclipse.ui.file.refresh"
+             name="Refresh">
+       </command>
+    </extension -->
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="hr.fer.rasip.remes.simulator.ui.navigator.commands.RefreshDataStoreCommand"
+             commandId="org.eclipse.ui.file.refresh">
+          <activeWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <instanceof
+                         value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                   </instanceof>
+                </iterate>
+             </with>
+          </activeWhen>
+       </handler>
+       <handler
+             class="hr.fer.rasip.remes.simulator.ui.navigator.commands.DeleteTraceCommand"
+             commandId="org.eclipse.ui.edit.delete">
+          <activeWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <or>
+	                   <instanceof value="hr.fer.rasip.remes.simulator.traces.SimulatorRun" />
+	                   <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStoreNavigatorItem" />                   
+                   </or>
+                </iterate>
+             </with>
+          </activeWhen>
+       </handler>
+       <handler
+            class="hr.fer.rasip.remes.simulator.ui.navigator.commands.StartDataStoreServerCommand"
+            commandId="hr.fer.rasip.remes.simulator.ui.startServerCommand">
+          <activeWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <instanceof
+                         value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                   </instanceof>
+                </iterate>
+             </with>
+          </activeWhen>
+          <enabledWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <test
+                         property="hr.fer.rasip.remes.simulator.ui.properties.isServerRunning"
+                         value="false">
+                   </test>
+                </iterate>
+             </with>
+          </enabledWhen>
+       </handler>
+       <handler
+            class="hr.fer.rasip.remes.simulator.ui.navigator.commands.StopDataStoreServerCommand"
+            commandId="hr.fer.rasip.remes.simulator.ui.stopServerCommand">
+          <activeWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <instanceof
+                         value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                   </instanceof>
+                </iterate>
+             </with>
+          </activeWhen>
+          <enabledWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+                   <test
+                         property="hr.fer.rasip.remes.simulator.ui.properties.isServerRunning"
+                         value="true">
+                   </test>
+                </iterate>
+             </with>
+          </enabledWhen>
+      </handler>
+      <handler
+            class="hr.fer.rasip.remes.simulator.ui.navigator.commands.DisplayTraceCommand"
+            commandId="hr.fer.rasip.remes.simulator.ui.displayTraceCommand">
+          <activeWhen>
+             <with
+                   variable="selection">
+                <iterate
+                      ifEmpty="false">
+				   <or>
+	                   <instanceof value="hr.fer.rasip.remes.simulator.traces.SimulatorRun" />
+	                   <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStoreNavigatorItem" />                   
+                   </or>
+                </iterate>
+             </with>
+          </activeWhen>
+      </handler>
+      <handler
+            class="hr.fer.rasip.remes.simulator.ui.navigator.commands.LoadToDataStoreCommand"
+            commandId="hr.fer.rasip.remes.simulator.ui.loadToDataStoreCommand">
+         <activeWhen>
+            <iterate
+                  ifEmpty="false">
+               <adapt
+                     type="org.eclipse.core.resources.IResource">
+                  <and>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value="*.traces">
+                     </test>
+                     <test
+                           property="org.eclipse.core.resources.projectNature"
+                           value="org.eclipse.jdt.core.javanature">
+                     </test></and>
+               </adapt>
+            </iterate>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension
+          point="org.eclipse.ui.menus">
+          
+        <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=group.open">
+          <command
+                commandId="hr.fer.rasip.remes.simulator.ui.displayTraceCommand"
+                style="push"
+                mnemonic="T">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="selection">
+                   <iterate
+                         ifEmpty="false">
+	                   <or>
+		                   <instanceof value="hr.fer.rasip.remes.simulator.traces.SimulatorRun" />
+		                   <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStoreNavigatorItem" />                   
+	                   </or>
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+       </menuContribution>   
+       <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=group.edit">
+          <command
+                commandId="org.eclipse.ui.edit.delete"
+                style="push"
+                mnemonic="D">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="selection">
+                   <iterate
+                         ifEmpty="false">
+	                   <or>
+		                   <instanceof value="hr.fer.rasip.remes.simulator.traces.SimulatorRun" />
+		                   <instanceof value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStoreNavigatorItem" />                   
+	                   </or>
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+       </menuContribution>   
+       <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=group.reorganize">
+          <command
+                commandId="org.eclipse.ui.file.refresh"
+                style="push"
+                mnemonic="F">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="selection">
+                   <iterate
+                         ifEmpty="false">
+                      <instanceof
+                            value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                      </instanceof>
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=org.eclipse.ui.file.refresh">
+          <command
+                commandId="hr.fer.rasip.remes.simulator.ui.startServerCommand"
+                mnemonic="S"
+                style="push">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="selection">
+                   <iterate
+                         ifEmpty="false">
+                      <!-- and -->
+                         <instanceof
+                               value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                         </instanceof>
+                         <!-- test
+                               property="hr.fer.rasip.remes.simulator.ui.properties.isServerRunning">
+                         </test -->
+                      <!-- /and -->
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=org.eclipse.ui.file.refresh">
+          <command
+                commandId="hr.fer.rasip.remes.simulator.ui.stopServerCommand"
+                mnemonic="P"
+                style="push">
+             <visibleWhen
+                   checkEnabled="false">
+                <with
+                      variable="selection">
+                   <iterate
+                         ifEmpty="false">
+                      <!-- and -->
+                         <instanceof
+                               value="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+                         </instanceof>
+                         <!-- test
+                               property="hr.fer.rasip.remes.simulator.ui.properties.isServerRunning">
+                         </test -->
+                      <!-- /and -->
+                   </iterate>
+                </with>
+             </visibleWhen>
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="popup:org.eclipse.ui.popup.any?after=group.port">
+          <command
+                commandId="hr.fer.rasip.remes.simulator.ui.loadToDataStoreCommand"
+                mnemonic="L"
+                style="push">
+          	<visibleWhen
+                 checkEnabled="true">
+          	</visibleWhen>
+          </command>
+       </menuContribution>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="hr.fer.rasip.remes.simulator.ui.navigator.commands.ServerRunningPropertyTester"
+             id="hr.fer.rasip.remes.simulator.ui.serverRunningTester"
+             namespace="hr.fer.rasip.remes.simulator.ui.properties"
+             properties="isServerRunning"
+             type="hr.fer.rasip.remes.simulator.ui.navigator.core.SimulatorDataStore">
+       </propertyTester>
+    </extension>
+    <!-- extension
+     point="org.eclipse.ui.bindings">
+      <key
+        commandId="hr.fer.rasip.remes.simulator.ui.refreshCommand"
+        contextId="org.eclipse.ui.contexts.window"
+        sequence="F5"
+        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension -->
+    <!-- extension
+          point="org.eclipse.ui.commandImages">
+       <image
+             commandId="hr.fer.rasip.remes.simulator.ui.refreshCommand"
+             disabledIcon="icons/refresh_nav_disabled.gif"
+             icon="icons/refresh_nav_enabled.gif">
+       </image>
+    </extension -->
+</plugin>

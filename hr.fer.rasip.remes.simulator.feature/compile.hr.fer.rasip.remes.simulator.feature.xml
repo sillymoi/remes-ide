@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile hr.fer.rasip.remes.simulator.feature" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.simulator" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.simulator.debug.core" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.simulator.debug.ui" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.simulator.ui" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.profile" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.simulator.remes2java" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.launcher" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.launcher.ui" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.profile.ui" target="build.jars"/>
+	</target>
+</project>

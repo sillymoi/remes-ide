@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_T_lT0FHYEd-7nvjbf_eQ5g">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT0VHYEd-7nvjbf_eQ5g" name="boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT0lHYEd-7nvjbf_eQ5g" name="byte"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT01HYEd-7nvjbf_eQ5g" name="char"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT1FHYEd-7nvjbf_eQ5g" name="double"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT1VHYEd-7nvjbf_eQ5g" name="float"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT1lHYEd-7nvjbf_eQ5g" name="int"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT11HYEd-7nvjbf_eQ5g" name="long"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_T_lT2FHYEd-7nvjbf_eQ5g" name="short"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_T_lT2VHYEd-7nvjbf_eQ5g" name="hr">
+    <packagedElement xmi:type="uml:Package" xmi:id="_T_lT2lHYEd-7nvjbf_eQ5g" name="fer">
+      <packagedElement xmi:type="uml:Package" xmi:id="_T_lT21HYEd-7nvjbf_eQ5g" name="rasip">
+        <packagedElement xmi:type="uml:Package" xmi:id="_T_lT3FHYEd-7nvjbf_eQ5g" name="remes">
+          <packagedElement xmi:type="uml:Package" xmi:id="_T_lT3VHYEd-7nvjbf_eQ5g" name="simulator">
+            <packagedElement xmi:type="uml:Package" xmi:id="_T_lT3lHYEd-7nvjbf_eQ5g" name="core">
+              <packagedElement xmi:type="uml:Package" xmi:id="_T_lT31HYEd-7nvjbf_eQ5g" name="impl">
+                <packagedElement xmi:type="uml:Class" xmi:id="_T_lT4FHYEd-7nvjbf_eQ5g" name="SimulatorImpl">
+                  <ownedOperation xmi:id="_T_lT4VHYEd-7nvjbf_eQ5g" name="getState" visibility="public">
+                    <eAnnotations xmi:id="_T_lT4lHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT41HYEd-7nvjbf_eQ5g" key="documentation" value="Returns current state of the simulator to allow adding steps"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT5FHYEd-7nvjbf_eQ5g" name="return" type="_T_lUVVHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT5VHYEd-7nvjbf_eQ5g" name="createResource" visibility="public">
+                    <eAnnotations xmi:id="_T_lT5lHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT51HYEd-7nvjbf_eQ5g" key="documentation" value="Returns a reference to resource variable, creating it if necessary"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT6FHYEd-7nvjbf_eQ5g" name="name" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lT6VHYEd-7nvjbf_eQ5g" name="return" type="_T_lUV1HYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT6lHYEd-7nvjbf_eQ5g" name="addGlobal" visibility="public">
+                    <eAnnotations xmi:id="_T_lT61HYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT7FHYEd-7nvjbf_eQ5g" key="documentation" value="Adds a global variable"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT7VHYEd-7nvjbf_eQ5g" name="global" type="_T_lUV1HYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT7lHYEd-7nvjbf_eQ5g" name="getGlobal" visibility="public">
+                    <eAnnotations xmi:id="_T_lT71HYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT8FHYEd-7nvjbf_eQ5g" key="documentation" value="Accesses a global variable by its name"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT8VHYEd-7nvjbf_eQ5g" name="name" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lT8lHYEd-7nvjbf_eQ5g" name="return" type="_T_lUV1HYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT81HYEd-7nvjbf_eQ5g" name="setTransitionFilter" visibility="public">
+                    <eAnnotations xmi:id="_T_lT9FHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT9VHYEd-7nvjbf_eQ5g" key="documentation" value="Sets the filter used to sieve transitions to be executed"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT9lHYEd-7nvjbf_eQ5g" name="filter" type="_T_lUWFHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT91HYEd-7nvjbf_eQ5g" name="getTransitionFilter" visibility="public">
+                    <eAnnotations xmi:id="_T_lT-FHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT-VHYEd-7nvjbf_eQ5g" key="documentation" value="Returns the transition filter"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT-lHYEd-7nvjbf_eQ5g" name="return" type="_T_lUWFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT-1HYEd-7nvjbf_eQ5g" name="addMode" visibility="public">
+                    <eAnnotations xmi:id="_T_lT_FHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lT_VHYEd-7nvjbf_eQ5g" key="documentation" value="Adds a mode to simulator"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lT_lHYEd-7nvjbf_eQ5g" name="mode" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lT_1HYEd-7nvjbf_eQ5g" name="addTopMode" visibility="public">
+                    <eAnnotations xmi:id="_T_lUAFHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUAVHYEd-7nvjbf_eQ5g" key="documentation" value="Adds a mode to collection of top-modes"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUAlHYEd-7nvjbf_eQ5g" name="mode" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUA1HYEd-7nvjbf_eQ5g" name="getMode" visibility="public">
+                    <eAnnotations xmi:id="_T_lUBFHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUBVHYEd-7nvjbf_eQ5g" key="documentation" value="Returns a mode by its name"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUBlHYEd-7nvjbf_eQ5g" name="name" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUB1HYEd-7nvjbf_eQ5g" name="return" type="_T_lUWVHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUCFHYEd-7nvjbf_eQ5g" name="addClock" visibility="public">
+                    <eAnnotations xmi:id="_T_lUCVHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUClHYEd-7nvjbf_eQ5g" key="documentation" value="Adds a clock variable"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUC1HYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUDFHYEd-7nvjbf_eQ5g" name="clock" type="_T_lUV1HYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUDVHYEd-7nvjbf_eQ5g" name="getClockTicks" visibility="public">
+                    <eAnnotations xmi:id="_T_lUDlHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUD1HYEd-7nvjbf_eQ5g" key="documentation" value="Gets current clock ticks"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUEFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUWlHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUEVHYEd-7nvjbf_eQ5g" name="getResource" visibility="public">
+                    <eAnnotations xmi:id="_T_lUElHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUE1HYEd-7nvjbf_eQ5g" key="documentation" value="Returns a reference to resource variable"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUFFHYEd-7nvjbf_eQ5g" name="type" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUFVHYEd-7nvjbf_eQ5g" name="return" type="_T_lUV1HYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUFlHYEd-7nvjbf_eQ5g" name="activateTopModes" visibility="public">
+                    <eAnnotations xmi:id="_T_lUF1HYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUGFHYEd-7nvjbf_eQ5g" key="documentation" value="Adds all top-modes to active modes list"/>
+                    </eAnnotations>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUGVHYEd-7nvjbf_eQ5g" name="getEarliestDeadline" visibility="public">
+                    <eAnnotations xmi:id="_T_lUGlHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUG1HYEd-7nvjbf_eQ5g" key="documentation" value="Checks all active modes and transitions to find the earliest deadline"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUHFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUW1HYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUHVHYEd-7nvjbf_eQ5g" name="run" visibility="public">
+                    <eAnnotations xmi:id="_T_lUHlHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUH1HYEd-7nvjbf_eQ5g" key="documentation" value="Runs the simulation &#xD;&#xA; @throws SimulatorDeadlockException"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUIFHYEd-7nvjbf_eQ5g" name="return" type="_T_lT0VHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_T_lUIVHYEd-7nvjbf_eQ5g" name="SimulatorStateImpl">
+                  <ownedOperation xmi:id="_T_lUIlHYEd-7nvjbf_eQ5g" name="addActiveMode" visibility="public">
+                    <ownedParameter xmi:id="_T_lUI1HYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUJFHYEd-7nvjbf_eQ5g" name="removeActiveMode" visibility="public">
+                    <ownedParameter xmi:id="_T_lUJVHYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUJlHYEd-7nvjbf_eQ5g" name="getActiveModes" visibility="public">
+                    <ownedParameter xmi:id="_T_lUJ1HYEd-7nvjbf_eQ5g" name="return" type="_T_lUXFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUKFHYEd-7nvjbf_eQ5g" name="addActiveModes" visibility="public">
+                    <ownedParameter xmi:id="_T_lUKVHYEd-7nvjbf_eQ5g" name="modes" type="_T_lUXVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUKlHYEd-7nvjbf_eQ5g" name="removeActiveMode" visibility="public">
+                    <ownedParameter xmi:id="_T_lUK1HYEd-7nvjbf_eQ5g" name="name" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lULFHYEd-7nvjbf_eQ5g" name="isModeActive" visibility="public">
+                    <ownedParameter xmi:id="_T_lULVHYEd-7nvjbf_eQ5g" name="name" type="_T_lUVlHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lULlHYEd-7nvjbf_eQ5g" name="return" type="_T_lT0VHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUL1HYEd-7nvjbf_eQ5g" name="isModeActive" visibility="public">
+                    <ownedParameter xmi:id="_T_lUMFHYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUMVHYEd-7nvjbf_eQ5g" name="return" type="_T_lT0VHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUMlHYEd-7nvjbf_eQ5g" name="addActiveTransition" visibility="public">
+                    <ownedParameter xmi:id="_T_lUM1HYEd-7nvjbf_eQ5g" name="t" type="_T_lUXlHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUNFHYEd-7nvjbf_eQ5g" name="addActiveTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lUNVHYEd-7nvjbf_eQ5g" name="transitions" type="_T_lUXFHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUNlHYEd-7nvjbf_eQ5g" name="getActiveTransition" visibility="public">
+                    <ownedParameter xmi:id="_T_lUN1HYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUOFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUXlHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUOVHYEd-7nvjbf_eQ5g" name="getActiveTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lUOlHYEd-7nvjbf_eQ5g" name="return" type="_T_lUXFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUO1HYEd-7nvjbf_eQ5g" name="removeActiveTransition" visibility="public">
+                    <ownedParameter xmi:id="_T_lUPFHYEd-7nvjbf_eQ5g" name="t" type="_T_lUXlHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUPVHYEd-7nvjbf_eQ5g" name="clearActiveTransitions" visibility="public"/>
+                  <ownedOperation xmi:id="_T_lUPlHYEd-7nvjbf_eQ5g" name="addWaitingTransition" visibility="public">
+                    <ownedParameter xmi:id="_T_lUP1HYEd-7nvjbf_eQ5g" name="t" type="_T_lUXlHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUQFHYEd-7nvjbf_eQ5g" name="addWaitingTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lUQVHYEd-7nvjbf_eQ5g" name="transitions" type="_T_lUXFHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUQlHYEd-7nvjbf_eQ5g" name="getWaitingTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lUQ1HYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lURFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUXFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lURVHYEd-7nvjbf_eQ5g" name="getWaitingTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lURlHYEd-7nvjbf_eQ5g" name="return" type="_T_lUXFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUR1HYEd-7nvjbf_eQ5g" name="removeWaitingTransition" visibility="public">
+                    <ownedParameter xmi:id="_T_lUSFHYEd-7nvjbf_eQ5g" name="t" type="_T_lUXlHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUSVHYEd-7nvjbf_eQ5g" name="removeWaitingTransitions" visibility="public">
+                    <ownedParameter xmi:id="_T_lUSlHYEd-7nvjbf_eQ5g" name="m" type="_T_lUWVHYEd-7nvjbf_eQ5g"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_T_lUS1HYEd-7nvjbf_eQ5g" name="getActiveElements" visibility="public">
+                    <ownedParameter xmi:id="_T_lUTFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUXFHYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_T_lUTVHYEd-7nvjbf_eQ5g" name="FirstDeadlineTransitionFilter">
+                  <eAnnotations xmi:id="_T_lUTlHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_T_lUT1HYEd-7nvjbf_eQ5g" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                  </eAnnotations>
+                  <ownedOperation xmi:id="_T_lUUFHYEd-7nvjbf_eQ5g" name="filterTransitions" visibility="public">
+                    <eAnnotations xmi:id="_T_lUUVHYEd-7nvjbf_eQ5g" source="http://www.topcased.org/documentation">
+                      <details xmi:id="_T_lUUlHYEd-7nvjbf_eQ5g" key="documentation" value=" Returns just the first transition &#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.TransitionFilter#filterTransitions(java.util.Collection)&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="_T_lUU1HYEd-7nvjbf_eQ5g" name="transitions" type="_T_lUX1HYEd-7nvjbf_eQ5g"/>
+                    <ownedParameter xmi:id="_T_lUVFHYEd-7nvjbf_eQ5g" name="return" type="_T_lUW1HYEd-7nvjbf_eQ5g" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUVVHYEd-7nvjbf_eQ5g" name="SimulatorState"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUVlHYEd-7nvjbf_eQ5g" name="String"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUV1HYEd-7nvjbf_eQ5g" name="Variable"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUWFHYEd-7nvjbf_eQ5g" name="TransitionFilter"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUWVHYEd-7nvjbf_eQ5g" name="Mode"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUWlHYEd-7nvjbf_eQ5g" name="Interval"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUW1HYEd-7nvjbf_eQ5g" name="Deadline"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUXFHYEd-7nvjbf_eQ5g" name="Collection"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUXVHYEd-7nvjbf_eQ5g" name="Map"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUXlHYEd-7nvjbf_eQ5g" name="Transition"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="_T_lUX1HYEd-7nvjbf_eQ5g" name="Multimap"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hr.fer.rasip.remes.simulator.traces.presentation.TracesModelWizardID"
+            name="%_UI_TracesModelWizard_label"
+            class="hr.fer.rasip.remes.simulator.traces.presentation.TracesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TracesModelFile.gif">
+         <description>%_UI_TracesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="hr.fer.rasip.remes.simulator.traces.presentation.TracesEditorID"
+            name="%_UI_TracesEditor_label"
+            icon="icons/full/obj16/TracesModelFile.gif"
+            extensions="traces"
+            class="hr.fer.rasip.remes.simulator.traces.presentation.TracesEditor"
+            contributorClass="hr.fer.rasip.remes.simulator.traces.presentation.TracesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

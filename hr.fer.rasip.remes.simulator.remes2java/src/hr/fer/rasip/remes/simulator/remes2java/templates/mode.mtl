@@ -1,0 +1,433 @@
+[module mode('http://www.mdh.se/progresside/remes/1.2.0/remes.ecore','http://www.rasip.fer.hr/remes/1.1.0/expressions/ast.ecore')/]
+
+[import common /]
+[import expressions /]
+
+[query public toModePackageName(pkg : String) : String = pkg.trim().concat('.modes') /]
+
+[template public packageBlock(m : Mode, pkg : String)]
+package [pkg.toModePackageName()/];
+[/template]
+
+[template public importBlock(m : Mode)]
+import hr.fer.rasip.remes.simulator.core.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.Type.TYPE_CODE;
+import com.domainlanguage.intervals.Interval;
+[/template]
+
+[query public className(m : Mode) : String = 
+	m.name.toClassName()
+/]
+
+[template public createClass(m : Mode)]
+public class [m.className()/] extends [if (m.oclIsKindOf(CompositeMode))]CompositeMode[/if] [if (m.oclIsKindOf(SubMode))]SubMode[/if]
+{
+	[_objectIdBlock(m) /]
+	[_sourceNameBlock(m) /]
+
+	/**
+	 * Mode name
+	 * @generated
+	 */
+	 protected final String NAME = "[m.name.trim()/]";
+	
+	/**
+	 * Mode constants
+	 * @generated
+	 */
+    [m.createConstants() /]
+	
+	/**
+	 * Mode variables
+	 * @generated
+	 */
+    [m.createVariables() /]
+
+	/**
+	 * Mode resources
+	 * @generated
+	 */
+	[m.createResources() /]
+
+	/**
+	 * Return mode name
+	 * @generated
+	 */
+	public String getName()
+	{
+        return NAME;
+	}
+	
+[m.createConstructor()/]
+	
+	[comment Check to see which kind of a mode we have (no inheritance :( /]
+
+	[if (m.oclIsKindOf(CompositeMode))]
+[m.oclAsType(CompositeMode).createStructure() /]
+	[/if]
+
+	[if (m.oclIsKindOf(SubMode))]
+[m.oclAsType(SubMode).createInvariant()/]
+	[/if]
+	
+[m.createContinuousStep() /]
+} 	
+[/template]	
+
+[template public createConstructor(m : Mode)]
+	/**
+	 * Constructor
+	 * @generated
+	 */
+ 	public [m.name.trim().toUpperFirst()/](Simulator environment, Behaviour beh)
+	{
+		this(environment, beh, null);
+	}
+	
+	/**
+	 * Constructor
+	 * @generated
+	 */
+	public [m.name.trim().toUpperFirst()/](Simulator environment, Behaviour beh, Mode parent)
+	{
+		super(environment, beh, parent);
+
+		// Add variables
+		[m.addVariables()/]
+		
+		// Add resources
+		[m.addResources()/]
+	}
+[/template]
+
+[template public createConstants (mode : Mode) ]
+[for (c : remes::Constant | mode.constants)]
+[if (c.global)]
+	public [else][comment was private, set to default /][/if]static final [c.type.mapToJavaType() /] [c.name /] = [c.value /];
+[/for]
+[/template]
+
+[template public createVariables (mode : Mode) ]
+[for (v : remes::Variable | mode.variables)]
+	[if (v.global)]public [else]private [/if]Variable<[v.type.mapToDataType() /]> [v.name /] = new Variable<[v.type.mapToDataType()/]>("[v.name /]", [v.mapToTypeCode() /], this, [v.readable /], [v.writable /], [v.vectorSize /]);
+[/for]
+[/template]
+
+[template public createVariablesSimple (mode : Mode) ]
+	[for (v : remes::Variable | mode.variables)]
+	[if (v.global)]public [else]private [/if][v.type.mapToDataType() /][if v.vectorSize > 0]['['/][']'/][/if] [v.name /] = new [v.type.mapToDataType()/][if v.vectorSize > 0]['['/][v.vectorSize /][']'/][/if]();
+	[/for]
+[/template]
+
+[template public createResources (mode : Mode) ]
+[for (r : Resource | mode.resources)]
+	private Variable<ResourceType> [r.name /] = getEnvironment().getResource("[r.name /]");
+[/for]
+[/template]
+
+[template public addVariables (m : Mode)]
+[for (v : Variable | m.variables)]
+addVariable([v.name /]);
+[if v.type.toString() = 'clock']
+		getEnvironment().addClock(this, [v.name/]);
+	  [/if]
+	  [if v.global]
+	getEnvironment().addGlobal([v.name /]);
+	  [/if]
+[/for]
+[/template]
+
+[template public addResources (m : Mode)]
+[for (r : Resource | m.resources)]
+    addVariable([r.name /]);
+[/for]
+[/template]
+
+[template public createTransitions (m : Mode)]
+[for (e : Edge | m.oclAsType(ControlPath).exitPoint.exitEdges)]
+if([e.actionGuard/]) {
+    [e.actionBody/];
+    activate(getParent().getMode("[e.connectTo.getContainerName()/]"));
+}
+[/for]
+[/template]
+
+[template public createInvariant (m : SubMode) ]
+[if not m.parsedInvariant.oclIsUndefined()]
+	/**
+	* Check if the mode's invariant still holds
+	* @see hr.fer.rasip.remes.simulator.core.Mode#invariantHolds()
+	* @generated
+	*/
+	public Type invariantHolds()
+	{
+		// Check the parsed invariant
+		return [m.parsedInvariant.oclAsType(ast::LogicalRoot).traverseExpression() /];
+	}
+[elseif m.isUrgent ]
+	/**
+	 * Urgent mode - exit immediately
+	 * @see hr.fer.rasip.remes.simulator.core.Mode#invariantHolds()
+	 * @generated
+	 */
+	@Override
+	public Type invariantHolds() {
+		return new BooleanType(false);
+	}
+[/if]
+[/template]
+
+[template public createStructure (mode : CompositeMode) ]
+	/**
+	 * Create internal composite mode structure (sub-modes and transitions)
+	 * @generated
+	 */
+	@Override
+	protected void createStructure() {
+		// Create sub modes
+		[for (sm : SubMode | mode.subModes)]
+		SubMode mode[sm.className() /] = new [sm.className() /](getEnvironment(), getBehaviour(), this);
+		getEnvironment().addMode(mode[sm.className() /]);
+		addSubMode(mode[sm.className() /]);
+		
+		[/for]
+		
+		// Create edges
+		[mode.createInitEdges() /]
+		[mode.createEntryEdges() /]
+		[mode.createInternalEdges() /]
+	}
+[/template]
+
+[template public createInitEdges (mode : CompositeMode) ]
+	[if not mode.initPoint.initEdge.oclIsUndefined() ]
+		// Init edge [mode.name /] -> [mode.initPoint.initEdge.connectTo.getContainerName() /]
+		this.addTransition(new CompositeInitEntryTransition(this, mode[mode.initPoint.initEdge.connectTo.getContainerName() /], true)
+		[comment if (not mode.initPoint.initEdge.parsedInitialization.oclIsUndefined()) /]{
+			[comment if (not mode.initPoint.initEdge.parsedActionGuard.oclIsUndefined()) /]
+			[comment @Override /] 
+			[comment public Type evaluateGuard() { /]
+			[comment	return null; /] 
+				[comment mode.initPoint.initEdge.parsedGuard.traverseExpression() /]		
+			[comment } /]
+			[comment if /]
+			
+			[_objectIdBlock(mode.initPoint.initEdge) /]
+			[_sourceNameBlock(mode.initPoint.initEdge) /]
+						
+			[if (not mode.initPoint.initEdge.parsedInitialization.oclIsUndefined())]
+			@Override
+			public void performAction() {
+			[mode.initPoint.initEdge.parsedInitialization.oclAsType(ast::ActionRoot).traverseExpression() /]; // action
+			}
+			[/if]
+		}[comment if /]);
+	[/if]
+[/template]
+
+[template public createEntryEdges (mode : CompositeMode) ]
+		// Entry edges
+		[for (e : Edge | mode.compositeEntryPoint.oclAsType(ExitPoint).exitEdges)]
+		// [e.connectFrom.getContainerName() /] -> [e.connectTo.getContainerName() /]
+		this.addTransition(new CompositeInitEntryTransition(this, mode[e.connectTo.getContainerName() /], false)
+			[comment if (not e.parsedActionGuard.oclIsUndefined() or not e.parsedActionBody.oclIsUndefined()) /]
+		{
+			[_objectIdBlock(e) /]
+			[_sourceNameBlock(e) /]
+			
+			[if not e.parsedActionGuard.oclIsUndefined()]
+			/**
+			 * @generated 
+			 */
+			@Override
+			public Type evaluateGuard() {
+				return [e.parsedActionGuard.oclAsType(ast::LogicalRoot).traverseExpression() /]; // guard	
+			}
+			[/if]
+			[if not e.parsedActionBody.oclIsUndefined()]
+			/**
+			 * @generated 
+			 */
+			@Override
+			public void performAction() {
+				[e.parsedActionBody.oclAsType(ast::ActionRoot).traverseExpression() /];	// action
+			}
+			[/if]
+		}[comment if /]);
+		[/for]
+[/template]
+
+[template public createInternalEdges (mode : CompositeMode) ]
+		// Internal edges
+		[for (sm : SubMode | mode.subModes)]
+			[for (e : Edge | sm.oclAsType(ControlPath).exitPoint.exitEdges)]
+				[if e.connectTo.oclIsKindOf(CompositeExitPoint) ]
+		// [e.connectFrom.getContainerName() /] -> [mode.name /]
+		mode[sm.className()/].addTransition(new CompositeExitTransition(mode[sm.className()/], this)
+				[elseif e.connectTo.oclIsKindOf(WritePoint) ]
+		// [e.connectFrom.getContainerName() /] -> [mode.name /] (local exit)
+		mode[sm.className()/].addTransition(new LocalExitTransition(mode[sm.className()/], this) 
+				[else]	
+		// [e.connectFrom.getContainerName() /] -> [e.connectTo.getContainerName() /]				
+		mode[sm.className()/].addTransition(new Transition(mode[sm.className()/], mode[e.connectTo.getContainerName().toClassName()/])
+				[/if]
+				[comment trace e /]
+				[comment trace e.parsedActionGuard /]
+				[comment if (not e.parsedActionGuard.oclIsUndefined() or not e.parsedActionBody.oclIsUndefined()) /]
+		{
+			[_objectIdBlock(e) /]
+			[_sourceNameBlock(e) /]
+		
+					[if not e.parsedActionGuard.oclIsUndefined()]
+			/**
+			 * @generated
+			 */
+			@Override
+			public Type evaluateGuard() {
+				return [e.parsedActionGuard.oclAsType(ast::LogicalRoot).traverseExpression() /]; // guard
+			}
+					[/if]
+					[if not e.parsedActionBody.oclIsUndefined()]
+			/**
+			 * @generated 
+			 */
+			@Override
+			public void performAction() {
+				[e.parsedActionBody.oclAsType(ast::ActionRoot).traverseExpression() /] // action
+			}
+					[/if]
+		}
+				[comment if /]
+		);
+			[/for]
+		[/for]
+[/template]
+
+[template public createContinuousStep(mode : Mode)]
+	/**
+	 * Performs the continuous resource updates for the mode.
+	 * @generated 
+	 */
+	@Override
+	public void performContinuousStep(Interval iv) {
+		[for (r : Resource | mode.resources)]
+		  [if (not r.parsedExpression.oclIsUndefined())][if (not r.parsedExpression.oclAsType(ast::ResourceRoot).expression.oclIsUndefined())]
+			[r.parsedExpression.oclAsType(ast::ResourceRoot).expression.resourceExpression() /] //update
+		  [/if][/if]
+		[/for] 
+	}
+[/template]
+
+[template public resourceExpression (r : Expression) ]
+[if (r.oclIsKindOf(BinaryExpression))][let e : BinaryExpression = r.oclAsType(BinaryExpression)]
+ [if (e.operation.toString() = 'DIFF')]
+  ((ResourceType)[e.param1.walk() /]).offset(iv.mul([e.param2.walk()/]));
+ [/if]
+[/let]
+[/if]
+[/template]
+
+[query public mapToJavaType (type : PrimitiveTypes) : String =
+ let t : String = type.toString() in
+ if t = 'integer' or t = 'natural' 
+    then 'int'
+ else 
+   if t = 'boolean' or t = 'float' 
+   	  then t
+   else 
+      'unknown'
+   endif 
+ endif
+/]
+
+[template public mapToDataType (type : PrimitiveTypes) ]
+[ type.toString().toLower().toUpperFirst() /]Type
+[/template]
+
+[template public mapToTypeCode (variable : Variable) ]
+TYPE_CODE.[ variable.type.toString().toUpper() /]
+[/template]
+
+[query public isTopMode(mode : Mode) : Boolean = 
+  let entry : EntryPoint = mode.oclAsType(ControlPath).entryPoint in
+  if not entry.oclIsUndefined() then
+    entry.oclAsType(EntryPoint).entryEdges->size()<1
+  else
+    false
+  endif 
+/]
+
+[query public getContainerName(p : Point) : String = 
+  if p.oclIsKindOf(WritePoint) then
+     p.oclAsType(WritePoint).container.oclAsType(ControlPath).getName()
+  else if p.oclIsKindOf(CompositeEntryPoint) then
+         p.oclAsType(CompositeEntryPoint).composite.oclAsType(ControlPath).getName()
+       else if p.oclIsKindOf(CompositeExitPoint) then
+              p.oclAsType(CompositeExitPoint).composite.oclAsType(ControlPath).getName()
+            else if p.oclIsKindOf(InitPoint) then
+                   p.oclAsType(InitPoint).container.oclAsType(ControlPath).getName()
+                 else if p.oclIsKindOf(EntryPoint) then
+                        p.oclAsType(EntryPoint).container.oclAsType(ControlPath).getName()
+                      else if p.oclIsKindOf(ExitPoint) then
+                             p.oclAsType(ExitPoint).container.oclAsType(ControlPath).getName()
+                           else
+                             ''
+                           endif
+                      endif
+                 endif
+            endif
+       endif
+  endif
+/]
+
+[query public getName(cp : ControlPath) : String = 
+  if cp.name.oclIsUndefined() then
+    ''
+  else
+    cp.name
+  endif
+/]
+
+[query public getContainerName1(p : CompositeEntryPoint) : String = 
+  if not p.composite.oclAsType(CompositeMode).oclAsType(ControlPath).name.oclIsUndefined() then
+    'centry'.concat(p.composite.oclAsType(CompositeMode).oclAsType(ControlPath).name.toString())
+  else
+    'centry'
+  endif
+/]
+[query public getContainerName1(p : CompositeExitPoint) : String = 
+  if not p.composite.oclAsType(CompositeMode).oclAsType(ControlPath).name.oclIsUndefined() then 
+    'cexit'.concat(p.composite.oclAsType(CompositeMode).oclAsType(ControlPath).name.toString())
+  else
+    'cexit'
+  endif
+/]
+[query public getContainerName1(p : WritePoint) : String = 
+  if not p.container.oclAsType(ControlPath).name.oclIsUndefined() then
+    p.container.oclAsType(ControlPath).name.toString()
+  else
+    'wp'
+  endif
+/]
+[query public getContainerName1(p : InitPoint) : String  = 
+  if not p.container.oclAsType(ControlPath).name.oclIsUndefined() then
+    p.container.oclAsType(ControlPath).name.toString()
+  else
+    'ip'
+  endif
+/]
+[query public getContainerName1(p : EntryPoint) : String = 
+ if not p.container.oclAsType(ControlPath).name.oclIsUndefined() then
+   p.container.oclAsType(ControlPath).name.toString()
+ else
+  'ep'
+ endif
+/]
+[query public getContainerName1(p : ExitPoint) : String  = 
+  if not p.container.oclAsType(ControlPath).name.oclIsUndefined() then
+    p.container.oclAsType(ControlPath).name.toString()
+  else
+    'exp'
+  endif
+/]

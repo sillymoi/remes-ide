@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hr.fer.rasip.remes.simulator.traces/src"
+    editDirectory="/hr.fer.rasip.remes.simulator.traces.edit/src" editorDirectory="/hr.fer.rasip.remes.simulator.traces.editor/src"
+    modelPluginID="hr.fer.rasip.remes.simulator.traces" modelName="Traces" editPluginClass="hr.fer.rasip.remes.simulator.traces.provider.TracesEditPlugin"
+    editorPluginClass="hr.fer.rasip.remes.simulator.traces.presentation.TracesEditorPlugin"
+    testSuiteClass="hr.fer.rasip.remes.simulator.traces.tests.TracesAllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="hr.fer.rasip.remes.simulator.traces.edit"
+    editorPluginID="hr.fer.rasip.remes.simulator.traces.editor" colorProviders="true"
+    fontProviders="true">
+  <foreignModel>traces.ecore</foreignModel>
+  <genPackages prefix="Traces" basePackage="hr.fer.rasip.remes.simulator" disposableProviderFactory="true"
+      ecorePackage="traces.ecore#/">
+    <genClasses ecoreClass="traces.ecore#//SimulatorRun">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//SimulatorRun/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//SimulatorRun/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//SimulatorRun/behaviorName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference traces.ecore#//SimulatorRun/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="traces.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//Variable/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference traces.ecore#//Variable/run"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference traces.ecore#//Variable/values"/>
+    </genClasses>
+    <genClasses ecoreClass="traces.ecore#//Value">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference traces.ecore#//Value/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//Value/clockMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//Value/clockMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//Value/valueMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traces.ecore#//Value/valueMax"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

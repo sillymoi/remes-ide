@@ -1,0 +1,42 @@
+[module generateProcom('http://www.mdh.se/progresside/procom/1.0.0/procom.ecore')/]
+
+[template public generateProcom(c : Component)]
+[comment @main /]
+[file (c.name, false)]
+[if c.realization.oclIsKindOf(CompositeComponent)]
+  [trace c.realization /]
+  [for (conn : Connection | c.realization.oclAsType(CompositeComponent).connection)]
+  	[if conn.sourcePort.oclIsKindOf(TriggerPort) ]
+      // Component connections (control)
+      mode[ conn.sourceSubcomponent.name /].addTransition(new Transition(mode[ conn.sourceSubcomponent.name /], mode[ conn.destSubcomponent.name/]));   
+  	[else]
+      // Component connections (data)
+      mode[ conn.sourceSubcomponent.name /].addRenaming(new Renaming(mode[ conn.sourceSubcomponent.name /], 
+                                                        mode[ conn.destSubcomponent.name /], 
+                                                        [conn.sourcePort.name /], 
+                                                        [conn.destPort.name /],
+                                                        [conn.sourcePort.oclAsType(DataPort).portTypeToTypeCode()/]));
+	 [/if]
+  [/for]
+  [for (sc : Component | c.realization.oclAsType(CompositeComponent).subcomponentInst)]
+  	[if c.realization.oclAsType(CompositeComponent).connection->select( conn : Connection | conn.sourceSubcomponent.=(sc))->size() < 1]
+  	  mode[sc.name /].addTransition(new ModeExitSystemTransition(mode[sc.name /]));
+  	[/if]
+  [/for] 
+[/if]
+[/file]	
+[/template]
+
+[query portTypeToTypeCode(dp : DataPort) : String = 
+  if dp.type = 'int' then
+    'TYPE_CODE.INTEGER'
+  else if dp.type = 'float' then
+         'TYPE_CODE.FLOAT'
+       else if dp.type = 'boolean' then
+              'TYPE_CODE.BOOLEAN'
+            else
+              'TYPE_CODE.FLOAT'
+            endif
+       endif
+  endif
+/]

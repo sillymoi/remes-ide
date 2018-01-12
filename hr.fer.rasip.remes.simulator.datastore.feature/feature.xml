@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="hr.fer.rasip.remes.simulator.datastore.feature"
+      label="REMES simulator traces datastore"
+      version="0.4.0.qualifier"
+      provider-name="FER"
+      plugin="se.mdh.progresside.remes">
+
+   <plugin
+         id="hr.fer.rasip.remes.datastore.framework"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.ui.chart"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.jfreechart.libs"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.hsqldb.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.traces"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.traces.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.traces.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

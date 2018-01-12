@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="hr.fer.rasip.remes.simulator.feature"
+      label="REMES simulator"
+      version="0.4.0.qualifier"
+      provider-name="MDH / FER"
+      plugin="se.mdh.progresside.remes">
+
+   <requires>
+      <import feature="se.mdh.progresside.remes.feature" version="0.4.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="hr.fer.rasip.remes.launcher"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.launcher.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.debug.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.debug.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.remes2java"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.simulator.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.profile"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.profile.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

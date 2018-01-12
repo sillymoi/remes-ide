@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_5k1xwY-NEd-wp7oGd0dUDQ">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xwo-NEd-wp7oGd0dUDQ" name="boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xw4-NEd-wp7oGd0dUDQ" name="byte"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xxI-NEd-wp7oGd0dUDQ" name="char"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xxY-NEd-wp7oGd0dUDQ" name="double"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xxo-NEd-wp7oGd0dUDQ" name="float"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xx4-NEd-wp7oGd0dUDQ" name="int"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xyI-NEd-wp7oGd0dUDQ" name="long"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5k1xyY-NEd-wp7oGd0dUDQ" name="short"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_5k1xyo-NEd-wp7oGd0dUDQ" name="hr">
+    <packagedElement xmi:type="uml:Package" xmi:id="_5k1xy4-NEd-wp7oGd0dUDQ" name="fer">
+      <packagedElement xmi:type="uml:Package" xmi:id="_5k1xzI-NEd-wp7oGd0dUDQ" name="rasip">
+        <packagedElement xmi:type="uml:Package" xmi:id="_5k1xzY-NEd-wp7oGd0dUDQ" name="remes">
+          <packagedElement xmi:type="uml:Package" xmi:id="_5k1xzo-NEd-wp7oGd0dUDQ" name="simulator">
+            <packagedElement xmi:type="uml:Package" xmi:id="_5k1xz4-NEd-wp7oGd0dUDQ" name="core">
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k1x0I-NEd-wp7oGd0dUDQ" name="ModeExitSystemTransition">
+                <eAnnotations xmi:id="_5k1x0Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1x0o-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <generalization xmi:id="_5k1x04-NEd-wp7oGd0dUDQ" general="_5k_jRo-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k1x1I-NEd-wp7oGd0dUDQ" name="performTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1x1Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x1o-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the transition.&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Transition#performTransition(hr.fer.rasip.remes.simulator.core.SimulatorState)&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x14-NEd-wp7oGd0dUDQ" name="ss" type="_5k1yG4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_5k1x2I-NEd-wp7oGd0dUDQ" name="TraceElement">
+                <eAnnotations xmi:id="_5k1x2Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1x2o-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k1x24-NEd-wp7oGd0dUDQ" name="isMode" visibility="public">
+                  <ownedParameter xmi:id="_5k1x3I-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x3Y-NEd-wp7oGd0dUDQ" name="isTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1x3o-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k1x34-NEd-wp7oGd0dUDQ" name="Behaviour">
+                <eAnnotations xmi:id="_5k1x4I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1x4Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k1x4o-NEd-wp7oGd0dUDQ" name="getName" visibility="public">
+                  <eAnnotations xmi:id="_5k1x44-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x5I-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the name&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x5Y-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x5o-NEd-wp7oGd0dUDQ" name="setName" visibility="public">
+                  <eAnnotations xmi:id="_5k1x54-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x6I-NEd-wp7oGd0dUDQ" key="documentation" value=" @param name the name to set&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x6Y-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x6o-NEd-wp7oGd0dUDQ" name="getFullName" visibility="public">
+                  <ownedParameter xmi:id="_5k1x64-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k1x7I-NEd-wp7oGd0dUDQ" name="Transition" clientDependency="_5k1x74-NEd-wp7oGd0dUDQ">
+                <eAnnotations xmi:id="_5k1x7Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1x7o-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <interfaceRealization xmi:id="_5k1x74-NEd-wp7oGd0dUDQ" name="TraceElement" supplier="_5k1x2I-NEd-wp7oGd0dUDQ" client="_5k1x7I-NEd-wp7oGd0dUDQ" contract="_5k1x2I-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k1x8I-NEd-wp7oGd0dUDQ" name="getConnectFrom" visibility="public">
+                  <eAnnotations xmi:id="_5k1x8Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x8o-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the connectFrom&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x84-NEd-wp7oGd0dUDQ" name="return" type="_5k1ySY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x9I-NEd-wp7oGd0dUDQ" name="getConnectTo" visibility="public">
+                  <eAnnotations xmi:id="_5k1x9Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x9o-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the connectTo&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x94-NEd-wp7oGd0dUDQ" name="return" type="_5k1ySY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x-I-NEd-wp7oGd0dUDQ" name="isInitTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1x-Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x-o-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the initTransition&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x-4-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1x_I-NEd-wp7oGd0dUDQ" name="evaluateGuard" visibility="public">
+                  <eAnnotations xmi:id="_5k1x_Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1x_o-NEd-wp7oGd0dUDQ" key="documentation" value=" Evaluates the transition's guard expression.&#xD;&#xA; Default implementation returns BooleanType(true).&#xD;&#xA; &#xD;&#xA; @return Type - BooleanType(true)&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1x_4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jT4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yAI-NEd-wp7oGd0dUDQ" name="performAction" visibility="public">
+                  <eAnnotations xmi:id="_5k1yAY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yAo-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the action defined for the transition.&#xD;&#xA; Default implementation does nothing.&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yA4-NEd-wp7oGd0dUDQ" name="performTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1yBI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yBY-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the transition (mode switching) in the simulator.&#xD;&#xA; @param ss State of the Simulator&#xD;&#xA; @throws SimulatorDeadlockException&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yBo-NEd-wp7oGd0dUDQ" name="ss" type="_5k1yG4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yB4-NEd-wp7oGd0dUDQ" name="isMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1yCI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yCY-NEd-wp7oGd0dUDQ" key="documentation" value=" Mark this as NOT Mode in Simulator trace.&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yCo-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yC4-NEd-wp7oGd0dUDQ" name="isTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1yDI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yDY-NEd-wp7oGd0dUDQ" key="documentation" value=" Mark this as transition in Simulator trace.&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yDo-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yD4-NEd-wp7oGd0dUDQ" name="isSystemTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1yEI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yEY-NEd-wp7oGd0dUDQ" key="documentation" value=" If set, this transition will be treated as high-priority system transition, an executed immediately.&#xD;&#xA; @return&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yEo-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yE4-NEd-wp7oGd0dUDQ" name="toString" visibility="public">
+                  <ownedParameter xmi:id="_5k1yFI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_5k1yFY-NEd-wp7oGd0dUDQ" name="TransitionFilter">
+                <eAnnotations xmi:id="_5k1yFo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1yF4-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k1yGI-NEd-wp7oGd0dUDQ" name="filterTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yGY-NEd-wp7oGd0dUDQ" name="transitions" type="_5k_jUI-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yGo-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_5k1yG4-NEd-wp7oGd0dUDQ" name="SimulatorState">
+                <eAnnotations xmi:id="_5k1yHI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1yHY-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k1yHo-NEd-wp7oGd0dUDQ" name="addActiveMode" visibility="public">
+                  <ownedParameter xmi:id="_5k1yH4-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yII-NEd-wp7oGd0dUDQ" name="removeActiveMode" visibility="public">
+                  <ownedParameter xmi:id="_5k1yIY-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yIo-NEd-wp7oGd0dUDQ" name="removeActiveMode" visibility="public">
+                  <ownedParameter xmi:id="_5k1yI4-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yJI-NEd-wp7oGd0dUDQ" name="isModeActive" visibility="public">
+                  <ownedParameter xmi:id="_5k1yJY-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yJo-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yJ4-NEd-wp7oGd0dUDQ" name="isModeActive" visibility="public">
+                  <ownedParameter xmi:id="_5k1yKI-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yKY-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yKo-NEd-wp7oGd0dUDQ" name="getActiveModes" visibility="public">
+                  <ownedParameter xmi:id="_5k1yK4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yLI-NEd-wp7oGd0dUDQ" name="addActiveModes" visibility="public">
+                  <ownedParameter xmi:id="_5k1yLY-NEd-wp7oGd0dUDQ" name="modes" type="_5k_jU4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yLo-NEd-wp7oGd0dUDQ" name="addActiveTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1yL4-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yMI-NEd-wp7oGd0dUDQ" name="addActiveTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yMY-NEd-wp7oGd0dUDQ" name="transitions" type="_5k_jUo-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yMo-NEd-wp7oGd0dUDQ" name="getActiveTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1yM4-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yNI-NEd-wp7oGd0dUDQ" name="return" type="_5k1x7I-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yNY-NEd-wp7oGd0dUDQ" name="getActiveTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yNo-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yN4-NEd-wp7oGd0dUDQ" name="removeActiveTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1yOI-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yOY-NEd-wp7oGd0dUDQ" name="clearActiveTransitions" visibility="public"/>
+                <ownedOperation xmi:id="_5k1yOo-NEd-wp7oGd0dUDQ" name="addWaitingTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1yO4-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yPI-NEd-wp7oGd0dUDQ" name="addWaitingTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yPY-NEd-wp7oGd0dUDQ" name="transitions" type="_5k_jUo-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yPo-NEd-wp7oGd0dUDQ" name="getWaitingTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yP4-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yQI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yQY-NEd-wp7oGd0dUDQ" name="getWaitingTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yQo-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yQ4-NEd-wp7oGd0dUDQ" name="removeWaitingTransition" visibility="public">
+                  <ownedParameter xmi:id="_5k1yRI-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yRY-NEd-wp7oGd0dUDQ" name="removeWaitingTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k1yRo-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yR4-NEd-wp7oGd0dUDQ" name="getActiveElements" visibility="public">
+                  <ownedParameter xmi:id="_5k1ySI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k1ySY-NEd-wp7oGd0dUDQ" name="Mode" clientDependency="_5k1yTI-NEd-wp7oGd0dUDQ" isAbstract="true">
+                <eAnnotations xmi:id="_5k1ySo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1yS4-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <interfaceRealization xmi:id="_5k1yTI-NEd-wp7oGd0dUDQ" name="TraceElement" supplier="_5k1x2I-NEd-wp7oGd0dUDQ" client="_5k1ySY-NEd-wp7oGd0dUDQ" contract="_5k1x2I-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k1yTY-NEd-wp7oGd0dUDQ" name="getName" visibility="public" isAbstract="true">
+                  <eAnnotations xmi:id="_5k1yTo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yT4-NEd-wp7oGd0dUDQ" key="documentation" value="Gets mode name"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yUI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yUY-NEd-wp7oGd0dUDQ" name="getFullName" visibility="public" isAbstract="true">
+                  <eAnnotations xmi:id="_5k1yUo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yU4-NEd-wp7oGd0dUDQ" key="documentation" value="Gets mode full name"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yVI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yVY-NEd-wp7oGd0dUDQ" name="getEnvironment" visibility="public">
+                  <eAnnotations xmi:id="_5k1yVo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yV4-NEd-wp7oGd0dUDQ" key="documentation" value="Accesses the simulator environment"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yWI-NEd-wp7oGd0dUDQ" name="return" type="_5k1yoY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yWY-NEd-wp7oGd0dUDQ" name="getBehaviour" visibility="public">
+                  <eAnnotations xmi:id="_5k1yWo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yW4-NEd-wp7oGd0dUDQ" key="documentation" value="Returns the enclosing behavior"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yXI-NEd-wp7oGd0dUDQ" name="return" type="_5k1x34-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yXY-NEd-wp7oGd0dUDQ" name="getParent" visibility="public">
+                  <eAnnotations xmi:id="_5k1yXo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yX4-NEd-wp7oGd0dUDQ" key="documentation" value="Returns the parent mode"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yYI-NEd-wp7oGd0dUDQ" name="return" type="_5k1ySY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yYY-NEd-wp7oGd0dUDQ" name="addVariable" visibility="public">
+                  <eAnnotations xmi:id="_5k1yYo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yY4-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a variable to map"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yZI-NEd-wp7oGd0dUDQ" name="var" type="_5k_i04-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yZY-NEd-wp7oGd0dUDQ" name="getVariable" visibility="public">
+                  <eAnnotations xmi:id="_5k1yZo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yZ4-NEd-wp7oGd0dUDQ" key="documentation" value="Find variable by name, look only in current context (mode)"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yaI-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yaY-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yao-NEd-wp7oGd0dUDQ" name="addTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1ya4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ybI-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a transition to map"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ybY-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ybo-NEd-wp7oGd0dUDQ" name="getTransitions" visibility="public">
+                  <eAnnotations xmi:id="_5k1yb4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ycI-NEd-wp7oGd0dUDQ" key="documentation" value="Returns all transitions &#xD;&#xA; @param predecessor"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ycY-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yco-NEd-wp7oGd0dUDQ" name="onEnterMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1yc4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ydI-NEd-wp7oGd0dUDQ" key="documentation" value="Activates the mode"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ydY-NEd-wp7oGd0dUDQ" name="onExitMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1ydo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yd4-NEd-wp7oGd0dUDQ" key="documentation" value="Exit mode"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yeI-NEd-wp7oGd0dUDQ" name="getInputData" visibility="public">
+                  <eAnnotations xmi:id="_5k1yeY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yeo-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the inputData&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ye4-NEd-wp7oGd0dUDQ" name="return" type="_5k_i-4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yfI-NEd-wp7oGd0dUDQ" name="getOutputData" visibility="public">
+                  <eAnnotations xmi:id="_5k1yfY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yfo-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the outputData&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yf4-NEd-wp7oGd0dUDQ" name="return" type="_5k_i-4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ygI-NEd-wp7oGd0dUDQ" name="addRenaming" visibility="public">
+                  <eAnnotations xmi:id="_5k1ygY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ygo-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a renaming to map"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yg4-NEd-wp7oGd0dUDQ" name="r" type="_5k_iwY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yhI-NEd-wp7oGd0dUDQ" name="invariantHolds" visibility="public">
+                  <eAnnotations xmi:id="_5k1yhY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yho-NEd-wp7oGd0dUDQ" key="documentation" value="Check when does the mode's invariant still hold"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yh4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jT4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yiI-NEd-wp7oGd0dUDQ" name="canEnter" visibility="public">
+                  <eAnnotations xmi:id="_5k1yiY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yio-NEd-wp7oGd0dUDQ" key="documentation" value="Check if it's possible to enter mode - it's invariant holds"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yi4-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yjI-NEd-wp7oGd0dUDQ" name="performContinuousStep" visibility="public">
+                  <eAnnotations xmi:id="_5k1yjY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yjo-NEd-wp7oGd0dUDQ" key="documentation" value="Perform resource updates"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yj4-NEd-wp7oGd0dUDQ" name="iv" type="_5k_jVI-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ykI-NEd-wp7oGd0dUDQ" name="sendData" visibility="public">
+                  <eAnnotations xmi:id="_5k1ykY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yko-NEd-wp7oGd0dUDQ" key="documentation" value=" Send data to a mode.&#xD;&#xA; The default implementation copies all local variables to pot. &#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yk4-NEd-wp7oGd0dUDQ" name="receiveData" visibility="public">
+                  <eAnnotations xmi:id="_5k1ylI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ylY-NEd-wp7oGd0dUDQ" key="documentation" value=" Receive data from a mode.&#xD;&#xA; The default implementation copies all pot data to variables.&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ylo-NEd-wp7oGd0dUDQ" name="performRenamings" visibility="public">
+                  <eAnnotations xmi:id="_5k1yl4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ymI-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the data transfer to other modes.&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ymY-NEd-wp7oGd0dUDQ" name="isMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1ymo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ym4-NEd-wp7oGd0dUDQ" key="documentation" value=" Mark this as Mode&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.TraceElement#isMode()&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ynI-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ynY-NEd-wp7oGd0dUDQ" name="isTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k1yno-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yn4-NEd-wp7oGd0dUDQ" key="documentation" value=" Mark this as NOT transition&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.TraceElement#isTransition()&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yoI-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Interface" xmi:id="_5k1yoY-NEd-wp7oGd0dUDQ" name="Simulator">
+                <eAnnotations xmi:id="_5k1yoo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k1yo4-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k1ypI-NEd-wp7oGd0dUDQ" name="getState" visibility="public">
+                  <eAnnotations xmi:id="_5k1ypY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1ypo-NEd-wp7oGd0dUDQ" key="documentation" value="Returns current state of the simulator to allow adding steps"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yp4-NEd-wp7oGd0dUDQ" name="return" type="_5k1yG4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yqI-NEd-wp7oGd0dUDQ" name="setTransitionFilter" visibility="public">
+                  <eAnnotations xmi:id="_5k1yqY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yqo-NEd-wp7oGd0dUDQ" key="documentation" value="Sets the filter used to sieve transitions to be executed"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yq4-NEd-wp7oGd0dUDQ" name="filter" type="_5k1yFY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yrI-NEd-wp7oGd0dUDQ" name="getTransitionFilter" visibility="public">
+                  <eAnnotations xmi:id="_5k1yrY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yro-NEd-wp7oGd0dUDQ" key="documentation" value="Returns the transition filter"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yr4-NEd-wp7oGd0dUDQ" name="return" type="_5k1yFY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ysI-NEd-wp7oGd0dUDQ" name="addMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1ysY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yso-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a mode to simulator"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ys4-NEd-wp7oGd0dUDQ" name="mode" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ytI-NEd-wp7oGd0dUDQ" name="addTopMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1ytY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yto-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a mode to collection of top-modes"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yt4-NEd-wp7oGd0dUDQ" name="mode" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yuI-NEd-wp7oGd0dUDQ" name="getMode" visibility="public">
+                  <eAnnotations xmi:id="_5k1yuY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yuo-NEd-wp7oGd0dUDQ" key="documentation" value="Returns a mode by its name"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yu4-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yvI-NEd-wp7oGd0dUDQ" name="return" type="_5k1ySY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yvY-NEd-wp7oGd0dUDQ" name="addGlobal" visibility="public">
+                  <eAnnotations xmi:id="_5k1yvo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yv4-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a global variable"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1ywI-NEd-wp7oGd0dUDQ" name="global" type="_5k_i04-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1ywY-NEd-wp7oGd0dUDQ" name="getGlobal">
+                  <eAnnotations xmi:id="_5k1ywo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yw4-NEd-wp7oGd0dUDQ" key="documentation" value="Accesses a global variable by its name"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yxI-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yxY-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yxo-NEd-wp7oGd0dUDQ" name="addClock" visibility="public">
+                  <eAnnotations xmi:id="_5k1yx4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yyI-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a clock variable"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yyY-NEd-wp7oGd0dUDQ" name="m" type="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yyo-NEd-wp7oGd0dUDQ" name="clock" type="_5k_i04-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1yy4-NEd-wp7oGd0dUDQ" name="createResource" visibility="public">
+                  <eAnnotations xmi:id="_5k1yzI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1yzY-NEd-wp7oGd0dUDQ" key="documentation" value="Returns a reference to resource variable, creating it if necessary"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1yzo-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1yz4-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1y0I-NEd-wp7oGd0dUDQ" name="getResource" visibility="public">
+                  <eAnnotations xmi:id="_5k1y0Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1y0o-NEd-wp7oGd0dUDQ" key="documentation" value="Returns a reference to resource variable"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1y04-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k1y1I-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1y1Y-NEd-wp7oGd0dUDQ" name="activateTopModes" visibility="public">
+                  <eAnnotations xmi:id="_5k1y1o-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1y14-NEd-wp7oGd0dUDQ" key="documentation" value="Adds all top-modes to active modes list"/>
+                  </eAnnotations>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1y2I-NEd-wp7oGd0dUDQ" name="run" visibility="public">
+                  <eAnnotations xmi:id="_5k1y2Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1y2o-NEd-wp7oGd0dUDQ" key="documentation" value="Runs the simulation &#xD;&#xA; @throws SimulatorDeadlockException"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1y24-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1y3I-NEd-wp7oGd0dUDQ" name="getClockTicks" visibility="public">
+                  <eAnnotations xmi:id="_5k1y3Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1y3o-NEd-wp7oGd0dUDQ" key="documentation" value="Gets current clock ticks"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1y34-NEd-wp7oGd0dUDQ" name="return" type="_5k_jVI-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k1y4I-NEd-wp7oGd0dUDQ" name="getEarliestDeadline" visibility="public">
+                  <eAnnotations xmi:id="_5k1y4Y-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k1y4o-NEd-wp7oGd0dUDQ" key="documentation" value="Checks all active modes and transitions to find the earliest deadline"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k1y44-NEd-wp7oGd0dUDQ" name="return" type="_5k_iwI-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <nestedClassifier xmi:type="uml:Class" xmi:id="_5k_iwI-NEd-wp7oGd0dUDQ" name="Deadline"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_iwY-NEd-wp7oGd0dUDQ" name="Renaming">
+                <eAnnotations xmi:id="_5k_iwo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_iw4-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k_ixI-NEd-wp7oGd0dUDQ" name="rename" visibility="public">
+                  <eAnnotations xmi:id="_5k_ixY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_ixo-NEd-wp7oGd0dUDQ" key="documentation" value=" Copies and renames the data between source output and destination input pots&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_ix4-NEd-wp7oGd0dUDQ" name="CompositeInitEntryTransition">
+                <eAnnotations xmi:id="_5k_iyI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_iyY-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <generalization xmi:id="_5k_iyo-NEd-wp7oGd0dUDQ" general="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_iy4-NEd-wp7oGd0dUDQ" name="performTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k_izI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_izY-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the transition. In case of init transition, marks the entered mode as initialized.&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Transition#performTransition(hr.fer.rasip.remes.simulator.core.SimulatorState)&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_izo-NEd-wp7oGd0dUDQ" name="ss" type="_5k1yG4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_iz4-NEd-wp7oGd0dUDQ" name="isInitTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k_i0I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i0Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the initTransition&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i0o-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_i04-NEd-wp7oGd0dUDQ" name="Variable">
+                <eAnnotations xmi:id="_5k_i1I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_i1Y-NEd-wp7oGd0dUDQ" key="documentation" value=" Creates a Variable with base type T&#xD;&#xA; @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_5k_i1o-NEd-wp7oGd0dUDQ" parameter="_5k_i14-NEd-wp7oGd0dUDQ">
+                  <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_5k_i14-NEd-wp7oGd0dUDQ" parameteredElement="_5k_i2I-NEd-wp7oGd0dUDQ">
+                    <ownedParameteredElement xmi:type="uml:Class" xmi:id="_5k_i2I-NEd-wp7oGd0dUDQ" name="T" templateParameter="_5k_i14-NEd-wp7oGd0dUDQ"/>
+                  </ownedParameter>
+                </ownedTemplateSignature>
+                <ownedOperation xmi:id="_5k_i2Y-NEd-wp7oGd0dUDQ" name="value" visibility="public">
+                  <ownedParameter xmi:id="_5k_i2o-NEd-wp7oGd0dUDQ" name="return" type="_5k_i2I-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i24-NEd-wp7oGd0dUDQ" name="valueAt" visibility="public">
+                  <ownedParameter xmi:id="_5k_i3I-NEd-wp7oGd0dUDQ" name="index" type="_5k1xx4-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_i3Y-NEd-wp7oGd0dUDQ" name="return" type="_5k_i2I-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i3o-NEd-wp7oGd0dUDQ" name="setValue" visibility="public">
+                  <ownedParameter xmi:id="_5k_i34-NEd-wp7oGd0dUDQ" name="val" type="_5k_jT4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i4I-NEd-wp7oGd0dUDQ" name="setValueAt" visibility="public">
+                  <ownedParameter xmi:id="_5k_i4Y-NEd-wp7oGd0dUDQ" name="index" type="_5k1xx4-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_i4o-NEd-wp7oGd0dUDQ" name="val" type="_5k_i2I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i44-NEd-wp7oGd0dUDQ" name="isReadable" visibility="public">
+                  <eAnnotations xmi:id="_5k_i5I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i5Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the readable&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i5o-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i54-NEd-wp7oGd0dUDQ" name="isWritable" visibility="public">
+                  <eAnnotations xmi:id="_5k_i6I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i6Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the writable flag&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i6o-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i64-NEd-wp7oGd0dUDQ" name="getName" visibility="public">
+                  <eAnnotations xmi:id="_5k_i7I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i7Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the name&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i7o-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i74-NEd-wp7oGd0dUDQ" name="getFullName" visibility="public">
+                  <eAnnotations xmi:id="_5k_i8I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i8Y-NEd-wp7oGd0dUDQ" key="documentation" value=" Returns the variable's full name (including mode name)&#xD;&#xA; @return the full name &#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i8o-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i84-NEd-wp7oGd0dUDQ" name="getType" visibility="public">
+                  <eAnnotations xmi:id="_5k_i9I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i9Y-NEd-wp7oGd0dUDQ" key="documentation" value=" Returns the variable's type.&#xD;&#xA; @return the type&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i9o-NEd-wp7oGd0dUDQ" name="return" type="_5k_jVY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_i94-NEd-wp7oGd0dUDQ" name="toString" visibility="public">
+                  <eAnnotations xmi:id="_5k_i-I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_i-Y-NEd-wp7oGd0dUDQ" key="documentation" value=" Returns a string representation of this Variable.&#xD;&#xA; @see java.lang.Object#toString()&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_i-o-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_i-4-NEd-wp7oGd0dUDQ" name="DataPot">
+                <eAnnotations xmi:id="_5k_i_I-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_i_Y-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <ownedOperation xmi:id="_5k_i_o-NEd-wp7oGd0dUDQ" name="get" visibility="public">
+                  <eAnnotations xmi:id="_5k_i_4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jAI-NEd-wp7oGd0dUDQ" key="documentation" value="Get a variable from the pot"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jAY-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_jAo-NEd-wp7oGd0dUDQ" name="return" type="_5k_jT4-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jA4-NEd-wp7oGd0dUDQ" name="put" visibility="public">
+                  <eAnnotations xmi:id="_5k_jBI-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jBY-NEd-wp7oGd0dUDQ" key="documentation" value="Put a variable in the pot"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jBo-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_jB4-NEd-wp7oGd0dUDQ" name="data" type="_5k_jT4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jCI-NEd-wp7oGd0dUDQ" name="getNames" visibility="public">
+                  <eAnnotations xmi:id="_5k_jCY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jCo-NEd-wp7oGd0dUDQ" key="documentation" value="Get all variable names"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jC4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jDI-NEd-wp7oGd0dUDQ" name="empty" visibility="public">
+                  <eAnnotations xmi:id="_5k_jDY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jDo-NEd-wp7oGd0dUDQ" key="documentation" value="Empties the pot"/>
+                  </eAnnotations>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_jD4-NEd-wp7oGd0dUDQ" name="SubMode" isAbstract="true">
+                <generalization xmi:id="_5k_jEI-NEd-wp7oGd0dUDQ" general="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_jEY-NEd-wp7oGd0dUDQ" name="getFullName" visibility="public">
+                  <eAnnotations xmi:id="_5k_jEo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jE4-NEd-wp7oGd0dUDQ" key="documentation" value=" Returns mode full name in form parent-full-name.mode-name&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Mode#getFullName()&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jFI-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jFY-NEd-wp7oGd0dUDQ" name="getVariable" visibility="public">
+                  <eAnnotations xmi:id="_5k_jFo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jF4-NEd-wp7oGd0dUDQ" key="documentation" value="Find variable by name, look only in current context (mode)"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jGI-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_jGY-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_jGo-NEd-wp7oGd0dUDQ" name="CompositeExitTransition">
+                <eAnnotations xmi:id="_5k_jG4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_jHI-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <generalization xmi:id="_5k_jHY-NEd-wp7oGd0dUDQ" general="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_jHo-NEd-wp7oGd0dUDQ" name="performTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k_jH4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jII-NEd-wp7oGd0dUDQ" key="documentation" value=" Performs the composite mode exit transition.&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Transition#performTransition(hr.fer.rasip.remes.simulator.core.SimulatorState)&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jIY-NEd-wp7oGd0dUDQ" name="ss" type="_5k1yG4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_jIo-NEd-wp7oGd0dUDQ" name="SimulatorDeadlockException">
+                <eAnnotations xmi:id="_5k_jI4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_jJI-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <generalization xmi:id="_5k_jJY-NEd-wp7oGd0dUDQ" general="_5k_jVo-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_jJo-NEd-wp7oGd0dUDQ" name="getAttempt" visibility="public">
+                  <eAnnotations xmi:id="_5k_jJ4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jKI-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the attempt&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jKY-NEd-wp7oGd0dUDQ" name="return" type="_5k1x7I-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jKo-NEd-wp7oGd0dUDQ" name="getBlock" visibility="public">
+                  <eAnnotations xmi:id="_5k_jK4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jLI-NEd-wp7oGd0dUDQ" key="documentation" value=" @return the block&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jLY-NEd-wp7oGd0dUDQ" name="return" type="_5k1ySY-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_jLo-NEd-wp7oGd0dUDQ" name="CompositeMode" isAbstract="true">
+                <generalization xmi:id="_5k_jL4-NEd-wp7oGd0dUDQ" general="_5k1ySY-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_jMI-NEd-wp7oGd0dUDQ" name="getFullName" visibility="public">
+                  <eAnnotations xmi:id="_5k_jMY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jMo-NEd-wp7oGd0dUDQ" key="documentation" value=" Returns mode full name in form parent-full-name.mode-name&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Mode#getFullName()&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jM4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jTo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jNI-NEd-wp7oGd0dUDQ" name="getTransitions" visibility="public">
+                  <eAnnotations xmi:id="_5k_jNY-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jNo-NEd-wp7oGd0dUDQ" key="documentation" value="Returns the transitions"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jN4-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jOI-NEd-wp7oGd0dUDQ" name="getExternalTransitions" visibility="public">
+                  <ownedParameter xmi:id="_5k_jOY-NEd-wp7oGd0dUDQ" name="return" type="_5k_jUo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jOo-NEd-wp7oGd0dUDQ" name="setInitialized" visibility="public"/>
+                <ownedOperation xmi:id="_5k_jO4-NEd-wp7oGd0dUDQ" name="addSubMode" visibility="public">
+                  <ownedParameter xmi:id="_5k_jPI-NEd-wp7oGd0dUDQ" name="mode" type="_5k_jD4-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jPY-NEd-wp7oGd0dUDQ" name="addTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k_jPo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jP4-NEd-wp7oGd0dUDQ" key="documentation" value="Adds a transition to map"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jQI-NEd-wp7oGd0dUDQ" name="t" type="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_5k_jQY-NEd-wp7oGd0dUDQ" name="getVariable" visibility="public">
+                  <eAnnotations xmi:id="_5k_jQo-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jQ4-NEd-wp7oGd0dUDQ" key="documentation" value="Find variable by name, look only in current context (mode)"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jRI-NEd-wp7oGd0dUDQ" name="name" type="_5k_jTo-NEd-wp7oGd0dUDQ"/>
+                  <ownedParameter xmi:id="_5k_jRY-NEd-wp7oGd0dUDQ" name="return" type="_5k_i04-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_5k_jRo-NEd-wp7oGd0dUDQ" name="SystemTransition">
+                <eAnnotations xmi:id="_5k_jR4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                  <details xmi:id="_5k_jSI-NEd-wp7oGd0dUDQ" key="documentation" value=" @author Marin Orlic &lt;marin.orlic@fer.hr>&#xD;&#xA;"/>
+                </eAnnotations>
+                <generalization xmi:id="_5k_jSY-NEd-wp7oGd0dUDQ" general="_5k1x7I-NEd-wp7oGd0dUDQ"/>
+                <ownedOperation xmi:id="_5k_jSo-NEd-wp7oGd0dUDQ" name="isSystemTransition" visibility="public">
+                  <eAnnotations xmi:id="_5k_jS4-NEd-wp7oGd0dUDQ" source="http://www.topcased.org/documentation">
+                    <details xmi:id="_5k_jTI-NEd-wp7oGd0dUDQ" key="documentation" value=" This transition will be treated as high-priority system transition, an executed immediately.&#xD;&#xA; @return&#xD;&#xA;&#x9;"/>
+                  </eAnnotations>
+                  <ownedParameter xmi:id="_5k_jTY-NEd-wp7oGd0dUDQ" name="return" type="_5k1xwo-NEd-wp7oGd0dUDQ" direction="return"/>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jTo-NEd-wp7oGd0dUDQ" name="String"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jT4-NEd-wp7oGd0dUDQ" name="Type"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jUI-NEd-wp7oGd0dUDQ" name="Multimap"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jUY-NEd-wp7oGd0dUDQ" name="Deadline"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jUo-NEd-wp7oGd0dUDQ" name="Collection"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jU4-NEd-wp7oGd0dUDQ" name="Map"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jVI-NEd-wp7oGd0dUDQ" name="Interval"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jVY-NEd-wp7oGd0dUDQ" name="Type.TYPE_CODE"/>
+              <packagedElement xmi:type="uml:DataType" xmi:id="_5k_jVo-NEd-wp7oGd0dUDQ" name="Exception"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

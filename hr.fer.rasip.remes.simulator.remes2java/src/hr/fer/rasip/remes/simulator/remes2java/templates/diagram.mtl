@@ -1,0 +1,58 @@
+[module diagram('http://www.mdh.se/progresside/remes/1.2.0/remes.ecore')/]
+
+[import common /]
+[import expressions /]
+[import mode/]
+
+[query public toPackageName(pkg : String) : String = pkg.trim() /]
+
+[template public createClass(d : RemesDiagram, name : String)]
+public class [ name.toClassName() /]Simulator extends SimulatorImpl 
+{	
+	/**
+	 * Constructor
+	 * @generated
+	 */
+	public DiagramSimulator()
+	{		
+		// Profile-defined resources
+		//TODO - load resources from profile definition
+		
+		// Behaviour diagram
+		Behaviour beh = new Behaviour("test");
+		
+	  [for (m : Mode| d.modes)]
+	    [if m.oclIsKindOf(CompositeMode)]
+	    Mode mode[m.className()/] = new [m.className()/](this, beh);
+	    [else][if m.oclIsKindOf(SubMode)]
+		Mode newMode = new [m.className()/](this, beh, null);		
+		[/if][/if]
+	    addMode(mode[m.className()/]);
+		[if m.isTopMode()]
+		addTopMode(newMode);
+		[/if]
+ 	  [/for]
+ 	  
+ 	    // Component connections (control)
+ 	    
+ 	    // Component connections (data)
+	}
+	
+	public static void main(String[ '[' /][ ']' /] args) {
+		DiagramSimulator world = new DiagramSimulator();
+		world.activateTopModes();
+		
+		try {
+			while(world.run());
+		} catch (SimulatorDeadlockException e) {
+			e.printStackTrace();
+		
+			Mode m = e.getBlock();
+			Transition t = e.getAttempt();
+			
+			System.out.println(m.toString());
+			System.out.println(t.toString());
+		}
+	}		
+} 	
+[/template]

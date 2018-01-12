@@ -1,0 +1,19 @@
+> threads
+TestSimulator.Comp1|24756869|_C9gvYA3UEeCRHaqarOsmGg#TestSimulator.Comp2|5510959|_x_YJIR-AEeCqPZ4zpd4Ang
+
+> stack TestSimulator.Comp1
+TestSimulator.Comp1|24756869|_C9gvYA3UEeCRHaqarOsmGg#TestSimulator.Comp1.Sub1|3341135|_EkxoIA3UEeCRHaqarOsmGg
+
+TestSimulator.Comp1|24756869|_C9gvYA3UEeCRHaqarOsmGg
+
+> stack TestSimulator.Comp2
+TestSimulator.Comp2|5510959|_x_YJIR-AEeCqPZ4zpd4Ang#TestSimulator.Comp2.Sub2|20181463|_y3tfUB-AEeCqPZ4zpd4Ang
+
+> vars stack TestSimulator.Comp1.Sub1
+none:integer:0:-1
+
+> vars TestSimulator.Comp1
+cpu:RESOURCE:0:ResourceType [{0}]#polje:INTEGER:10:IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0],IntegerType [0]
+
+> vars TestSimulator.Comp2
+n:INTEGER:0:IntegerType [0]

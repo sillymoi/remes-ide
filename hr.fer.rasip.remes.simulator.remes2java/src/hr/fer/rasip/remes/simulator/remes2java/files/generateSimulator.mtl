@@ -1,0 +1,108 @@
+[module generateSimulator('http://www.rasip.fer.hr/remes/1.2.0/profile/profile.ecore', 'http://www.mdh.se/progresside/remes/1.2.0/remes.ecore', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import common /]
+[import expressions /]
+[import mode/]
+[import constraints/]
+
+[template public generateSimulator1(d : RemesDiagram)]
+[comment d.generateSimulator(null, 'generationX', 'TestMain', null) /]
+[/template]
+
+[template public generateSimulator(d : RemesDiagram, p : PlatformProfile, pkg : String, name : String, procomSpecific : String)]
+[comment @main /]
+[file (pkg.asPath().concat('/').concat(name.toMainClassName()).concat('.java'), false)]
+[_commentFileBlock()/]
+
+package [ pkg.toPackageName() /];
+
+import java.util.Observer;
+import java.util.Observable;
+
+import hr.fer.rasip.remes.simulator.core.*;
+import hr.fer.rasip.remes.simulator.core.impl.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.*;
+import hr.fer.rasip.remes.simulator.core.datatypes.Type.TYPE_CODE;
+
+import [ pkg.toModePackageName() /].*;
+import [ pkg.toConstraintsPackageName() /].*;
+
+[_commentClassBlock()/]
+
+public class [ name.toMainClassName() /] extends SimulatorImpl 
+{	
+	[_objectIdBlockNoOverride(d) /]
+	
+	/**
+	 * Constructor
+	 * @generated
+	 */
+	public [ name.toMainClassName() /](String[ '[' /][ ']' /] args)
+	{	
+		// Pass the command-line arguments	
+	    super(args);
+	    
+	  [if not p.oclIsUndefined() ]
+		// Profile-defined resources
+	  [for (r : Resource | p.resources)]
+		Observer obs[ r.name.toClassName() /] = new [ p.name.toConstraintsClassName(r) /](this);
+		Observable res[ r.name.toClassName() /];
+		res[ r.name.toClassName() /] = createResource("[ r.name /]"); // Resource type is not used
+		res[ r.name.toClassName() /].addObserver(obs[ r.name.toClassName() /]);
+
+	  [/for]
+	  [/if]
+	  
+		// Behaviour diagram
+		Behaviour beh = new Behaviour("[name /]");
+		
+	  [for (m : Mode | d.modes)]
+		Mode mode[m.className()/] = new [m.className()/](this, beh);
+		addMode(mode[m.className()/]);
+		[if m.isTopMode()]
+		addTopMode(mode[m.className()/]);
+		[/if]
+ 	  [/for]
+ 		
+ 		// Component connections (control & data)
+ 		//createComponentConnections();
+ 	  [if not procomSpecific.oclIsUndefined()]
+ 	    [procomSpecific /]
+ 	  [/if]
+ 	}
+	
+	/**
+	 * Main entry point for the simulator
+	 * @generated
+	 */
+	public static void main(String[ '[' /][ ']' /] args) {
+		[ name.toMainClassName() /] world = new [ name.toMainClassName() /](args);
+		world.activateTopModes();
+		
+		world.begin(); // Hello, world
+		
+		try {
+			while(world.run());
+		} catch (SimulatorDeadlockException e) {
+			e.printStackTrace();
+		
+			Mode m = e.getBlock();
+			Transition t = e.getAttempt();
+			
+			System.out.println(m.toString());
+			System.out.println(t.toString());
+		}
+		
+		world.end(); // Say good night
+	}		
+	
+	/**
+	 * Creates connections between components (if component model is available).
+	 * @generated - will be overriden before launch, generated NOT is not considered.
+	 */
+	private void createComponentConnections() {
+		// This is a placeholder method
+	}
+} 	
+[/file]
+[/template]

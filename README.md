@@ -23,6 +23,14 @@ Transformation of REMES models into priced timed automata (PTA) results in PTA m
 
 The possibility to simulate and test the behaviors as they are being designed provide valuable input for the designer, and possibly uncover trouble spots before proceeding to full formal veriﬁcation. REMES-IDE transforms behaviors into a set of Java classes that simulate the modeled system. REMES simulator is still in early-stage development - the system designer can follow the mode transitions, the clock- and variable changes in the simulator output.
 
+![REMES-IDE screenshot](https://raw.githubusercontent.com/sillymoi/remes-ide/master/remes-ide.png "REMES IDE")
+
+**REMES-IDE** helps you to:
+1. Define the resource-wise behavior of your components and systems,
+2. Convert the behaviour to PTA models for formal verification,
+3. See the how the resources change with simulator traces, while the IDE
+4. Runs the behavior in a simulator.
+
 REMES-IDE can be integrated with [PROGRESS-IDE](http://www.idt.mdh.se/pride/) to facilitate development of component-based embedded systems using ProCom component model.
 
 Links

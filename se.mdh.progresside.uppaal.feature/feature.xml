@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="se.mdh.progresside.uppaal.feature"
+      label="UPPAAL modeling"
+      version="0.4.0.qualifier"
+      provider-name="MDH / FER"
+      plugin="se.mdh.progresside.remes">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import feature="se.mdh.progresside.remes.feature" version="0.4.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="hr.fer.rasip.uppaal"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaal.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaal.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite.subdiagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.uppaallite.transform"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="se.mdh.progresside.uppaal"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

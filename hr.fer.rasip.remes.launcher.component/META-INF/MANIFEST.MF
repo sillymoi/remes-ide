@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: REMES Launch support for ProCom components
+Bundle-SymbolicName: hr.fer.rasip.remes.launcher.component;singleton:=true
+Bundle-Version: 0.4.0.qualifier
+Bundle-Activator: hr.fer.rasip.remes.launcher.component.Activator
+Bundle-Vendor: FER
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.filebuffers;bundle-version="3.5.0",
+ org.eclipse.m2m.atl.core.emf;bundle-version="3.0.0",
+ org.eclipse.debug.core,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
+ org.eclipse.text;bundle-version="3.5.0",
+ com.ibm.icu,
+ hr.fer.rasip.uppaal,
+ hr.fer.rasip.uppaallite,
+ hr.fer.rasip.remes.simulator.remes2java;resolution:=optional,
+ hr.fer.rasip.remes.profile,
+ hr.fer.rasip.remes.launcher,
+ se.mdh.progresside.procom,
+ se.mdh.progresside.components,
+ se.mdh.progresside.remes.attributes
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: hr.fer.rasip.remes.launcher.component.launching
+Import-Package: hr.fer.rasip.remes.converters

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- launching -->
+   	<extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="hr.fer.rasip.remes.launcher.launching.ui.SimulatorLaunchConfigurationTabGroup"
+            description="Configures the simulation of REMES behaviors with REMES Simulator"
+            id="hr.fer.rasip.remes.launcher.launchConfigurationTabGroup"
+            type="hr.fer.rasip.remes.launcher.launchConfigurationType">
+         <launchMode
+               description="Debug a REMES behavior"
+               mode="debug"
+               perspective="org.eclipse.debug.ui.DebugPerspective">
+         </launchMode>
+         <launchMode
+               description="Run a REMES behavior"
+               mode="run">
+         </launchMode>
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="hr.fer.rasip.remes.launcher.launching.ui.SimulatorLaunchShortcut"
+            description="Launches a REMES behavior in the REMES Simulator"
+            icon="icons/remes_logo.gif"
+            id="hr.fer.rasip.remes.launcher.launchShortcut"
+            label="REMES behavior"
+            modes="run, debug">
+         <configurationType
+               id="hr.fer.rasip.remes.launcher.launchConfigurationType">
+         </configurationType>
+         <contextualLaunch>
+            <enablement>
+               <or>
+                  <with
+                        variable="selection">
+                     <count
+                           value="1">
+                     </count>
+                     <iterate
+                           operator="or">
+                        <or>
+                           <!-- test
+                                 property="org.eclipse.debug.ui.matchesPattern"
+                                 value="*.remes_diagram">
+                           </test -->
+                           <test
+                                 property="org.eclipse.debug.ui.matchesPattern"
+                                 value="*.remes">
+                           </test>
+                        </or>
+                     </iterate>
+                  </with>
+               </or>
+            </enablement>
+         </contextualLaunch>
+         <description
+               description="Run a REMES behavior in the REMES Simulator"
+               mode="run">
+         </description>
+         <description
+               description="Debug a REMES behavior in the REMES Simulator"
+               mode="debug">
+         </description>
+      </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="hr.fer.rasip.remes.launcher.launchConfigurationType"
+            icon="icons/remes_logo.gif"
+            id="hr.fer.rasip.remes.launcher.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+
+   
+<!-- These should go to UI plugin -->
+<!--
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+  	  <launchConfigurationTypeImage icon="icons/flowchart.gif" configTypeID="fstudio.launchConfiguration" id="fstudio.launchConfigTypeImage" /> 
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup type="fstudio.launchConfiguration" class="fstudio.ui.debug.launch.FlowchartLaunchConfigurationTabGroup" id="fstudio.launchConfigTabs" /> 
+   </extension>
+   <extension point="org.eclipse.debug.ui.debugModelPresentations">
+      <debugModelPresentation class="fstudio.ui.debug.FlowchartDebugModelPresentation" id="fstudio.debug.model" /> 
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchShortcuts">
+-     <shortcut label="Flowchart" icon="icons/flowchart.gif" class="fstudio.ui.debug.launch.FlowchartLaunchShortcut" modes="run, debug" id="fstudio.launchShortcut">
+      <perspective id="org.eclipse.ui.resourcePerspective" /> 
+      <perspective id="org.eclipse.jdt.ui.JavaPerspective" /> 
+- <contextualLaunch>
+- <enablement>
+- <with variable="selection">
+  <count value="1" /> 
+- <iterate>
+- <or>
+  <test property="org.eclipse.debug.ui.matchesPattern" value="*.flowchart" /> 
+  </or>
+  </iterate>
+  </with>
+  </enablement>
+  </contextualLaunch>
+  </shortcut>
+  </extension>
+-->
+</plugin>

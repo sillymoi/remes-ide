@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: REMES Launch support for ProCom components UI
+Bundle-SymbolicName: hr.fer.rasip.remes.launcher.component.ui;singleton:=true
+Bundle-Version: 0.4.0.qualifier
+Bundle-Activator: hr.fer.rasip.remes.launcher.component.ui.Activator
+Bundle-Vendor: University of Zagreb Faculty of Electrical Engineering and Computing, RASIP
+Require-Bundle: 
+ org.eclipse.core.runtime,
+ org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt.debug.ui,
+ org.eclipse.jdt.launching,
+ org.eclipse.emf.edit;bundle-version="2.5.0",
+ org.eclipse.emf.ecore.editor,
+ hr.fer.rasip.remes.launcher,
+ hr.fer.rasip.remes.launcher.component,
+ se.mdh.progresside.components,
+ se.mdh.progresside.remes.attributes;bundle-version="0.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+Bundle-ActivationPolicy: lazy
+Export-Package: hr.fer.rasip.remes.launcher.component.launching.ui

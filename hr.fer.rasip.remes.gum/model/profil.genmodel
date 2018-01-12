@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hr.fer.rasip.remes.gum/src"
+    modelPluginID="hr.fer.rasip.remes.gum" modelName="Profil" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>profil.ecore</foreignModel>
+  <genPackages prefix="Profile" basePackage="hr.fer.rasip.remes.gum.profile" disposableProviderFactory="true"
+      ecorePackage="profil.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="profil.ecore#//ConstraintType">
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintType/Minimum"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintType/Maximum"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintType/Average"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="profil.ecore#//ConstraintOperation">
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintOperation/Less"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintOperation/LessOrEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintOperation/Equal"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintOperation/GreaterOrEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ConstraintOperation/Greater"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="profil.ecore#//ResourceTypes">
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ResourceTypes/cpu"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ResourceTypes/memory"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ResourceTypes/bandwidth"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ResourceTypes/power"/>
+      <genEnumLiterals ecoreEnumLiteral="profil.ecore#//ResourceTypes/port"/>
+    </genEnums>
+    <genClasses ecoreClass="profil.ecore#//PlatformProfile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference profil.ecore#//PlatformProfile/resources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//PlatformProfile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="profil.ecore#//Resource">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference profil.ecore#//Resource/platform"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Resource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Resource/type"/>
+    </genClasses>
+    <genClasses ecoreClass="profil.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Constraint/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference profil.ecore#//Constraint/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Constraint/isDerivation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Constraint/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute profil.ecore#//Constraint/bound"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="hr.fer.rasip.remes.launcher.component.launching.ui.ComponentSimulatorLaunchConfigurationTabGroup"
+            description="Configures the simulation of component behaviors with REMES Simulator"
+            id="hr.fer.rasip.remes.launcher.component.launchConfigurationTabGroup"
+            type="hr.fer.rasip.remes.launcher.component.launchConfigurationType">
+         <launchMode
+               description="Debug a component behavior"
+               mode="debug"
+               perspective="org.eclipse.debug.ui.DebugPerspective">
+         </launchMode>
+         <launchMode
+               description="Run a component behavior"
+               mode="run">
+         </launchMode>
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="hr.fer.rasip.remes.launcher.component.launching.ui.ComponentSimulatorLaunchShortcut"
+            description="Launches a component behavior in the REMES Simulator"
+            icon="icons/remes_components.gif"
+            id="hr.fer.rasip.remes.launcher.component.launchShortcut"
+            label="Component behavior"
+            modes="run, debug">
+         <configurationType
+               id="hr.fer.rasip.remes.launcher.component.launchConfigurationType">
+         </configurationType>
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1">
+                  </count>
+                  <iterate
+                        operator="or">
+                     <instanceof
+                           value="se.mdh.progresside.components.core.IComponent">
+                     </instanceof>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <description
+               description="Run a component behavior in the REMES Simulator"
+               mode="run">
+         </description>
+         <description
+               description="Debug a component behavior in the REMES Simulator"
+               mode="debug">
+         </description>
+      </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="hr.fer.rasip.remes.launcher.component.launchConfigurationType"
+            icon="icons/remes_components.gif"
+            id="hr.fer.rasip.remes.launcher.component.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+</plugin>

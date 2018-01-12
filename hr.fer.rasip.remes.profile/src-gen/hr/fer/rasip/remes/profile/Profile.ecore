@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="profile"
+    nsURI="http://www.rasip.fer.hr/remes/1.2.0/profile/profile.ecore" nsPrefix="profile">
+  <eClassifiers xsi:type="ecore:EClass" name="PlatformProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConstraintType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDerivation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//ConstraintOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ResourceType">
+    <eLiterals name="cpu" literal="cpu"/>
+    <eLiterals name="memory" value="1" literal="memory"/>
+    <eLiterals name="bandwidth" value="2" literal="bandwidth"/>
+    <eLiterals name="power" value="3" literal="power"/>
+    <eLiterals name="port" value="4" literal="port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
+    <eLiterals name="Minimum" literal="min"/>
+    <eLiterals name="Maximum" value="1" literal="max"/>
+    <eLiterals name="Average" value="2" literal="avg"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintOperation">
+    <eLiterals name="Less" literal="&lt;"/>
+    <eLiterals name="LessOrEqual" value="1" literal="&lt;="/>
+    <eLiterals name="Equal" value="2" literal="=="/>
+    <eLiterals name="GreaterOrEqual" value="3" literal=">="/>
+    <eLiterals name="Greater" value="4" literal=">"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- launching -->
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="hr.fer.rasip.remes.launcher.component.launchDelegate"
+            id="hr.fer.rasip.remes.launcher.component.launchConfigurationType"
+            name="Component behavior">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchDelegates">
+      <launchDelegate
+            delegate="hr.fer.rasip.remes.launcher.component.launching.ComponentSimulatorLaunchDelegate"
+            delegateDescription="The Component Behavior Launcher supports running component behavior with the REMES Simulator"
+            id="hr.fer.rasip.remes.launcher.component.launchDelegate"
+            modes="run"
+            name="Component Behavior Launcher"
+            sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+            sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer"
+            type="hr.fer.rasip.remes.launcher.component.launchConfigurationType">
+      </launchDelegate>
+   </extension> 
+</plugin>

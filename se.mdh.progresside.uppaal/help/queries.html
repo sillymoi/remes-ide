@@ -1,0 +1,32 @@
+<html>
+<body>
+<h1>Uppaal Properties</h1>
+<h2>Reachability Properties.</h2> 
+<p>They ask whether a given state formula,&Phi;, possibly can be satisfied
+by any reachable state. Another way of stating this is: <i>Does there exist a path
+starting at the initial state, such that &Phi; is eventually satisfied along that path?</i>
+<p>Reachability properties are often used while designing a model to perform
+sanity checks. For instance, when creating a model of a communication protocol
+involving a sender and a receiver, it makes sense to ask whether it is possible
+for the sender to send a message at all or whether a message can possibly be
+received.
+<p>These properties do not by themselves guarantee the correctness of the
+model (e.g., that any message is eventually delivered in a communication protocol), but they validate the
+basic behavior of the model. In UPPAAL, we write this property using the syntax 'E<>&Phi;'.
+
+<h2>Safety Properties.</h2> 
+<p>Safety properties are of the form: </i>"something bad will never
+happen".</i>
+<p>For instance, in a model of a nuclear power plant, a safety property
+might be, that the operating temperature is always (invariantly) under a certain
+threshold, or that a meltdown never occurs.
+<p>A variation of this property is that <i>"something will possibly never happen".</i>
+<p>For instance when playing a game, a safe state is one in which we can still win the game, hence we will possibly not
+loose.
+<p>In UPPAAL these properties are formulated positively, e.g., something good
+is invariantly true. In UPPAAL, we express that &Phi; should be true
+in all reachable states with the path formulae 'A[]&Phi;', whereas 'E[]&Phi;'
+says that there should exist a maximal path such that &Phi; is always true.
+<p>For more information visit <a href='http://www.uppaal.com'>www.uppaal.com</a>
+</body>
+</html>

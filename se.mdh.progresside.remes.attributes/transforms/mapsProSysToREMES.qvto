@@ -1,0 +1,183 @@
+modeltype ProComMM uses "http://www.mdh.se/progresside/procom/1.0.0/procom.ecore";
+modeltype REMESMM uses "http://www.mdh.se/progresside/remes/1.2.0/remes.ecore";
+
+transformation transformProSysToREMES(in procom: ProComMM, inout remes: REMESMM);
+
+
+main() {
+	var subsystems := procom.rootObjects()[ProComMM::proSys::Subsystem];
+	subsystems->forEach(subsystem) {
+		var compMode := subsystem.getCorrespondingCompMode();
+		
+		subsystem.ports->forEach(port) {
+			var variable : REMESMM::Variable := null;
+			
+			if (port.oclIsKindOf(ProComMM::proSys::InputMessagePort)) then {
+				variable := port.oclAsType(ProComMM::proSys::InputMessagePort).getCorrespondingTriggerVariable(compMode);
+				if (variable = null) then {
+					variable := port.oclAsType(ProComMM::proSys::InputMessagePort).map toTriggerVariable();
+					variable.name := compMode.name + "_" + variable.name;
+					compMode.variables += variable;
+				} endif;
+				
+				variable := port.oclAsType(ProComMM::proSys::InputMessagePort).getCorrespondingValueVariable(compMode);
+				if (variable = null) then {
+					variable := port.oclAsType(ProComMM::proSys::InputMessagePort).map toValueVariable();
+					variable.name := compMode.name + "_" + variable.name;
+					compMode.variables += variable;
+				} endif;				
+			} endif;
+			if (port.oclIsKindOf(ProComMM::proSys::OutputMessagePort)) then {
+				variable := port.oclAsType(ProComMM::proSys::OutputMessagePort).getCorrespondingTriggerVariable(compMode);
+				if (variable = null) then {
+					variable := port.oclAsType(ProComMM::proSys::OutputMessagePort).map toTriggerVariable();
+					variable.name := compMode.name + "_" + variable.name;
+					compMode.variables += variable;
+				} endif;
+				
+				variable := port.oclAsType(ProComMM::proSys::OutputMessagePort).getCorrespondingValueVariable(compMode);
+				if (variable = null) then {
+					variable := port.oclAsType(ProComMM::proSys::OutputMessagePort).map toValueVariable();
+					variable.name := compMode.name + "_" + variable.name;
+					compMode.variables += variable;
+				} endif;
+
+			} endif;
+		};
+	};
+}
+
+query ProComMM::proSys::InputMessagePort::getCorrespondingTriggerVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = (compMode.name + "_" + self.name) and curVar.readable and not curVar.writable and curVar.type = REMESMM::PrimitiveTypes::boolean) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSys::InputMessagePort::getCorrespondingValueVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := compMode.name + "_" + self.name + "_value";
+	var expectedType := getPrimitveType(self.type);
+	
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName and curVar.readable and not curVar.writable and curVar.type = expectedType) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSys::OutputMessagePort::getCorrespondingTriggerVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = (compMode.name + "_" + self.name) and curVar.writable and not curVar.readable and curVar.type = REMESMM::PrimitiveTypes::boolean) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSys::OutputMessagePort::getCorrespondingValueVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := compMode.name + "_" + self.name + "_value";
+	var expectedType := getPrimitveType(self.type);
+	
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName and curVar.writable and not curVar.readable and curVar.type = expectedType) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+helper ProComMM::proSys::Subsystem::getCorrespondingCompMode() : REMESMM::CompositeMode {
+	
+	var remesDiags := remes.rootObjects()[REMESMM::RemesDiagram];
+	// there should be only one
+	remesDiags->forEach(diag) {
+		var compMode := diag.modes[REMESMM::CompositeMode]-> select(c| c.name = self.name)->first();
+		if (compMode != null) then {
+			return compMode;
+		} endif;
+	};
+	
+	return self.map toCompositeMode();
+}
+
+mapping ProComMM::proSys::InputMessagePort::toTriggerVariable() : REMESMM::Variable {
+	name := self.name;
+	type := REMESMM::PrimitiveTypes::boolean;
+	vectorSize := 0;
+	global := true;
+	readable := true;
+	writable := false;
+}
+
+mapping ProComMM::proSys::InputMessagePort::toValueVariable() : REMESMM::Variable {
+	name := self.name + "_value";
+	type := getPrimitveType(self.type);
+	vectorSize := 0;
+	global := true;
+	readable := true;
+	writable := false;
+}
+
+mapping ProComMM::proSys::OutputMessagePort::toTriggerVariable() : REMESMM::Variable {
+	name := self.name;
+	type := REMESMM::PrimitiveTypes::boolean;
+	vectorSize := 0;
+	global := true;
+	readable := false;
+	writable := true;
+}
+
+mapping ProComMM::proSys::OutputMessagePort::toValueVariable() : REMESMM::Variable {
+	name := self.name + "_value";
+	type := getPrimitveType(self.type);
+	vectorSize := 0;
+	global := true;
+	readable := false;
+	writable := true;
+}
+
+helper getPrimitveType(portType : String) : REMESMM::PrimitiveTypes {
+	if (portType = "int") then {
+		return REMESMM::PrimitiveTypes::integer;
+	} endif;
+	if (portType = "float") then {
+		return REMESMM::PrimitiveTypes::float;
+	} endif;
+	if (portType = "boolean") then {
+		return REMESMM::PrimitiveTypes::boolean;
+	} endif;
+	if (portType = "clock") then {
+		return REMESMM::PrimitiveTypes::clock;
+	} endif;
+	
+	return null;
+}
+
+mapping ProComMM::proSys::Subsystem::toCompositeMode() : REMESMM::CompositeMode {
+	name := self.name;
+	
+	// create default content
+	initPoint := new InitPoint();
+	exitPoint := new ExitPoint();
+	entryPoint := new EntryPoint();
+	writePoint := new WritePoint();
+	compositeEntryPoint := new CompositeEntryPoint();
+	compositeExitPoint := new CompositeExitPoint();
+	
+	var remesDiags := remes.rootObjects()[REMESMM::RemesDiagram];
+	// there should be only one
+	remesDiags->forEach(diag) {
+		diag.modes += result;
+	};
+}

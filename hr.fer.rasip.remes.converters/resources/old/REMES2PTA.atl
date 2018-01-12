@@ -1,0 +1,533 @@
+module REMES2PTA;
+create OUT : UPPAAL from IN : REMES;
+
+-----------------
+-----EDGES------
+-----------------
+
+helper def: allInternalEdges(cMode : REMES!CompositeMode): Sequence(REMES!InternalEdge) = 
+	REMES!InternalEdge.allInstances()->select(e | cMode.subModes.includes(e.connectTo));
+
+helper def: allEntryConditionalSubEdges(cMode : REMES!CompositeMode): Sequence(REMES!EntryConditionalSubEdge) = 
+	REMES!EntryConditionalSubEdge.allInstances()->select(e | cMode.conditionalConnectors.includes(e.connectFrom));
+
+helper def: allExitConditionalSubEdges(cMode : REMES!CompositeMode): Sequence(REMES!ExitConditionalSubEdge) = 
+	REMES!ExitConditionalSubEdge.allInstances()->select(e | cMode.subModes.includes(e.connectFrom));
+
+-------------------------------------
+--- COMPOSITE MODE INITIALIZATION ---
+-------------------------------------
+
+helper def : cModeInit(init: String) : String = 
+	if init.oclIsUndefined()
+	then ''
+	else
+		thisModule.initConstants(init)+thisModule.initResources(init)+thisModule.initVariables(init)
+		
+	endif;
+	
+	
+helper def: initConstants(init:String) : String = 
+	init.split(';')->iterate(e; res : String = ''|
+		if thisModule.firstWord(e)='const'
+		then res+e.regexReplaceAll('const', 'const int')+';'
+		else res
+		endif
+	);
+
+helper def: initResources(init:String) : String = 
+	thisModule.resources(init) ->iterate(e; res: String = ''| res	+ 'int w_'+e+'=10;');
+
+helper def: initVariables(init:String) : String = 
+	init.split(';')->iterate(e; res: String = ''|
+	if Sequence{'clock', 'int', 'bool'}->includes(e.split(':')->last().regexReplaceAll('\\s', ''))
+	then res + e.split(':')->last().regexReplaceAll('\\s', '') + ' '+ e.split(':')->first().regexReplaceAll('\\s', '')+';'
+	else res
+	endif
+	);
+
+helper def: resources(init : String) : Sequence (String)=
+	if init.oclIsUndefined()
+	then ''
+	else
+		init.split(';')
+		->iterate(e; res : Sequence(String) = Sequence{} |
+			if thisModule.cleanSequnece(e.split('\\s'))->first() = 'resource'
+			then res.append( thisModule.cleanSequnece(e.split(':')->first().split(' '))->last())
+			else res
+			endif)
+	endif;
+	
+helper def: firstWord(x:String) : String = x.split('\\s')->select(i | i <> '')->first();
+
+-------------------------
+--- SUB MODE INVARIANT --
+-------------------------
+
+helper context REMES!SubMode def: isUrgent() : Boolean = self.isUrgent;
+
+-- returns cost of single resource class: w_cpu*20+w_mem*10 ...
+
+helper def: sModeResourceUsage2Cost( x:String ) : String = 
+	if x.oclIsUndefined()
+	then ''
+	else
+		x.split(',')->iterate(e; res : String = ''| 
+			if res = ''
+			then 
+				res+'w_'+e.regexReplaceAll('\\s', '').split('\':=').first()
+				+'*'+
+				e.regexReplaceAll('\\s', '').split('\':=').last()
+			else res+'+w_'+e.regexReplaceAll('\\s', '').split('\':=').first()+'*'+e.regexReplaceAll('\\s', '').split('\':=').last()
+			endif
+		)
+	endif;
+
+-- returns cost of all resource classes 
+
+helper def: sModeAllResurceUsage2Cost(sMode : REMES!SubMode) : String = 
+	thisModule.cleanSequnece(
+		Sequence{thisModule.sModeResourceUsage2Cost(sMode.resourceClassA), thisModule.sModeResourceUsage2Cost(sMode.resourceClassB), thisModule.sModeResourceUsage2Cost(sMode.resourceClassC)}
+		)
+		->iterate(e; res : String = ''|
+		if res = ''
+		then res+e
+		else res+'+'+e
+		endif
+		);
+
+helper def: sModeHasCost(sMode: REMES!SubMode) : Boolean = 
+	not (
+		sMode.resourceClassA.oclIsUndefined() 
+		and sMode.resourceClassB.oclIsUndefined() 
+		and sMode.resourceClassC.oclIsUndefined()
+	);
+
+-- returns complete cost string of location 
+helper def: locationCost(sMode: REMES!SubMode) : String = 
+	if thisModule.sModeHasCost(sMode)
+	then 'cost\'=='+ thisModule.sModeAllResurceUsage2Cost(sMode)
+	else ''
+	endif;
+
+helper def: sModeInvariant(sMode: REMES!SubMode) : String =
+	if sMode.invariant.oclIsUndefined()
+	then ''
+	else sMode.invariant
+	endif;
+
+--returns complete invariant string for location: inv + cost
+helper def: locationInvariant(sMode : REMES!SubMode) : String = 
+	thisModule.sModeInvariant(sMode) + thisModule.locationCost(sMode);
+
+helper def: cleanSequnece(seq : Sequence(String)) : Sequence(String) = seq->select(i | i <> '');
+
+--------------------
+-- EDGE INIVATIANT--
+--------------------
+
+-- edges Composite mode 
+
+helper def: initEdgeCompMode(edge : REMES!Edge ) : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.initEdge=edge)
+	->first();
+
+helper def: entryEdgeCompMode(edge : REMES!Edge ) : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.entryEdge=edge)
+	->first();
+
+helper def: exitEdgeCompMode(edge : REMES!Edge ) : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.subModes.includes(edge.connectFrom) or i.conditionalConnectors.includes(edge.connectFrom))
+	->first();
+
+helper def: internalEdgeCompMode(edge : REMES!Edge ) : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.subModes.includes(edge.connectTo) or i.subModes.includes(edge.connectFrom) )
+	->first();
+
+-- edges invariant 
+
+helper def: edgeInvariant(inv: String, cMode : REMES!CompositeMode) : String=
+	if inv.oclIsUndefined()
+	then ''
+	else
+		thisModule.edgeCost(inv,cMode)
+		+
+		inv.split(',')
+		->iterate(e; res : String = ''|
+			if thisModule.resources(cMode.initialization).includes(e.split('\\+')->first().split('-')->first().regexReplaceAll(' ', ''))
+			then res
+			else
+				if res='' and thisModule.edgeCost(inv,cMode) = ''
+				then res+e
+				else res+','+e
+				endif
+			endif)
+	endif;
+	
+helper def: edgeCost(inv: String, cMode : REMES!CompositeMode) : String =
+	inv.split(',')
+	->iterate(e; res : String = ''|
+	if thisModule.resources(cMode.initialization).includes(e.split('\\+')->first().regexReplaceAll(' ', ''))
+	then
+		if res =''
+		then res+'cost+=w_'+e.split('\\+')->first().regexReplaceAll(' ', '')+'*'+e.split('=')->last().regexReplaceAll(' ', '')
+		else res+'+w_'+e.split('\\+')->first().regexReplaceAll(' ', '')+'*'+e.split('=')->last().regexReplaceAll(' ', '')
+		endif
+	else 
+		if thisModule.resources(cMode.initialization).includes(e.split('-')->first().regexReplaceAll(' ', ''))
+		then 
+			if res =''
+			then res+'cost+=-w_'+e.split('-')->first().regexReplaceAll(' ', '')+'*'+e.split('=')->last().regexReplaceAll(' ', '')
+			else res+'-w_'+e.split('-')->first().regexReplaceAll(' ', '')+'*'+e.split('=')->last().regexReplaceAll(' ', '')
+			endif
+		else res
+		endif
+	endif
+);
+		
+
+-------------------
+------RULES-------
+-------------------
+
+rule Diagram2Root {
+from
+    cm : REMES!RemesDiagram
+to
+    doc: UPPAAL!DocumentRoot ( 
+    	nta <- nta_type
+	),
+	nta_type: UPPAAL!NtaType(
+		template <- Sequence{cm.modes}
+	)
+}
+
+rule Template_type{
+	from
+		cMode : REMES!CompositeMode
+	using {
+		pi : Real = 3.14;
+		}
+		
+	to
+		tp: UPPAAL!TemplateType (
+			declaration <- thisModule.cModeInit(cMode.initialization),
+			name <- thisModule.Name_type('5','5', cMode.name.regexReplaceAll(' ', '_')),
+			location <-Sequence{cMode.subModes, cMode.conditionalConnectors, thisModule.InitLocation(), thisModule.EntryLocation(), thisModule.ExitLocation()},
+			init <- thisModule.Init_type('IdInit'),
+			transition <- Sequence{cMode.initEdge, cMode.entryEdge, thisModule.allInternalEdges(cMode), cMode.exitEdges, thisModule.allEntryConditionalSubEdges(cMode), thisModule.allExitConditionalSubEdges(cMode), thisModule.EntryExitTransition()}
+		)	
+}
+
+----------------
+---LOCATIONS----
+----------------
+
+abstract rule SubMode2Location{
+	from sm: REMES!SubMode
+	to tpl:UPPAAL!LocationType
+	
+}
+rule NonUrgentSubMode2Location extends SubMode2Location{
+	from
+		sm : REMES!SubMode (not (sm.isUrgent()))
+	to 
+		tpl: UPPAAL!LocationType(
+			label <- thisModule.Label_type('15', '78', 'invariant' , thisModule.locationInvariant(sm)),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+}
+
+rule UrgentSubMode2Location extends SubMode2Location{
+	from
+		sm : REMES!SubMode (sm.isUrgent())
+	to 
+		tpl: UPPAAL!LocationType(
+			committed <- thisModule.Committed_type(),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+}
+
+
+rule Condition2Location{
+	from
+		cc : REMES!ConditionalConnector
+	to 
+		tpl: UPPAAL!LocationType(
+			id <- cc.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', cc.name.regexReplaceAll(' ', '_')),
+			committed <- thisModule.Committed_type()
+		)
+}
+
+rule InitLocation(){
+	to 
+		tpl: UPPAAL!LocationType(
+			id <- 'IdInit',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Init'),
+			committed <- thisModule.Committed_type()
+		)
+		do{ 
+			tpl;
+		}
+}
+
+rule EntryLocation(){
+	to 
+		tpl: UPPAAL!LocationType(
+			id <- 'IdEntry',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Entry')
+		)
+		do{ 
+			tpl;
+		}
+}
+
+rule ExitLocation(){
+	to 
+		tpl: UPPAAL!LocationType(
+			id <- 'IdExit',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Exit'),
+			committed <- thisModule.Committed_type()
+		)
+		do{ 
+			tpl;
+		}
+}
+
+rule Committed_type(){
+	to
+		com: UPPAAL!CommittedType()
+		do{
+			com;
+		}
+}
+
+-- init location
+
+rule Init_type(locId : String){
+	to  ip: UPPAAL!InitType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+-------------------------
+--EDGES 2 TRANSITIONS----
+-------------------------
+rule EntryExitTransition(){
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type('IdExit'),
+			target <- thisModule.Target_type('IdEntry')
+		)
+	do{
+		trans;
+	}
+}
+
+rule InternalEdges2Transition{
+	from 
+		edge: REMES!InternalEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type(edge.connectFrom.__xmiID__),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.internalEdgeCompMode(edge)))
+			}
+		)
+}
+
+rule EntryInitEdges2Transition{
+	from 
+		edge: REMES!EntryInitEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type('IdInit'),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', thisModule.edgeInvariant(edge.initialization, thisModule.initEdgeCompMode(edge)))}
+		)
+}
+
+rule EntryEdges2Transition{
+	from 
+		edge: REMES!EntryEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type('IdEntry'),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.entryEdgeCompMode(edge)))
+			}
+		)
+}
+
+rule EntryConditionalTopInitEdge2Transition{
+	from 
+		edge: REMES!EntryConditionalTopInitEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type('IdInit'),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', thisModule.edgeInvariant(edge.initialization, thisModule.initEdgeCompMode(edge)) )}
+		)
+}
+
+rule EntryConditionalSubEdge2Transition{
+	from 
+		edge: REMES!EntryConditionalSubEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type(edge.connectFrom.__xmiID__),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.internalEdgeCompMode(edge)))
+			}
+		)
+}
+
+rule EntryConditionalTopEdge2Transition{
+	from 
+		edge: REMES!EntryConditionalTopEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type('IdEntry'),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.entryEdgeCompMode(edge)))
+			}
+		)
+}
+
+rule ExitEdge2Transition{
+	from 
+		edge: REMES!ExitEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type(edge.connectFrom.__xmiID__),
+			target <- thisModule.Target_type('IdExit'),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.exitEdgeCompMode(edge)))
+			}
+		)
+}
+rule ExitConditionalTopEdge2Transition{
+	from 
+		edge: REMES!ExitConditionalTopEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type(edge.connectFrom.__xmiID__),
+			target <- thisModule.Target_type('IdExit'),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.exitEdgeCompMode(edge)))
+			}
+		)
+}
+
+rule ExitConditionalSubEdge2Transition{
+	from 
+		edge: REMES!ExitConditionalSubEdge
+
+	to
+		trans: UPPAAL!TransitionType (
+			source <- thisModule.Source_type(edge.connectFrom.__xmiID__),
+			target <- thisModule.Target_type(edge.connectTo.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '5', 'guard', edge.actionGuard), 
+				thisModule.Label_type('3', '4', 'assignment', thisModule.edgeInvariant(edge.actionBody, thisModule.exitEdgeCompMode(edge)))}
+		)
+}
+
+-------------------------------------
+-- transitions target and source ---
+-------------------------------------
+
+
+rule Source_type(locId : String){
+	to  ip: UPPAAL!SourceType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+rule Target_type(locId : String){
+	to  ip: UPPAAL!TargetType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+--------------------
+---Name and Label--
+---------------------
+
+rule Name_type(x : String, y : String, value : String){
+	to name_type:UPPAAL!NameType(	
+		mixed <- thisModule.Xml_mixed(value).mixed,	
+		x <- x,
+		y <- y
+	)
+	do{
+		name_type;
+	}
+}
+
+rule Label_type(x: String, y: String, kind: String, value: String){
+	to label_type: UPPAAL!LabelType(
+		mixed <- thisModule.Xml_mixed(value).mixed,
+		kind <- kind,
+		x <- x,
+		y <- y
+	)
+	do{
+		label_type;
+	}
+}
+
+rule Xml_mixed(value : String){
+	to xml_mixed:UPPAAL!XMLTypeDocumentRoot(
+	text <- Sequence{value}
+	)
+	do {
+		xml_mixed;
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,1162 @@
+module remesProSave2ulite;
+create OUT : ULITE from IN : REMES, IN1 : PROCOM;
+-------------------
+------HELPERS-------
+-------------------
+
+----------------------
+------INIT EDGE -------
+----------------------
+
+helper context REMES!SubMode def: isUrgent() : Boolean = self.isUrgent;
+
+helper context REMES!InitEdge def: compMode() : REMES!CompositeMode = 
+	REMES!CompositeMode.allInstances()
+	->select(i | i.initPoint.initEdge=self)
+	->first();
+
+helper context REMES!InitEdge def: connectsToSubMode() : Boolean = 
+	self.compMode().subModes->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!InitEdge def: connectsToConditional() : Boolean = 
+	self.compMode().conditionalConnectors->iterate(e; res : Boolean = false |
+			if e.entryPoint = self.connectTo
+			then true
+			else res
+			endif 		
+	);
+
+helper context REMES!Edge def: destination() : String = self.connectTo.__xmiID__;
+
+helper context REMES!InitEdge def: destCondConn() : REMES!ConditionalConnector =
+	self.compMode().subModes->iterate(e; res : REMES!ConditionalConnector = '' |
+			if e.entryPoint = self.connectTo
+			then e
+			else res
+			endif);
+	
+	
+------------------------------------------
+-----CONDITIONAL CONNECTOR TO EDGES---------
+-------------------------------------------
+helper context REMES!ConditionalConnector def: toEdges() : Sequence(Sequence(REMES!Edge)) = 
+	self.entryPoint.entryEdges->iterate(e; res : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+		res.union(
+			self.exitPoint.exitEdges->iterate(ex; resx : Sequence(Sequence(REMES!Edge)) = Sequence{} |
+				resx.append(Sequence{e, ex})
+			)
+		)	
+	);
+
+helper def: mergeActionGuard(e1 : REMES!Edge, e2:REMES!Edge) : String = 
+	if e1.actionGuard.oclIsUndefined()
+	then 
+		if e2.actionGuard.oclIsUndefined()
+		then ''
+		else e2.actionGuard.trim()
+		endif
+	else 
+		if e2.actionGuard.oclIsUndefined()
+		then e1.actionGuard.trim()
+		else 
+			if e1.actionGuard.trim() = '' or e2.actionGuard.trim() = ''
+			then e1.actionGuard.concat(e2.actionGuard)
+			else e1.actionGuard.concat(', ').concat(e2.actionGuard)
+			endif
+		endif
+	endif;
+
+helper def: mergeActionBody(e1:REMES!Edge, e2:REMES!Edge) : String=
+	if e1.actionBody.oclIsUndefined()
+	then 
+		if e2.actionBody.oclIsUndefined()
+		then ''
+		else e2.actionBodyToAssigment()
+		endif
+	else 
+		if e2.actionBody.oclIsUndefined()
+		then e1.actionBodyToAssigment()
+		else 
+			if e1.actionBody.trim() = '' or e2.actionBody.trim() = ''
+			then e1.actionBodyToAssigment().concat(e2.actionBodyToAssigment())
+			else e1.actionBodyToAssigment().concat(', ').concat(e2.actionBodyToAssigment())
+			endif
+		endif
+	endif;
+
+helper def: mergeCost(e1:REMES!Edge, e2:REMES!Edge) : String=
+	if e1.actionBody.oclIsUndefined()
+	then 
+		if e2.actionBody.oclIsUndefined()
+		then ''
+		else e2.toCost()
+		endif
+	else 
+		if e2.actionBody.oclIsUndefined()
+		then e1.toCost()
+		else 
+			if e1.toCost() = '' or e2.toCost() = ''
+			then e1.toCost()+ e2.toCost()
+			else e1.toCost()+', '+e2.toCost()
+			endif
+		endif
+	endif;
+
+helper context REMES!Edge def: connectsToConditional(): Boolean = 
+	REMES!ConditionalConnector.allInstances()->select(i | i.entryPoint = self.connectTo)->notEmpty();
+
+helper context REMES!CompositeMode def: allInternalEdges() : Sequence(REMES!Edge) = 
+	self.subModes->collect(e | e.exitPoint.exitEdges->select(i | not i.connectsToConditional()));
+
+helper context REMES!CompositeMode def: entryEdges() : Sequence(REMES!Edge) =
+	self.compositeEntryPoint.exitEdges->select(e | not e.connectsToConditional());
+
+--helper context REMES!Edge def: compositeMode() : REMES!CompositeMode =
+--	REMES!CompositeMode.allInstances()->select(i | i.allInternalEdges()->includes(self))->first();
+
+---------------------------
+--SUB MODE LOCATION TYPE---
+----------------------------
+
+helper context REMES!Mode def: name() : Boolean = 
+	if self.name.oclIsUndefined()
+	then OclUndefined
+	else self.name.regexReplaceAll(' ', '_')
+	endif;
+
+-- TEMPLATE TYPE
+helper context REMES!SubMode def: isTopLevelMode() : Boolean =
+	if self.parent.oclIsUndefined()
+	then true
+	else false
+	endif;
+
+--CONDITIONAL
+
+helper context REMES!SubMode def: connectedFromConditional() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = false|
+	if REMES!ConditionalConnector.allInstances()->collect(i | i.exitPoint)->includes(e.connectFrom)	
+	then true
+	else res
+	endif);
+
+--helper context REMES!SubMode def: connectedToConditional() : Boolean = 
+--	self.exitPoint.exitEdges->iterate(e; res : Boolean = false|
+--	if e.connectTo.container.oclIsTypeOf(REMES!ConditionalConnector)
+--	then true
+--	else res
+--	endif);
+--
+--helper context REMES!SubMode def: connectedWithConditional() : Boolean = 
+--	self.connectedToConditional() and self.connectedFromConditional();
+
+
+---CLOCKS
+
+helper context REMES!SubMode def: noClocksOnTransitions() : Boolean = 
+	self.noClocksOnEntry() and self.noClocksOnExit();
+
+
+helper context REMES!SubMode def: noClocksOnEntry() : Boolean = 
+	self.entryPoint.entryEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+
+helper context REMES!SubMode def: noClocksOnExit() : Boolean = 
+	self.exitPoint.exitEdges->iterate(e; res : Boolean = true |
+		if e.hasClocks()
+		then false
+		else res
+		endif);
+	
+helper context REMES!Edge def: hasClocks() : Boolean = 
+	if self.parsedActionGuard.oclIsUndefined()
+	then false
+	else self.parsedActionGuard.expression.containsClock()
+	endif;
+	
+helper context REMES!Expression def: containsClock() : Boolean = 
+	if self.oclIsTypeOf(REMES!BinaryExpression) 
+	then self.param1.containsClock() or self.param2.containsClock()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.param1.containsClock()
+		else
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.param1.containsClock() or self.param2.containsClock() or self.param3.containsClock()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then 
+					if self.resolved.type.toString() = 'clock'
+					then true
+					else false
+					endif
+				else false
+				endif
+			endif
+		endif
+	endif;
+
+
+--(NON) URGENT
+
+helper context REMES!SubMode def : connectedWithNonUrgentMode() : Boolean = 
+	if self.connectedToNonUrgentMode() or self.connectedFromNonUrgentMode()
+	then true
+	else false
+	endif;
+
+helper context REMES!SubMode def : connectedToNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false|
+	if self.exitPoint.exitEdges->select(j | j.connectedTo(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+helper context REMES!SubMode def : connectedFromNonUrgentMode() : Boolean = 
+	REMES!SubMode.allInstances()->select(e | not e.isUrgent)->iterate(e; res : Boolean = false| 
+	if self.entryPoint.entryEdges->select(j | j.connectedFrom(e))->notEmpty()
+	then true
+	else res
+	endif);
+
+helper context REMES!SubMode def : subModeIsCommittedLocation() : Boolean = 
+	if self.isUrgent()
+	then 
+		if self.connectedFromConditional() and not  self.connectedToNonUrgentMode()
+		then true
+		else false
+		endif
+	else false
+	endif;
+
+helper context REMES!SubMode def : subModeIsUrgentLocation() : Boolean =
+	if self.isUrgent()
+	then 
+		if self.connectedToNonUrgentMode() and not  self.connectedFromConditional()
+		then true
+		else false
+		endif
+	else false
+	endif;
+	
+
+--------------------------------------
+--- EDGE SOURCE ADN DESTINATION-------
+---------------------------------------
+
+helper context REMES!Edge def: connectedWithConditional() : Boolean = 
+	self.connectTo.container.oclIsTypeOf(REMES!ConditionalConnector) or 
+	self.connectFrom.container.oclIsTypeOf(REMES!ConditionalConnector);
+
+
+helper context REMES!Edge def: connectedFrom(sm : REMES!SubMode) : Boolean =
+	if self.connectFrom = sm.exitPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectedTo(sm : REMES!SubMode) : Boolean =
+	if self.connectTo = sm.entryPoint
+	then true
+	else false
+	endif;
+
+helper context REMES!Edge def: connectsTo() : String = 
+	if self.connectTo.container.oclIsUndefined()
+	then self.connectTo
+	else self.connectTo.container
+	endif;
+
+helper context REMES!InitEdge def: connectsTo() : String = 
+	if self.connectTo.container.oclIsUndefined()
+	then self.connectTo
+	else self.connectTo.container
+	endif;
+
+helper def: initEdgeConnectsTo(edge : REMES!InitEdge) : OclAny =
+	if edge.oclIsUndefined()
+	then ''
+	else 
+		if REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->notEmpty()
+		then REMES!SubMode.allInstances()->select(e | e.entryPoint = edge.connectTo)->first()
+		else edge.connectTo
+		endif
+	endif;
+
+--helper context REMES!Edge def: connectsFrom() : String = 
+--	if REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->notEmpty()
+--	then REMES!SubMode.allInstances()->select(e | e.exitPoint = self.connectFrom)->first().__xmiID__
+--	else self.connectFrom.__xmiID__
+--	endif;
+
+helper context REMES!Edge def: connectsFrom() : OclAny = 
+	if self.connectFrom.container.oclIsUndefined()
+	then self.connectFrom
+	else self.connectFrom.container
+	endif;
+
+-----------------------------
+--- SUBMODES - GUARDS--------
+-----------------------------
+
+--helper context REMES!SubMode def: toInvariant() : String =
+--	if self.parsedInvariant.oclIsUndefined()
+--	then self.toCost()
+--	else 
+--		if self.toCost() = ''
+--		then self.invariant
+--		else self.invariant+'&&'+self.toCost()
+--		endif
+--	endif;
+
+helper context REMES!SubMode def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then self.cost()->first() -- oclUndefined
+	else self.cost()->iterate(e; res: String = 'cost\'== ' | res + e)
+	endif;
+
+helper context	REMES!SubMode def: cost() : Sequence(String) =
+	self.resources->iterate(e; res : Sequence(String) =Sequence{} |
+		if not e.parsedExpression.oclIsUndefined()
+		then res.append('w_'+ e.parsedExpression.expression.param1.resolved.type+'*'+e.parsedExpression.expression.param2.value)
+		else res
+		endif);
+----------------------------------------------
+--- EDGEs - PARSE ACTION BODY AND GUARD--------
+-------------------------------------------
+
+helper context REMES!CompositeMode def: initEdgeToCost() : String = 
+	if self.initPoint.initEdge.oclIsUndefined()
+	then OclUndefined
+	else self.initPoint.initEdge.toCost()
+	endif;
+
+helper context REMES!Edge def: actionBodyToAssigment() : String = 
+	if self.parsedActionBody.oclIsUndefined()
+--	then self.parsedActionBody
+	then ''
+	else self.parsedActionBody.toAssigment()
+	endif;
+	
+helper def: initializationToAssigment(e : REMES!InitEdge) : String = 
+	if e.oclIsUndefined()
+	then ''
+	else
+		if e.parsedInitialization.oclIsUndefined()
+		then OclUndefined
+		else e.parsedInitialization.toAssigment()
+		endif
+	endif;	
+	
+	
+helper context REMES!ActionRoot def: toAssigment() : String =	
+--	if self.toCost().trim() = ''
+--	then 
+	self.assigmentWithoutCost()
+--	else 
+--		if self.assigmentWithoutCost().trim() = ''
+--		then self.toCost() 
+--		else self.toCost() + ', ' + self.assigmentWithoutCost()
+--		endif
+--	endif
+;
+
+helper context REMES!ActionRoot def: assigmentWithoutCost() : String =
+	self.expressions->iterate(e; res : String ='' |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then res
+		else
+			if res = ''
+			then e.expressionToString()
+			else res+', '+e.expressionToString()
+			endif
+		endif);
+	
+	
+
+helper context REMES!Expression def: expressionToString() : String =
+	if self.oclIsTypeOf(REMES!BinaryExpression)
+	then self.binaryExpToString()
+	else 
+		if self.oclIsTypeOf(REMES!UnaryExpression)
+		then self.unaryExpToString()
+		else 
+			if self.oclIsTypeOf(REMES!TernaryExpression)
+			then self.ternaryExpToString()
+			else 
+				if self.oclIsTypeOf(REMES!VariableReference)
+				then self.name
+				else 
+					if self.oclIsTypeOf(REMES!Constant)
+					then self.value
+					else ''
+					endif
+				endif
+			endif
+		endif
+	endif;
+
+helper context REMES!Expression def: ternaryExpToString() : String =
+	'(' + self.param1.expressionToString() + '?' + self.param2.expressionToString() + ':' + self.param3.expressionToString()+')';
+
+helper context REMES!Expression def: binaryExpToString() : String = 
+	if self.operation.toString() = 'ADD'
+	then self.param1.expressionToString() + ' + ' + self.param2.expressionToString()
+	else 
+		if self.operation.toString() = 'SUB'
+		then self.param1.expressionToString() + ' - ' + self.param2.expressionToString()
+		else
+			if self.operation.toString() = 'MUL'
+			then self.param1.expressionToString() + ' * ' + self.param2.expressionToString()
+			else 
+				if self.operation.toString() = 'DIV'
+				then self.param1.expressionToString() + ' / ' + self.param2.expressionToString()
+				else 
+					if self.operation.toString() = 'MOD'
+					then self.param1.expressionToString() + ' % ' + self.param2.expressionToString()
+					else
+						if self.operation.toString() = 'LT'
+						then self.param1.expressionToString() + ' < ' + self.param2.expressionToString()
+						else
+							if self.operation.toString() = 'LE'
+							then self.param1.expressionToString() + ' <= ' + self.param2.expressionToString()
+							else
+								if self.operation.toString() = 'EQ'
+								then self.param1.expressionToString() + ' == ' + self.param2.expressionToString()
+								else
+									if self.operation.toString() = 'GE'
+									then self.param1.expressionToString() + ' >= ' + self.param2.expressionToString()
+									else
+										if self.operation.toString() = 'GT'
+										then self.param1.expressionToString() + ' > ' + self.param2.expressionToString()
+										else
+											if self.operation.toString() = 'NE'
+											then self.param1.expressionToString() + ' != ' + self.param2.expressionToString()
+											else
+												if self.operation.toString() = 'AND'
+												then self.param1.expressionToString() + ' and ' + self.param2.expressionToString()
+												else
+													if self.operation.toString() = 'OR'
+													then self.param1.expressionToString() + ' or ' + self.param2.expressionToString()
+													else
+														if self.operation.toString() = 'ASSIGN'
+														then self.param1.expressionToString() + ' := ' + self.param2.expressionToString()
+														else
+															if self.operation.toString() = 'ASSIGN_ADD'
+															then self.param1.expressionToString() + ' += ' + self.param2.expressionToString()
+															else 
+																if self.operation.toString() = 'ASSIGN_SUB'
+																then self.param1.expressionToString() + ' -= ' + self.param2.expressionToString()
+																else 
+																	if self.operation.toString() = 'ASSIGN_MUL'
+																	then self.param1.expressionToString() + ' *= ' + self.param2.expressionToString()
+																	else
+																		if self.operation.toString() = 'ASSIGN_DIV'
+																		then self.param1.expressionToString() + ' /= ' + self.param2.expressionToString()
+																		else 
+																			if self.operation.toString() = 'ASSIGN_MOD'
+																			then self.param1.expressionToString() + ' %= ' + self.param2.expressionToString()
+																			else 
+																				if self.operation.toString() = 'DIFF'
+																				then self.param1.expressionToString() + ' \'== ' + self.param2.expressionToString()
+																				else ''
+																				endif
+																			endif
+																		endif
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif;
+			
+
+helper context REMES!Expression def: unaryExpToString() : String = 
+	if self.operation.toString() = 'PLUS'
+	then self.param1.name + '++ '
+	else 
+		if self.operation.toString() = 'MINUS'
+		then self.param1.name + '--'
+		else 
+			if self.operation.toString() = 'NOT'
+			then 'not ' + self.param1.name
+			else ''
+			endif
+		endif
+	endif;
+
+helper context REMES!Edge def: toCost() : String = 
+	if self.parsedActionBody.oclIsUndefined()
+	then ''
+	else self.parsedActionBody.toCost()
+	endif;
+
+helper context REMES!InitEdge def: toCost() : String = 
+	if self.oclIsUndefined()
+	then ''
+	else
+		if self.parsedInitialization.oclIsUndefined()
+		then self.parsedInitialization
+		else self.parsedInitialization.toCost()
+		endif
+	endif;
+	
+helper context REMES!ActionRoot def: toCost() : String = 
+	if self.cost()->isEmpty() 
+	then ''
+	else self.cost()->iterate(e; res: String = 'cost+= ' | res + e)
+	endif;
+
+helper context	REMES!ActionRoot def: cost() : Sequence(String) =
+	self.expressions->iterate(e; res : Sequence(String) =Sequence{} |
+		if e.param1.resolved.oclIsTypeOf(REMES!Resource)
+		then
+			if e.operation.toString() = 'ASSIGN_ADD'
+			then 
+				if res->isEmpty()
+				then res.append('w_'+ e.param1.resolved.type+'*'+e.param2.value)
+				else res.append('+w_'+ e.param1.resolved.type+'*'+e.param2.value)
+				endif
+			else res.append('-w_'+ e.param1.resolved.type+'*'+e.param2.value)
+			endif
+		else res
+		endif);
+
+
+--------------------------------------
+--- COMPOSITE MODE DECLARATION--------
+---------------------------------------
+
+helper context REMES!Mode def : toDeclaration() : String = 
+	self.variablesToDeclaration()+self.constantsToDeclaration();
+
+helper context REMES!Mode def : variablesToDeclaration() : String = 
+	self.variables->iterate(e; res : String = ''|
+		if e.global 
+		then ''
+		else
+			if e.value.oclIsUndefined()
+			then res + e.ULITEType() + ' ' + e.name + '; '
+			else 
+				if e.value.trim() =''
+				then res + e.ULITEType() + ' ' + e.name + '; '
+				else res + e.ULITEType() + ' ' + e.name + ' = ' + e.value + '; '
+				endif
+			endif
+		endif	
+	);
+
+helper context REMES!Mode def : constantsToDeclaration() : String = 
+	self.constants->iterate(e; res : String = ''| 
+		 res + 'const '+ e.ULITEType() + ' ' + e.name + ' = ' + e.value + '; '
+	);
+
+helper context PROCOM!"proComMetamodel::proSave::OutputDataPort" def: ULITEType() : String = 
+	if self.type.oclIsUndefined()
+	then ''
+	else 
+		if self.type.toString() = 'integer' or self.type.toString() = 'float'
+		then 'int'
+		else 
+			if self.type.toString() = 'boolean'
+			then 'bool'
+			else self.type.toString()
+			endif
+		endif
+	endif;
+
+helper context REMES!Referable def: ULITEType() : String = 
+	if self.type.oclIsUndefined()
+	then ''
+	else 
+		if self.type.toString() = 'integer' or self.type.toString() = 'float'
+		then 'int'
+		else 
+			if self.type.toString() = 'boolean'
+			then 'bool'
+			else self.type.toString()
+			endif
+		endif
+	endif;
+
+----------------------------
+--- TRIGGERS TO SYNC -------
+----------------------------
+
+helper context REMES!Mode def: hasProSaveInputTrigger() : Boolean =
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort") or i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort"))
+	->iterate(e; res : Boolean = false |
+		if (not e.destSubcomponent.oclIsUndefined()) then
+			if (self.name = e.destSubcomponent.implComponent.name) then true
+			else res
+			endif
+		else res
+		endif
+	);
+
+helper context REMES!Mode def: hasProSaveOutputTrigger() : Boolean =
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort") or i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort"))
+	->iterate(e; res : Boolean = false |
+		if (not e.sourceSubcomponent.oclIsUndefined()) then
+			if (self.name = e.sourceSubcomponent.implComponent.name) then true
+			else res
+			endif
+		else res
+		endif
+	);
+
+helper context REMES!Edge def: hasInputSync() : Boolean = 
+	if self.formCompositeEntryPoint() and not self.toCompositeExitPoint()
+	then self.connectTo.container.parent.hasProSaveInputTrigger()
+	else false
+	endif;
+
+helper context REMES!Mode def: hasInputSync() : Boolean = 
+	self.hasProSaveInputTrigger();
+
+helper context REMES!Mode def: hasOutputSync() : Boolean = 
+	self.hasProSaveOutputTrigger();
+		
+
+helper context REMES!Edge def: formCompositeEntryPoint() : Boolean = 
+	self.connectFrom.oclIsTypeOf(REMES!CompositeEntryPoint);
+
+helper context REMES!Edge def: toCompositeExitPoint() : Boolean = 
+	self.connectTo.oclIsTypeOf(REMES!CompositeExitPoint);
+
+--helper context REMES!Mode def: inputSync() : String = 
+--	PROCOM!Component.allInstances()->first().realization.subcomponentInst
+--	->iterate(e; res : String = '' |
+--		if self.name = e.implComponent.name
+--		then e.implComponent.service->first().inputPortGroup.trigger.name.concat('?')
+--		else res
+--		endif
+--	);
+
+helper context REMES!Mode def: inputSync() : String = 
+	if self.hasInputSync()
+	then 
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort"))
+	->iterate(e; res : String = '' |
+		if (not e.destSubcomponent.oclIsUndefined()) then
+			if (self.name = e.destSubcomponent.implComponent.name) then 'Syn_'.concat(e.__xmiID__).concat('?').regexReplaceAll('-', '_')
+			else res
+			endif
+		else res
+		endif
+	)
+	else OclUndefined
+	endif;
+
+helper context REMES!Mode def: assignmentOnInputSync() : String = 
+	if self.hasInputSync()
+	then 
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::OutputDataPort"))
+	->iterate(e; res : String = '' |
+		if (not e.destSubcomponent.oclIsUndefined()) then
+			if (self.name = e.destSubcomponent.implComponent.name) then 'I_dataIn = ' + e.sourceSubcomponent.implComponent.name + '_' + e.sourcePort.name
+			else res
+			endif
+		else res
+		endif
+	)
+	else OclUndefined
+	endif;	
+
+helper context REMES!Mode def: outputSync() : String = 
+	if self.hasOutputSync()
+	then 
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort"))
+	->iterate(e; res : String = '' |
+		if (not e.sourceSubcomponent.oclIsUndefined()) then
+			if (self.name = e.sourceSubcomponent.implComponent.name) then 'Syn_'.concat(e.__xmiID__).concat('!').regexReplaceAll('-', '_')
+			else res
+			endif
+		else res
+		endif
+	)
+	else OclUndefined
+	endif;
+
+----------------------------
+--- SYSTEM DECLARATION -------
+----------------------------
+
+helper def: ntaDeclaration() : String =
+	thisModule.triggersToSyncChannels() + thisModule.outputDataPortsToGlobalVars();
+	
+helper def: triggersToSyncChannels() : String = 
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::TriggerPort"))	
+	->iterate(e; res : String = 'chan t; ' | res + 'chan Syn_'+e.__xmiID__.regexReplaceAll('-', '_')+'; ');
+
+helper def: outputDataPortsToGlobalVars() : String = 
+	PROCOM!"proComMetamodel::proSave::Component".allInstances()->first().realization.connection
+	->select(i | i.sourcePort.oclIsKindOf(PROCOM!"proComMetamodel::proSave::OutputDataPort"))
+	->iterate(e; res : String = '' | res + e.sourcePort.ULITEType() + ' ' + e.sourceSubcomponent.implComponent.name + '_' + e.sourcePort.name +'; ');
+
+helper context REMES!RemesDiagram  def: resourceWeightDeclaration() : String =
+	self.getAllResources()->iterate(e; res : String = '' |
+		 res + 'const int w_' + e.name + ' = ' + 
+		 if e.name = 'cpu'
+		 then '6'
+		 else if e.name = 'memory'
+		 	then '5'
+			else if e.name = 'bandwidth'
+				then '4'
+				else if e.name ='power'
+					then '3'
+					else if e.name ='port'
+						then '2'
+						else '1'
+						endif
+					endif
+				endif
+			endif
+		endif
+		 + '; ');
+	
+helper context REMES!RemesDiagram def: getAllResources() : Sequence(REMES!ResourceTypes) = 
+	self.modes->iterate(e; res : Sequence(REMES!ResourceTypes) = Sequence{} | 
+		e.resources->select(i | res->excludes(i.type))->collect(i | i.type)
+			->iterate(e2; res2 : Sequence(REMES!ResourceTypes) = res | res.append(e2))
+	);
+	
+----------------------------
+--- INIT TRANSITION -------
+----------------------------
+
+helper context REMES!Mode def: initTransitionTarget() : OclAny= 
+	if self.initPoint.initEdge.oclIsUndefined()
+	then self.compositeEntryPoint
+	else 
+		if self.initPoint.initEdge.connectTo = self.compositeEntryPoint.exitEdges->first().connectTo
+		then self.compositeEntryPoint
+		else thisModule.initEdgeConnectsTo(self.initPoint.initEdge)
+		endif
+	endif;
+
+-------------------
+------RULES-------
+-------------------
+
+
+rule Diagram2Root {
+from
+    rd : REMES!RemesDiagram
+to
+    doc: ULITE!UppaalDiagram (
+    	declaration <- thisModule.ntaDeclaration(),
+		resourceWeightDeclaration <- rd.resourceWeightDeclaration(),
+		Template <- Sequence{rd.modes, thisModule.initTemplate()}
+	)
+}
+
+rule CompositeMode2TemplateWithInitPoint{
+	from
+		cMode : REMES!CompositeMode	(not cMode.initPoint.initEdge.oclIsUndefined())
+	to
+		tp: ULITE!TemplateType (
+			declaration <- cMode.toDeclaration(),
+			name <- cMode.name(),
+			location <-Sequence{
+				thisModule.startLocation(), 
+				cMode.compositeEntryPoint, 
+				cMode.compositeExitPoint,
+				thisModule.idleLocation(),
+				thisModule.initLocation(),
+				cMode.subModes
+			},
+			transition <- Sequence{
+				thisModule.transition(tp.location->select(i | i.id = 'idStart')->first(), tp.location->select(i | i.name = 'Init')->first(),'t?',OclUndefined), 			
+				cMode.entryEdges()->collect(e | thisModule.initTransition(tp.location->select(i | i.name = 'Init')->first(), e.connectsTo())),
+				thisModule.transition(cMode.compositeExitPoint, tp.location->select(i | i.name = 'Idle')->first(), cMode.outputSync(), OclUndefined),
+				thisModule.transition(tp.location->select(i | i.name = 'Idle')->first(), cMode.compositeEntryPoint, cMode.inputSync(), cMode.assignmentOnInputSync()),
+	--			thisModule.transition(tp.location->select(i | i.name.println() = cMode.compositeExitPoint.__xmiID__.toString())->first(), tp.location->select(i | i.id = cMode.compositeEntryPoint.__xmiID__)->first(), cMode.outputSync()), 
+				cMode.entryEdges(), 
+				cMode.allInternalEdges(), 
+				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
+			}
+		)	
+}
+
+rule CompositeMode2TemplateWithoutInitPoint{
+	from
+		cMode : REMES!CompositeMode	( cMode.initPoint.initEdge.oclIsUndefined())
+	to
+		tp: ULITE!TemplateType (
+			declaration <- cMode.toDeclaration(),
+			name <- cMode.name(),
+			location <-Sequence{
+				cMode.compositeEntryPoint, 
+				cMode.compositeExitPoint,
+				thisModule.idleInitLocation(),
+				cMode.subModes
+			},
+			transition <- Sequence{
+				thisModule.transition(cMode.compositeExitPoint, tp.location->select(i | i.name = 'Idle')->first(), cMode.outputSync(), OclUndefined),
+				thisModule.transition(tp.location->select(i | i.name = 'Idle')->first(), cMode.compositeEntryPoint, cMode.inputSync(), cMode.assignmentOnInputSync()),
+	--			thisModule.transition(tp.location->select(i | i.name.println() = cMode.compositeExitPoint.__xmiID__.toString())->first(), tp.location->select(i | i.id = cMode.compositeEntryPoint.__xmiID__)->first(), cMode.outputSync()), 
+				cMode.entryEdges(), 
+				cMode.allInternalEdges(), 
+				cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))
+			}
+		)	
+}
+
+rule initTemplate(){	
+	to
+		tp: ULITE!TemplateType (
+			name <- 'InitTemplate',
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyExitLocation()},
+			transition <- Sequence{thisModule.transition(tp.location->first(), tp.location->last(), 't!',OclUndefined)}
+		)
+	do{
+		tp;
+	}
+}
+
+rule subMode2Template{
+	from
+		sm : REMES!SubMode ( sm.isTopLevelMode())		
+	to
+		tp: ULITE!TemplateType (
+			declaration <- sm.toDeclaration(),
+			name <- sm.name(),
+			location <-Sequence{thisModule.startLocation(), 
+				thisModule.emptyEntryLocation(), 
+				thisModule.location_Type(sm), 
+				thisModule.emptyExitLocation()},
+			transition <- Sequence{
+				thisModule.transition(tp.location->select(i | i.id = 'idStart')->first(), tp.location->select(i | i.id = 'idEntry')->first(), 't?',OclUndefined), 
+				thisModule.transition(tp.location->select(i | i.id = sm.__xmiID__)->first(), tp.location->select(i | i.id = 'idExit')->first(), OclUndefined,OclUndefined), 
+				thisModule.transition(tp.location->select(i | i.id = 'idExit')->first(), tp.location->select(i | i.id = 'idEntry')->first(), sm.outputSync(),OclUndefined), 
+				thisModule.transition(tp.location->select(i | i.id = 'idEntry')->first(), tp.location->select(i | i.id = sm.__xmiID__)->first(), sm.inputSync(),sm.assignmentOnInputSync())}
+		)	
+}
+----------------
+---LOCATIONS----
+----------------
+rule idleLocation(){
+	to 
+		loc: ULITE!LocationType(
+			name <- 'Idle',
+			id <- 'idIdle'
+		)
+		do{
+			loc;
+		}
+}
+
+rule initLocation(){
+	to 
+		loc: ULITE!LocationType(
+			name <- 'Init',
+			urgent <- true,
+			id <- 'idInit'
+		)
+		do{
+			loc;
+		}
+}
+
+rule idleInitLocation(){
+	to 
+		loc: ULITE!LocationType(
+			id <- 'idIdleInit',
+			name <- 'Idle',
+			initial <- true
+		)
+		do{
+			loc;
+		}
+}
+
+rule startLocation(){
+	to 
+		loc: ULITE!LocationType(
+			id <- 'idStart',
+			name <- 'Start',
+			committed <- true,
+			initial <- true,
+			urgent <- false
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyExitLocation(){
+	to 
+		loc: ULITE!LocationType(
+			id <- 'idExit',
+			name <- 'Exit',
+			urgent <- true
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyEntryLocation(){
+	to 
+		loc: ULITE!LocationType(
+			id <- 'idEntry',
+			name <- 'Entry',
+			urgent <- true
+		)
+		do{
+			loc;
+		}
+}
+
+rule entryPoint2Location{
+	from
+		point : REMES!CompositeEntryPoint
+	to 
+		loc: ULITE!LocationType(
+			id <- point.__xmiID__,
+			name <- 'Entry',
+			urgent <- true			
+		)
+}
+
+rule exitPoint2Location{
+	from
+		point:REMES!CompositeExitPoint
+	to
+		loc: ULITE!LocationType(
+			id <- point.__xmiID__,
+			name <- 'Exit',
+			urgent <- true
+		)
+}
+
+rule SubMode2Location{
+	from sm: REMES!SubMode( not sm.isTopLevelMode() )
+	to tpl:ULITE!LocationType(
+			id <- sm.__xmiID__,
+			name <- sm.name(),
+			invariant <- sm.invariant,
+			cost <- sm.toCost(),
+			committed <- sm.subModeIsCommittedLocation(),
+			urgent <- sm.subModeIsUrgentLocation()
+	)
+	
+}
+
+rule location_Type(sm : REMES!SubMode){
+	to 
+		tpl: ULITE!LocationType(
+			invariant <- sm.invariant,
+			cost <- sm.toCost(),
+			id <- sm.__xmiID__,
+			name <- sm.name()
+		)
+	do{
+		tpl;
+	}
+}
+-------------------------
+------TRANSITIONS----
+-------------------------
+
+rule initTransition(initLoc : ULITE!LocationType, submode: REMES!SubMode){
+	to 
+		tt:ULITE!TransitionType(
+			source <- initLoc,
+			target <- submode,
+			assignment <- thisModule.initializationToAssigment(submode.parent.initPoint.initEdge),
+			cost <- submode.parent.initEdgeToCost()
+		)
+		do{
+			tt;
+		}
+}			
+			
+--rule initTransition(startLoc : ULITE!LocationType, cMode: REMES!CompositeMode){		
+--	to 
+--		tt1:ULITE!TransitionType(
+--			source <- startLoc,
+--			target <- cMode.compositeEntryPoint,
+--			sync<- 't?'
+--		),
+--		tt2:ULITE!TransitionType(
+--			source <- startLoc,
+--			target <- cMode.compositeEntryPoint,
+--			sync<- 't?',
+--			assignment <- thisModule.initializationToAssigment(cMode.initPoint.initEdge),
+--			cost <- cMode.initPoint.initEdge.toCost()
+--		),
+--		tt3:ULITE!TransitionType(
+--			source <- startLoc,
+--			target <- thisModule.initEdgeConnectsTo(cMode.initPoint.initEdge),
+--			sync<- 't?',
+--			assignment <- thisModule.initializationToAssigment(cMode.initPoint.initEdge),
+--			cost <- cMode.initPoint.initEdge.toCost()
+--		)
+--	do{
+--		if(cMode.initPoint.initEdge.oclIsUndefined()){
+--			tt1;
+--		}
+--		else{
+--			if(cMode.initPoint.initEdge.connectTo = cMode.compositeEntryPoint.exitEdges->first().connectTo){
+--				tt1;
+--			}
+--			else{
+--				tt3;
+--			}
+--		}
+--	}
+--}
+
+--rule exitToEntryTransition(src: ULITE!Location, tgt: ULITE!Location, mode: REMES!SubMode){		
+--	to 
+--		tt:ULITE!TransitionType(
+--			source <- src,
+--			target <- tgt,
+--			sync <-  mode.outputSync() 
+--		)
+--	do{
+--		tt;
+--	}
+--}
+
+rule internalEdge2Transition{
+	from
+		e:REMES!Edge(not e.connectedWithConditional())
+
+	to 
+		tt:ULITE!TransitionType(
+			source <- e.connectsFrom(),
+			target <- e.connectsTo(),
+			assignment <- e.actionBodyToAssigment(),
+			cost <- e.toCost(), 
+			guard <- e.actionGuard
+	)
+}
+
+--rule internalEdge2TransitionWithSync{
+--	from
+--		e:REMES!Edge (e.hasInputSync() and not e.connectedWithConditional())
+--
+--	to 
+--		tt:ULITE!TransitionType(
+--			source <- e.connectsFrom(),
+--			target <- e.connectsTo(),
+--			assignment <- 
+--				if (e.actionBodyToAssigment().size() > 0) then 
+--					e.actionBodyToAssigment() + ',' + e.connectTo.container.parent.assignmentOnInputSync() 
+--				else e.connectTo.container.parent.assignmentOnInputSync() 
+--				endif,
+--			cost <- e.toCost(),
+--			guard <- e.actionGuard,
+--			sync <- e.connectTo.container.parent.inputSync()
+--	)
+--}
+
+rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
+	to 
+	tt:ULITE!TransitionType(
+		source <- edge1.connectsFrom(),
+		target <- edge2.connectsTo(),
+		guard <- thisModule.mergeActionGuard(edge1, edge2),
+		assignment <- 
+			if (thisModule.mergeActionBody(edge1, edge2).size() > 0) then 
+				thisModule.mergeActionBody(edge1, edge2) + ',' + edge1.connectTo.container.parent.assignmentOnInputSync() 
+			else edge1.connectTo.container.parent.assignmentOnInputSync()
+			endif,
+		
+		cost <- thisModule.mergeCost(edge1, edge2),
+		sync <- edge1.connectTo.container.parent.inputSync()
+	) 
+	do{
+		tt;
+	}
+	
+}
+
+--rule initTemplateTransition(src: ULITE!Location, tgt: ULITE!Location){
+--	to
+--		tt:ULITE!TransitionType(
+--		source <- src,
+--		target <- tgt,
+--		sync <- 't!'
+--		)
+--	do{
+--		tt;
+--	}
+--}
+--
+--rule topLevelSubModeInitTransition (src: ULITE!Location, tgt: ULITE!Location){
+--	to tt:ULITE!TransitionType(
+--		source <- src,
+--		target <- tgt,
+--		sync <- 't?'
+--		)  
+--	do{
+--		tt;
+--	}
+--}
+--
+--rule topLevelSubModeExitTransition (src: ULITE!Location, tgt: ULITE!Location){
+--	to tt:ULITE!TransitionType(
+--		source <- src,
+--		target <- tgt
+--		)  
+--	do{
+--		tt;
+--	}
+--}
+--
+--
+--rule topLevelSubModeEntryTransition(src: ULITE!Location, tgt: ULITE!Location, sm: REMES!SubMode){
+--	to 
+--		tt:ULITE!TransitionType(
+--		source <- src,
+--		target <- tgt,
+--		sync <- sm.inputSync()
+--		) 
+--	do{
+--		tt;
+--	}
+--}
+
+rule transition(src: ULITE!Location, tgt: ULITE!Location, sync: String, assignment: String){
+	to 
+		tt:ULITE!TransitionType(
+		source <- src,
+		target <- tgt,
+		sync <- sync,
+		assignment <- assignment
+		) 
+	do{
+		tt;
+	}
+}
+
+

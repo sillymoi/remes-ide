@@ -1,0 +1,238 @@
+modeltype ProComMM uses "http://www.mdh.se/progresside/procom/1.0.0/procom.ecore";
+modeltype REMESMM uses "http://www.mdh.se/progresside/remes/1.2.0/remes.ecore";
+
+transformation transformProSaveToREMES(in procom: ProComMM, inout remes: REMESMM);
+
+
+main() {
+	var components := procom.rootObjects()[ProComMM::proSave::Component];
+	components->forEach(component) {
+		var compMode := component.getCorrespondingCompMode();
+		
+		component.service->forEach(service) {
+			var inputPortGroup := service.inputPortGroup;
+			
+			var inputTriggerPort := inputPortGroup.trigger;
+			var corVarToTrigPort := inputTriggerPort.getCorrespondingVariable(compMode);
+			if (corVarToTrigPort = null) then {
+				compMode.variables += inputTriggerPort.map toVariable();
+			} endif;
+			
+			inputPortGroup.data-> forEach(dataPort) {
+				var corVar := dataPort.getCorrespondingVariable(compMode);
+				if (corVar = null) then {
+					compMode.variables += dataPort.map toVariable();
+				} endif;
+			};
+			service.outputPortGroup-> forEach(outputPortGroup) {
+				var outputTriggerPort := outputPortGroup.trigger;
+				var corVarToOutputTrigPort := outputTriggerPort.getCorrespondingVariable(compMode);
+				if (corVarToOutputTrigPort = null) then {
+					compMode.variables += outputTriggerPort.map toVariable();
+				} endif;
+				
+				outputPortGroup.data-> forEach(dataPort) {
+					var corVar := dataPort.getCorrespondingVariable(compMode);
+					if (corVar = null) then {
+						compMode.variables += dataPort.map toVariable();
+					} endif;
+				};
+			};
+		};
+	};
+}
+
+query ProComMM::proSave::InputTriggerPort::getCorrespondingVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := "I_TRIGGER_" + self.name;
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSave::OutputTriggerPort::getCorrespondingVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := "O_TRIGGER_" + self.name;
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSave::OutputDataPort::getCorrespondingVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := "O_" + self.name;
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+query ProComMM::proSave::InputDataPort::getCorrespondingVariable(compMode : REMESMM::CompositeMode) : REMESMM::Variable {
+	
+	var expectedName := "I_" + self.name;
+	compMode.variables->forEach(curVar) {
+		if (curVar.name = expectedName) then {
+			return curVar;
+		} endif;
+	};
+	
+	return null;
+}
+
+helper ProComMM::proSave::Component::getCorrespondingCompMode() : REMESMM::CompositeMode {
+	
+	var remesDiags := remes.rootObjects()[REMESMM::RemesDiagram];
+	// there should be only one
+	remesDiags->forEach(diag) {
+		var compMode := diag.modes[REMESMM::CompositeMode]-> select(c| c.name = self.name)->first();
+		if (compMode != null) then {
+			return compMode;
+		} endif;
+	};
+	
+	return self.map toCompositeMode();
+}
+
+mapping ProComMM::proSave::InputTriggerPort::toVariable() : REMESMM::Variable {
+	name := "I_TRIGGER_" + self.name;
+	type := REMESMM::PrimitiveTypes::boolean;
+	vectorSize := 0;
+	global := false;
+	readable := true;
+	writable := false;
+}
+
+mapping ProComMM::proSave::OutputTriggerPort::toVariable() : REMESMM::Variable {
+	name := "O_TRIGGER_" + self.name;
+	type := REMESMM::PrimitiveTypes::boolean;
+	vectorSize := 0;
+	global := false;
+	readable := false;
+	writable := true;
+}
+
+mapping ProComMM::proSave::InputDataPort::toVariable() : REMESMM::Variable {
+	name := "I_" + self.name;
+	type := getPrimitveType(self.type);
+	vectorSize := 0;
+	global := false;
+	readable := true;
+	writable := false;
+}
+
+mapping ProComMM::proSave::OutputDataPort::toVariable() : REMESMM::Variable {
+	name := "O_" + self.name;
+	type := getPrimitveType(self.type);
+	vectorSize := 0;
+	global := false;
+	readable := true;
+	writable := true;
+}
+
+helper getPrimitveType(portType : String) : REMESMM::PrimitiveTypes {
+	if (portType = "int") then {
+		return REMESMM::PrimitiveTypes::integer;
+	} endif;
+	if (portType = "float") then {
+		return REMESMM::PrimitiveTypes::float;
+	} endif;
+	if (portType = "boolean") then {
+		return REMESMM::PrimitiveTypes::boolean;
+	} endif;
+	if (portType = "clock") then {
+		return REMESMM::PrimitiveTypes::clock;
+	} endif;
+	
+	return null;
+}
+
+mapping ProComMM::proSave::Component::toCompositeMode() : REMESMM::CompositeMode {
+	name := self.name;
+	
+	// create default content
+	initPoint := new InitPoint();
+	exitPoint := new ExitPoint();
+	entryPoint := new EntryPoint();
+	writePoint := new WritePoint();
+	compositeEntryPoint := new CompositeEntryPoint();
+	compositeExitPoint := new CompositeExitPoint();
+	
+	var remesDiags := remes.rootObjects()[REMESMM::RemesDiagram];
+	// there should be only one
+	remesDiags->forEach(diag) {
+		diag.modes += result;
+	};
+}
+
+query ProComMM::proSave::Component::getOutputDataPorts():List(ProComMM::proSave::OutputDataPort) {
+	var ports : List(ProComMM::proSave::OutputDataPort);
+	ports := List {};
+	self.service ->forEach (service) {
+		service.outputPortGroup -> forEach (outputPortGroup) { 
+			outputPortGroup.data -> forEach (output) { 
+				ports += output;
+			};
+		};
+	};
+	
+	return ports;
+}
+
+query ProComMM::proSave::Connector::getOutputDataPorts():List(ProComMM::proSave::DataPort) {
+	var ports : List(ProComMM::proSave::OutputDataPort);
+	ports := List {};
+	if (self.oclIsKindOf(ProComMM::proSave::DataOr)) then {
+		self.oclAsType(ProComMM::proSave::DataOr).output ->forEach (output) {
+			ports += output; 
+		}
+	}
+	else {
+	if (self.oclIsKindOf(ProComMM::proSave::DataFork)) then {
+		self.oclAsType(ProComMM::proSave::DataFork).output ->forEach (output) {
+			ports += output; 
+		}
+	}
+	endif;
+	 }
+	 endif;
+	
+	return ports;
+}
+
+query ProComMM::proSave::Connector::getInputDataPorts():List(ProComMM::proSave::InputDataPort) {
+	var ports : List(ProComMM::proSave::InputDataPort);
+	ports := List {};
+	if (self.oclIsKindOf(ProComMM::proSave::DataOr))then {
+		self.oclAsType(ProComMM::proSave::DataOr).input ->forEach (input) {
+			ports += input; 
+		}
+	}
+	else {
+	if (self.oclIsKindOf(ProComMM::proSave::DataFork))then {
+		self.oclAsType(ProComMM::proSave::DataFork).input ->forEach (input) {
+			ports += input; 
+		}
+	}
+	endif;
+	 }
+	 endif;
+	
+	return ports;
+}
+		
+
+
+	
+
+

@@ -1,0 +1,1 @@
+Latest version of REMES model (1.2.0) is contained in remes.ecore. The other remes*.ecore files are older versions retained 'just in case'.

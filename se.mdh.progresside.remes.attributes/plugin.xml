@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="se.mdh.progresside.attributes.framework.categories">
+      <category
+            id="se.mdh.progresside.attribute.category.behaviour"
+            name="Behaviour">
+      </category>
+   </extension>
+   
+   <extension
+         point="se.mdh.progresside.attributes.framework.registration">
+        <attribute
+            id="se.mdh.progesside.attribute.remes.model.prosave"
+            name="REMES Model"
+            targetType="Component"
+            documentation="html/REMESModel.html"
+            targetPackageURI="http://www.mdh.se/progresside/procom/1.0.0/prosave.ecore"
+            editorClass="se.mdh.progresside.attributes.BasicAttributeTypes.editors.StringDataCellEditor"
+            stringRendererClass="se.mdh.progresside.attributes.BasicAttributeTypes.viewers.StringDataRenderer"
+            viewerClass="se.mdh.progresside.remes.attributes.viewers.RemesProSaveModelViewer"
+            dataType="StringData"
+            dataPackageURI="http:///BasicAttributeTypes.ecore"
+            briefDescription="REMES Model"
+            categoryId="se.mdh.progresside.attribute.category.behaviour" />
+        <attribute
+              briefDescription="REMES Model"
+              categoryId="se.mdh.progresside.attribute.category.behaviour"
+              dataPackageURI="http:///BasicAttributeTypes.ecore"
+              dataType="StringData"
+              documentation="html/REMESModel.html"
+              editorClass="se.mdh.progresside.attributes.BasicAttributeTypes.editors.StringDataCellEditor"
+              id="se.mdh.progesside.attribute.remes.model.prosys"
+              name="REMES Model"
+              stringRendererClass="se.mdh.progresside.attributes.BasicAttributeTypes.viewers.StringDataRenderer"
+              targetPackageURI="http://www.mdh.se/progresside/procom/1.0.0/prosys.ecore"
+              targetType="Subsystem"
+              viewerClass="se.mdh.progresside.remes.attributes.viewers.RemesProSysModelViewer">
+        </attribute>
+   </extension>
+
+</plugin>

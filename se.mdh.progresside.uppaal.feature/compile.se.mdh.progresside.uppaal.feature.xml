@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile se.mdh.progresside.uppaal.feature" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaal" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaal.edit" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite.edit" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite.transform" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite.editor" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaal.editor" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite.subdiagram" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.uppaallite.diagram" target="build.jars"/>
+		<ant antfile="build.xml" dir="../se.mdh.progresside.uppaal" target="build.jars"/>
+	</target>
+</project>

@@ -28,17 +28,51 @@
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
-            adaptable="true"
-            id="hr.fer.rasip.remes.builders.ToggleRemesNature"
-            nameFilter="*"
+            id="hr.fer.rasip.remes.builders.AddRemesNature"
             objectClass="org.eclipse.core.resources.IProject">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+         	<separator name="projectTools"/> 
+         </menu>
          <action
-               class="hr.fer.rasip.remes.builder.ToggleNatureAction"
-               enablesFor="+"
+               class="hr.fer.rasip.remes.builder.AddNatureAction"
+               enablesFor="1"
                id="hr.fer.rasip.remes.builders.addRemoveNatureAction"
-               label="Add/Remove Remes Nature"
-               menubarPath="additions">
+               label="Add REMES nature to project"
+               menubarPath="hr.fer.rasip.remes.tools/projectTools">
+               <!-- menubarPath="org.eclipse.ui.projectConfigure/additions"-->
+               
          </action>
+         <visibility>
+            <not>
+               <objectState
+                     name="nature"
+                     value="hr.fer.rasip.remes.RemesNature">
+               </objectState>
+            </not>
+         </visibility>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="hr.fer.rasip.remes.builders.RemoveRemesNature"
+            objectClass="org.eclipse.core.resources.IProject">
+         <menu id="hr.fer.rasip.remes.tools" label="REMES tools" path="additions">
+         	<separator name="projectTools"/> 
+         </menu>
+         <action
+               class="hr.fer.rasip.remes.builder.RemoveNatureAction"
+               enablesFor="1"
+               id="hr.fer.rasip.remes.builders.addRemoveNatureAction"
+               label="Remove REMES nature from project"
+               menubarPath="hr.fer.rasip.remes.tools/projectTools">
+         </action>
+         <visibility>
+            <objectState
+                  name="nature"
+                  value="hr.fer.rasip.remes.RemesNature">
+            </objectState>
+         </visibility>
       </objectContribution>
    </extension>
    <extension

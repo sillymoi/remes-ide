@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hr.fer.rasip.remes.gum/src"
+    modelPluginID="hr.fer.rasip.remes.gum" modelName="Gum" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>gum.ecore</foreignModel>
+  <genPackages prefix="Gum" basePackage="hr.fer.rasip.remes" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="gum.ecore#/">
+    <nestedGenPackages prefix="Structure" basePackage="hr.fer.rasip.remes.gum" disposableProviderFactory="true"
+        ecorePackage="gum.ecore#//structure">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//structure/PortType">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//structure/PortType/Trigger"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//structure/PortType/Data"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//structure/PortType/Message"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//structure/ConnectorType">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//structure/ConnectorType/ControlOr"/>
+      </genEnums>
+      <genClasses ecoreClass="gum.ecore#//structure/Behaver">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//structure/Behaver/behaviour"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//structure/Behaver/name"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//structure/Primitive"/>
+      <genClasses ecoreClass="gum.ecore#//structure/Composite">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//structure/Composite/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//structure/Composite/connections"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//structure/Composite/reentrant"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//structure/Port">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//structure/Port/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//structure/Port/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//structure/Port/group"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//structure/DataPort"/>
+      <genClasses ecoreClass="gum.ecore#//structure/MessagePort"/>
+      <genClasses ecoreClass="gum.ecore#//structure/TriggerPort"/>
+      <genClasses ecoreClass="gum.ecore#//structure/Connection">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//structure/Connection/connectFrom"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//structure/Connection/connectTo"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//structure/Connection/parent"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//structure/Connector">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//structure/Connector/type"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//structure/PortGroup">
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//structure/PortGroup/ports"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//structure/PortGroup/interface"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//structure/Interface">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//structure/Interface/inputPortGroups"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//structure/Interface/outputPortGroups"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//structure/StructureElement">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//structure/StructureElement/parent"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Behaviour" basePackage="hr.fer.rasip.remes.gum" disposableProviderFactory="true"
+        ecorePackage="gum.ecore#//behaviour">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//behaviour/PrimitiveTypes">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/PrimitiveTypes/integer"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/PrimitiveTypes/boolean"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/PrimitiveTypes/natural"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/PrimitiveTypes/clock"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//behaviour/ResourceTypes">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/cpu"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/memory"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/bandwidth"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/power"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/port"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//behaviour/ResourceTypes/EEnumLiteral0"/>
+      </genEnums>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Behaviour">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Behaviour/behavers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Behaviour/modes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Behaviour/topModes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Behaviour/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//behaviour/Context">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Context/variables"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Context/resources"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Context/constants"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Context/renamings"/>
+        <genOperations ecoreOperation="gum.ecore#//behaviour/Context/getReadableVariables"/>
+        <genOperations ecoreOperation="gum.ecore#//behaviour/Context/getWritableVariables"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//behaviour/Mode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Mode/name"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Mode/incomingEdges"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Mode/outgoingEdges"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Mode/enclosingBehaviour"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Mode/invariant"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/CompositeMode">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/CompositeMode/modes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/CompositeMode/initEdge"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/AtomicMode">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/AtomicMode/parent"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//behaviour/Referable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Referable/name"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Variable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Variable/type"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Variable/scope"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Variable/readable"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Variable/writable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Variable/value"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Resource">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Resource/type"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Resource/scope"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Resource/expression"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Resource/resolved"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Constant">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//behaviour/Constant/type"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Constant/scope"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Constant/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Constant/resolved"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Edge">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Edge/connectFrom"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Edge/connectTo"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Edge/actionGuard"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Edge/actionBody"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/InitEdge">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/InitEdge/connectFrom"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/InitEdge/connectTo"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//behaviour/InitEdge/initialization"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//behaviour/Renaming">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Renaming/from"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//behaviour/Renaming/to"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//behaviour/Renaming/context"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Core" basePackage="hr.fer.rasip.remes.gum" disposableProviderFactory="true"
+        ecorePackage="gum.ecore#//core">
+      <genClasses image="false" ecoreClass="gum.ecore#//core/Data"/>
+      <genClasses ecoreClass="gum.ecore#//core/ClockType"/>
+      <genClasses ecoreClass="gum.ecore#//core/IntegerType"/>
+      <genClasses ecoreClass="gum.ecore#//core/BooleanType"/>
+      <genClasses ecoreClass="gum.ecore#//core/NaturalType"/>
+      <genClasses ecoreClass="gum.ecore#//core/FloatType"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Expressions" basePackage="hr.fer.rasip.remes.gum" disposableProviderFactory="true"
+        ecorePackage="gum.ecore#//expressions">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//expressions/TernaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/TernaryOperation/QUESTION"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//expressions/BinaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ADD"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/SUB"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/MUL"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/DIV"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/MOD"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/LT"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/LE"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/EQ"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/GE"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/GT"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/NE"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/AND"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/OR"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN_ADD"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN_SUB"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN_MUL"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN_DIV"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/ASSIGN_MOD"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/BinaryOperation/DIFF"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//expressions/UnaryOperation">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/UnaryOperation/NOT"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/UnaryOperation/PLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//expressions/UnaryOperation/MINUS"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="gum.ecore#//expressions/AbstractRoot">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//expressions/AbstractRoot/referencedVariables"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/ActionRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/ActionRoot/expressions"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/LogicalRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/LogicalRoot/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/ResourceRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/ResourceRoot/expression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="gum.ecore#//expressions/Expression"/>
+      <genClasses ecoreClass="gum.ecore#//expressions/TernaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/TernaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/TernaryExpression/param1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/TernaryExpression/param2"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/TernaryExpression/param3"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/BinaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/BinaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/BinaryExpression/param1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/BinaryExpression/param2"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/UnaryExpression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/UnaryExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/UnaryExpression/param1"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/VariableReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/VariableReference/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//expressions/VariableReference/arrayIndex"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//expressions/VariableReference/resolved"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/Constant">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/Constant/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/Constant/value"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//expressions/Literal">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/Literal/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//expressions/Literal/value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Mapping" basePackage="hr.fer.rasip.remes.gum" disposableProviderFactory="true"
+        ecorePackage="gum.ecore#//mapping">
+      <genClasses ecoreClass="gum.ecore#//mapping/MappingModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//mapping/MappingModel/mappings"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//mapping/Mapping">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//mapping/Mapping/variable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//mapping/Mapping/port"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Simulator" disposableProviderFactory="true" ecorePackage="gum.ecore#//simulator">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//simulator/SensorTrigger">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//simulator/SensorTrigger/ValueChange"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//simulator/SensorTrigger/BehaviourExit"/>
+      </genEnums>
+      <genClasses ecoreClass="gum.ecore#//simulator/SimulatorConfiguration">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//simulator/SimulatorConfiguration/sensors"/>
+        <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//simulator/SimulatorConfiguration/system"/>
+        <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//simulator/SimulatorConfiguration/profile"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//simulator/Sensor">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//simulator/Sensor/configuration"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//simulator/Sensor/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//simulator/Sensor/trigger"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Profile" disposableProviderFactory="true" ecorePackage="gum.ecore#//profile">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//profile/ConstraintType">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintType/Minimum"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintType/Maximum"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintType/Average"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gum.ecore#//profile/ConstraintOperation">
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintOperation/Less"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintOperation/LessOrEqual"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintOperation/Equal"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintOperation/GreaterOrEqual"/>
+        <genEnumLiterals ecoreEnumLiteral="gum.ecore#//profile/ConstraintOperation/Greater"/>
+      </genEnums>
+      <genClasses ecoreClass="gum.ecore#//profile/PlatformProfile">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//profile/PlatformProfile/resources"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//profile/PlatformProfile/constantValues"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/PlatformProfile/name"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//profile/Resource">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//profile/Resource/references"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//profile/Resource/platform"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Resource/type"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//profile/ConstantValue">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference gum.ecore#//profile/ConstantValue/platform"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//profile/ConstantValue/definition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gum.ecore#//profile/ConstantValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="gum.ecore#//profile/Constraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Constraint/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gum.ecore#//profile/Constraint/references"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Constraint/isDerivation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Constraint/operation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Constraint/bound"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gum.ecore#//profile/Constraint/resourceName"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="se.mdh.progresside.remes.feature.procom"
+      label="ProCom integration for REMES"
+      version="0.4.0.qualifier"
+      provider-name="MDH / FER"
+      plugin="se.mdh.progresside.remes">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import feature="se.mdh.progresside.eclipse.feature" version="0.5.0"/>
+      <import feature="se.mdh.progresside.remes.feature" version="0.4.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="hr.fer.rasip.remes.launcher.component"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.launcher.component.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="se.mdh.progresside.remes.attributes"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.converters"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="hr.fer.rasip.remes.converters.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

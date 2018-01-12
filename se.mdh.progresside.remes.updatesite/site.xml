@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="REMES modeling update site">
+      REMES (REsource Model for Embeded Systems) is a behavioral modeling language supporting component-based embedded systems.
+   </description>
+   <feature url="features/hr.fer.rasip.remes.simulator.feature_0.4.0.201203051729.jar" id="hr.fer.rasip.remes.simulator.feature" version="0.4.0.201203051729">
+      <category name="se.mdh.progresside.remes"/>
+   </feature>
+   <feature url="features/se.mdh.progresside.remes.feature_0.4.0.201203051729.jar" id="se.mdh.progresside.remes.feature" version="0.4.0.201203051729">
+      <category name="se.mdh.progresside.remes"/>
+   </feature>
+   <feature url="features/se.mdh.progresside.remes.feature.procom_0.4.0.201203051729.jar" id="se.mdh.progresside.remes.feature.procom" version="0.4.0.201203051729">
+      <category name="se.mdh.progresside.remes"/>
+   </feature>
+   <feature url="features/se.mdh.progresside.uppaal.feature_0.4.0.201203051729.jar" id="se.mdh.progresside.uppaal.feature" version="0.4.0.201203051729">
+      <category name="se.mdh.progresside.remes"/>
+   </feature>
+   <feature url="features/hr.fer.rasip.remes.simulator.datastore.feature_0.4.0.201203051729.jar" id="hr.fer.rasip.remes.simulator.datastore.feature" version="0.4.0.201203051729">
+      <category name="se.mdh.progresside.remes"/>
+   </feature>
+   <category-def name="se.mdh.progresside.remes" label="REMES behavior modeling"/>
+</site>

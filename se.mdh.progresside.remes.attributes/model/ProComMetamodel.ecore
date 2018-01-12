@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="proComMetamodel"
+    nsURI="http://www.mdh.se/progresside/procom/1.0.0/procom.ecore" nsPrefix="proComMetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UUID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="" iD="true"/>
+  </eClassifiers>
+  <eSubpackages name="proSave" nsURI="http://www.mdh.se/progresside/procom/1.0.0/prosave.ecore"
+      nsPrefix="proComMetamodel.proSave">
+    <eClassifiers xsi:type="ecore:EClass" name="ProSaveSubsystem" eSuperTypes="#//proSys/SubsystemRealization">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponentInst" ordered="false"
+          upperBound="-1" eType="#//proSave/SubcomponentInstance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" ordered="false"
+          upperBound="-1" eType="#//proSave/Connector" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connection" ordered="false"
+          upperBound="-1" eType="#//proSave/Connection" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubcomponentInstance" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implComponent" ordered="false"
+          eType="#//proSave/Component"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
+          eType="#//proSave/Service" volatile="true" transient="true" derived="true"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="componentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
+          upperBound="-1" eType="#//proSave/Service" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="realization" ordered="false"
+          eType="#//proSave/ComponentRealization" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputPortGroup" ordered="false"
+          lowerBound="1" eType="#//proSave/InputPortGroup" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputPortGroup" ordered="false"
+          upperBound="-1" eType="#//proSave/OutputPortGroup" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputPortGroup" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/InputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          upperBound="-1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputTriggerPort" eSuperTypes="#//proSave/TriggerPort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TriggerPort" abstract="true" eSuperTypes="#//proSave/Port"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputDataPort" eSuperTypes="#//proSave/DataPort">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataPort" abstract="true" eSuperTypes="#//proSave/Port">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputPortGroup" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          upperBound="-1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputTriggerPort" eSuperTypes="#//proSave/TriggerPort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputDataPort" eSuperTypes="#//proSave/DataPort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentRealization" abstract="true"
+        eSuperTypes="#//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
+          upperBound="-1" eType="#//proSave/Service" volatile="true" transient="true"
+          derived="true" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectorTypeName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourcePort" ordered="false"
+          lowerBound="1" eType="#//proSave/Port"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="destPort" ordered="false"
+          lowerBound="1" eType="#//proSave/Port"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceSubcomponent" ordered="false"
+          eType="#//proSave/SubcomponentInstance"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="destSubcomponent" ordered="false"
+          eType="#//proSave/SubcomponentInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveComponent" eSuperTypes="#//proSave/ComponentRealization">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceFileName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="headerFileName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="serviceMapping" ordered="false"
+          upperBound="-1" eType="#//proSave/ServiceMapping" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceMapping">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryFunction" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="portMapping" ordered="false"
+          upperBound="-1" eType="#//proSave/PortMapping" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
+          lowerBound="1" eType="#//proSave/Service"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortMapping">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="argName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="#//proSave/Port"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//proSave/ComponentRealization">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connection" ordered="false"
+          upperBound="-1" eType="#//proSave/Connection" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponentInst" ordered="false"
+          upperBound="-1" eType="#//proSave/SubcomponentInstance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" ordered="false"
+          upperBound="-1" eType="#//proSave/ConnectorInsideComponent" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectorInsideComponent" eSuperTypes="#//proSave/Connector"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="triggerIn" ordered="false"
+          lowerBound="1" eType="#//proSave/InputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="triggerOut" ordered="false"
+          upperBound="-1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          upperBound="-1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataFork" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="1" eType="#//proSave/InputDataPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataOr" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputDataPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataMuxer" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputDataPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataDemuxer" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="1" eType="#//proSave/InputDataPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          lowerBound="1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlFork" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="1" eType="#//proSave/InputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlJoin" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/InputTriggerPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlOr" eSuperTypes="#//proSave/ConnectorInsideComponent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="2" upperBound="-1" eType="#//proSave/InputTriggerPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Clock" eSuperTypes="#//proSave/Connector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputMessagePort" eSuperTypes="#//proSave/Connector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputMessagePort" eSuperTypes="#//proSave/Connector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/InputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          lowerBound="1" eType="#//proSave/InputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActiveSensor" eSuperTypes="#//proSave/Connector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputTriggerPort" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" ordered="false"
+          lowerBound="1" eType="#//proSave/OutputDataPort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimingRequirement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minDelayUSec" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxDelayUSec" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" ordered="false"
+          lowerBound="1" eType="#//proSave/TimingEvent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" ordered="false" lowerBound="1"
+          eType="#//proSave/TimingEvent" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimingEvent" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TriggerEvent" eSuperTypes="#//proSave/TimingEvent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="#//proSave/TriggerPort"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponent" ordered="false"
+          eType="#//proSave/SubcomponentInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortReferencingAttribute" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//proSave/Port"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="proSys" nsURI="http://www.mdh.se/progresside/procom/1.0.0/prosys.ecore"
+      nsPrefix="ProComMetamodel.ProSys">
+    <eClassifiers xsi:type="ecore:EClass" name="MessagePort" abstract="true" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputMessagePort" eSuperTypes="#//proSys/MessagePort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputMessagePort" eSuperTypes="#//proSys/MessagePort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Subsystem" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="realization" ordered="false"
+          eType="#//proSys/SubsystemRealization" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ports" ordered="false"
+          upperBound="-1" eType="#//proSys/MessagePort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubsystemInstance" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implSubsystem" ordered="false"
+          eType="#//proSys/Subsystem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageChannel" eSuperTypes="#//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="channel" ordered="false"
+          lowerBound="1" eType="#//proSys/MessageChannel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subsystem" ordered="false"
+          eType="#//proSys/SubsystemInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeSubsystem" eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//proSys/SubsystemRealization">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalSubsystems" ordered="false"
+          upperBound="-1" eType="#//proSys/SubsystemInstance" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connections" ordered="false"
+          upperBound="-1" eType="#//proSys/Connection" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="channels" ordered="false"
+          upperBound="-1" eType="#//proSys/MessageChannel" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubsystemRealization" abstract="true"
+        eSuperTypes="../../se.mdh.progresside.attributes.framework/model/Attribute%2520Metamodel.ecore#//attributes/Attributable #//IdentifiableElement"/>
+  </eSubpackages>
+</ecore:EPackage>

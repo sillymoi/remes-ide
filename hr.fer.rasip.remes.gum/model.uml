@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="__BRbAE6vEd-roa69KtznMw">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbAU6vEd-roa69KtznMw" name="boolean"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbAk6vEd-roa69KtznMw" name="byte"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbA06vEd-roa69KtznMw" name="char"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbBE6vEd-roa69KtznMw" name="double"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbBU6vEd-roa69KtznMw" name="float"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbBk6vEd-roa69KtznMw" name="int"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbB06vEd-roa69KtznMw" name="long"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__BRbCE6vEd-roa69KtznMw" name="short"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="__BRbCU6vEd-roa69KtznMw" name="hr">
+    <packagedElement xmi:type="uml:Package" xmi:id="__BRbCk6vEd-roa69KtznMw" name="fer">
+      <packagedElement xmi:type="uml:Package" xmi:id="__BRbC06vEd-roa69KtznMw" name="rasip">
+        <packagedElement xmi:type="uml:Package" xmi:id="__BRbDE6vEd-roa69KtznMw" name="remes">
+          <packagedElement xmi:type="uml:Package" xmi:id="__BRbDU6vEd-roa69KtznMw" name="simulator">
+            <packagedElement xmi:type="uml:Package" xmi:id="__BRbDk6vEd-roa69KtznMw" name="tcs">
+              <packagedElement xmi:type="uml:Package" xmi:id="__BRbD06vEd-roa69KtznMw" name="modes">
+                <packagedElement xmi:type="uml:Class" xmi:id="__BRbEE6vEd-roa69KtznMw" name="Cool2">
+                  <eAnnotations xmi:id="__BRbEU6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                    <details xmi:id="__BRbEk6vEd-roa69KtznMw" key="documentation" value=" @author MTL&#xD;&#xA; @generated&#xD;&#xA;"/>
+                  </eAnnotations>
+                  <generalization xmi:id="__BRbE06vEd-roa69KtznMw" general="__BRbgk6vEd-roa69KtznMw"/>
+                  <ownedOperation xmi:id="__BRbFE6vEd-roa69KtznMw" name="getName" visibility="public">
+                    <eAnnotations xmi:id="__BRbFU6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbFk6vEd-roa69KtznMw" key="documentation" value=" Return mode name&#xD;&#xA; @generated&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbF06vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="__BRbGE6vEd-roa69KtznMw" name="invariantHolds" visibility="public">
+                    <eAnnotations xmi:id="__BRbGU6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbGk6vEd-roa69KtznMw" key="documentation" value=" Urgent mode - exit immediately&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Mode#invariantHolds()&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbG06vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="__BRbOU6vEd-roa69KtznMw" name="HeatCool">
+                  <eAnnotations xmi:id="__BRbOk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                    <details xmi:id="__BRbO06vEd-roa69KtznMw" key="documentation" value=" @author MTL&#xD;&#xA; @generated&#xD;&#xA;"/>
+                  </eAnnotations>
+                  <generalization xmi:id="__BRbPE6vEd-roa69KtznMw" general="__BRbgk6vEd-roa69KtznMw"/>
+                  <ownedOperation xmi:id="__BRbPU6vEd-roa69KtznMw" name="getName" visibility="public">
+                    <eAnnotations xmi:id="__BRbPk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbP06vEd-roa69KtznMw" key="documentation" value=" Return mode name&#xD;&#xA; @generated&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbQE6vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="__BRbQU6vEd-roa69KtznMw" name="performContinuousStep" visibility="public">
+                    <eAnnotations xmi:id="__BRbQk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbQ06vEd-roa69KtznMw" key="documentation" value="Perform resource updates"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbRE6vEd-roa69KtznMw" name="iv"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="__BRbRU6vEd-roa69KtznMw" name="invariantHolds" visibility="public">
+                    <eAnnotations xmi:id="__BRbRk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbR06vEd-roa69KtznMw" key="documentation" value=" @see hr.fer.rasip.remes.simulator.core.Mode#invariantHolds()&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbSE6vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="__BRbSU6vEd-roa69KtznMw" name="Idle">
+                  <eAnnotations xmi:id="__BRbSk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                    <details xmi:id="__BRbS06vEd-roa69KtznMw" key="documentation" value=" @author MTL&#xD;&#xA; @generated&#xD;&#xA;"/>
+                  </eAnnotations>
+                  <generalization xmi:id="__BRbTE6vEd-roa69KtznMw" general="__BRbgk6vEd-roa69KtznMw"/>
+                  <ownedOperation xmi:id="__BRbTU6vEd-roa69KtznMw" name="getName" visibility="public">
+                    <eAnnotations xmi:id="__BRbTk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbT06vEd-roa69KtznMw" key="documentation" value=" Return mode name&#xD;&#xA; @generated&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbUE6vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="__BRbUU6vEd-roa69KtznMw" name="invariantHolds" visibility="public">
+                    <eAnnotations xmi:id="__BRbUk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbU06vEd-roa69KtznMw" key="documentation" value=" Urgent mode - exit immediately&#xD;&#xA; @see hr.fer.rasip.remes.simulator.core.Mode#invariantHolds()&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbVE6vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="__BRbdU6vEd-roa69KtznMw" name="HCController">
+                  <eAnnotations xmi:id="__BRbdk6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                    <details xmi:id="__BRbd06vEd-roa69KtznMw" key="documentation" value=" @author MTL&#xD;&#xA; @generated&#xD;&#xA;"/>
+                  </eAnnotations>
+                  <generalization xmi:id="__BRbeE6vEd-roa69KtznMw" general="__BRbhU6vEd-roa69KtznMw"/>
+                  <ownedAttribute xmi:id="__BRbeU6vEd-roa69KtznMw" name="C_HC" visibility="public" isStatic="true"/>
+                  <ownedAttribute xmi:id="__BRbek6vEd-roa69KtznMw" name="temp_HC" visibility="public" isStatic="true"/>
+                  <ownedOperation xmi:id="__BRbe06vEd-roa69KtznMw" name="getName" visibility="public">
+                    <eAnnotations xmi:id="__BRbfE6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbfU6vEd-roa69KtznMw" key="documentation" value=" Return mode name&#xD;&#xA;&#x9;"/>
+                    </eAnnotations>
+                    <ownedParameter xmi:id="__BRbfk6vEd-roa69KtznMw" name="return" direction="return"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="__BRbf06vEd-roa69KtznMw" name="onExitMode" visibility="public">
+                    <eAnnotations xmi:id="__BRbgE6vEd-roa69KtznMw" source="http://www.topcased.org/documentation">
+                      <details xmi:id="__BRbgU6vEd-roa69KtznMw" key="documentation" value="Exit mode"/>
+                    </eAnnotations>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:DataType" xmi:id="__BRbgk6vEd-roa69KtznMw" name="SubMode"/>
+                <packagedElement xmi:type="uml:DataType" xmi:id="__BRbhU6vEd-roa69KtznMw" name="CompositeMode"/>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

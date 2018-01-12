@@ -1,0 +1,478 @@
+module r2uMmodule;
+create OUT : UPPAAL from IN : REMES, IN1 : PROCOM;
+
+uses LIB;
+
+-------------------
+------RULES-------
+-------------------
+
+
+rule Diagram2Root {
+from
+    cm : REMES!RemesDiagram
+to
+    doc: UPPAAL!DocumentRoot ( 
+    	nta <- nta_type
+	),
+	nta_type: UPPAAL!NtaType(
+    	declaration <- thisModule.ntaDeclaration(),
+		template <- Sequence{cm.modes, thisModule.initTemplate()}
+	)
+}
+
+rule Template_type{
+	from
+		cMode : REMES!CompositeMode		
+	to
+		tp: UPPAAL!TemplateType (
+			declaration <- cMode.toDeclaration(),
+			name <- thisModule.Name_type('5','5', cMode.name.regexReplaceAll(' ', '_')),
+			location <-Sequence{thisModule.startLocation(), cMode.compositeEntryPoint, cMode.compositeExitPoint, cMode.subModes},
+			init <- thisModule.Init_type('idStart'),
+			transition <- Sequence{thisModule.initTransition(cMode), thisModule.exitToEntryTransition(cMode), cMode.entryEdges(), cMode.allInternalEdges(), cMode.conditionalConnectors->collect(e | e.toEdges()->collect(e | thisModule.twoEdgges2Transition(e.at(1), e.at(2))))}
+		)	
+}
+
+rule initTemplate(){	
+	to
+		tp: UPPAAL!TemplateType (
+			name <- thisModule.Name_type('5','5', 'InitTemplate'),
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyExitLocation()},
+			init <- thisModule.Init_type('idStart'),
+			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idExit',  't!')}
+		)
+	do{
+		tp;
+	}
+}
+
+rule subMode2Template{
+	from
+		sm : REMES!SubMode ( sm.isTopLevelMode())		
+	to
+		tp: UPPAAL!TemplateType (
+			declaration <- sm.toDeclaration(),
+			name <- thisModule.Name_type('5','5', sm.name),
+			location <-Sequence{thisModule.startLocation(), thisModule.emptyEntryLocation(), thisModule.location_Type(sm), thisModule.emptyExitLocation()},
+			init <- thisModule.Init_type('idStart'),
+			transition <- Sequence{thisModule.transitionWithSync('idStart', 'idEntry', 't?'), thisModule.emptyTransition(sm.__xmiID__, 'idExit'), thisModule.exitToEntryTransitionHC(sm), thisModule.topLevelSubModeEntryTransition(sm)}
+		)	
+}
+----------------
+---LOCATIONS----
+----------------
+rule startLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idStart',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Start'),
+			committed <-thisModule.Committed_type()
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyExitLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idExit',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Exit')
+		)
+		do{
+			loc;
+		}
+}
+
+rule emptyEntryLocation(){
+	to 
+		loc: UPPAAL!LocationType(
+			id <- 'idEntry',
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Entry')
+		)
+		do{
+			loc;
+		}
+}
+
+rule entryPoint2Location{
+	from
+		point : REMES!CompositeEntryPoint
+	to 
+		loc: UPPAAL!LocationType(
+			id <- point.__xmiID__,
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Entry')
+		)
+}
+
+rule exitPoint2Location{
+	from
+		point:REMES!CompositeExitPoint
+	to
+		loc: UPPAAL!LocationType(
+			id <- point.__xmiID__,
+			x<-'16',
+			y<-'-35',
+			name <- thisModule.Name_type('16', '62', 'Exit')
+		)
+}
+
+abstract rule SubMode2Location{
+	from sm: REMES!SubMode
+	to tpl:UPPAAL!LocationType
+	
+}
+rule NonUrgentSubMode2Location extends SubMode2Location{
+	from
+		sm : REMES!SubMode (not sm.isUrgent() and not sm.isTopLevelMode())
+	to 
+		tpl: UPPAAL!LocationType(
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+}
+
+rule UrgentSubMode2UrgentLocation1 extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and not sm.connectedToNonUrgentMode() and not sm.connectedFromConditional())
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			committed <- thisModule.Committed_type()
+		)
+}
+
+rule UrgentSubMode2CommitedLocation extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and sm.connectedFromConditional() and not sm.connectedToNonUrgentMode())
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			committed <- thisModule.Committed_type()
+		)
+}
+
+rule UrgentSubMode2UrgentLocation2 extends SubMode2Location{
+	from
+		sm : REMES!SubMode ( sm.isUrgent and not sm.isTopLevelMode() and sm.connectedToNonUrgentMode() and not sm.connectedFromConditional())
+	to 
+		tpl: UPPAAL!LocationType(
+			
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16','76', sm.name.regexReplaceAll(' ', '_')),
+			urgent <-thisModule.Urgent_type()
+		)
+}
+
+rule location_Type(sm : REMES!SubMode){
+	to 
+		tpl: UPPAAL!LocationType(
+			label <- thisModule.Label_type('15', '78', 'invariant' , sm.toInvariant()),
+			id <- sm.__xmiID__,
+			x<-'16',
+			y<-'-40',
+			name <- thisModule.Name_type('16', '72', sm.name.regexReplaceAll(' ', '_'))
+		)
+	do{
+		tpl;
+	}
+}
+-------------------------
+------TRANSITIONS----
+-------------------------
+
+rule initTransition(cMode: REMES!CompositeMode){		
+	to 
+		tt1:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(cMode.compositeEntryPoint.__xmiID__),
+			label <- Sequence{ thisModule.Label_type('3', '5', 'synchronisation', 't?') }
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(cMode.compositeEntryPoint.__xmiID__),
+				label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
+					thisModule.Label_type('3', '5', 'assignment', thisModule.initializationToAssigment(cMode.initPoint.initEdge))}
+		),
+		tt3:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idStart'),
+			target <- thisModule.Target_type(thisModule.initEdgeConnectsTo(cMode.initPoint.initEdge)),
+			label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', 't?'), 
+					thisModule.Label_type('3', '5', 'assignment',  thisModule.initializationToAssigment(cMode.initPoint.initEdge))}
+		)
+	do{
+		if(cMode.initPoint.initEdge.oclIsUndefined()){
+			tt1;
+		}
+		else{
+			if(cMode.initPoint.initEdge.connectTo = cMode.compositeEntryPoint.exitEdges->first().connectTo){
+				tt1;
+			}
+			else{
+				tt3;
+			}
+		}
+	}
+}
+
+
+rule exitToEntryTransition(mode: REMES!CompositeMode){		
+	to 
+		tt1:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(mode.compositeExitPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeEntryPoint.__xmiID__)
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(mode.compositeExitPoint.__xmiID__),
+			target <- thisModule.Target_type(mode.compositeEntryPoint.__xmiID__),
+			label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', mode.outputSync())} 
+		)
+	do{
+		if(mode.hasOutputSync()){
+			tt2;
+		} 
+		else if(not mode.hasOutputSync()){
+			tt1;
+		}
+	}
+}
+
+rule exitToEntryTransitionHC(mode: REMES!SubMode){		
+	to 
+		tt1:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idExit'),
+			target <- thisModule.Target_type('idEntry')
+		),
+		tt2:UPPAAL!TransitionType(
+			source <- thisModule.Source_type('idExit'),
+			target <- thisModule.Target_type('idEntry'),
+			label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', mode.outputSync())} 
+		)
+	do{
+		if(mode.hasOutputSync()){
+			tt2;
+		} 
+		else if(not mode.hasOutputSync()){
+			tt1;
+		}
+	}
+}
+
+rule internalEdge2TransitionWithoutSync{
+	from
+		e:REMES!Edge ( not e.hasInputSync())
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(e.connectsFrom()),
+			target <- thisModule.Target_type(e.connectsTo()),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', e.actionBodyToAssigment()),
+							thisModule.Label_type('3', '4', 'guard', e.actionGuard)}
+	)
+}
+
+rule internalEdge2TransitionWithSync{
+	from
+		e:REMES!Edge (e.hasInputSync())
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(e.connectsFrom()),
+			target <- thisModule.Target_type(e.connectsTo()),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', e.actionBodyToAssigment()),
+							thisModule.Label_type('3', '4', 'guard', e.actionGuard),
+							thisModule.Label_type('3', '4', 'synchronisation', e.connectTo.container.parent.inputSync())}
+	)
+}
+
+rule twoEdgges2Transition(edge1:REMES!Edge, edge2:REMES!Edge){
+	to tt1:UPPAAL!TransitionType(
+		source <- thisModule.Source_type(edge1.connectsFrom()),
+		target <- thisModule.Target_type(edge2.connectsTo()),
+		label <- Sequence{thisModule.Label_type('3', '5', 'guard', thisModule.mergeActionGuard(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'assignment', thisModule.mergeActionBody(edge1, edge2))
+			}
+		),
+		tt2:UPPAAL!TransitionType(
+		source <- thisModule.Source_type(edge1.connectsFrom()),
+		target <- thisModule.Target_type(edge2.connectsTo()),
+		label <- Sequence{thisModule.Label_type('3', '5', 'guard', thisModule.mergeActionGuard(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'assignment', thisModule.mergeActionBody(edge1, edge2)),
+				thisModule.Label_type('3', '4', 'synchronisation', edge1.connectTo.container.parent.inputSync())
+			}
+		) 
+	do{
+		if(edge1.hasInputSync()){
+			tt2;
+		} else if(not edge1.hasInputSync()){
+			tt1;
+		}
+	}
+	
+}
+
+rule transition(source : String, destination : String,  guard : String, action : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination),
+			label <- Sequence{thisModule.Label_type('3', '5', 'assignment', action)}
+	)
+}
+
+rule transitionWithSync(source : String, destination : String,  sync : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination),
+			label <- Sequence{thisModule.Label_type('3', '5', 'synchronisation', sync)}
+	)
+	do{
+		tt;
+	}
+}
+
+rule emptyTransition(source : String, destination : String){
+
+	to 
+		tt:UPPAAL!TransitionType(
+			source <- thisModule.Source_type(source),
+			target <- thisModule.Target_type(destination)
+	)
+	do{
+		tt;
+	}
+}
+
+rule topLevelSubModeEntryTransition(sm: REMES!SubMode){
+	to tt1:UPPAAL!TransitionType(
+		source <- thisModule.Source_type('idEntry'),
+		target <- thisModule.Target_type(sm.__xmiID__)
+		),
+		tt2:UPPAAL!TransitionType(
+		source <- thisModule.Source_type('idEntry'),
+		target <- thisModule.Target_type(sm.__xmiID__),
+		label <- Sequence{thisModule.Label_type('3', '4', 'synchronisation', sm.inputSync())}
+		) 
+	do{
+		if(sm.hasInputSync()){
+			tt2;
+		} else if(not sm.hasInputSync()){
+			tt1;
+		}
+	}
+}
+
+-- committed type
+rule Committed_type(){
+	to
+		com: UPPAAL!CommittedType()
+		do{
+			com;
+		}
+}
+
+-- urgent type
+rule Urgent_type(){
+	to
+		u: UPPAAL!UrgentType()
+		do{
+			u;
+		}
+}
+
+-- init location
+
+rule Init_type(locId : String){
+	to  ip: UPPAAL!InitType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+-------------------------------------
+-- transitions target and source ---
+-------------------------------------
+
+
+rule Source_type(locId : String){
+	to  ip: UPPAAL!SourceType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+rule Target_type(locId : String){
+	to  ip: UPPAAL!TargetType(
+		ref <-locId
+	)
+	do{
+		ip;
+	}
+}
+
+--------------------
+---Name and Label--
+---------------------
+
+rule Name_type(x : String, y : String, value : String){
+	to name_type:UPPAAL!NameType(	
+		mixed <- thisModule.Xml_mixed(value).mixed,	
+		x <- x,
+		y <- y
+	)
+	do{
+		name_type;
+	}
+}
+
+rule Label_type(x: String, y: String, kind: String, value: String){
+	to label_type: UPPAAL!LabelType(
+		mixed <- thisModule.Xml_mixed(value).mixed,
+		kind <- kind,
+		x <- x,
+		y <- y
+	)
+	do{
+		label_type;
+	}
+}
+
+rule Xml_mixed(value : String){
+	to xml_mixed:UPPAAL!XMLTypeDocumentRoot(
+	text <- Sequence{value}
+	)
+	do {
+		xml_mixed;
+	}
+}

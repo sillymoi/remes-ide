@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile se.mdh.progresside.remes.feature.procom" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../se.mdh.progresside.remes.attributes" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.converters" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.converters.ui" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.launcher.component" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.launcher.component.ui" target="build.jars"/>
+	</target>
+</project>

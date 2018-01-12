@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile se.mdh.progresside.remes.feature" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.grammars.expressions.ast" target="build.jars"/>
+		<ant antfile="build.xml" dir="../se.mdh.progresside.remes" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.grammars.expressions.ast.edit" target="build.jars"/>
+		<ant antfile="build.xml" dir="../se.mdh.progresside.remes.edit" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.grammars.expressions.parser" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.builders" target="build.jars"/>
+		<ant antfile="build.xml" dir="../hr.fer.rasip.remes.grammars.expressions.ast.editor" target="build.jars"/>
+		<ant antfile="build.xml" dir="../se.mdh.progresside.remes.editor" target="build.jars"/>
+		<ant antfile="build.xml" dir="../se.mdh.progresside.remes.diagram" target="build.jars"/>
+	</target>
+</project>

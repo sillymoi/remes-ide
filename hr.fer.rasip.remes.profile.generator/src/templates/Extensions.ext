@@ -1,0 +1,4 @@
+import hr::fer::rasip::remes::profile::profile;
+
+sortedGreetings(Model this) :
+	this.greetings.sortBy(g|g.name.toLowerCase());

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/structure.ecore"
+            class="hr.fer.rasip.remes.gum.structure.StructurePackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/behaviour.ecore"
+            class="hr.fer.rasip.remes.gum.behaviour.BehaviourPackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/core.ecore"
+            class="hr.fer.rasip.remes.gum.core.CorePackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/expressions.ecore"
+            class="hr.fer.rasip.remes.gum.expressions.ExpressionsPackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/mapping.ecore"
+            class="hr.fer.rasip.remes.gum.mapping.MappingPackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/simulator.ecore"
+            class="hr.fer.rasip.remes.gum.simulator.SimulatorPackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.rasip.fer.hr/gum/0.1.0/profile.ecore"
+            class="hr.fer.rasip.remes.gum.profile.ProfilePackage"
+            genModel="model/gum.genmodel"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="structure">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="behaviour">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="mapping">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="simulator">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="profile">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="core">
+      </parser>
+      <parser
+            class="hr.fer.rasip.remes.gum.util.GumResourceFactoryImpl"
+            type="expressions">
+      </parser>
+   </extension>
+</plugin>

@@ -1,0 +1,5 @@
+<contexts>
+	<context id="properties" title="Uppaal Properties">
+    <topic href="help/queries.html" label="Uppaal Properties"/>
+	</context>
+</contexts>

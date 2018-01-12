@@ -1,0 +1,55 @@
+grammar hr.fer.rasip.remes.profile.Profile hidden(WS, ML_COMMENT, SL_COMMENT) //with org.eclipse.xtext.common.Terminals //hr.fer.rasip.remes.gum.Terminals
+
+generate profile "http://www.rasip.fer.hr/remes/1.2.0/profile/profile.ecore"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+PlatformProfile returns PlatformProfile:
+	{PlatformProfile}
+	'profile'
+	name=ID
+	'{'
+		('resources' '{' resources+=Resource ( "," resources+=Resource)* '}' )?
+		('constraints' '{' constraints+=Constraint ( "," constraints+=Constraint)* '}' )?
+    '}';
+
+Resource returns Resource:
+	name=ID ':' type=ResourceType ('@' weight=INT)?
+    ;
+
+Constraint returns Constraint:
+	type=ConstraintType '('  
+		references=[Resource] (isDerivation?='\'')?
+	')'
+		operation=ConstraintOperation
+		bound=INT
+    ;
+
+enum ResourceType returns ResourceType:
+	cpu = 'cpu' | memory = 'memory' | bandwidth = 'bandwidth' | power = 'power' | port = 'port';
+
+enum ConstraintType returns ConstraintType:
+	Minimum = 'min' | Maximum = 'max' | Average = 'avg';
+
+enum ConstraintOperation returns ConstraintOperation:
+	Less = '<' | LessOrEqual = '<=' | Equal = '==' | GreaterOrEqual = '>=' | Greater = '>';
+
+terminal ID :
+'^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')* ;
+
+terminal INT returns ecore::EInt :
+	('-')? ('0'..'9')+ ;
+
+//terminal INT returns ecore::EInt: ('0'..'9')+ ;
+
+//terminal STRING :
+//'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+//"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+
+terminal ML_COMMENT : '/*' -> '*/' ;
+
+terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
+
+terminal WS : (' '|'\t'|'\r'|'\n')+ ;
+
+terminal ANY_OTHER: . ;	

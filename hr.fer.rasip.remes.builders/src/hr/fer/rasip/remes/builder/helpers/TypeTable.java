@@ -30,7 +30,7 @@ public class TypeTable {
 		/*natural*/	{_int,  null, 	_int,  	_clock,	_float,	null},
 		/*clock*/	{_clock,null,  	_clock,	_clock,	null,	null},
 		/*float*/	{_float,null,	_float,	null,	_float,	null},
-		/*resource*/{null,	null,	null,	null,	null,	null},		
+		/*resource*/{_rsrc,	null,	_rsrc,	null,	null,	_rsrc},		
 	};
 	
 	private static final ResolvedType[][] comparisonResultType = new ResolvedType[][] {
@@ -45,10 +45,10 @@ public class TypeTable {
 
 	private static final ResolvedType[][] equalityResultType = new ResolvedType[][] {
         /*            int,	boolean,natural,clock,	float,	resource */
-        /*integer*/	{_bool,	null,	_bool,	_clock,	_bool,	null},
+        /*integer*/	{_bool,	null,	_bool,	_bool,	_bool,	null},
         /*boolean*/	{null,  _bool,   null,  null,	null,	null},
-        /*natural*/	{_bool, null, 	_bool,  _clock,	_bool,	null},
-        /*clock*/	{_clock,null,  	_clock,	_clock,	null,	null},
+        /*natural*/	{_bool, null, 	_bool,  _bool,	_bool,	null},
+        /*clock*/	{_bool, null,  	_bool,	_bool,	null,	null},
         /*float*/	{_bool,	null,	_bool,	null,	_bool,	null},      
 		/*resource*/{null,	null,	null,	null,	null,	null},		        
 	};
@@ -60,7 +60,7 @@ public class TypeTable {
         /*natural*/	{_nat,  null, 	_nat,  	null,	_nat,	null},
         /*clock*/	{_clock,null,  	_clock, _clock,	null,	null},
         /*float*/	{_float,null,	_float,	null,	_float,	null},      
-		/*resource*/{null,	null,	null,	null,	null,	null},		        
+		/*resource*/{_rsrc,	null,	_rsrc,	null,	null,	_rsrc},		        
 	};
 
 	private static final ResolvedType[][] assignmentArithmeticResultType = new ResolvedType[][] {
@@ -70,7 +70,7 @@ public class TypeTable {
         /*natural*/	{_nat,  null, 	_nat,  	null,	_nat,	null},
         /*clock*/	{_clock,null,  	_clock, _clock,	null,	null},
         /*float*/	{_float,null,	_float,	null,	_float,	null},      
-		/*resource*/{_rsrc,	null,	_rsrc,	null,	null,	null},		        
+		/*resource*/{_rsrc,	null,	_rsrc,	null,	null,	_rsrc},		        
 	};
 
 /*	private static final ResolvedType[][] promoteTypeFromTo = new ResolvedType[][] {
